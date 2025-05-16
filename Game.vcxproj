@@ -1,0 +1,483 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\App.cpp" />
+    <ClCompile Include="Source\Enemy\Enemy.cpp" />
+    <ClCompile Include="Source\Enemy\EnemyMng.cpp" />
+    <ClCompile Include="Source\Enemy\EnemyPool.cpp" />
+    <ClCompile Include="Source\Enemy\Ghost.cpp" />
+    <ClCompile Include="Source\Enemy\Onibi.cpp" />
+    <ClCompile Include="Source\Enemy\Skull.cpp" />
+    <ClCompile Include="Source\Enemy\Slime.cpp" />
+    <ClCompile Include="Source\GameObjectMng\GameObjectMng.cpp" />
+    <ClCompile Include="Source\GamePlayData\GamePlayData.cpp" />
+    <ClCompile Include="Source\Goal\Goal.cpp" />
+    <ClCompile Include="Source\main.cpp" />
+    <ClCompile Include="Source\Mst\StageDataMst.cpp" />
+    <ClCompile Include="Source\Scene\Scene.cpp" />
+    <ClCompile Include="Source\Scene\SceneGameClear.cpp" />
+    <ClCompile Include="Source\Scene\SceneGameOver.cpp" />
+    <ClCompile Include="Source\Scene\SceneInGame.cpp" />
+    <ClCompile Include="Source\Scene\SceneMng.cpp" />
+    <ClCompile Include="Source\Scene\SceneStageSelect.cpp" />
+    <ClCompile Include="Source\Scene\SceneTitle.cpp" />
+    <ClCompile Include="Source\Tilemap\Tilemap.cpp" />
+    <ClCompile Include="Source\UI\HpGauge.cpp" />
+    <ClCompile Include="Source\UI\HpGauge2.cpp" />
+    <ClCompile Include="Source\UI\UIMng.cpp" />
+    <ClCompile Include="src\Component\Common\Component.cpp" />
+    <ClCompile Include="src\Component\Common\DecisionLogicalComponent\DecisionLogicalComponent.cpp" />
+    <ClCompile Include="src\Component\Common\DecisionLogicalComponent\StateComponent.cpp" />
+    <ClCompile Include="src\Component\Common\ExecutorComponent\AnimationComponent.cpp" />
+    <ClCompile Include="src\Component\Common\ExecutorComponent\CombatStatusComponent.cpp" />
+    <ClCompile Include="src\Component\Common\ExecutorComponent\EquipmentComponent.cpp" />
+    <ClCompile Include="src\Component\Common\ExecutorComponent\ExecutorComponent.cpp" />
+    <ClCompile Include="src\Component\Common\ExecutorComponent\HealthComponent.cpp" />
+    <ClCompile Include="src\Component\Common\ExecutorComponent\MovementComponent.cpp" />
+    <ClCompile Include="src\Component\Common\ExecutorComponent\PhysicsComponent.cpp" />
+    <ClCompile Include="src\Component\Common\ExecutorComponent\SoundComponent.cpp" />
+    <ClCompile Include="src\Component\Common\ExecutorComponent\TransformComponent.cpp" />
+    <ClCompile Include="src\Component\Common\InputLogicalComponent\InputComponent.cpp" />
+    <ClCompile Include="src\Component\Common\InputLogicalComponent\InputLogicalComponent.cpp" />
+    <ClCompile Include="src\Component\Common\SensorLogicalComponent\CeilingSensorComponent.cpp" />
+    <ClCompile Include="src\Component\Common\SensorLogicalComponent\CollisionComponent.cpp" />
+    <ClCompile Include="src\Component\Common\SensorLogicalComponent\GroundSensorComponent.cpp" />
+    <ClCompile Include="src\Component\Common\SensorLogicalComponent\SensorLogicalComponent.cpp" />
+    <ClCompile Include="src\Component\Common\SensorLogicalComponent\TileMapSensorComponent.cpp" />
+    <ClCompile Include="src\Component\Player\DecisionLogicalComponent\PlayerStateComponent.cpp" />
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerAnimationComponent.cpp" />
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerCombatStatusComponent.cpp" />
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerEquipmentComponent.cpp" />
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerHealthComponent.cpp" />
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerMovementComponent.cpp" />
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerPhysicsComponent.cpp" />
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerSoundComponent.cpp" />
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerTransformComponent.cpp" />
+    <ClCompile Include="src\Component\Player\InputLogicalComponent\PlayerInputComponent.cpp" />
+    <ClCompile Include="src\Component\Player\SensorLogicalComponent\PlayerCeilingSensorComponent.cpp" />
+    <ClCompile Include="src\Component\Player\SensorLogicalComponent\PlayerCollisionComponent.cpp" />
+    <ClCompile Include="src\Component\Player\SensorLogicalComponent\PlayerGroundSensorComponent.cpp" />
+    <ClCompile Include="src\Component\Player\SensorLogicalComponent\PlayerTileMapSensorComponent.cpp" />
+    <ClCompile Include="src\Component\Sword\ExecutorComponent\SwordAnimationComponent.cpp" />
+    <ClCompile Include="src\Component\Sword\ExecutorComponent\SwordSoundComponent.cpp" />
+    <ClCompile Include="src\Component\Sword\ExecutorComponent\SwordTransformComponent.cpp" />
+    <ClCompile Include="src\Component\Sword\SensorLogicalComponent\Class\SwordCollisionComponent.cpp" />
+    <ClCompile Include="src\Event\MessageBus.cpp" />
+    <ClCompile Include="src\Event\Message\AnimationMsg\SwordAnimationBeginMsg.cpp" />
+    <ClCompile Include="src\Event\Message\AnimationMsg\SwordAnimationCompletedMsg.cpp" />
+    <ClCompile Include="src\Event\Message\AnimationMsg\SwordAnimationKeyframeMsg.cpp" />
+    <ClCompile Include="src\Event\Message\LogicalInputMsg\AttackInputMsg.cpp" />
+    <ClCompile Include="src\Event\Message\LogicalInputMsg\DashInputMsg.cpp" />
+    <ClCompile Include="src\Event\Message\LogicalInputMsg\HoriAxisInputMsg.cpp" />
+    <ClCompile Include="src\Event\Message\LogicalInputMsg\JumpInputMsg.cpp" />
+    <ClCompile Include="src\Event\Message\LogicalInputMsg\ReleaseJumpInputMsg.cpp" />
+    <ClCompile Include="src\Event\Message\Message.cpp" />
+    <ClCompile Include="src\Event\Message\SemanticMsg\EndDashSemMsg.cpp" />
+    <ClCompile Include="src\Event\Message\SemanticMsg\EndKnockBackSemMsg.cpp" />
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartAttackSemMsg.cpp" />
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartDashSemMsg.cpp" />
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartHurtSemMsg.cpp" />
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartIdleSemMsg.cpp" />
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartJumpSemMsg.cpp" />
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartKnockBackSemMsg.cpp" />
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartMoveSemMsg.cpp" />
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartStageClearSemMsg.cpp" />
+    <ClCompile Include="src\Event\Message\SemanticMsg\StopJumpSemMsg.cpp" />
+    <ClCompile Include="src\Event\Message\StateMsg\EnterIdleStateMsg.cpp" />
+    <ClCompile Include="src\Event\Message\StateMsg\SetIsClearConditionMsg.cpp" />
+    <ClCompile Include="src\Event\Message\StateMsg\SetIsDamagedConditionMsg.cpp" />
+    <ClCompile Include="src\Event\Message\StateMsg\SetIsDeadConditionMsg.cpp" />
+    <ClCompile Include="src\Event\Messenger.cpp" />
+    <ClCompile Include="src\GameMath.cpp" />
+    <ClCompile Include="src\GameObject\Equipment\Equipment.cpp" />
+    <ClCompile Include="src\GameObject\Equipment\Weapon\Sword.cpp" />
+    <ClCompile Include="src\GameObject\Equipment\Weapon\Weapon.cpp" />
+    <ClCompile Include="src\GameObject\GameObject.cpp" />
+    <ClCompile Include="src\Input\FrameworkPhysicsInputAdapter.cpp" />
+    <ClCompile Include="src\Player\Player.cpp" />
+    <ClCompile Include="src\Sensor\LineSensor.cpp" />
+    <ClCompile Include="src\StateMachine\Condition\AndCondition.cpp" />
+    <ClCompile Include="src\StateMachine\Condition\CompositeCondition.cpp" />
+    <ClCompile Include="src\StateMachine\Condition\BoolCondition.cpp" />
+    <ClCompile Include="src\StateMachine\Condition\FloatCondition.cpp" />
+    <ClCompile Include="src\StateMachine\Condition\IntCondition.cpp" />
+    <ClCompile Include="src\StateMachine\Condition\LeafCondition.cpp" />
+    <ClCompile Include="src\StateMachine\Condition\NotCondition.cpp" />
+    <ClCompile Include="src\StateMachine\Condition\OperatorCondition.cpp" />
+    <ClCompile Include="src\StateMachine\Condition\OrCondition.cpp" />
+    <ClCompile Include="src\StateMachine\InnerStateMachine.cpp" />
+    <ClCompile Include="src\StateMachine\StateMachine.cpp" />
+    <ClCompile Include="src\StateMachine\State\Player\PlayerAttackState.cpp" />
+    <ClCompile Include="src\StateMachine\State\Player\PlayerDamagedState.cpp" />
+    <ClCompile Include="src\StateMachine\State\Player\PlayerDashState.cpp" />
+    <ClCompile Include="src\StateMachine\State\Player\PlayerDeadState.cpp" />
+    <ClCompile Include="src\StateMachine\State\Player\PlayerIdleState.cpp" />
+    <ClCompile Include="src\StateMachine\State\Player\PlayerAirState.cpp" />
+    <ClCompile Include="src\StateMachine\State\Player\PlayerMotionState.cpp" />
+    <ClCompile Include="src\StateMachine\State\Player\PlayerMovingState.cpp" />
+    <ClCompile Include="src\StateMachine\State\Player\PlayerStageClearState.cpp" />
+    <ClCompile Include="src\StateMachine\State\Player\PlayerState.cpp" />
+    <ClCompile Include="src\StateMachine\State\State.cpp" />
+    <ClCompile Include="src\StateMachine\Transition\Transition.cpp" />
+    <ClCompile Include="src\Timer\Timer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Animation\AnimationDef.h" />
+    <ClInclude Include="include\Collision\CollisionDef.h" />
+    <ClInclude Include="include\Component\Common\Component.h" />
+    <ClInclude Include="include\Component\Common\DecisionLogicalComponent\Class\DecisionLogicalComponent.h" />
+    <ClInclude Include="include\Component\Common\DecisionLogicalComponent\Class\StateComponent.h" />
+    <ClInclude Include="include\Component\Common\DecisionLogicalComponent\Interface\IStateComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\AnimationComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\CollisionComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\CombatStatusComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\EquipmentComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\ExecutorComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\HealthComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\MovementComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\PhysicsComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\SoundComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\TransformComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\IAnimationComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\ICombatStatusComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\IEquipmentComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\IHealthComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\IMovementComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\IPhysicsComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\ISoundComponent.h" />
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\ITransformComponent.h" />
+    <ClInclude Include="include\Component\Common\IComponent.h" />
+    <ClInclude Include="include\Component\Common\InputLogicalComponent\Class\InputComponent.h" />
+    <ClInclude Include="include\Component\Common\InputLogicalComponent\Class\InputLogicalComponent.h" />
+    <ClInclude Include="include\Component\Common\InputLogicalComponent\Interface\IInputComponent.h" />
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Class\CeilingSensorComponent.h" />
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Class\CollisionComponent.h" />
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Class\GroundSensorComponent.h" />
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Class\SensorLogicalComponent.h" />
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Class\TileMapSensorComponent.h" />
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Interface\ICeilingSensorComponent.h" />
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Interface\ICollisionComponent.h" />
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Interface\IGroundSensorComponent.h" />
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Interface\ITileMapSensorComponent.h" />
+    <ClInclude Include="include\Component\Player\DecisionLogicalComponent\Class\PlayerStateComponent.h" />
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerAnimationComponent.h" />
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerCombatStatusComponent.h" />
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerEquipmentComponent.h" />
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerHealthComponent.h" />
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerMovementComponent.h" />
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerPhysicsComponent.h" />
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerSoundComponent.h" />
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerTransformComponent.h" />
+    <ClInclude Include="include\Component\Player\InputLogicalComponent\Class\PlayerInputComponent.h" />
+    <ClInclude Include="include\Component\Player\SensorLogicalComponent\Class\PlayerCeilingSensorComponent.h" />
+    <ClInclude Include="include\Component\Player\SensorLogicalComponent\Class\PlayerCollisionComponent.h" />
+    <ClInclude Include="include\Component\Player\SensorLogicalComponent\Class\PlayerGroundSensorComponent.h" />
+    <ClInclude Include="include\Component\Player\SensorLogicalComponent\Class\PlayerTileMapSensorComponent.h" />
+    <ClInclude Include="include\Component\Sword\ExecutorComponent\Class\SwordAnimationComponent.h" />
+    <ClInclude Include="include\Component\Sword\ExecutorComponent\Class\SwordSoundComponent.h" />
+    <ClInclude Include="include\Component\Sword\ExecutorComponent\Class\SwordTransformComponent.h" />
+    <ClInclude Include="include\Component\Sword\SensorLogicalComponent\Class\SwordCollisionComponent.h" />
+    <ClInclude Include="include\Event\IMessageBus.h" />
+    <ClInclude Include="include\Event\IMessenger.h" />
+    <ClInclude Include="include\Event\Listener\IMessageListener.h" />
+    <ClInclude Include="include\Event\MessageBus.h" />
+    <ClInclude Include="include\Event\Message\AnimationMsg\SwordAnimationBeginMsg.h" />
+    <ClInclude Include="include\Event\Message\AnimationMsg\SwordAnimationCompletedMsg.h" />
+    <ClInclude Include="include\Event\Message\AnimationMsg\SwordAnimationKeyframeMsg.h" />
+    <ClInclude Include="include\Event\Message\IEventMessage.h" />
+    <ClInclude Include="include\Event\Message\LogicalInputMsg\AttackInputMsg.h" />
+    <ClInclude Include="include\Event\Message\LogicalInputMsg\DashInputMsg.h" />
+    <ClInclude Include="include\Event\Message\LogicalInputMsg\HoriAxisInputMsg.h" />
+    <ClInclude Include="include\Event\Message\LogicalInputMsg\JumpInputMsg.h" />
+    <ClInclude Include="include\Event\Message\LogicalInputMsg\ReleaseJumpInputMsg.h" />
+    <ClInclude Include="include\Event\Message\Message.h" />
+    <ClInclude Include="include\Event\Message\SemanticMsg\EndDashSemMsg.h" />
+    <ClInclude Include="include\Event\Message\SemanticMsg\EndKnockBackSemMsg.h" />
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartAttackSemMsg.h" />
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartDashSemMsg.h" />
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartHurtSemMsg.h" />
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartIdleSemMsg.h" />
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartJumpSemMsg.h" />
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartKnockBackSemMsg.h" />
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartMoveSemMsg.h" />
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartStageClearSemMsg.h" />
+    <ClInclude Include="include\Event\Message\SemanticMsg\StopJumpSemMsg.h" />
+    <ClInclude Include="include\Event\Message\StateMsg\EnterIdleStateMsg.h" />
+    <ClInclude Include="include\Event\Message\StateMsg\SetIsClearConditionMsg.h" />
+    <ClInclude Include="include\Event\Message\StateMsg\SetIsDamagedConditionMsg.h" />
+    <ClInclude Include="include\Event\Message\StateMsg\SetIsDeadConditionMsg.h" />
+    <ClInclude Include="include\Event\Messenger.h" />
+    <ClInclude Include="include\GameMath.h" />
+    <ClInclude Include="include\GameObject\Equipment\Equipment.h" />
+    <ClInclude Include="include\GameObject\Equipment\EquipmentDef.h" />
+    <ClInclude Include="include\GameObject\Equipment\IEquipment.h" />
+    <ClInclude Include="include\GameObject\Equipment\Weapon\IWeapon.h" />
+    <ClInclude Include="include\GameObject\Equipment\Weapon\IWeaponView.h" />
+    <ClInclude Include="include\GameObject\Equipment\Weapon\Sword.h" />
+    <ClInclude Include="include\GameObject\Equipment\Weapon\SwordDef.h" />
+    <ClInclude Include="include\GameObject\Equipment\Weapon\Weapon.h" />
+    <ClInclude Include="include\GameObject\Equipment\Weapon\WeaponDef.h" />
+    <ClInclude Include="include\GameObject\GameObject.h" />
+    <ClInclude Include="include\GameObject\IGameObject.h" />
+    <ClInclude Include="include\IEquipOwnerView.h" />
+    <ClInclude Include="include\IInputCacheProvider .h" />
+    <ClInclude Include="include\Inject.h" />
+    <ClInclude Include="include\Input\ComboInput.h" />
+    <ClInclude Include="include\Input\ComboStep.h" />
+    <ClInclude Include="include\Input\FrameworkPhysicsInputAdapter.h" />
+    <ClInclude Include="include\Input\IInputMapper.h" />
+    <ClInclude Include="include\Input\ILogicalInputAdapter.h" />
+    <ClInclude Include="include\Input\Inject.h" />
+    <ClInclude Include="include\Input\IPhysicsInputAdapter.h" />
+    <ClInclude Include="include\Input\InputBuffer.h" />
+    <ClInclude Include="include\Input\InputDef.h" />
+    <ClInclude Include="include\Input\InputEvent.h" />
+    <ClInclude Include="include\Input\InputMapper.h" />
+    <ClInclude Include="include\Input\LogicalInputAdapter.h" />
+    <ClInclude Include="include\Player\IPlayerView.h" />
+    <ClInclude Include="include\Player\Player.h" />
+    <ClInclude Include="include\Semantic\SemanticDef.h" />
+    <ClInclude Include="include\Semantic\SemanticInputBuffer.h" />
+    <ClInclude Include="include\Sensor\ILineSensor.h" />
+    <ClInclude Include="include\Sensor\LineSensor.h" />
+    <ClInclude Include="include\Sound\SoundDef.h" />
+    <ClInclude Include="include\StateMachine\Condition\AndCondition.h" />
+    <ClInclude Include="include\StateMachine\Condition\CompositeCondition.h" />
+    <ClInclude Include="include\StateMachine\Condition\BoolCondition.h" />
+    <ClInclude Include="include\StateMachine\Condition\ConditionInfo.h" />
+    <ClInclude Include="include\StateMachine\Condition\FloatCondition.h" />
+    <ClInclude Include="include\StateMachine\Condition\IConditionInfo.h" />
+    <ClInclude Include="include\StateMachine\Condition\IFsmCondition.h" />
+    <ClInclude Include="include\StateMachine\Condition\IntCondition.h" />
+    <ClInclude Include="include\StateMachine\Condition\LeafCondition.h" />
+    <ClInclude Include="include\StateMachine\Condition\NotCondition.h" />
+    <ClInclude Include="include\StateMachine\Condition\OperatorCondition.h" />
+    <ClInclude Include="include\StateMachine\Condition\OrCondition.h" />
+    <ClInclude Include="include\StateMachine\InnerStateMachine.h" />
+    <ClInclude Include="include\statemachine\IStateMachine.h" />
+    <ClInclude Include="include\statemachine\StateMachine.h" />
+    <ClInclude Include="include\StateMachine\StateMachineDef.h" />
+    <ClInclude Include="include\StateMachine\State\IState.h" />
+    <ClInclude Include="include\StateMachine\State\Player\PlayerAttackState.h" />
+    <ClInclude Include="include\StateMachine\State\Player\PlayerDamagedState.h" />
+    <ClInclude Include="include\StateMachine\State\Player\PlayerDashState.h" />
+    <ClInclude Include="include\StateMachine\State\Player\PlayerDeadState.h" />
+    <ClInclude Include="include\StateMachine\State\Player\PlayerIdleState.h" />
+    <ClInclude Include="include\StateMachine\State\Player\PlayerMotionState.h" />
+    <ClInclude Include="include\StateMachine\State\Player\PlayerMovingState.h" />
+    <ClInclude Include="include\StateMachine\State\Player\PlayerStageClearState.h" />
+    <ClInclude Include="include\StateMachine\State\Player\PlayerState.h" />
+    <ClInclude Include="include\StateMachine\State\Player\PlayerStateDef.h" />
+    <ClInclude Include="include\StateMachine\State\Player\PlayerAirState.h" />
+    <ClInclude Include="include\StateMachine\State\State.h" />
+    <ClInclude Include="include\StateMachine\Transition\Transition.h" />
+    <ClInclude Include="include\Timer\ITimer.h" />
+    <ClInclude Include="include\Timer\Timer.h" />
+    <ClInclude Include="include\TypeID.h" />
+    <ClInclude Include="Source\App.h" />
+    <ClInclude Include="Source\AppDef.h" />
+    <ClInclude Include="Source\Enemy\Enemy.h" />
+    <ClInclude Include="Source\Enemy\EnemyMng.h" />
+    <ClInclude Include="Source\Enemy\EnemyPool.h" />
+    <ClInclude Include="Source\Enemy\Ghost.h" />
+    <ClInclude Include="Source\Enemy\Onibi.h" />
+    <ClInclude Include="Source\Enemy\Skull.h" />
+    <ClInclude Include="Source\Enemy\Slime.h" />
+    <ClInclude Include="Source\GameDef.h" />
+    <ClInclude Include="Source\GameObjectMng\GameObjectMng.h" />
+    <ClInclude Include="Source\GamePlayData\GamePlayData.h" />
+    <ClInclude Include="Source\Goal\Goal.h" />
+    <ClInclude Include="Source\Mst\StageData.h" />
+    <ClInclude Include="Source\Mst\StageDataMst.h" />
+    <ClInclude Include="Source\Scene\Scene.h" />
+    <ClInclude Include="Source\Scene\SceneGameClear.h" />
+    <ClInclude Include="Source\Scene\SceneGameOver.h" />
+    <ClInclude Include="Source\Scene\SceneInGame.h" />
+    <ClInclude Include="Source\Scene\SceneMng.h" />
+    <ClInclude Include="Source\Scene\SceneStageSelect.h" />
+    <ClInclude Include="Source\Scene\SceneTitle.h" />
+    <ClInclude Include="Source\Tilemap\Tilemap.h" />
+    <ClInclude Include="Source\UI\HpGauge.h" />
+    <ClInclude Include="Source\UI\HpGauge2.h" />
+    <ClInclude Include="Source\UI\UIMng.h" />
+    <ClInclude Include="src\GameObject\GameObjectDef.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{c0abdfd9-910e-480e-b1c4-386c99a8412a}</ProjectGuid>
+    <RootNamespace>Game</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)実行ファイル\$(Configuration)($(Platform))\</OutDir>
+    <IntDir>build\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)実行ファイル\$(Configuration)($(Platform))\</OutDir>
+    <IntDir>build\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)実行ファイル\$(Configuration)($(Platform))\</OutDir>
+    <IntDir>build\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)実行ファイル\$(Configuration)($(Platform))\</OutDir>
+    <IntDir>build\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Framework\include;$(SolutionDir)Framework\Library\dxtk\include\;$(SolutionDir)Framework\Library\assimp\include\;$(SolutionDir)Source</AdditionalIncludeDirectories>
+      <TreatSpecificWarningsAsErrors>4551;6200;6386;%(TreatSpecificWarningsAsErrors)</TreatSpecificWarningsAsErrors>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)Framework\bin\$(Platform)\$(Configuration)\;$(SolutionDir)Framework\Library\dxtk\lib\$(Platform)\$(Configuration)\;$(SolutionDir)Framework\Library\assimp\build\lib\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Framework.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y /d "$(SolutionDir)Framework\Library\assimp\build\lib\$(Configuration)\assimp-vc142-mtd.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Framework\include;$(SolutionDir)Framework\Library\dxtk\include\;$(SolutionDir)Framework\Library\assimp\include\;$(SolutionDir)Source</AdditionalIncludeDirectories>
+      <TreatSpecificWarningsAsErrors>4551;6200;6386;%(TreatSpecificWarningsAsErrors)</TreatSpecificWarningsAsErrors>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)Framework\bin\$(Platform)\$(Configuration)\;$(SolutionDir)Framework\Library\dxtk\lib\$(Platform)\$(Configuration)\;$(SolutionDir)Framework\Library\assimp\build\lib\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Framework.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y /d "$(SolutionDir)Framework\Library\assimp\build\lib\$(Configuration)\assimp-vc142-mt.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Framework\include;$(SolutionDir)Framework\Library\dxtk\include\;$(SolutionDir)Framework\Library\assimp\include\;$(SolutionDir)include;$(SolutionDir)Source</AdditionalIncludeDirectories>
+      <TreatSpecificWarningsAsErrors>4551;6200;6386;%(TreatSpecificWarningsAsErrors)</TreatSpecificWarningsAsErrors>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)Framework\bin\$(Platform)\$(Configuration)\;$(SolutionDir)Framework\Library\dxtk\lib\$(Platform)\$(Configuration)\;$(SolutionDir)Framework\Library\assimp\build\lib\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Framework.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <RegisterOutput>false</RegisterOutput>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y /d "$(SolutionDir)Framework\Library\assimp\build\lib\$(Configuration)\assimp-vc142-mtd.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)Framework\include;$(SolutionDir)Framework\Library\dxtk\include\;$(SolutionDir)Framework\Library\assimp\include\;$(SolutionDir)Source</AdditionalIncludeDirectories>
+      <TreatSpecificWarningsAsErrors>4551;6200;6386;%(TreatSpecificWarningsAsErrors)</TreatSpecificWarningsAsErrors>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)Framework\bin\$(Platform)\$(Configuration)\;$(SolutionDir)Framework\Library\dxtk\lib\$(Platform)\$(Configuration)\;$(SolutionDir)Framework\Library\assimp\build\lib\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Framework.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /y /d "$(SolutionDir)Framework\Library\assimp\build\lib\$(Configuration)\assimp-vc142-mt.dll" "$(OutDir)"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

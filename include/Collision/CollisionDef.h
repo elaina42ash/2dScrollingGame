@@ -1,0 +1,26 @@
+﻿#pragma once
+
+// 衝突グループを示す定数
+enum class CollisionGroup {
+	NONE = -1,
+
+	FIRST = 0,
+
+	PLAYER = FIRST,
+	WEAPON,
+	ENEMY,
+	GOAL,
+
+	COUNT
+};
+
+enum class CollisionTag {
+	NONE = -1,
+
+	FIRST = 0,
+
+	PLAYER = FIRST,
+	SWORD,
+
+	COUNT
+};

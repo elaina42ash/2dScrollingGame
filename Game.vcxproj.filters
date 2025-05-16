@@ -1,0 +1,1233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ソース ファイル">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="ヘッダー ファイル">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="リソース ファイル">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="ソース ファイル\Enemy">
+      <UniqueIdentifier>{cdc370be-e532-4db5-ade8-56efe759e49b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObjectMng">
+      <UniqueIdentifier>{27136938-d360-47cb-bece-16bfa7318d97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Goal">
+      <UniqueIdentifier>{e0051a35-87a1-4bca-8871-35eb027dafef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Scene">
+      <UniqueIdentifier>{5e1c8221-f8c8-4ae0-94f3-4963b7cdf337}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Player">
+      <UniqueIdentifier>{2ab87ab4-d993-47a0-a5df-a7a9224ba9c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Tilemap">
+      <UniqueIdentifier>{849dfdda-8e1b-45a7-a3d3-b93928b43327}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\UI">
+      <UniqueIdentifier>{43eb93f2-16a6-4436-95f1-c7877d28d9bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GamePlayData">
+      <UniqueIdentifier>{15c5725f-cb27-49fa-8144-11aabb70c55f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Mst">
+      <UniqueIdentifier>{2f990a2e-a2f5-429a-b8bf-864e2ee5dfc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component">
+      <UniqueIdentifier>{12ba5b5f-5042-41e3-8a22-a854559cb844}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject">
+      <UniqueIdentifier>{84185c00-d6be-4cb1-88a5-b96614e063a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\StateMachine">
+      <UniqueIdentifier>{fce31478-de4b-4d52-880d-9382e164fe20}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\StateMachine\State">
+      <UniqueIdentifier>{1f29f98a-16c2-4f8d-895b-d482c39f02d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\StateMachine">
+      <UniqueIdentifier>{57cfb738-e5c0-4b7d-9073-0a95d6543bbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\StateMachine\State">
+      <UniqueIdentifier>{71ee61c9-90cc-48d1-ba19-6f91b5c5eb06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Event">
+      <UniqueIdentifier>{f32a37fd-4531-476b-87b4-fc67e49c3f73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Event\Listener">
+      <UniqueIdentifier>{b17a3aea-cd5f-448d-bc33-20ecee137c79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Event">
+      <UniqueIdentifier>{beebd07e-6250-41c0-b761-0cbb6b634f8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Event\Message">
+      <UniqueIdentifier>{9b15d53d-acb0-4a42-8f95-c53291e39554}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Event\Listener">
+      <UniqueIdentifier>{37fd4c54-d27a-44fc-9d0c-e61c49b9e1b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\StateMachine\Condition">
+      <UniqueIdentifier>{0a1deb23-9d8b-48d0-9a38-16cfe239707a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\StateMachine\Transition">
+      <UniqueIdentifier>{450b13bb-f9fe-49df-987c-9ad92e1e9925}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\StateMachine\Condition">
+      <UniqueIdentifier>{0f80864d-e5bf-4f94-949a-16c638414f7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\StateMachine\Transition">
+      <UniqueIdentifier>{c1ed6b06-c442-43a8-aaef-f13bed78334d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Event\Message">
+      <UniqueIdentifier>{76d8e2c2-15ad-42fe-b0d2-ca976ae3d087}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Input">
+      <UniqueIdentifier>{84bf7531-0da2-4754-b7e2-e70052ba52be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Semantic">
+      <UniqueIdentifier>{b559a5f3-ba0b-4f93-95a6-b1a6d6a555e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\InputSystem">
+      <UniqueIdentifier>{2de41cde-83f1-477a-b14a-72d07b8cd345}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Event\Message\LogicalInputMessage">
+      <UniqueIdentifier>{30a30496-2c6c-4ba0-b4f7-13cf1e70e02b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Event\Message\SemanticMessage">
+      <UniqueIdentifier>{f021e8ac-0070-4081-8290-220bc93c039b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Collision">
+      <UniqueIdentifier>{732ba8da-a9d3-4d66-816a-f3a7c9947ede}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Animation">
+      <UniqueIdentifier>{03369349-dfd2-4f86-b88e-ee714dd09456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject">
+      <UniqueIdentifier>{ccf0e373-b3ec-47ad-93ea-0b623b49893a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Player">
+      <UniqueIdentifier>{ee1b5446-4c24-478b-bd96-0b223f59f042}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Event\Message\StateMessage">
+      <UniqueIdentifier>{09513360-081f-4e39-9ea0-4726ffa9c6a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\StateMachine\State\Player">
+      <UniqueIdentifier>{88056757-cb09-488f-84d6-ff14df39ff4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\StateMachine\State\Player">
+      <UniqueIdentifier>{84bd9f83-8a2c-4c10-9e5d-7e7f1e1783d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Sensor">
+      <UniqueIdentifier>{52ad555d-7328-4b87-bcdc-ac8b035de498}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Sensor">
+      <UniqueIdentifier>{f6d0d7da-7d8e-4035-b2d3-0591db8ed2d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Timer">
+      <UniqueIdentifier>{5979b0d8-23ed-4f65-b2a5-f33161f65d4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Timer">
+      <UniqueIdentifier>{c15f7199-8aad-4cdd-8715-c47e633ed9b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Sound">
+      <UniqueIdentifier>{63898eab-d2af-4d8f-8d56-d8cdc3c033c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Equipment">
+      <UniqueIdentifier>{ca5339a0-b6db-47bb-8ed3-f1a73ae2a244}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\Equipment\Weapon">
+      <UniqueIdentifier>{bbd844d8-bba8-4e97-954b-0a720d9f61e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component">
+      <UniqueIdentifier>{3a8045a1-43f8-4160-adb1-b7bab0a43f5e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Common">
+      <UniqueIdentifier>{e4539212-4014-44a5-974c-45587fc3a9d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Common\DecisionLogicalComponent">
+      <UniqueIdentifier>{cced1e7a-1d3e-4d33-8656-7af600049611}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Common\DecisionLogicalComponent\Class">
+      <UniqueIdentifier>{22809b26-6869-4390-8634-19979adfcc3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Common\DecisionLogicalComponent\Interface">
+      <UniqueIdentifier>{0d8d5be6-3eef-4577-be2a-caddd3817ea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Common\ExecutorComponent">
+      <UniqueIdentifier>{41f87151-6108-4260-a43a-7faeadb17cd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Common\InputLogicalComponent">
+      <UniqueIdentifier>{80a8ba6b-480c-42e8-a971-e14541932841}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Common\SensorLogicalComponent">
+      <UniqueIdentifier>{ca498fea-72fa-45ab-9b21-41a60526161f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Common\ExecutorComponent\Class">
+      <UniqueIdentifier>{b90f539e-05df-4355-83d4-ef14cc05a893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Common\ExecutorComponent\Interface">
+      <UniqueIdentifier>{b3a58d1c-abaa-467f-b9d1-935c4b39053f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Common\InputLogicalComponent\Class">
+      <UniqueIdentifier>{e55ff44b-b965-4bbd-8af4-97e57c06847c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Common\InputLogicalComponent\Interface">
+      <UniqueIdentifier>{6e948e40-ddcd-40b7-9cd4-c7ad5b7a7313}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Common\SensorLogicalComponent\Class">
+      <UniqueIdentifier>{54365af6-8cf0-4eee-994e-672aaa33ca64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Common\SensorLogicalComponent\Interface">
+      <UniqueIdentifier>{166f4922-05b6-4e1e-9cee-33de1f8fd569}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Player">
+      <UniqueIdentifier>{153a3961-ef72-46a6-a1d4-70fcff537426}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Player\DecisionLogicalComponent">
+      <UniqueIdentifier>{04efd978-6da8-486b-89f6-21dfdcd957d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Player\ExecutorComponent">
+      <UniqueIdentifier>{92ed819d-dc13-495a-b0ce-16f1204e1443}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Player\InputLogicalComponent">
+      <UniqueIdentifier>{9bcf0a58-b75e-4a9c-9304-7f4cd3fbc2da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Player\SensorLogicalComponent">
+      <UniqueIdentifier>{63448ed5-fba1-4c24-a034-c2f0c996d0b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Player\DecisionLogicalComponent\Class">
+      <UniqueIdentifier>{9c9aafb6-a81e-4175-99b3-ad25004982b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Player\DecisionLogicalComponent\Interface">
+      <UniqueIdentifier>{640574d6-b8cc-42b5-b5f3-f91781ef7efb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Player\ExecutorComponent\Class">
+      <UniqueIdentifier>{4303e144-baf8-47d9-b43c-13d25aef6792}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Player\ExecutorComponent\Interface">
+      <UniqueIdentifier>{4359f2d8-54fe-4c3b-8fcb-48677022c8c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Player\InputLogicalComponent\Class">
+      <UniqueIdentifier>{e03ef11a-58be-4130-b070-521c6a459f2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Player\InputLogicalComponent\Interface">
+      <UniqueIdentifier>{791c2c8f-3e0f-4548-98ef-60f4a36f1acc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Player\SensorLogicalComponent\Class">
+      <UniqueIdentifier>{6bf1cf15-3404-4a76-8aaf-70da19e3e3fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Player\SensorLogicalComponent\Interface">
+      <UniqueIdentifier>{dd20cf47-24eb-43bb-afad-86318b00071a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Common">
+      <UniqueIdentifier>{6a47a388-7025-47bd-b0eb-e55bf30712d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Player">
+      <UniqueIdentifier>{dcce3045-f479-40b1-aca0-9649cfeb57ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Common\DecisionLogicalComponent">
+      <UniqueIdentifier>{3053f66c-b300-44bb-9a77-c65ee135b4fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Common\ExecutorComponent">
+      <UniqueIdentifier>{01e69b74-c663-4631-935f-7e72f8f00726}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Common\InputLogicalComponent">
+      <UniqueIdentifier>{c23ec624-d9b4-4a0a-b220-f37112009e31}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Common\SensorLogicalComponent">
+      <UniqueIdentifier>{7715d462-ec82-4230-a24f-794c74b65174}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Player\DecisionLogicalComponent">
+      <UniqueIdentifier>{be170fb9-d6a8-42e3-8d56-e50a0b0a0c2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Player\ExecutorComponent">
+      <UniqueIdentifier>{6a020ea2-cb1d-4a74-9ea1-5ebcbe40efb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Player\InputLogicalComponent">
+      <UniqueIdentifier>{2da1b5e3-4e73-4064-aaf2-7197bf932919}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Player\SensorLogicalComponent">
+      <UniqueIdentifier>{cdf587fa-937e-418f-a912-476cebe822db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Sword">
+      <UniqueIdentifier>{0dbc6789-b111-404f-a82f-2993de2202a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Sword\DecisionLogicalComponent">
+      <UniqueIdentifier>{6101b1a4-7f16-41ad-8fee-02eb4386e8f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Sword\DecisionLogicalComponent\Class">
+      <UniqueIdentifier>{603dff5b-bbee-4ba6-bb3f-c2b19cc3f171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Sword\DecisionLogicalComponent\Interface">
+      <UniqueIdentifier>{756c6e73-2687-43f0-a10f-99ab57eedc7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Sword\ExecutorComponent">
+      <UniqueIdentifier>{617aa893-35eb-491f-9759-5955daf57ab3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Sword\ExecutorComponent\Class">
+      <UniqueIdentifier>{509b217d-d0ac-4b75-85d6-5e7ef1d132df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Sword\ExecutorComponent\Interface">
+      <UniqueIdentifier>{c9ee50f9-5982-448d-acc2-eee6702f5000}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Sword\InputLogicalComponent">
+      <UniqueIdentifier>{a93406af-399e-4890-8d57-cfa48e724515}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Sword\InputLogicalComponent\Class">
+      <UniqueIdentifier>{3b62d303-982c-400d-91a0-af75f0eb944c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Sword\InputLogicalComponent\Interface">
+      <UniqueIdentifier>{1c18e2eb-b966-437d-954d-a1a54a3b9300}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Sword\SensorLogicalComponent">
+      <UniqueIdentifier>{b280a620-cf44-4510-8a62-23edd9f90762}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Sword\SensorLogicalComponent\Class">
+      <UniqueIdentifier>{ed292b4a-afc4-4b5e-8ea8-f2d563b6ca3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Sword\SensorLogicalComponent\Interface">
+      <UniqueIdentifier>{6ca1ad0e-e8de-4d6b-bb12-dfe613ce08a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Sword">
+      <UniqueIdentifier>{175a2616-7a4a-4d27-9e22-a14f20c39718}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Sword\DecisionLogicalComponent">
+      <UniqueIdentifier>{b11ba72d-ed8e-46c7-98ee-d4ea75acf2ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Sword\ExecutorComponent">
+      <UniqueIdentifier>{56ee9482-5c91-4050-a272-c63e036be8e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Sword\InputLogicalComponent">
+      <UniqueIdentifier>{233528c8-3775-4277-97fb-74e0a3d8c421}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Sword\SensorLogicalComponent">
+      <UniqueIdentifier>{af0da426-a38c-4dbe-8d35-44f84e3112d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Equipment">
+      <UniqueIdentifier>{b01bae86-c2d7-457e-b5da-937addbbf41b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\Equipment\Weapon">
+      <UniqueIdentifier>{7e34e38d-e4bd-44bd-8b7f-b174277f6898}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Event\Message\AnimationMsg">
+      <UniqueIdentifier>{258dcf5a-de8a-4722-8508-a53a7560561b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Event\Message\LogicalInputMsg">
+      <UniqueIdentifier>{f546433e-0e68-4ab8-8600-5a1cd2e82a0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Event\Message\SemanticMsg">
+      <UniqueIdentifier>{40bf4991-be55-4223-8216-cdb04057be8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Event\Message\StateMsg">
+      <UniqueIdentifier>{2cf26ae1-8332-45b2-86ae-351557627667}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Event\Message\AnimationMsg">
+      <UniqueIdentifier>{f7782354-3117-4cff-a9bd-d70001659f0a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\App.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\Enemy.cpp">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\EnemyMng.cpp">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\Onibi.cpp">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\Slime.cpp">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameObjectMng\GameObjectMng.cpp">
+      <Filter>ソース ファイル\GameObjectMng</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Goal\Goal.cpp">
+      <Filter>ソース ファイル\Goal</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\Scene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\SceneGameClear.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\SceneGameOver.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\SceneInGame.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\SceneMng.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\SceneTitle.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Tilemap\Tilemap.cpp">
+      <Filter>ソース ファイル\Tilemap</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\HpGauge.cpp">
+      <Filter>ソース ファイル\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\HpGauge2.cpp">
+      <Filter>ソース ファイル\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\UI\UIMng.cpp">
+      <Filter>ソース ファイル\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\EnemyPool.cpp">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\Ghost.cpp">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Enemy\Skull.cpp">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Mst\StageDataMst.cpp">
+      <Filter>ソース ファイル\Mst</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Scene\SceneStageSelect.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GamePlayData\GamePlayData.cpp">
+      <Filter>ソース ファイル\GamePlayData</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\State\State.cpp">
+      <Filter>ソース ファイル\StateMachine\State</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\MessageBus.cpp">
+      <Filter>ソース ファイル\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Messenger.cpp">
+      <Filter>ソース ファイル\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\StateMachine.cpp">
+      <Filter>ソース ファイル\StateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\Condition\CompositeCondition.cpp">
+      <Filter>ソース ファイル\StateMachine\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\Condition\LeafCondition.cpp">
+      <Filter>ソース ファイル\StateMachine\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\Condition\AndCondition.cpp">
+      <Filter>ソース ファイル\StateMachine\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\Condition\BoolCondition.cpp">
+      <Filter>ソース ファイル\StateMachine\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\Condition\FloatCondition.cpp">
+      <Filter>ソース ファイル\StateMachine\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\Condition\IntCondition.cpp">
+      <Filter>ソース ファイル\StateMachine\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\Condition\NotCondition.cpp">
+      <Filter>ソース ファイル\StateMachine\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\Condition\OperatorCondition.cpp">
+      <Filter>ソース ファイル\StateMachine\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\Condition\OrCondition.cpp">
+      <Filter>ソース ファイル\StateMachine\Condition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\Transition\Transition.cpp">
+      <Filter>ソース ファイル\StateMachine\Transition</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameMath.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input\FrameworkPhysicsInputAdapter.cpp">
+      <Filter>ソース ファイル\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\Message.cpp">
+      <Filter>ソース ファイル\Event\Message</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Player\Player.cpp">
+      <Filter>ソース ファイル\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\GameObject.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\InnerStateMachine.cpp">
+      <Filter>ソース ファイル\StateMachine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\State\Player\PlayerIdleState.cpp">
+      <Filter>ソース ファイル\StateMachine\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\State\Player\PlayerMovingState.cpp">
+      <Filter>ソース ファイル\StateMachine\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\State\Player\PlayerState.cpp">
+      <Filter>ソース ファイル\StateMachine\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\State\Player\PlayerAirState.cpp">
+      <Filter>ソース ファイル\StateMachine\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sensor\LineSensor.cpp">
+      <Filter>ソース ファイル\Sensor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Timer\Timer.cpp">
+      <Filter>ソース ファイル\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\State\Player\PlayerDamagedState.cpp">
+      <Filter>ソース ファイル\StateMachine\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\Equipment\Weapon\Sword.cpp">
+      <Filter>ソース ファイル\GameObject\Equipment\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\DecisionLogicalComponent\DecisionLogicalComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\DecisionLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\DecisionLogicalComponent\StateComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\DecisionLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\ExecutorComponent\AnimationComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\ExecutorComponent\CombatStatusComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\ExecutorComponent\ExecutorComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\ExecutorComponent\HealthComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\ExecutorComponent\MovementComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\ExecutorComponent\PhysicsComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\ExecutorComponent\SoundComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\ExecutorComponent\TransformComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\InputLogicalComponent\InputComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\InputLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\InputLogicalComponent\InputLogicalComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\InputLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\SensorLogicalComponent\CeilingSensorComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\SensorLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\SensorLogicalComponent\CollisionComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\SensorLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\SensorLogicalComponent\GroundSensorComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\SensorLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\SensorLogicalComponent\SensorLogicalComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\SensorLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\SensorLogicalComponent\TileMapSensorComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\SensorLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Player\DecisionLogicalComponent\PlayerStateComponent.cpp">
+      <Filter>ソース ファイル\Component\Player\DecisionLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerAnimationComponent.cpp">
+      <Filter>ソース ファイル\Component\Player\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerCombatStatusComponent.cpp">
+      <Filter>ソース ファイル\Component\Player\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerEquipmentComponent.cpp">
+      <Filter>ソース ファイル\Component\Player\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerHealthComponent.cpp">
+      <Filter>ソース ファイル\Component\Player\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerMovementComponent.cpp">
+      <Filter>ソース ファイル\Component\Player\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerPhysicsComponent.cpp">
+      <Filter>ソース ファイル\Component\Player\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerSoundComponent.cpp">
+      <Filter>ソース ファイル\Component\Player\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerTransformComponent.cpp">
+      <Filter>ソース ファイル\Component\Player\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Player\InputLogicalComponent\PlayerInputComponent.cpp">
+      <Filter>ソース ファイル\Component\Player\InputLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Player\SensorLogicalComponent\PlayerCeilingSensorComponent.cpp">
+      <Filter>ソース ファイル\Component\Player\SensorLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Player\SensorLogicalComponent\PlayerCollisionComponent.cpp">
+      <Filter>ソース ファイル\Component\Player\SensorLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Player\SensorLogicalComponent\PlayerGroundSensorComponent.cpp">
+      <Filter>ソース ファイル\Component\Player\SensorLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Player\SensorLogicalComponent\PlayerTileMapSensorComponent.cpp">
+      <Filter>ソース ファイル\Component\Player\SensorLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\Component.cpp">
+      <Filter>ソース ファイル\Component\Common</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Sword\ExecutorComponent\SwordSoundComponent.cpp">
+      <Filter>ソース ファイル\Component\Sword\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Sword\ExecutorComponent\SwordAnimationComponent.cpp">
+      <Filter>ソース ファイル\Component\Sword\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Common\ExecutorComponent\EquipmentComponent.cpp">
+      <Filter>ソース ファイル\Component\Common\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Sword\ExecutorComponent\SwordTransformComponent.cpp">
+      <Filter>ソース ファイル\Component\Sword\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\State\Player\PlayerAttackState.cpp">
+      <Filter>ソース ファイル\StateMachine\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\AnimationMsg\SwordAnimationKeyframeMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\AnimationMsg</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\LogicalInputMsg\AttackInputMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\LogicalInputMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\LogicalInputMsg\HoriAxisInputMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\LogicalInputMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\LogicalInputMsg\JumpInputMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\LogicalInputMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\LogicalInputMsg\ReleaseJumpInputMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\LogicalInputMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\SemanticMsg\EndKnockBackSemMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartAttackSemMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartHurtSemMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartIdleSemMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartJumpSemMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartKnockBackSemMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartMoveSemMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\SemanticMsg\StopJumpSemMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\StateMsg\EnterIdleStateMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\StateMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\StateMsg\SetIsDamagedConditionMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\StateMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\AnimationMsg\SwordAnimationCompletedMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\AnimationMsg</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\Equipment\Equipment.cpp">
+      <Filter>ソース ファイル\GameObject\Equipment</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\AnimationMsg\SwordAnimationBeginMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\AnimationMsg</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Sword\SensorLogicalComponent\Class\SwordCollisionComponent.cpp">
+      <Filter>ソース ファイル\Component\Sword\SensorLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\State\Player\PlayerDeadState.cpp">
+      <Filter>ソース ファイル\StateMachine\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\State\Player\PlayerMotionState.cpp">
+      <Filter>ソース ファイル\StateMachine\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\StateMsg\SetIsDeadConditionMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\StateMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\State\Player\PlayerDashState.cpp">
+      <Filter>ソース ファイル\StateMachine\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartDashSemMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\SemanticMsg\EndDashSemMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\LogicalInputMsg\DashInputMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\LogicalInputMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StateMachine\State\Player\PlayerStageClearState.cpp">
+      <Filter>ソース ファイル\StateMachine\State\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\StateMsg\SetIsClearConditionMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\StateMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartStageClearSemMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\Equipment\Weapon\Weapon.cpp">
+      <Filter>ソース ファイル\GameObject\Equipment\Weapon</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Source\App.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\AppDef.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameDef.h">
+      <Filter>ソース ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\Enemy.h">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\EnemyMng.h">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\Onibi.h">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\Slime.h">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GameObjectMng\GameObjectMng.h">
+      <Filter>ソース ファイル\GameObjectMng</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Goal\Goal.h">
+      <Filter>ソース ファイル\Goal</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\Scene.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\SceneGameClear.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\SceneGameOver.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\SceneInGame.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\SceneMng.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\SceneTitle.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Tilemap\Tilemap.h">
+      <Filter>ソース ファイル\Tilemap</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UI\HpGauge.h">
+      <Filter>ソース ファイル\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UI\HpGauge2.h">
+      <Filter>ソース ファイル\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\UI\UIMng.h">
+      <Filter>ソース ファイル\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\EnemyPool.h">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\Ghost.h">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Enemy\Skull.h">
+      <Filter>ソース ファイル\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mst\StageData.h">
+      <Filter>ソース ファイル\Mst</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Mst\StageDataMst.h">
+      <Filter>ソース ファイル\Mst</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\Scene\SceneStageSelect.h">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Source\GamePlayData\GamePlayData.h">
+      <Filter>ソース ファイル\GamePlayData</Filter>
+    </ClInclude>
+    <ClInclude Include="include\statemachine\IStateMachine.h">
+      <Filter>ヘッダー ファイル\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\statemachine\StateMachine.h">
+      <Filter>ヘッダー ファイル\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TypeID.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Listener\IMessageListener.h">
+      <Filter>ヘッダー ファイル\Event\Listener</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\IEventMessage.h">
+      <Filter>ヘッダー ファイル\Event\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\MessageBus.h">
+      <Filter>ヘッダー ファイル\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Messenger.h">
+      <Filter>ヘッダー ファイル\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\IGameObject.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\State\IState.h">
+      <Filter>ヘッダー ファイル\StateMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\State\State.h">
+      <Filter>ヘッダー ファイル\StateMachine\State</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\Transition\Transition.h">
+      <Filter>ヘッダー ファイル\StateMachine\Transition</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\Condition\AndCondition.h">
+      <Filter>ヘッダー ファイル\StateMachine\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\Condition\CompositeCondition.h">
+      <Filter>ヘッダー ファイル\StateMachine\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\Condition\BoolCondition.h">
+      <Filter>ヘッダー ファイル\StateMachine\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\Condition\FloatCondition.h">
+      <Filter>ヘッダー ファイル\StateMachine\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\Condition\IFsmCondition.h">
+      <Filter>ヘッダー ファイル\StateMachine\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\Condition\IntCondition.h">
+      <Filter>ヘッダー ファイル\StateMachine\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\Condition\LeafCondition.h">
+      <Filter>ヘッダー ファイル\StateMachine\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\Condition\NotCondition.h">
+      <Filter>ヘッダー ファイル\StateMachine\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\Condition\OperatorCondition.h">
+      <Filter>ヘッダー ファイル\StateMachine\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\Condition\OrCondition.h">
+      <Filter>ヘッダー ファイル\StateMachine\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameMath.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Input\ComboInput.h">
+      <Filter>ヘッダー ファイル\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Input\InputDef.h">
+      <Filter>ヘッダー ファイル\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Input\InputBuffer.h">
+      <Filter>ヘッダー ファイル\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Input\ComboStep.h">
+      <Filter>ヘッダー ファイル\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Input\InputEvent.h">
+      <Filter>ヘッダー ファイル\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Input\InputMapper.h">
+      <Filter>ヘッダー ファイル\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Input\IPhysicsInputAdapter.h">
+      <Filter>ヘッダー ファイル\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Input\ILogicalInputAdapter.h">
+      <Filter>ヘッダー ファイル\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Input\LogicalInputAdapter.h">
+      <Filter>ヘッダー ファイル\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Input\FrameworkPhysicsInputAdapter.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Input\IInputMapper.h">
+      <Filter>ヘッダー ファイル\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Input\Inject.h">
+      <Filter>ヘッダー ファイル\InputSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Inject.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\Message.h">
+      <Filter>ヘッダー ファイル\Event\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\IMessenger.h">
+      <Filter>ヘッダー ファイル\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\IMessageBus.h">
+      <Filter>ヘッダー ファイル\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Semantic\SemanticDef.h">
+      <Filter>ヘッダー ファイル\Semantic</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Semantic\SemanticInputBuffer.h">
+      <Filter>ヘッダー ファイル\Semantic</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Collision\CollisionDef.h">
+      <Filter>ヘッダー ファイル\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Animation\AnimationDef.h">
+      <Filter>ヘッダー ファイル\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Player\Player.h">
+      <Filter>ヘッダー ファイル\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IInputCacheProvider .h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\GameObject.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\InnerStateMachine.h">
+      <Filter>ヘッダー ファイル\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\State\Player\PlayerIdleState.h">
+      <Filter>ヘッダー ファイル\StateMachine\State\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\State\Player\PlayerMovingState.h">
+      <Filter>ヘッダー ファイル\StateMachine\State\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\State\Player\PlayerState.h">
+      <Filter>ヘッダー ファイル\StateMachine\State\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\StateMachineDef.h">
+      <Filter>ヘッダー ファイル\StateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\Condition\ConditionInfo.h">
+      <Filter>ヘッダー ファイル\StateMachine\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\Condition\IConditionInfo.h">
+      <Filter>ヘッダー ファイル\StateMachine\Condition</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\State\Player\PlayerStateDef.h">
+      <Filter>ヘッダー ファイル\StateMachine\State\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\State\Player\PlayerAirState.h">
+      <Filter>ヘッダー ファイル\StateMachine\State\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sensor\LineSensor.h">
+      <Filter>ヘッダー ファイル\Sensor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sensor\ILineSensor.h">
+      <Filter>ヘッダー ファイル\Sensor</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Timer\Timer.h">
+      <Filter>ヘッダー ファイル\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Timer\ITimer.h">
+      <Filter>ヘッダー ファイル\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Player\IPlayerView.h">
+      <Filter>ヘッダー ファイル\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\State\Player\PlayerDamagedState.h">
+      <Filter>ヘッダー ファイル\StateMachine\State\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Sound\SoundDef.h">
+      <Filter>ヘッダー ファイル\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\DecisionLogicalComponent\Class\DecisionLogicalComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\DecisionLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\DecisionLogicalComponent\Class\StateComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\DecisionLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\DecisionLogicalComponent\Interface\IStateComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\DecisionLogicalComponent\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\AnimationComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\CollisionComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\CombatStatusComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\EquipmentComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\ExecutorComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\HealthComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\MovementComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\PhysicsComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\SoundComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Class\TransformComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\IAnimationComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\ICombatStatusComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\IEquipmentComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\IHealthComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\IMovementComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\IPhysicsComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\ITransformComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\InputLogicalComponent\Class\InputComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\InputLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\InputLogicalComponent\Class\InputLogicalComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\InputLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\InputLogicalComponent\Interface\IInputComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\InputLogicalComponent\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Class\CeilingSensorComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\SensorLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Class\CollisionComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\SensorLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Class\GroundSensorComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\SensorLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Class\SensorLogicalComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\SensorLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Class\TileMapSensorComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\SensorLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Interface\ICeilingSensorComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\SensorLogicalComponent\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Interface\ICollisionComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\SensorLogicalComponent\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Interface\IGroundSensorComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\SensorLogicalComponent\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\SensorLogicalComponent\Interface\ITileMapSensorComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\SensorLogicalComponent\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Player\DecisionLogicalComponent\Class\PlayerStateComponent.h">
+      <Filter>ヘッダー ファイル\Component\Player\DecisionLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerAnimationComponent.h">
+      <Filter>ヘッダー ファイル\Component\Player\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerCombatStatusComponent.h">
+      <Filter>ヘッダー ファイル\Component\Player\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerEquipmentComponent.h">
+      <Filter>ヘッダー ファイル\Component\Player\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerHealthComponent.h">
+      <Filter>ヘッダー ファイル\Component\Player\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerMovementComponent.h">
+      <Filter>ヘッダー ファイル\Component\Player\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerPhysicsComponent.h">
+      <Filter>ヘッダー ファイル\Component\Player\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerSoundComponent.h">
+      <Filter>ヘッダー ファイル\Component\Player\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerTransformComponent.h">
+      <Filter>ヘッダー ファイル\Component\Player\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Player\InputLogicalComponent\Class\PlayerInputComponent.h">
+      <Filter>ヘッダー ファイル\Component\Player\InputLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Player\SensorLogicalComponent\Class\PlayerCeilingSensorComponent.h">
+      <Filter>ヘッダー ファイル\Component\Player\SensorLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Player\SensorLogicalComponent\Class\PlayerCollisionComponent.h">
+      <Filter>ヘッダー ファイル\Component\Player\SensorLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Player\SensorLogicalComponent\Class\PlayerGroundSensorComponent.h">
+      <Filter>ヘッダー ファイル\Component\Player\SensorLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Player\SensorLogicalComponent\Class\PlayerTileMapSensorComponent.h">
+      <Filter>ヘッダー ファイル\Component\Player\SensorLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\Component.h">
+      <Filter>ヘッダー ファイル\Component\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\IComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Sword\ExecutorComponent\Class\SwordAnimationComponent.h">
+      <Filter>ヘッダー ファイル\Component\Sword\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Sword\ExecutorComponent\Class\SwordSoundComponent.h">
+      <Filter>ヘッダー ファイル\Component\Sword\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Sword\ExecutorComponent\Class\SwordTransformComponent.h">
+      <Filter>ヘッダー ファイル\Component\Sword\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\Equipment\Weapon\Sword.h">
+      <Filter>ヘッダー ファイル\GameObject\Equipment\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\Equipment\EquipmentDef.h">
+      <Filter>ヘッダー ファイル\GameObject\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\Equipment\IEquipment.h">
+      <Filter>ヘッダー ファイル\GameObject\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\Equipment\Weapon\IWeapon.h">
+      <Filter>ヘッダー ファイル\GameObject\Equipment\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\State\Player\PlayerAttackState.h">
+      <Filter>ヘッダー ファイル\StateMachine\State\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\Equipment\Weapon\SwordDef.h">
+      <Filter>ヘッダー ファイル\GameObject\Equipment\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\AnimationMsg\SwordAnimationKeyframeMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\AnimationMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\LogicalInputMsg\AttackInputMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\LogicalInputMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\LogicalInputMsg\HoriAxisInputMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\LogicalInputMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\LogicalInputMsg\JumpInputMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\LogicalInputMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\LogicalInputMsg\ReleaseJumpInputMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\LogicalInputMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\StateMsg\EnterIdleStateMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\StateMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\StateMsg\SetIsDamagedConditionMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\StateMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\SemanticMsg\EndKnockBackSemMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartAttackSemMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartHurtSemMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartIdleSemMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartJumpSemMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartKnockBackSemMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartMoveSemMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\SemanticMsg\StopJumpSemMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\AnimationMsg\SwordAnimationCompletedMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\AnimationMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\IEquipOwnerView.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\Equipment\Equipment.h">
+      <Filter>ヘッダー ファイル\GameObject\Equipment</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject\GameObjectDef.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\AnimationMsg\SwordAnimationBeginMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\AnimationMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Sword\SensorLogicalComponent\Class\SwordCollisionComponent.h">
+      <Filter>ヘッダー ファイル\Component\Sword\SensorLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\State\Player\PlayerDeadState.h">
+      <Filter>ヘッダー ファイル\StateMachine\State\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\State\Player\PlayerMotionState.h">
+      <Filter>ヘッダー ファイル\StateMachine\State\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\StateMsg\SetIsDeadConditionMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\StateMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\State\Player\PlayerDashState.h">
+      <Filter>ヘッダー ファイル\StateMachine\State\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartDashSemMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\SemanticMsg\EndDashSemMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\LogicalInputMsg\DashInputMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\LogicalInputMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StateMachine\State\Player\PlayerStageClearState.h">
+      <Filter>ヘッダー ファイル\StateMachine\State\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\StateMsg\SetIsClearConditionMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\StateMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartStageClearSemMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\Equipment\Weapon\Weapon.h">
+      <Filter>ヘッダー ファイル\GameObject\Equipment\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\Equipment\Weapon\IWeaponView.h">
+      <Filter>ヘッダー ファイル\GameObject\Equipment\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\Equipment\Weapon\WeaponDef.h">
+      <Filter>ヘッダー ファイル\GameObject\Equipment\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\ISoundComponent.h">
+      <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Interface</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
