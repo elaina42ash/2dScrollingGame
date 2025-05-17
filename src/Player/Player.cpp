@@ -35,43 +35,43 @@
 Player::Player()
 {
 	
-	transformComponent_ = new PlayerTransformComponent(true,&messenger_);
+	transformComponent_ = new PlayerTransformComponent(true,AccessMessenger());
 	AddComponent<ITransformComponent>(transformComponent_);
 
-	tileMapSensorComponent_ = new PlayerTileMapSensorComponent(true, &messenger_);
+	tileMapSensorComponent_ = new PlayerTileMapSensorComponent(true, AccessMessenger());
 	AddComponent<ITileMapSensorComponent>(tileMapSensorComponent_);
 
-	groundSensorComponent_ = new PlayerGroundSensorComponent(true, &messenger_, this);
+	groundSensorComponent_ = new PlayerGroundSensorComponent(true, AccessMessenger(), this);
 	AddComponent<IGroundSensorComponent>(groundSensorComponent_);
 
-	collisionComponent_ = new PlayerCollisionComponent(true, &messenger_, this);
+	collisionComponent_ = new PlayerCollisionComponent(true, AccessMessenger(), this);
 	AddComponent<ICollisionComponent>(collisionComponent_);
 
-	animationComponent_ = new PlayerAnimationComponent(true, &messenger_, this);
+	animationComponent_ = new PlayerAnimationComponent(true, AccessMessenger(), this);
 	AddComponent<IAnimationComponent>(animationComponent_);
 
-	inputComponent_ = new PlayerInputComponent(true, &messenger_);
+	inputComponent_ = new PlayerInputComponent(true, AccessMessenger());
 	AddComponent<IInputComponent>(inputComponent_);
 
-	stateComponent_ = new PlayerStateComponent(true, &messenger_, this);
+	stateComponent_ = new PlayerStateComponent(true, AccessMessenger(), this);
 	AddComponent<IStateComponent>(stateComponent_);
 
-	physicsComponent_ = new PlayerPhysicsComponent(true, this, &messenger_);
+	physicsComponent_ = new PlayerPhysicsComponent(true, this, AccessMessenger());
 	AddComponent<IPhysicsComponent>(physicsComponent_);
 
-	movementComponent_ = new PlayerMovementComponent(true, this, &messenger_);
+	movementComponent_ = new PlayerMovementComponent(true, this, AccessMessenger());
 	AddComponent<IMovementComponent>(movementComponent_);
 
-	soundComponent_ = new PlayerSoundComponent(true, &messenger_);
+	soundComponent_ = new PlayerSoundComponent(true, AccessMessenger());
 	AddComponent<ISoundComponent>(soundComponent_);
 
-	equipmentComponent_ = new PlayerEquipmentComponent(true, this, this, &messenger_);
+	equipmentComponent_ = new PlayerEquipmentComponent(true, this, this, AccessMessenger());
 	AddComponent<IEquipmentComponent>(equipmentComponent_);
 
-	combatStatusComponent_ = new PlayerCombatStatusComponent(true, &messenger_);
+	combatStatusComponent_ = new PlayerCombatStatusComponent(true, AccessMessenger());
 	AddComponent<ICombatStatusComponent>(combatStatusComponent_);
 
-	healthComponent_ = new PlayerHealthComponent(true, &messenger_);
+	healthComponent_ = new PlayerHealthComponent(true, AccessMessenger());
 	AddComponent<IHealthComponent>(healthComponent_);
 }
 
@@ -158,15 +158,15 @@ Player::~Player()
 
 void Player::StateComponentSubscribeMsg()
 {
-	messenger_.Subscribe(TypeidSystem::GetTypeID<DashInputMsg>(), stateComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<HoriAxisInputMsg>(), stateComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<JumpInputMsg>(), stateComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<ReleaseJumpInputMsg>(), stateComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<AttackInputMsg>(), stateComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<SetIsDamagedConditionMsg>(), stateComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<SetIsDeadConditionMsg>(), stateComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<SetIsClearConditionMsg>(), stateComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartStageClearSemMsg>(), stateComponent_);
+	Subscribe(TypeidSystem::GetTypeID<DashInputMsg>(), stateComponent_);
+	Subscribe(TypeidSystem::GetTypeID<HoriAxisInputMsg>(), stateComponent_);
+	Subscribe(TypeidSystem::GetTypeID<JumpInputMsg>(), stateComponent_);
+	Subscribe(TypeidSystem::GetTypeID<ReleaseJumpInputMsg>(), stateComponent_);
+	Subscribe(TypeidSystem::GetTypeID<AttackInputMsg>(), stateComponent_);
+	Subscribe(TypeidSystem::GetTypeID<SetIsDamagedConditionMsg>(), stateComponent_);
+	Subscribe(TypeidSystem::GetTypeID<SetIsDeadConditionMsg>(), stateComponent_);
+	Subscribe(TypeidSystem::GetTypeID<SetIsClearConditionMsg>(), stateComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartStageClearSemMsg>(), stateComponent_);
 }
 
 void Player::Init()
@@ -187,35 +187,35 @@ void Player::Init()
 	SetComponentPriority<ICombatStatusComponent>(11);
 	SetComponentPriority<IHealthComponent>(12);
 
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartHurtSemMsg>(), healthComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartHurtSemMsg>(), healthComponent_);
 
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartKnockBackSemMsg>(), collisionComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<EndKnockBackSemMsg>(), collisionComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartKnockBackSemMsg>(), collisionComponent_);
+	Subscribe(TypeidSystem::GetTypeID<EndKnockBackSemMsg>(), collisionComponent_);
 
 	StateComponentSubscribeMsg();
 
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartAttackSemMsg>(), equipmentComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartAttackSemMsg>(), equipmentComponent_);
 
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartMoveSemMsg>(), transformComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartMoveSemMsg>(), transformComponent_);
 
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StopJumpSemMsg>(), physicsComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartJumpSemMsg>(), physicsComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartMoveSemMsg>(), physicsComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartIdleSemMsg>(), physicsComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartKnockBackSemMsg>(), physicsComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartAttackSemMsg>(), physicsComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartDashSemMsg>(), physicsComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<EndDashSemMsg>(), physicsComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StopJumpSemMsg>(), physicsComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartJumpSemMsg>(), physicsComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartMoveSemMsg>(), physicsComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartIdleSemMsg>(), physicsComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartKnockBackSemMsg>(), physicsComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartAttackSemMsg>(), physicsComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartDashSemMsg>(), physicsComponent_);
+	Subscribe(TypeidSystem::GetTypeID<EndDashSemMsg>(), physicsComponent_);
 
-	messenger_.Subscribe(TypeidSystem::GetTypeID<EndKnockBackSemMsg>(), combatStatusComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartDashSemMsg>(), combatStatusComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<EndDashSemMsg>(), combatStatusComponent_);
+	Subscribe(TypeidSystem::GetTypeID<EndKnockBackSemMsg>(), combatStatusComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartDashSemMsg>(), combatStatusComponent_);
+	Subscribe(TypeidSystem::GetTypeID<EndDashSemMsg>(), combatStatusComponent_);
 
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartMoveSemMsg>(), animationComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartIdleSemMsg>(), animationComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartMoveSemMsg>(), animationComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartIdleSemMsg>(), animationComponent_);
 
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartJumpSemMsg>(), soundComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<StartKnockBackSemMsg>(), soundComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartJumpSemMsg>(), soundComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartKnockBackSemMsg>(), soundComponent_);
 }
 
 void Player::Update()
@@ -339,7 +339,7 @@ void Player::ResetState()
 		stateComponent_ = nullptr;
 	}
 
-	stateComponent_ = new PlayerStateComponent(true,&messenger_,this);
+	stateComponent_ = new PlayerStateComponent(true, AccessMessenger(),this);
 }
 
 int Player::GetRemainingInvincibleFrames() const
@@ -355,13 +355,18 @@ void Player::ResetPlayer()
 
 	if (statementComponent)
 	{
-		messenger_.Unsubscribe(stateComponent_);
-		IStateComponent* newComp = new PlayerStateComponent(true, &messenger_, this);
+		Unsubscribe(stateComponent_);
+		IStateComponent* newComp = new PlayerStateComponent(true, AccessMessenger(), this);
 		stateComponent_ = newComp;
 		SetComponent<IStateComponent>(stateComponent_);
 		StateComponentSubscribeMsg();
 		stateComponent_->Init();
 	}
+}
+
+void Player::HandleMessage(const IEventMessage& _msg)
+{
+		
 }
 
 float Player::GetNormalizedHp() const

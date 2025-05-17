@@ -331,6 +331,15 @@
     <Filter Include="ソース ファイル\Event\Message\AnimationMsg">
       <UniqueIdentifier>{f7782354-3117-4cff-a9bd-d70001659f0a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\GameObjectMng">
+      <UniqueIdentifier>{1450260f-6b74-4122-b21b-3490770d75f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\World">
+      <UniqueIdentifier>{33eea764-bea5-4b33-b2c2-06fd0bd48afc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\World">
+      <UniqueIdentifier>{52cbe5d6-1e67-4b09-8d39-11453af47caf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\App.cpp">
@@ -347,9 +356,6 @@
     </ClCompile>
     <ClCompile Include="Source\Enemy\Slime.cpp">
       <Filter>ソース ファイル\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameObjectMng\GameObjectMng.cpp">
-      <Filter>ソース ファイル\GameObjectMng</Filter>
     </ClCompile>
     <ClCompile Include="Source\Goal\Goal.cpp">
       <Filter>ソース ファイル\Goal</Filter>
@@ -690,6 +696,18 @@
     <ClCompile Include="src\GameObject\Equipment\Weapon\Weapon.cpp">
       <Filter>ソース ファイル\GameObject\Equipment\Weapon</Filter>
     </ClCompile>
+    <ClCompile Include="src\GameObject\CharacterObject.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\DetachableObject.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObjectMng\GameObjectMng.cpp">
+      <Filter>ソース ファイル\GameObjectMng</Filter>
+    </ClCompile>
+    <ClCompile Include="src\World\World.cpp">
+      <Filter>ソース ファイル\World</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\App.h">
@@ -712,9 +730,6 @@
     </ClInclude>
     <ClInclude Include="Source\Enemy\Slime.h">
       <Filter>ソース ファイル\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\GameObjectMng\GameObjectMng.h">
-      <Filter>ソース ファイル\GameObjectMng</Filter>
     </ClInclude>
     <ClInclude Include="Source\Goal\Goal.h">
       <Filter>ソース ファイル\Goal</Filter>
@@ -1106,9 +1121,6 @@
     <ClInclude Include="include\Component\Sword\ExecutorComponent\Class\SwordTransformComponent.h">
       <Filter>ヘッダー ファイル\Component\Sword\ExecutorComponent\Class</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameObject\Equipment\Weapon\Sword.h">
-      <Filter>ヘッダー ファイル\GameObject\Equipment\Weapon</Filter>
-    </ClInclude>
     <ClInclude Include="include\GameObject\Equipment\EquipmentDef.h">
       <Filter>ヘッダー ファイル\GameObject\Equipment</Filter>
     </ClInclude>
@@ -1178,9 +1190,6 @@
     <ClInclude Include="include\GameObject\Equipment\Equipment.h">
       <Filter>ヘッダー ファイル\GameObject\Equipment</Filter>
     </ClInclude>
-    <ClInclude Include="src\GameObject\GameObjectDef.h">
-      <Filter>ヘッダー ファイル\GameObject</Filter>
-    </ClInclude>
     <ClInclude Include="include\Event\Message\AnimationMsg\SwordAnimationBeginMsg.h">
       <Filter>ヘッダー ファイル\Event\Message\AnimationMsg</Filter>
     </ClInclude>
@@ -1217,9 +1226,6 @@
     <ClInclude Include="include\Event\Message\SemanticMsg\StartStageClearSemMsg.h">
       <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameObject\Equipment\Weapon\Weapon.h">
-      <Filter>ヘッダー ファイル\GameObject\Equipment\Weapon</Filter>
-    </ClInclude>
     <ClInclude Include="include\GameObject\Equipment\Weapon\IWeaponView.h">
       <Filter>ヘッダー ファイル\GameObject\Equipment\Weapon</Filter>
     </ClInclude>
@@ -1228,6 +1234,42 @@
     </ClInclude>
     <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\ISoundComponent.h">
       <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObjectMng\GameObjectMng.h">
+      <Filter>ヘッダー ファイル\GameObjectMng</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\StaticObject.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\InteractiveObject.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\DetachableObject.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\CharacterObject.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\UIObject.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\GameObjectDef.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\IDetachableObject.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\IStaticObject.h">
+      <Filter>ヘッダー ファイル\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\Equipment\Weapon\Sword.h">
+      <Filter>ヘッダー ファイル\GameObject\Equipment\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\Equipment\Weapon\Weapon.h">
+      <Filter>ヘッダー ファイル\GameObject\Equipment\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="include\World\World.h">
+      <Filter>ヘッダー ファイル\World</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -12,7 +12,7 @@ private:
 public:
 	explicit Messenger(MessageBus* _bus);
 
-	void SendMsg(const IEventMessage& _message) const override;
+	void SendMsg(const IEventMessage& _msg) const override;
 
 	void Subscribe(MsgType _msgType, IMessageListener* _listener) override;
 

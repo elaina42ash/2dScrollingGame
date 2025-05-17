@@ -1,6 +1,8 @@
 ﻿#pragma once
 #include "Weapon.h"
 
+#pragma warning(push)
+#pragma warning(disable:4250)
 class Sword : public Weapon
 {
 public:
@@ -27,5 +29,6 @@ public:
 private:
 	void InitializeSwordComponents();
 };
+#pragma warning(pop)
 
 

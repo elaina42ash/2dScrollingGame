@@ -14,7 +14,7 @@
 #include "Component/Common/SensorLogicalComponent/Interface/ICollisionComponent.h"
 #include "Component/Common/SensorLogicalComponent/Interface/IGroundSensorComponent.h"
 #include "Component/Common/SensorLogicalComponent/Interface/ITileMapSensorComponent.h"
-#include "GameObject/GameObject.h"
+#include "GameObject/CharacterObject.h"
 
 // コリジョンクラスの名前空間を使う
 using namespace Fwk::Collision;
@@ -23,7 +23,7 @@ using namespace Fwk::Collision;
 // 向きの定数を使うのでinclude
 #include "GameDef.h"
 
-class Player : public GameObject , public IPlayerView,public IEquipOwnerView
+class Player : public CharacterObject , public IPlayerView,public IEquipOwnerView
 {
 private:
 	IInputComponent* inputComponent_ = nullptr;
@@ -107,4 +107,6 @@ public:
 	int GetRemainingInvincibleFrames() const override;
 
 	void ResetPlayer();
+
+	void HandleMessage(const IEventMessage& _msg) override;
 };

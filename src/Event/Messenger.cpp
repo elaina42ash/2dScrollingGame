@@ -5,12 +5,12 @@ Messenger::Messenger(MessageBus* _bus): bus_(_bus)
 {
 }
 
-void Messenger::SendMsg(const IEventMessage& _message) const
+void Messenger::SendMsg(const IEventMessage& _msg) const
 {
 	if (!bus_)
 		return;
 
-	bus_->Publish(_message);
+	bus_->Publish(_msg);
 }
 
 void Messenger::Subscribe(MsgType _msgType, IMessageListener* _listener)

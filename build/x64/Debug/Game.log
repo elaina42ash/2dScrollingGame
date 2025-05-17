@@ -1,3 +1,76 @@
-﻿  Equipment.cpp
-  Game.vcxproj -> D:\MyProject\2dScrollingGame\実行ファイル\Debug(x64)\Game.exe
-  复制了 0 个文件
+﻿  App.cpp
+  Onibi.cpp
+D:\MyProject\2dScrollingGame\Source\Enemy\Onibi.cpp(55,23): error C3861: “GetPlayer”: 找不到标识符
+  Skull.cpp
+D:\MyProject\2dScrollingGame\Source\Enemy\Skull.cpp(89,18): error C3861: “GetMap”: 找不到标识符
+D:\MyProject\2dScrollingGame\Source\Enemy\Skull.cpp(97,27): error C3861: “GetMap”: 找不到标识符
+D:\MyProject\2dScrollingGame\Source\Enemy\Skull.cpp(97,16): error C2737: “tileSize”: 必须初始化 const 对象
+D:\MyProject\2dScrollingGame\Source\Enemy\Skull.cpp(120,23): error C3861: “GetPlayer”: 找不到标识符
+D:\MyProject\2dScrollingGame\Source\Enemy\Skull.cpp(204,2): error C3861: “GetEnemyMng”: 找不到标识符
+  Slime.cpp
+D:\MyProject\2dScrollingGame\Source\Enemy\Slime.cpp(147,7): error C3861: “GetMap”: 找不到标识符
+D:\MyProject\2dScrollingGame\Source\Enemy\Slime.cpp(163,7): error C3861: “GetMap”: 找不到标识符
+  GamePlayData.cpp
+  SceneInGame.cpp
+D:\MyProject\2dScrollingGame\Source\Scene\SceneInGame.cpp(20,2): error C3861: “GameObjectInit”: 找不到标识符
+D:\MyProject\2dScrollingGame\Source\Scene\SceneInGame.cpp(38,2): error C3861: “GameObjectTerm”: 找不到标识符
+D:\MyProject\2dScrollingGame\Source\Scene\SceneInGame.cpp(52,2): error C3861: “GameObjectUpdate”: 找不到标识符
+D:\MyProject\2dScrollingGame\Source\Scene\SceneInGame.cpp(55,19): error C3861: “GetPlayer”: 找不到标识符
+D:\MyProject\2dScrollingGame\Source\Scene\SceneInGame.cpp(75,2): error C3861: “GameObjectRender”: 找不到标识符
+  SceneMng.cpp
+  SceneTitle.cpp
+D:\MyProject\2dScrollingGame\Source\Scene\SceneTitle.cpp(51,7): error C3861: “GetPlayer”: 找不到标识符
+D:\MyProject\2dScrollingGame\Source\Scene\SceneTitle.cpp(53,4): error C3861: “ResetPlayer”: 找不到标识符
+  Tilemap.cpp
+  Component.cpp
+  DecisionLogicalComponent.cpp
+  StateComponent.cpp
+  AnimationComponent.cpp
+  CombatStatusComponent.cpp
+  EquipmentComponent.cpp
+  ExecutorComponent.cpp
+D:\MyProject\2dScrollingGame\src\Component\Common\ExecutorComponent\ExecutorComponent.cpp(55,31): warning C4101: “e”: 未引用的局部变量
+  HealthComponent.cpp
+  MovementComponent.cpp
+  PhysicsComponent.cpp
+  SoundComponent.cpp
+  正在生成代码...
+  正在编译...
+  TransformComponent.cpp
+  InputComponent.cpp
+  InputLogicalComponent.cpp
+  CeilingSensorComponent.cpp
+  CollisionComponent.cpp
+  GroundSensorComponent.cpp
+  SensorLogicalComponent.cpp
+  TileMapSensorComponent.cpp
+  PlayerStateComponent.cpp
+  PlayerAnimationComponent.cpp
+  PlayerCombatStatusComponent.cpp
+  PlayerEquipmentComponent.cpp
+  PlayerHealthComponent.cpp
+  PlayerMovementComponent.cpp
+D:\MyProject\2dScrollingGame\src\Component\Player\ExecutorComponent\PlayerMovementComponent.cpp(36,21): error C3861: “GetMap”: 找不到标识符
+  PlayerPhysicsComponent.cpp
+  PlayerSoundComponent.cpp
+  PlayerTransformComponent.cpp
+  PlayerInputComponent.cpp
+  PlayerCeilingSensorComponent.cpp
+  PlayerCollisionComponent.cpp
+  正在生成代码...
+  正在编译...
+  PlayerGroundSensorComponent.cpp
+  PlayerTileMapSensorComponent.cpp
+D:\MyProject\2dScrollingGame\src\Component\Player\SensorLogicalComponent\PlayerTileMapSensorComponent.cpp(47,10): error C3861: “GetMap”: 找不到标识符
+D:\MyProject\2dScrollingGame\src\Component\Player\SensorLogicalComponent\PlayerTileMapSensorComponent.cpp(49,10): error C3861: “GetMap”: 找不到标识符
+  SwordAnimationComponent.cpp
+  SwordSoundComponent.cpp
+  SwordTransformComponent.cpp
+  SwordCollisionComponent.cpp
+  CharacterObject.cpp
+  Sword.cpp
+  Weapon.cpp
+  GameObject.cpp
+  Player.cpp
+  Transition.cpp
+  正在生成代码...

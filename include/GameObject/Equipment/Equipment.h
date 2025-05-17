@@ -4,6 +4,8 @@
 #include "Inject.h"
 #include "GameObject/GameObject.h"
 
+#pragma warning(push)
+#pragma warning(disable:4250)
 class Equipment :public GameObject,public IEquipment
 {
 private:
@@ -30,3 +32,4 @@ protected:
 private:
 	void SetEquipmentStatus(const EquipmentStatus& _status);
 };
+#pragma warning(pop)

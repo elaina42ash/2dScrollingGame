@@ -27,7 +27,6 @@
     <ClCompile Include="Source\Enemy\Onibi.cpp" />
     <ClCompile Include="Source\Enemy\Skull.cpp" />
     <ClCompile Include="Source\Enemy\Slime.cpp" />
-    <ClCompile Include="Source\GameObjectMng\GameObjectMng.cpp" />
     <ClCompile Include="Source\GamePlayData\GamePlayData.cpp" />
     <ClCompile Include="Source\Goal\Goal.cpp" />
     <ClCompile Include="Source\main.cpp" />
@@ -107,6 +106,9 @@
     <ClCompile Include="src\Event\Message\StateMsg\SetIsDeadConditionMsg.cpp" />
     <ClCompile Include="src\Event\Messenger.cpp" />
     <ClCompile Include="src\GameMath.cpp" />
+    <ClCompile Include="src\GameObjectMng\GameObjectMng.cpp" />
+    <ClCompile Include="src\GameObject\CharacterObject.cpp" />
+    <ClCompile Include="src\GameObject\DetachableObject.cpp" />
     <ClCompile Include="src\GameObject\Equipment\Equipment.cpp" />
     <ClCompile Include="src\GameObject\Equipment\Weapon\Sword.cpp" />
     <ClCompile Include="src\GameObject\Equipment\Weapon\Weapon.cpp" />
@@ -138,6 +140,7 @@
     <ClCompile Include="src\StateMachine\State\State.cpp" />
     <ClCompile Include="src\StateMachine\Transition\Transition.cpp" />
     <ClCompile Include="src\Timer\Timer.cpp" />
+    <ClCompile Include="src\World\World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Animation\AnimationDef.h" />
@@ -226,6 +229,9 @@
     <ClInclude Include="include\Event\Message\StateMsg\SetIsDeadConditionMsg.h" />
     <ClInclude Include="include\Event\Messenger.h" />
     <ClInclude Include="include\GameMath.h" />
+    <ClInclude Include="include\GameObjectMng\GameObjectMng.h" />
+    <ClInclude Include="include\GameObject\CharacterObject.h" />
+    <ClInclude Include="include\GameObject\DetachableObject.h" />
     <ClInclude Include="include\GameObject\Equipment\Equipment.h" />
     <ClInclude Include="include\GameObject\Equipment\EquipmentDef.h" />
     <ClInclude Include="include\GameObject\Equipment\IEquipment.h" />
@@ -236,7 +242,13 @@
     <ClInclude Include="include\GameObject\Equipment\Weapon\Weapon.h" />
     <ClInclude Include="include\GameObject\Equipment\Weapon\WeaponDef.h" />
     <ClInclude Include="include\GameObject\GameObject.h" />
+    <ClInclude Include="include\GameObject\GameObjectDef.h" />
+    <ClInclude Include="include\GameObject\IDetachableObject.h" />
     <ClInclude Include="include\GameObject\IGameObject.h" />
+    <ClInclude Include="include\GameObject\InteractiveObject.h" />
+    <ClInclude Include="include\GameObject\IStaticObject.h" />
+    <ClInclude Include="include\GameObject\StaticObject.h" />
+    <ClInclude Include="include\GameObject\UIObject.h" />
     <ClInclude Include="include\IEquipOwnerView.h" />
     <ClInclude Include="include\IInputCacheProvider .h" />
     <ClInclude Include="include\Inject.h" />
@@ -292,6 +304,7 @@
     <ClInclude Include="include\Timer\ITimer.h" />
     <ClInclude Include="include\Timer\Timer.h" />
     <ClInclude Include="include\TypeID.h" />
+    <ClInclude Include="include\World\World.h" />
     <ClInclude Include="Source\App.h" />
     <ClInclude Include="Source\AppDef.h" />
     <ClInclude Include="Source\Enemy\Enemy.h" />
@@ -302,7 +315,6 @@
     <ClInclude Include="Source\Enemy\Skull.h" />
     <ClInclude Include="Source\Enemy\Slime.h" />
     <ClInclude Include="Source\GameDef.h" />
-    <ClInclude Include="Source\GameObjectMng\GameObjectMng.h" />
     <ClInclude Include="Source\GamePlayData\GamePlayData.h" />
     <ClInclude Include="Source\Goal\Goal.h" />
     <ClInclude Include="Source\Mst\StageData.h" />
@@ -318,7 +330,6 @@
     <ClInclude Include="Source\UI\HpGauge.h" />
     <ClInclude Include="Source\UI\HpGauge2.h" />
     <ClInclude Include="Source\UI\UIMng.h" />
-    <ClInclude Include="src\GameObject\GameObjectDef.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

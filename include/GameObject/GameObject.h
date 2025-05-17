@@ -6,17 +6,24 @@
 #include "IGameObject.h"
 #include "Component/Common/IComponent.h"
 #include "Event/Messenger.h"
-class GameObject : virtual public IGameObject
+#include "Event/Listener/IMessageListener.h"
+
+class GameObject : virtual public IGameObject,public IMessageListener
 {
 private:
-	MessageBus messageBus_;
-
 	std::unordered_map<std::type_index, IComponent*> components_;
 
 	std::vector<IComponent*> sortedComponents_;
 
-protected:
+	MessageBus messageBus_;
+
 	Messenger messenger_;
+
+	bool isActive_ = false;
+
+	const char* tag_ = "";
+
+	bool isDestroyed_ = false;
 public:
 	GameObject();
 
@@ -27,6 +34,20 @@ public:
 	void Render() override;
 
 	void Term() override;
+
+	bool GetActive() const override final;
+
+	void Enable() override final;
+
+	void Disable() override final;
+
+	void SetTag(const char* _tag) override final;
+
+	const char* GetTag() const override final;
+
+	bool IsMarkedToDestroy() const override final;
+
+	void MarkToDestroy() override final;
 
 	template<typename T>
 	void AddComponent(T* _comp);
@@ -44,8 +65,22 @@ public:
 	void SetComponentPriority(int p);
 
 	void ResortComponents();
+
+protected:
+	void SendMsg(const IEventMessage& _msg);
+
+	void Subscribe(size_t _msgType, IMessageListener* _listener);
+
+	void Unsubscribe(size_t _msgType, IMessageListener* _listener);
+
+	void Unsubscribe(IMessageListener* _listener);
+
+	Messenger* AccessMessenger();
+
 private:
 	void ApplyActiveChanges();
+
+	void SetActive(bool _isActive);
 };
 
 template <typename T>
@@ -94,7 +129,7 @@ void GameObject::RemoveComponent()
 			delete comp;
 			comp = nullptr;
 		}
-			
+
 	}
 
 	ResortComponents();
@@ -108,8 +143,8 @@ void GameObject::SetComponent(T* _new)
 	if (!_new)
 		return;
 
-	RemoveComponent<T>(); 
-	AddComponent<T>(_new);   
+	RemoveComponent<T>();
+	AddComponent<T>(_new);
 }
 
 template <typename T>

@@ -99,8 +99,14 @@ void Tilemap::Update()
 			float v = (float)(id / 16) * h;
 			mSprite[i][n].SetTexCoord(u, v, w, h);
 
-			// 表示設定をしておく
-			mSprite[i][n].SetVisible(true);
+			if (id == 0)
+			{
+				mSprite[i][n].SetVisible(false);
+			}
+			else
+			{
+				mSprite[i][n].SetVisible(true); // 表示設定をしておく
+			}
 		}
 	}
 }

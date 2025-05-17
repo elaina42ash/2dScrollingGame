@@ -1,8 +1,9 @@
 ﻿#pragma once
-#include "IComponent.h"
 #include "Inject.h"
-#include "Timer/Timer.h"
 #include "GameObject/GameObject.h"
+#include "Timer/Timer.h"
+
+
 class Component :virtual public IComponent
 {
 	friend GameObject;

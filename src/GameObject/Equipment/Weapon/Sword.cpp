@@ -50,12 +50,12 @@ void Sword::Init()
 {
 	Weapon::Init();
 
-	messenger_.Subscribe(TypeidSystem::GetTypeID<SwordAnimationCompletedMsg>(), this);
+	Subscribe(TypeidSystem::GetTypeID<SwordAnimationCompletedMsg>(), this);
 
-	messenger_.Subscribe(TypeidSystem::GetTypeID<SwordAnimationKeyframeMsg>(), collisionComponent_);
-	messenger_.Subscribe(TypeidSystem::GetTypeID<SwordAnimationCompletedMsg>(), collisionComponent_);
+	Subscribe(TypeidSystem::GetTypeID<SwordAnimationKeyframeMsg>(), collisionComponent_);
+	Subscribe(TypeidSystem::GetTypeID<SwordAnimationCompletedMsg>(), collisionComponent_);
 
-	messenger_.Subscribe(TypeidSystem::GetTypeID<SwordAnimationBeginMsg>(), soundComponent_);
+	Subscribe(TypeidSystem::GetTypeID<SwordAnimationBeginMsg>(), soundComponent_);
 }
 
 void Sword::Update()
@@ -120,12 +120,12 @@ void Sword::HandleMessage(const IEventMessage& _msg)
 
 void Sword::InitializeSwordComponents()
 {
-	transformComponent_ = new SwordTransformComponent(false, this, equipOwnerView_.Injected(), &messenger_);
+	transformComponent_ = new SwordTransformComponent(false, this, equipOwnerView_.Injected(), AccessMessenger());
 	AddComponent<ITransformComponent>(transformComponent_);
-	collisionComponent_ = new SwordCollisionComponent(false, &messenger_, this);
+	collisionComponent_ = new SwordCollisionComponent(false, AccessMessenger(), this);
 	AddComponent<ICollisionComponent>(collisionComponent_);
-	animationComponent_ = new SwordAnimationComponent(false, &messenger_, this);
+	animationComponent_ = new SwordAnimationComponent(false, AccessMessenger(), this);
 	AddComponent<IAnimationComponent>(animationComponent_);
-	soundComponent_ = new SwordSoundComponent(false, this, &messenger_);
+	soundComponent_ = new SwordSoundComponent(false, this, AccessMessenger());
 	AddComponent<ISoundComponent>(soundComponent_);
 }

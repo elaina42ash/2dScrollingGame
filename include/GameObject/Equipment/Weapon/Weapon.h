@@ -8,7 +8,9 @@
 #include "GameObject/Equipment/Equipment.h"
 
 
-class Weapon : public Equipment, public IWeapon, public IWeaponView, public IMessageListener
+#pragma warning(push)
+#pragma warning(disable:4250)
+class Weapon : public Equipment, public IWeapon, public IWeaponView
 {
 protected:
 	ITransformComponent* transformComponent_ = nullptr;
@@ -56,3 +58,4 @@ protected:
 
 	explicit Weapon(IEquipOwnerView* _equipOwnerView);
 };
+#pragma warning(pop)
