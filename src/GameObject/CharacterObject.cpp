@@ -22,3 +22,7 @@ void CharacterObject::Term()
 	GameObject::Term();
 }
 
+void CharacterObject::InjectEnvironment(IEnvironmentQuery* _environmentQuery)
+{
+	environmentQuery_.Bind(_environmentQuery);
+}

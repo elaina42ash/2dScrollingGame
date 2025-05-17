@@ -1,13 +1,12 @@
 ﻿#include "Enemy.h"
-
-// CollisionManagerを使うのでinclude
 #include "Collision/CollisionDef.h"
 #include "Fwk/Framework.h"
-
+#include "GameObjectMng/GameObjectMng.h"
 
 // 初期化
 void Enemy::Init()
 {
+	CharacterObject::Init();
 	// 状態をアクティブに
 	mIsActive = true;
 
@@ -20,15 +19,15 @@ void Enemy::Init()
 	// コリジョンの設定(共通の項目のみ)
 	{
 		// 自分は敵グループのコリジョン
-		mCollision.SetGroup((int)CollisionGroup::ENEMY);
+		collision_.SetGroup((int)CollisionGroup::ENEMY);
 		// 衝突対象にプレイヤーグループのコリジョンを追加
-		mCollision.AddHitGroup((int)CollisionGroup::PLAYER);
+		collision_.AddHitGroup((int)CollisionGroup::PLAYER);
 		// コリジョンのオーナーに自分を設定
-		mCollision.SetOwner(this);
+		collision_.SetOwner(this);
 		// コリジョンを活性状態にしておく
-		mCollision.SetActive(true);
+		collision_.SetActive(true);
 		// コリジョンマネージャにコリジョンを登録
-		CollisionManager_I->Register(&mCollision);
+		CollisionManager_I->Register(&collision_);
 	}
 
 	// ダメージ時に付ける赤色
@@ -38,8 +37,9 @@ void Enemy::Init()
 // 後片付け
 void Enemy::Term()
 {
+	CharacterObject::Term();
 	// コリジョンマネージから登録解除
-	CollisionManager_I->Unregister(&mCollision);
+	CollisionManager_I->Unregister(&collision_);
 
 	mSprite.Term();
 	mTexture.Unload();
@@ -53,12 +53,13 @@ void Enemy::Term()
 // 更新
 void Enemy::Update()
 {
+	CharacterObject::Update();
 	// スプライトを更新
 	mSprite.Update();
 	// スプライトの位置を更新
 	mSprite.SetPosition(mPosition);
 	// コリジョンの位置を更新
-	mCollision.SetPosition(mPosition);
+	collision_.SetPosition(mPosition);
 
 	// ダメージ時に加算する色（赤）の強さが0でなければ
 	if (mDamagedColor > 0.0f)
@@ -78,6 +79,7 @@ void Enemy::Update()
 // 描画
 void Enemy::Render()
 {
+	CharacterObject::Render();
 	// アクティブでなければ描画処理は行わない
 	if (!IsActive())
 	{
@@ -93,14 +95,6 @@ bool Enemy::IsActive()
 	return mIsActive;
 }
 
-// アクティブ状態の設定
-void Enemy::SetActive(bool isActive)
-{
-	mIsActive = isActive;
-	// コリジョンも合わせておく
-	mCollision.SetActive(isActive);
-}
-
 // 現在位置を取得
 Vector2f Enemy::GetPosition()
 {
@@ -114,7 +108,7 @@ void Enemy::SetPosition(Vector2f position)
 	mPosition = position;
 	mSprite.SetPosition(mPosition);
 	// コリジョンの位置も更新
-	mCollision.SetPosition(mPosition);
+	collision_.SetPosition(mPosition);
 }
 
 // ダメージを受ける
@@ -123,7 +117,8 @@ void Enemy::OnDamaged(int damage)
 	mHP -= damage;
 	if (mHP < 0)
 	{
-		SetActive(false);
+		Disable();
+		collision_.SetActive(false);
 		// やられたときに呼びされる
 		// （派生クラスでOnDefeated上書きしていた場合にその関数が呼ばれる）
 		OnDefeated();
@@ -139,6 +134,21 @@ void Enemy::OnDamaged(int damage)
 // 派生クラスで上書きして使う
 void Enemy::OnCreated()
 {
+}
+
+void Enemy::EnableCollision()
+{
+	collision_.SetActive(true);
+}
+
+void Enemy::DisableCollision()
+{
+	collision_.SetActive(false);
+}
+
+void Enemy::InjectGameObjectMng(GameObjectMng* _gameObjectMng)
+{
+	gameObjectMng_.Bind(_gameObjectMng);
 }
 
 // やられたときに呼びされる

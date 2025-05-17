@@ -48,11 +48,6 @@ void SceneTitle::Update() {
 
 		GetGamePlayData().SetStageNo(0);
 
-		if (GetPlayer())
-		{
-			ResetPlayer();
-		}
-
 		// "次のシーン"にInGameを設定する
 		mNextScene = SceneType::InGame;
 	}

@@ -5,12 +5,8 @@
 
 #include <Windows.h>
 #include <Fwk/Framework.h>
-#include <Lib/Util/Log.h>
-#include <Fwk/Graphics/Font.h>
-
-#include "App.h"
 #include "AppDef.h"
-
+#include "World/World.h"
 
 
 LRESULT WndProc(HWND hwnd, UINT msg, WPARAM wp, LPARAM lp)
@@ -66,8 +62,8 @@ int WINAPI WinMain(HINSTANCE,HINSTANCE,LPSTR,int)
 
 	//終了時にappのデストラクタが先に走る様にしておく為に{}しておく
 	{
-		App app;
-		app.Init();
+		World& world=WORLD_I;
+		world.Init();
 
 		MSG msg = {};
 		while (msg.message != WM_QUIT)
@@ -78,10 +74,10 @@ int WINAPI WinMain(HINSTANCE,HINSTANCE,LPSTR,int)
 			}
 
 			Framework_I->Update();
-			app.Update();
+			world.Update();
 			Framework_I->LateUpdate();
 
-			app.Render();
+			world.Render();
 			Framework_I->Render();
 
 			Framework_I->FrameSync();
@@ -91,7 +87,7 @@ int WINAPI WinMain(HINSTANCE,HINSTANCE,LPSTR,int)
 		RenderManager_I->SyncGpuProc();
 
 		//appの終了処理
-		app.Term();
+		world.Term();
 	}
 
 	Framework_I->Term();

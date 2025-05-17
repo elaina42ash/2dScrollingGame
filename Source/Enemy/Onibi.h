@@ -14,6 +14,9 @@ public:
 	void Term() override;
 	// 生成された時に呼び出される
 	void OnCreated() override;
+
+	void HandleMessage(const IEventMessage& _msg) override;
+
 private:
 
 	// アニメーションの初期化

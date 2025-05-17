@@ -2,6 +2,7 @@
 
 // シーン種別の列挙型を使うので#include
 #include "GameDef.h"
+#include "GameObjectMng/GameObjectMng.h"
 
 // シーンクラス
 class Scene {
@@ -19,6 +20,7 @@ public:
 
 	bool NeedReload() const;
 
+	GameObjectMng gameObjectMng_;
 protected:
 	// 次のシーン
 	SceneType mNextScene;

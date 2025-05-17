@@ -7,6 +7,7 @@
 #include "GamePlayData/GamePlayData.h"
 // ステージ情報マスタ
 #include "Mst/StageDataMst.h"
+#include "World/World.h"
 
 // 初期化
 void SceneInGame::Init()
@@ -17,7 +18,7 @@ void SceneInGame::Init()
 	StageData* pStageData = GetStageDataMst().Get(0);
 
 	// ゲームオブジェクトの初期化
-	GameObjectInit(pStageData);
+	gameObjectMng_.Init(pStageData);
 
 	
 	// BGMファイルの読み込み
@@ -35,7 +36,7 @@ void SceneInGame::Init()
 void SceneInGame::Term()
 {
 	// ゲームオブジェクトの解放
-	GameObjectTerm();
+	gameObjectMng_.Term();
 
 	// BGMを停止
 	mSoundSource.Stop();
@@ -49,10 +50,10 @@ void SceneInGame::Term()
 void SceneInGame::Update()
 {
 	// ゲームオブジェクトの更新
-	GameObjectUpdate();
+	gameObjectMng_.Update();
 
 	// プレイヤーを取得
-	Player* player = GetPlayer();
+	Player* player = WORLD_I.AccessMainPlayer();
 
 	if (player)
 	{
@@ -72,7 +73,7 @@ void SceneInGame::Update()
 void SceneInGame::Render()
 {
 	// ゲームオブジェクトの描画
-	GameObjectRender();
+	gameObjectMng_.Render();
 
 }
 

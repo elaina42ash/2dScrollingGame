@@ -340,11 +340,14 @@
     <Filter Include="ソース ファイル\World">
       <UniqueIdentifier>{52cbe5d6-1e67-4b09-8d39-11453af47caf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\SceneMng">
+      <UniqueIdentifier>{57f3384b-519d-4ecd-a0aa-abd9fe8803a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\SceneMng">
+      <UniqueIdentifier>{a50d5bfc-a48c-4e17-a2b4-bfdb554eaa40}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\App.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Source\Enemy\Enemy.cpp">
       <Filter>ソース ファイル\Enemy</Filter>
     </ClCompile>
@@ -370,9 +373,6 @@
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Source\Scene\SceneInGame.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Scene\SceneMng.cpp">
       <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Source\Scene\SceneTitle.cpp">
@@ -708,11 +708,11 @@
     <ClCompile Include="src\World\World.cpp">
       <Filter>ソース ファイル\World</Filter>
     </ClCompile>
+    <ClCompile Include="src\SceneMng\SceneMng.cpp">
+      <Filter>ソース ファイル\SceneMng</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\App.h">
-      <Filter>ソース ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Source\AppDef.h">
       <Filter>ソース ファイル</Filter>
     </ClInclude>
@@ -744,9 +744,6 @@
       <Filter>ソース ファイル\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Source\Scene\SceneInGame.h">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Scene\SceneMng.h">
       <Filter>ソース ファイル\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Source\Scene\SceneTitle.h">
@@ -1270,6 +1267,12 @@
     </ClInclude>
     <ClInclude Include="include\World\World.h">
       <Filter>ヘッダー ファイル\World</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SceneMng\SceneMng.h">
+      <Filter>ヘッダー ファイル\SceneMng</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObjectMng\IEnvironmentQuery.h">
+      <Filter>ヘッダー ファイル\GameObjectMng</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

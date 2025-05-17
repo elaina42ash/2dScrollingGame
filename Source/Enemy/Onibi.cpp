@@ -5,6 +5,7 @@
 
 // プレイヤーの位置を参照するのでinclude
 #include "GameObjectMng/GameObjectMng.h"
+#include "World/World.h"
 
 // 初期化
 void Onibi::Init()
@@ -32,12 +33,12 @@ void Onibi::Init()
 	// コリジョンの設定
 	{
 		// コリジョンにタグを設定
-		mCollision.SetTag("Onibi");
+		collision_.SetTag("Onibi");
 
-		mCollision.SetPosition(400,-1400);
+		collision_.SetPosition(400,-1400);
 
 		// コリジョンの形状を指定（中心位置はmPositionと同じ、形状は円で）
-		mCollision.SetCircle(0.0f, 0.0f, 20.0f);
+		collision_.SetCircle(0.0f, 0.0f, 20.0f);
 	}
 	// HPを設定
 	mHP = 3;
@@ -52,7 +53,11 @@ void Onibi::Update() {
 	}
 
 	// プレイヤーの位置
-	Vector2f playerPos = GetPlayer()->GetPosition();
+	Player* player = WORLD_I.AccessMainPlayer();
+	Vector2f playerPos ={0.0f,0.0f};
+	if (player)
+		playerPos = player->GetPosition();
+
 	// 現在位置からプレイヤー位置までの向きベクトル
 	Vector2f vDirection = (playerPos - mPosition).GetNormalized();
 	// このフレームでの移動量
@@ -76,6 +81,11 @@ void Onibi::OnCreated()
 {
 	// 体力を初期化
 	mHP = 3;
+}
+
+void Onibi::HandleMessage(const IEventMessage& _msg)
+{
+		
 }
 
 // アニメーションの初期化

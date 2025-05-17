@@ -27,9 +27,9 @@ void Slime::Init()
 	// コリジョン
 	{
 		// コリジョンにタグを設定
-		mCollision.SetTag("Slime");
+		collision_.SetTag("Slime");
 		// コリジョンの形状を指定
-		mCollision.SetRect(0.0f, 0.0f, 40.0f, 40.0f);
+		collision_.SetRect(0.0f, 0.0f, 40.0f, 40.0f);
 
 
 	}
@@ -77,6 +77,11 @@ void Slime::Update() {
 void Slime::Term()
 {
 	Enemy::Term();
+}
+
+void Slime::HandleMessage(const IEventMessage& _msg)
+{
+		
 }
 
 // 落下時の処理
@@ -144,7 +149,7 @@ void Slime::_updateMoving()
 		float CollisionWidth = 1.0f;
 		float CollisionHeight = 40.0f;
 		// 壁に衝突していたら移動方向反転フラグをON
-		if (GetMap()->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight))
+		if (environmentQuery_&& environmentQuery_->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight))
 		{
 			isFlipX = true;
 		}
@@ -160,7 +165,7 @@ void Slime::_updateMoving()
 		float CollisionWidth = 1.0f;
 		float CollisionHeight = 1.0f;
 		// 足元が壁でなければ移動方向反転フラグをON
-		if (GetMap()->IsInsideWallRect(vCheckPos,CollisionWidth,CollisionHeight)==false)
+		if (environmentQuery_&& environmentQuery_->IsInsideWallRect(vCheckPos,CollisionWidth,CollisionHeight)==false)
 		{
 			isFlipX = true;
 		}

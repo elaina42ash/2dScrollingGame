@@ -35,7 +35,7 @@
 Player::Player()
 {
 	
-	transformComponent_ = new PlayerTransformComponent(true,AccessMessenger());
+	transformComponent_ = new PlayerTransformComponent(true, AccessMessenger());
 	AddComponent<ITransformComponent>(transformComponent_);
 
 	tileMapSensorComponent_ = new PlayerTileMapSensorComponent(true, AccessMessenger());
@@ -77,6 +77,7 @@ Player::Player()
 
 Player::~Player()
 {
+
 	if (inputComponent_)
 	{
 		delete inputComponent_;
@@ -173,6 +174,10 @@ void Player::Init()
 {
 	GameObject::Init();
 
+	TileMapSensorComponent* tileMapSensorComponent = dynamic_cast<TileMapSensorComponent*>(tileMapSensorComponent_);
+	if (tileMapSensorComponent)
+		tileMapSensorComponent->InjectEnvironmentQuery(environmentQuery_.Injected());
+
 	SetComponentPriority<ITransformComponent>(0);
 	SetComponentPriority<ITileMapSensorComponent>(1);
 	SetComponentPriority<IGroundSensorComponent>(2);
@@ -231,6 +236,7 @@ void Player::Render()
 void Player::Term()
 {
 	GameObject::Term();
+
 }
 
 Direction Player::GetDirection() const

@@ -6,12 +6,10 @@
 #include "GameObject/IGameObject.h"
 #include "GameObject/IStaticObject.h"
 #include "Mst/StageData.h"
-#include "Player/Player.h"
 #include "Tilemap/Tilemap.h"
 
-class GameObjectMng
+class GameObjectMng : public IEnvironmentQuery
 {
-	using PlayerID = size_t;
 private:
 	std::vector<IGameObject*> allObjects_;
 
@@ -21,21 +19,29 @@ private:
 	std::vector<IGameObject*> mapBoundObjects_;
 	std::vector<IGameObject*> activeMapBoundObjects_;
 
-	std::map<PlayerID, Player*> players_;
-
 	EnemyMng enemyMng_;
 	Tilemap* tilemap_;
 
 public:
 	GameObjectMng() = default;
 
-	void Init(StageData* stageData_);
+	void Init(StageData* _stageData);
 
 	void Update();
 
 	void Render();
 
 	void Term();
+
+	void CreateEnemy(const char* _name,const Vector2f& _pos);
+
+	bool IsInsideWallCircle(const Vector2f& _position,float _radius) const;
+
+	bool IsInsideWallRect(const Vector2f& _position, float _width,float _height) const;
+
+	Vector2f GetMapSize()const;
+
+	float GetTileSize() const;
 
 private:
 
@@ -50,8 +56,6 @@ private:
 	template <typename T>
 	T* CreateGameObject();
 
-	void UnregisterPlayer(Player* _obj);
-
 	void DestroyGameObject(IGameObject* _obj);
 
 	void DestroyAllGameObjects();
@@ -62,17 +66,8 @@ private:
 
 	void RefreshActiveObjects();
 
-	std::map<PlayerID, Player*>& AccessAllPlayers();
-
-	Player* FindPlayer(PlayerID _id);
-
 	template <typename T>
 	void ForEachObjectOfType(std::function<void(T*)> Func);
-
-	// 注册玩家
-	void RegisterPlayer(PlayerID _id, Player* _player);
-
-
 
 	// 激活/冻结对象
 	void SetObjectActive(IGameObject* _obj, bool _active);
@@ -147,7 +142,6 @@ template <typename T>
 T* GameObjectMng::CreateGameObject()
 {
 	static_assert(std::is_base_of<IGameObject, T>::value, "T must derive from IGameObject");
-	static_assert(!std::is_base_of<Player, T>::value, "CreateGameObject<T> cannot be used with Player or its subclasses. Use CreatePlayer() instead.");
 
 	IGameObject* basePtr = new T();
 

@@ -26,6 +26,8 @@ public:
 
 	void Term() override;
 
+	void HandleMessage(const IEventMessage& _msg) override;
+
 private:
 	// 落下時の処理
 	void _updateFalling();
@@ -36,6 +38,9 @@ private:
 	// 状態
 	Status mStatus;
 	// 加速度
+
+
+private:
 	Vector2f mVelocity;
 	// 水平移動時の向き
 	Direction mDirection;

@@ -22,6 +22,8 @@ public:
 
 	void Term() override;
 
+	void HandleMessage(const IEventMessage& _msg) override;
+
 private:
 	// 移動状態の更新処理
 	void _updateMoving();

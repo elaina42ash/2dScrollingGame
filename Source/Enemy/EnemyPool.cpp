@@ -34,7 +34,8 @@ Enemy* EnemyPool::Alloc()
 			// 戻り値にする
 			pResult = mPool[i];
 			// 活性化しておく
-			pResult->SetActive(true);
+			pResult->Enable();
+			pResult->EnableCollision();
 			// ループは抜けてよい
 			break;
 		}

@@ -13,7 +13,6 @@ PlayerMovementComponent::PlayerMovementComponent(IPlayerView* _playerView, IMess
 {
 }
 
-
 void PlayerMovementComponent::Move(const Lib::Math::Vector2f& _velocity)
 {
 #ifdef max
@@ -21,55 +20,54 @@ void PlayerMovementComponent::Move(const Lib::Math::Vector2f& _velocity)
 #endif
 	constexpr float epsilon = 1e-2f;
 
-	if (!collisionComponent_)
-	{
-		cout << "collisionComponent_ is nullptr" << endl;
-		return;
-	}
-	if (!tileMapSensorComponent_)
-	{
-		cout << "tileMapSensorComponent_ is nullptr" << endl;
-		return;
-	}
-
 	// タイルのサイズ
-	Tilemap* tilemap = GetMap();
-	if (!tilemap)
-	{
-		cout << "tilemap not fund" << endl;
-		return;
-	}
-	float TileSize = tilemap->GetTileSize();
+	float TileSize = 0.0f;
+	if (tileMapSensorComponent_)
+		TileSize = tileMapSensorComponent_->GetTileSize();
+
+	Fwk::Collision::ShapeType shapeType = Fwk::Collision::ShapeType::None;
 
 	// プレイヤーのタイルとの衝突幅・高さ
-	float CollisionSize;
-	switch (collisionComponent_->GetShapeType())
+	float CollisionSize = 0.0f;
+	if (collisionComponent_)
 	{
-	case ShapeType::Circle:
-		CollisionSize = collisionComponent_->GetShapeCircle().radius;
-		break;
-	case ShapeType::Rect:
-		CollisionSize = max(collisionComponent_->GetShapeRect().width, collisionComponent_->GetShapeRect().height);
-		break;
-	default:
-		CollisionSize = 0.0f;
-		cout << "ShapeType is None" << endl;
-		return;
+		shapeType = collisionComponent_->GetShapeType();
+		switch (shapeType)
+		{
+		case Fwk::Collision::ShapeType::Circle:
+			CollisionSize = collisionComponent_->GetShapeCircle().radius;
+			break;
+		case Fwk::Collision::ShapeType::Rect:
+			CollisionSize = max(collisionComponent_->GetShapeRect().width, collisionComponent_->GetShapeRect().height);
+			break;
+		default:
+			cout << "ShapeType is None" << endl;
+			return;
+		}
 	}
+
 
 	// コリジョンサイズの半分をよく使うので変数にしておく
 	float CollisionSizeHalf = CollisionSize / 2.0f;
 
+	
+	Vector2f targetPos = { 0.0f ,0.0f };
+
 	// x軸方向の移動処理
-	if (!GameMath::FloatIsZero(_velocity.x))
+	if (transformComponent_ && !GameMath::FloatIsZero(_velocity.x))
 	{
 		// 現在位置に移動ベクトルのx成分を足して移動先の位置とする
-		Vector2f vTargetPos = transformComponent_->GetPosition() + Lib::Math::Vector2f(_velocity.x, 0.0f);
+		targetPos = transformComponent_->GetPosition() + Lib::Math::Vector2f(_velocity.x, 0.0f);
+
+		bool isInsideWall = true;
+		if (tileMapSensorComponent_)
+			isInsideWall = tileMapSensorComponent_->IsInsideWall(targetPos);
+
 		// 壁との衝突チェック
-		if (!tileMapSensorComponent_->IsInsideWall(vTargetPos))
+		if (!isInsideWall)
 		{
 			// 壁に衝突しないのであれば現在位置にそのまま移動先座標を適用してよい
-			transformComponent_->MoveTo(vTargetPos);
+			transformComponent_->MoveTo(targetPos);
 		}
 		else
 		{
@@ -78,7 +76,7 @@ void PlayerMovementComponent::Move(const Lib::Math::Vector2f& _velocity)
 			if (_velocity.x > 0.0f)
 			{
 				// 衝突したタイルの列数を算出
-				int col = (int)((vTargetPos.x + CollisionSizeHalf) / TileSize);
+				int col = (int)((targetPos.x + CollisionSizeHalf) / TileSize);
 				// 衝突したタイルの左端のx座標を作る
 				float tile_left = (float)col * TileSize;
 				// 衝突したタイルの左端と接するようにプレイヤーの位置を調整する
@@ -88,7 +86,7 @@ void PlayerMovementComponent::Move(const Lib::Math::Vector2f& _velocity)
 			if (_velocity.x < 0.0f)
 			{
 				// 衝突したタイルの列数を算出
-				int col = (int)((vTargetPos.x - CollisionSizeHalf) / TileSize);
+				int col = (int)((targetPos.x - CollisionSizeHalf) / TileSize);
 				// 衝突したタイルの右端のx座標を作って
 				float tile_right = (float)col * TileSize + TileSize;
 				// 衝突したタイルの右端に接するようにプレイヤーの位置を調整する
@@ -98,15 +96,20 @@ void PlayerMovementComponent::Move(const Lib::Math::Vector2f& _velocity)
 	}
 
 	// Y軸方向の移動処理
-	if (!GameMath::FloatIsZero(_velocity.y))
+	if (transformComponent_ && !GameMath::FloatIsZero(_velocity.y))
 	{
 		// 現在位置に移動ベクトルのy成分を足して移動先の位置とする
-		Vector2f vTargetPos = transformComponent_->GetPosition() + Vector2f(0.0f, _velocity.y);
+		targetPos = transformComponent_->GetPosition() + Vector2f(0.0f, _velocity.y);
+
+		bool isInsideWall = true;
+		if (tileMapSensorComponent_)
+			isInsideWall = tileMapSensorComponent_->IsInsideWall(targetPos);
+
 		// 壁との衝突チェック
-		if (!tileMapSensorComponent_->IsInsideWall(vTargetPos))
+		if (!isInsideWall)
 		{
 			// 壁に衝突しないのであれば現在位置にそのまま移動先座標を適用
-			transformComponent_->MoveTo(vTargetPos);
+			transformComponent_->MoveTo(targetPos);
 		}
 		else
 		{
@@ -114,11 +117,11 @@ void PlayerMovementComponent::Move(const Lib::Math::Vector2f& _velocity)
 			if (_velocity.y > 0.0f)
 			{
 				// 衝突したタイルの行数を算出
-				int row = static_cast<int>((vTargetPos.y + CollisionSizeHalf) / TileSize);
+				int row = static_cast<int>((targetPos.y + CollisionSizeHalf) / TileSize);
 				// 衝突したタイルの下端のy座標を作って
-				float wall_buttom = static_cast<float>(row) * TileSize - TileSize;
+				float wall_bottom = static_cast<float>(row) * TileSize - TileSize;
 				// 衝突したタイルの下端に接するようにプレイヤーの位置を調整する
-				transformComponent_->MoveTo({ transformComponent_->GetPositionX(), wall_buttom - CollisionSizeHalf - epsilon });
+				transformComponent_->MoveTo({ transformComponent_->GetPositionX(), wall_bottom - CollisionSizeHalf - epsilon });
 				if (physicsComponent_)
 					physicsComponent_->ClearVerticalVelocity();
 			}
@@ -126,7 +129,7 @@ void PlayerMovementComponent::Move(const Lib::Math::Vector2f& _velocity)
 			if (_velocity.y < 0.0f)
 			{
 				// 衝突したタイルの行数を算出
-				int row = static_cast<int>((vTargetPos.y - CollisionSizeHalf) / TileSize);
+				int row = static_cast<int>((targetPos.y - CollisionSizeHalf) / TileSize);
 				// 衝突したタイルの上端のy座標を作って
 				float wall_top = static_cast<float>(row) * TileSize;
 				// 衝突したタイルの上端に接するようにプレイヤーの位置を調整する

@@ -1,11 +1,7 @@
 ﻿#pragma once
-
-// 敵プールクラス
-
-// 可変長配列std::vectorを使う
 #include <vector>
-
 #include "Enemy.h"
+
 
 class EnemyPool {
 public:
@@ -22,7 +18,8 @@ public:
 			// 初期化
 			pNewEnemy->Init();
 			// 最初は非アクティブ
-			pNewEnemy->SetActive(false);
+			pNewEnemy->Disable();
+			pNewEnemy->DisableCollision();
 			// プールにアドレスを記録しておく
 			mPool.push_back(pNewEnemy);
 		}

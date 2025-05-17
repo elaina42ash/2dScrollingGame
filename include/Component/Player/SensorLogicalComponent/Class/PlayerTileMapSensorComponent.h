@@ -21,7 +21,5 @@ public:
 protected:
 	void Reset() override;
 
-private:
-	bool IsInsideWall(Lib::Math::Vector2f _position) const override;
 };
 #pragma warning(pop)

@@ -25,9 +25,9 @@ void Ghost::Init()
 	// コリジョンの設定
 	{
 		// コリジョンにタグを設定
-		mCollision.SetTag("Ghost");
+		collision_.SetTag("Ghost");
 		// コリジョンの形状を指定
-		mCollision.SetCircle(0.0f,0.0f,40.0f);
+		collision_.SetCircle(0.0f,0.0f,40.0f);
 	}
 
 	// HPを設定
@@ -102,4 +102,9 @@ void Ghost::OnCreated()
 {
 	// 開始時の座標を原点として記録しておく
 	mOrigin = mPosition;
+}
+
+void Ghost::HandleMessage(const IEventMessage& _msg)
+{
+
 }

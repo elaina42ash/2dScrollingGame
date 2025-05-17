@@ -5,6 +5,7 @@
 
 // EnemyMngを使うのでinclude
 #include "GameObjectMng/GameObjectMng.h"
+#include "World/World.h"
 
 // 初期化
 void Skull::Init()
@@ -27,9 +28,9 @@ void Skull::Init()
 	// コリジョンの設定
 	{
 		// コリジョンにタグを設定
-		mCollision.SetTag("Skull");
+		collision_.SetTag("Skull");
 		// コリジョンの形状を指定
-		mCollision.SetCircle(0.0f, 0.0f, 20.0f);
+		collision_.SetCircle(0.0f, 0.0f, 20.0f);
 	}
 
 	// アニメーションを初期化
@@ -71,6 +72,11 @@ void Skull::Term()
 	Enemy::Term();
 }
 
+void Skull::HandleMessage(const IEventMessage& _msg)
+{
+		
+}
+
 // 移動状態の更新処理
 void Skull::_updateMoving()
 {
@@ -86,7 +92,9 @@ void Skull::_updateMoving()
 	float CollisionWidth = 40.0f;
 	float CollisionHeight = 1.0f;
 	// 地面についているか確認する
-	bool isGround = GetMap()->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight);
+	bool isGround = false;
+	if (environmentQuery_)
+		isGround = environmentQuery_->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight);
 
 	// 着地していた場合
 	if (isGround)
@@ -94,7 +102,10 @@ void Skull::_updateMoving()
 		// Y座標を調整がいこつの衝突範囲の下辺とタイルの上辺が重なるようにする
 		{
 			// タイルサイズ取得
-			const float tileSize = GetMap()->GetTileSize();
+			float tileSize = 0.0f;
+			if (environmentQuery_)
+				tileSize = environmentQuery_->GetTileSize();
+
 			// 衝突したタイルの行数を計算
 			int hitTileRow = (int)((vCheckPos.y - CollisionHeight) / tileSize);
 			// 衝突したタイルの上辺のY座標
@@ -116,8 +127,12 @@ void Skull::_updateMoving()
 // 待機状態の更新処理
 void Skull::_updateIdle()
 {
+	Player* player = nullptr;
+	player = WORLD_I.AccessMainPlayer();
 	// プレイヤーの位置
-	Vector2f playerPos = GetPlayer()->GetPosition();
+	Vector2f playerPos = {0.0f,0.0f};
+	if (player)
+		playerPos = player->GetPosition();
 
 	// 向きの更新
 	mDirection = (playerPos.x < mPosition.x) ? Direction::LEFT : Direction::RIGHT;
@@ -189,7 +204,7 @@ void Skull::_initAnimation()
 		};
 		Animation animIdle;
 		// 回転アニメを生成。フレーム数は1、0秒、ループなし
-		CreateAnimationRotation(animIdle,"idle",1,0.0,false,rotDeg);
+		CreateAnimationRotation(animIdle, "idle", 1, 0.0, false, rotDeg);
 		// Spriteにやられた時にアニメを追加
 		mSprite.AddAnimation(animIdle);
 	}
@@ -201,5 +216,6 @@ void Skull::OnDefeated()
 	// やられたら鬼火を作り出す
 	Vector2f pos = mPosition;
 	pos.y += 64.0f;
-	GetEnemyMng()->CreateEnemy("Onibi",pos);
+
+	gameObjectMng_->CreateEnemy("Onibi", pos);
 }

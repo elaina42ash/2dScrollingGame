@@ -111,7 +111,7 @@ void EnemyMng::DestroyPool(string enemyName) {
 }
 
 // 敵の生成
-void EnemyMng::CreateEnemy(string enemyName, Vector2f position) {
+Enemy* EnemyMng::CreateEnemy(string enemyName, Vector2f position) {
 	// 指定の敵プールから非アクティブのオブジェクトを取得する
 	Enemy* pEnemy = nullptr;
 
@@ -124,7 +124,7 @@ void EnemyMng::CreateEnemy(string enemyName, Vector2f position) {
 	// 非アクティブの敵オブジェクトがなければ生成失敗
 	if (pEnemy == nullptr)
 	{
-		return;
+		return nullptr;
 	}
 
 	// 位置を設定
@@ -135,6 +135,8 @@ void EnemyMng::CreateEnemy(string enemyName, Vector2f position) {
 
 	// アクティブな敵配列に追加しておく
 	mActiveEnemies.push_back(pEnemy);
+
+	return pEnemy;
 }
 
 // 残りの敵の数

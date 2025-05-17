@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Source\App.cpp" />
     <ClCompile Include="Source\Enemy\Enemy.cpp" />
     <ClCompile Include="Source\Enemy\EnemyMng.cpp" />
     <ClCompile Include="Source\Enemy\EnemyPool.cpp" />
@@ -35,7 +34,6 @@
     <ClCompile Include="Source\Scene\SceneGameClear.cpp" />
     <ClCompile Include="Source\Scene\SceneGameOver.cpp" />
     <ClCompile Include="Source\Scene\SceneInGame.cpp" />
-    <ClCompile Include="Source\Scene\SceneMng.cpp" />
     <ClCompile Include="Source\Scene\SceneStageSelect.cpp" />
     <ClCompile Include="Source\Scene\SceneTitle.cpp" />
     <ClCompile Include="Source\Tilemap\Tilemap.cpp" />
@@ -115,6 +113,7 @@
     <ClCompile Include="src\GameObject\GameObject.cpp" />
     <ClCompile Include="src\Input\FrameworkPhysicsInputAdapter.cpp" />
     <ClCompile Include="src\Player\Player.cpp" />
+    <ClCompile Include="src\SceneMng\SceneMng.cpp" />
     <ClCompile Include="src\Sensor\LineSensor.cpp" />
     <ClCompile Include="src\StateMachine\Condition\AndCondition.cpp" />
     <ClCompile Include="src\StateMachine\Condition\CompositeCondition.cpp" />
@@ -230,6 +229,7 @@
     <ClInclude Include="include\Event\Messenger.h" />
     <ClInclude Include="include\GameMath.h" />
     <ClInclude Include="include\GameObjectMng\GameObjectMng.h" />
+    <ClInclude Include="include\GameObjectMng\IEnvironmentQuery.h" />
     <ClInclude Include="include\GameObject\CharacterObject.h" />
     <ClInclude Include="include\GameObject\DetachableObject.h" />
     <ClInclude Include="include\GameObject\Equipment\Equipment.h" />
@@ -266,6 +266,7 @@
     <ClInclude Include="include\Input\LogicalInputAdapter.h" />
     <ClInclude Include="include\Player\IPlayerView.h" />
     <ClInclude Include="include\Player\Player.h" />
+    <ClInclude Include="include\SceneMng\SceneMng.h" />
     <ClInclude Include="include\Semantic\SemanticDef.h" />
     <ClInclude Include="include\Semantic\SemanticInputBuffer.h" />
     <ClInclude Include="include\Sensor\ILineSensor.h" />
@@ -305,7 +306,6 @@
     <ClInclude Include="include\Timer\Timer.h" />
     <ClInclude Include="include\TypeID.h" />
     <ClInclude Include="include\World\World.h" />
-    <ClInclude Include="Source\App.h" />
     <ClInclude Include="Source\AppDef.h" />
     <ClInclude Include="Source\Enemy\Enemy.h" />
     <ClInclude Include="Source\Enemy\EnemyMng.h" />
@@ -323,7 +323,6 @@
     <ClInclude Include="Source\Scene\SceneGameClear.h" />
     <ClInclude Include="Source\Scene\SceneGameOver.h" />
     <ClInclude Include="Source\Scene\SceneInGame.h" />
-    <ClInclude Include="Source\Scene\SceneMng.h" />
     <ClInclude Include="Source\Scene\SceneStageSelect.h" />
     <ClInclude Include="Source\Scene\SceneTitle.h" />
     <ClInclude Include="Source\Tilemap\Tilemap.h" />

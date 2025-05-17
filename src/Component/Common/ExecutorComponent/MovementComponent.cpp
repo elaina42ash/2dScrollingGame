@@ -2,6 +2,12 @@
 
 MovementComponent::MovementComponent(bool _isActive,IMessenger* _messenger) : ExecutorComponent(_isActive, _messenger)
 {
+
+}
+
+MovementComponent::MovementComponent(IMessenger* _messenger) : ExecutorComponent(_messenger)
+{
+
 }
 
 void MovementComponent::Init()
@@ -26,11 +32,6 @@ void MovementComponent::Render()
 void MovementComponent::Term()
 {
 	ExecutorComponent::Term();
-}
-
-MovementComponent::MovementComponent(IMessenger* _messenger): ExecutorComponent(_messenger)
-{
-		
 }
 
 void MovementComponent::Reset()

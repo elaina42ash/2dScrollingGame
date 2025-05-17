@@ -5,6 +5,7 @@
 #include "Component/Common/ExecutorComponent/Interface/ITransformComponent.h"
 #include "Component/Common/SensorLogicalComponent/Interface/ICollisionComponent.h"
 #include "Component/Common/SensorLogicalComponent/Interface/ITileMapSensorComponent.h"
+#include "GameObjectMng/IEnvironmentQuery.h"
 #pragma warning(push)
 #pragma warning(disable:4250)
 class MovementComponent : public ExecutorComponent, public IMovementComponent
@@ -26,6 +27,7 @@ public:
 	void Render() override;
 
 	void Term() override;
+
 
 protected:
 	explicit MovementComponent(bool _isActive, IMessenger* _messenger);

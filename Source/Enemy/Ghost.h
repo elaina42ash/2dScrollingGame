@@ -18,6 +18,8 @@ public:
 	// 生成された時に呼び出される
 	void OnCreated() override;
 
+	void HandleMessage(const IEventMessage& _msg) override;
+
 private:
 	// 原点
 	Vector2f mOrigin;

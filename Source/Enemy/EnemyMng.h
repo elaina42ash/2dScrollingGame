@@ -1,22 +1,9 @@
 ﻿#pragma once
-
-
 #include <string>
-#include <vector> // 可変長配列　std::vector を使う
-#include <map>
-using namespace std;
-
-#include "Lib/Math/Vector.h"
-using namespace Lib::Math;
-
-// CSVデータを使うのでCSVFile.hを取り込む
-#include "Fwk/File/CSVFIle.h"
-
-// Enemyクラスの宣言をinclude
 #include "Enemy.h"
-
-// 敵プールクラスを使うので#include
 #include "EnemyPool.h"
+#include "Fwk/Data/CSVData.h"
+
 
 // 敵管理クラス
 class EnemyMng {
@@ -31,14 +18,14 @@ public:
 	void Render();
 
 	// オブジェクトループの生成
-	void GeneratePool(string enemyName, int poolSize);
+	void GeneratePool(std::string enemyName, int poolSize);
 	// 指定した敵のオブジェクトループの解放
-	void DestroyPool(string enemyName);
+	void DestroyPool(std::string enemyName);
 	// 全ての敵のオブジェクトループの解放
 	void DestroyPoolAll();
 
 	// 敵の生成
-	void CreateEnemy(string enemyName, Vector2f position);
+	Enemy* CreateEnemy(string enemyName, Vector2f position);
 	// CSVデータから敵を生成する
 	void CreateEnemies(CSVData* pCsvData);
 	// 残りの敵の数
