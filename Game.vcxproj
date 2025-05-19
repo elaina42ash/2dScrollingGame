@@ -37,9 +37,6 @@
     <ClCompile Include="Source\Scene\SceneStageSelect.cpp" />
     <ClCompile Include="Source\Scene\SceneTitle.cpp" />
     <ClCompile Include="Source\Tilemap\Tilemap.cpp" />
-    <ClCompile Include="Source\UI\HpGauge.cpp" />
-    <ClCompile Include="Source\UI\HpGauge2.cpp" />
-    <ClCompile Include="Source\UI\UIMng.cpp" />
     <ClCompile Include="src\Component\Common\Component.cpp" />
     <ClCompile Include="src\Component\Common\DecisionLogicalComponent\DecisionLogicalComponent.cpp" />
     <ClCompile Include="src\Component\Common\DecisionLogicalComponent\StateComponent.cpp" />
@@ -86,6 +83,7 @@
     <ClCompile Include="src\Event\Message\LogicalInputMsg\HoriAxisInputMsg.cpp" />
     <ClCompile Include="src\Event\Message\LogicalInputMsg\JumpInputMsg.cpp" />
     <ClCompile Include="src\Event\Message\LogicalInputMsg\ReleaseJumpInputMsg.cpp" />
+    <ClCompile Include="src\Event\Message\LogicalInputMsg\SwitchWeaponInputMsg.cpp" />
     <ClCompile Include="src\Event\Message\Message.cpp" />
     <ClCompile Include="src\Event\Message\SemanticMsg\EndDashSemMsg.cpp" />
     <ClCompile Include="src\Event\Message\SemanticMsg\EndKnockBackSemMsg.cpp" />
@@ -97,6 +95,7 @@
     <ClCompile Include="src\Event\Message\SemanticMsg\StartKnockBackSemMsg.cpp" />
     <ClCompile Include="src\Event\Message\SemanticMsg\StartMoveSemMsg.cpp" />
     <ClCompile Include="src\Event\Message\SemanticMsg\StartStageClearSemMsg.cpp" />
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartSwitchWeaponSemMsg.cpp" />
     <ClCompile Include="src\Event\Message\SemanticMsg\StopJumpSemMsg.cpp" />
     <ClCompile Include="src\Event\Message\StateMsg\EnterIdleStateMsg.cpp" />
     <ClCompile Include="src\Event\Message\StateMsg\SetIsClearConditionMsg.cpp" />
@@ -108,6 +107,7 @@
     <ClCompile Include="src\GameObject\CharacterObject.cpp" />
     <ClCompile Include="src\GameObject\DetachableObject.cpp" />
     <ClCompile Include="src\GameObject\Equipment\Equipment.cpp" />
+    <ClCompile Include="src\GameObject\Equipment\Weapon\Katana.cpp" />
     <ClCompile Include="src\GameObject\Equipment\Weapon\Sword.cpp" />
     <ClCompile Include="src\GameObject\Equipment\Weapon\Weapon.cpp" />
     <ClCompile Include="src\GameObject\GameObject.cpp" />
@@ -139,6 +139,10 @@
     <ClCompile Include="src\StateMachine\State\State.cpp" />
     <ClCompile Include="src\StateMachine\Transition\Transition.cpp" />
     <ClCompile Include="src\Timer\Timer.cpp" />
+    <ClCompile Include="src\UI\HpGauge.cpp" />
+    <ClCompile Include="src\UI\HpGauge2.cpp" />
+    <ClCompile Include="src\UI\UIElement.cpp" />
+    <ClCompile Include="src\UI\UIMng.cpp" />
     <ClCompile Include="src\World\World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -210,6 +214,7 @@
     <ClInclude Include="include\Event\Message\LogicalInputMsg\HoriAxisInputMsg.h" />
     <ClInclude Include="include\Event\Message\LogicalInputMsg\JumpInputMsg.h" />
     <ClInclude Include="include\Event\Message\LogicalInputMsg\ReleaseJumpInputMsg.h" />
+    <ClInclude Include="include\Event\Message\LogicalInputMsg\SwitchWeaponInputMsg.h" />
     <ClInclude Include="include\Event\Message\Message.h" />
     <ClInclude Include="include\Event\Message\SemanticMsg\EndDashSemMsg.h" />
     <ClInclude Include="include\Event\Message\SemanticMsg\EndKnockBackSemMsg.h" />
@@ -221,6 +226,7 @@
     <ClInclude Include="include\Event\Message\SemanticMsg\StartKnockBackSemMsg.h" />
     <ClInclude Include="include\Event\Message\SemanticMsg\StartMoveSemMsg.h" />
     <ClInclude Include="include\Event\Message\SemanticMsg\StartStageClearSemMsg.h" />
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartSwitchWeaponSemMsg.h" />
     <ClInclude Include="include\Event\Message\SemanticMsg\StopJumpSemMsg.h" />
     <ClInclude Include="include\Event\Message\StateMsg\EnterIdleStateMsg.h" />
     <ClInclude Include="include\Event\Message\StateMsg\SetIsClearConditionMsg.h" />
@@ -237,6 +243,7 @@
     <ClInclude Include="include\GameObject\Equipment\IEquipment.h" />
     <ClInclude Include="include\GameObject\Equipment\Weapon\IWeapon.h" />
     <ClInclude Include="include\GameObject\Equipment\Weapon\IWeaponView.h" />
+    <ClInclude Include="include\GameObject\Equipment\Weapon\Katana.h" />
     <ClInclude Include="include\GameObject\Equipment\Weapon\Sword.h" />
     <ClInclude Include="include\GameObject\Equipment\Weapon\SwordDef.h" />
     <ClInclude Include="include\GameObject\Equipment\Weapon\Weapon.h" />
@@ -305,6 +312,11 @@
     <ClInclude Include="include\Timer\ITimer.h" />
     <ClInclude Include="include\Timer\Timer.h" />
     <ClInclude Include="include\TypeID.h" />
+    <ClInclude Include="include\UI\HpGauge.h" />
+    <ClInclude Include="include\UI\HpGauge2.h" />
+    <ClInclude Include="include\UI\IUIElement.h" />
+    <ClInclude Include="include\UI\UIElement.h" />
+    <ClInclude Include="include\UI\UIMng.h" />
     <ClInclude Include="include\World\World.h" />
     <ClInclude Include="Source\AppDef.h" />
     <ClInclude Include="Source\Enemy\Enemy.h" />
@@ -326,9 +338,6 @@
     <ClInclude Include="Source\Scene\SceneStageSelect.h" />
     <ClInclude Include="Source\Scene\SceneTitle.h" />
     <ClInclude Include="Source\Tilemap\Tilemap.h" />
-    <ClInclude Include="Source\UI\HpGauge.h" />
-    <ClInclude Include="Source\UI\HpGauge2.h" />
-    <ClInclude Include="Source\UI\UIMng.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

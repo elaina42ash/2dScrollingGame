@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include "Weapon.h"
+#include "Event/Message/AnimationMsg/SwordAnimationBeginMsg.h"
+#include "Event/Message/AnimationMsg/SwordAnimationCompletedMsg.h"
 
 #pragma warning(push)
 #pragma warning(disable:4250)
@@ -25,6 +27,12 @@ public:
 	void EndAttack() override;
 
 	void HandleMessage(const IEventMessage& _msg) override;
+
+	void OnAttackPhaseStarted(int _animationID) override;
+
+	void OnAttackKeyframe(int _animationID, int frameIndex) override;
+
+	void OnAttackCompleted(int _animationID) override;
 
 private:
 	void InitializeSwordComponents();

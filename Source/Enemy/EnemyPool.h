@@ -8,15 +8,18 @@ public:
 	// 初期化
 	// class Tは、Init関数の呼び出し時に具体的な敵クラスに置き換わる
 	template <class T>
-	void Init(int poolSize) {
+	void Init(int _poolSize, IEnvironmentQuery* _environmentQuery) {
 		// プールの全要素分の敵オブジェクトを生成
-		for (int i = 0; i < poolSize; i++)
+		for (int i = 0; i < _poolSize; i++)
 		{
 			// 指定された敵クラスの変数を一つを生成
 			// Enemy*にキャストできるクラスが指定されるのが前提
 			Enemy* pNewEnemy = new T();
 			// 初期化
 			pNewEnemy->Init();
+			if (_environmentQuery)
+				pNewEnemy->InjectEnvironment(_environmentQuery);
+
 			// 最初は非アクティブ
 			pNewEnemy->Disable();
 			pNewEnemy->DisableCollision();

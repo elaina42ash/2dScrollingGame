@@ -1,8 +1,7 @@
 ﻿#include "Component/Sword/SensorLogicalComponent/Class/SwordCollisionComponent.h"
-#include "Animation/AnimationDef.h"
 #include "Enemy/Enemy.h"
+#include "Event/Message/AnimationMsg/SwordAnimationBeginMsg.h"
 #include "Event/Message/AnimationMsg/SwordAnimationCompletedMsg.h"
-#include "Event/Message/AnimationMsg/SwordAnimationKeyframeMsg.h"
 #include "Fwk/Framework.h"
 
 SwordCollisionComponent::SwordCollisionComponent(bool _isActive, IMessenger* _messenger, IWeaponView* _swordView) : CollisionComponent(_isActive, _messenger), swordView_(_swordView)
@@ -23,6 +22,8 @@ void SwordCollisionComponent::Init()
 	// 衝突対象に敵グループのコリジョンを追加
 	AddHitGroup(CollisionGroup::ENEMY);
 
+	SetCircleCollider(0, 0, 8.0f);
+
 	// コリジョンにタグを設定
 	SetTag(ToTagName(static_cast<int>(CollisionTag::SWORD)));
 
@@ -39,10 +40,18 @@ void SwordCollisionComponent::Init()
 void SwordCollisionComponent::Update()
 {
 	CollisionComponent::Update();
-
+	
 	if (swordView_->IsAttacking())
 	{
-		SetPosition(swordView_->GetPosition());
+		
+		if (swordView_->GetDirection()==Direction::RIGHT)
+		{
+			SetPosition({ swordView_->GetPosition().x + 16.0f ,swordView_->GetPosition().y });
+		}
+		else
+		{
+			SetPosition({ swordView_->GetPosition().x - 16.0f ,swordView_->GetPosition().y });
+		}
 	}
 
 	Reset();
@@ -60,55 +69,19 @@ void SwordCollisionComponent::Term()
 
 void SwordCollisionComponent::HandleMessage(const IEventMessage& _msg)
 {
-	const SwordAnimationKeyframeMsg* swordAnimationKeyframeMsg = TypeidSystem::SafeCast<SwordAnimationKeyframeMsg>(&_msg);
 	const SwordAnimationCompletedMsg* swordAnimationFinishedMsg = TypeidSystem::SafeCast<SwordAnimationCompletedMsg>(&_msg);
+	const SwordAnimationBeginMsg* swordAnimationBegin = TypeidSystem::SafeCast<SwordAnimationBeginMsg>(&_msg);
 
-	if (swordAnimationKeyframeMsg)
+	if (swordAnimationBegin)
 	{
-		int animationID = swordAnimationKeyframeMsg->GetAnimationID();
-		SwordAnimationType swordAnimation = static_cast<SwordAnimationType>(animationID);
-
-		int keyFrameIndex = swordAnimationKeyframeMsg->GetKeyFrameIndex();
-
-
-
-		switch (keyFrameIndex)
-		{
-		case 1:
-		{
-			SetRectCollider(hitRects2[static_cast<int>(swordView_->GetDirection())]);
-
-		}
-		break;
-		case 2:
-		{
-			SetRectCollider(hitRects[static_cast<int>(swordView_->GetDirection())]);
-
-		}
-		break;
-		default:
-			break;
-		}
-		SetPosition(swordView_->GetPosition());
 		EnableCollider();
 	}
 
 	if (swordAnimationFinishedMsg)
 	{
-		int animationID = swordAnimationFinishedMsg->GetAnimationID();
-		SwordAnimationType swordAnimation = static_cast<SwordAnimationType>(animationID);
 
-		switch (swordAnimation)
-		{
-		case SwordAnimationType::SWING_RIGHT:
-		case SwordAnimationType::SWING_LEFT:
-		{
-			DisableCollider();
-		}
-		break;
-		default:
-			break;
-		}
+		DisableCollider();
+
 	}
 }
 

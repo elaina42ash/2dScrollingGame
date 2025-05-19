@@ -47,7 +47,7 @@ void GameObject::Term()
 	components_.clear();
 }
 
-bool GameObject::GetActive() const
+bool GameObject::IsActive() const
 {
 	return isActive_;
 }

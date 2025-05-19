@@ -42,8 +42,6 @@ void World::Init()
 
     sceneMng_.Init(SceneType::Title);
 
-    // UIマネージャの初期化
-    uiMng_.Init();
 }
 
 /**
@@ -56,11 +54,10 @@ void World::Update()
     // 更新全局对象（例如 UI、常驻对象）
     for (auto* obj : globalObjects_)
     {
-        if (obj && obj->GetActive())
+        if (obj && obj->IsActive())
             obj->Update();
     }
 
-    // UIマネージャの初期化
     uiMng_.Update();
 }
 
@@ -74,7 +71,7 @@ void World::Render()
     // 渲染全局对象(UI 等)
     for (auto* obj:globalObjects_)
     {
-        if (obj && obj->GetActive())
+        if (obj && obj->IsActive())
             obj->Render();
     }
 
@@ -89,7 +86,7 @@ void World::Term()
     DestroyAllPlayers();    // 删除玩家
     globalObjects_.clear(); // 清除全局对象引用
     sceneMng_.Term();       // 场景资源释放
-    uiMng_.Term();
+ 
 }
 
 /**
@@ -236,4 +233,19 @@ Scene* World::AccessCurrentScene()
 UIMng* World::AccessUIMng()
 {
     return &uiMng_;
+}
+
+void World::InitGlobalUI()
+{
+    uiMng_.InitGlobalUI();
+}
+
+void World::LoadSceneUI(SceneType _type)
+{
+    uiMng_.LoadSceneUI(_type);
+}
+
+void World::UnloadSceneUI()
+{
+    uiMng_.UnloadSceneUI();
 }

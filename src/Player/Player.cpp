@@ -17,6 +17,7 @@
 #include "Event/Message/LogicalInputMsg/HoriAxisInputMsg.h"
 #include "Event/Message/LogicalInputMsg/JumpInputMsg.h"
 #include "Event/Message/LogicalInputMsg/ReleaseJumpInputMsg.h"
+#include "Event/Message/LogicalInputMsg/SwitchWeaponInputMsg.h"
 #include "Event/Message/SemanticMsg/EndDashSemMsg.h"
 #include "Event/Message/SemanticMsg/EndKnockBackSemMsg.h"
 #include "Event/Message/SemanticMsg/StartAttackSemMsg.h"
@@ -164,6 +165,7 @@ void Player::StateComponentSubscribeMsg()
 	Subscribe(TypeidSystem::GetTypeID<JumpInputMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<ReleaseJumpInputMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<AttackInputMsg>(), stateComponent_);
+	Subscribe(TypeidSystem::GetTypeID<SwitchWeaponInputMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SetIsDamagedConditionMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SetIsDeadConditionMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SetIsClearConditionMsg>(), stateComponent_);
@@ -200,6 +202,9 @@ void Player::Init()
 	StateComponentSubscribeMsg();
 
 	Subscribe(TypeidSystem::GetTypeID<StartAttackSemMsg>(), equipmentComponent_);
+	Subscribe(TypeidSystem::GetTypeID<SwordAnimationBeginMsg>(), equipmentComponent_);
+	Subscribe(TypeidSystem::GetTypeID<SwordAnimationKeyframeMsg>(), equipmentComponent_);
+	Subscribe(TypeidSystem::GetTypeID<SwordAnimationCompletedMsg>(), equipmentComponent_);
 
 	Subscribe(TypeidSystem::GetTypeID<StartMoveSemMsg>(), transformComponent_);
 
@@ -218,6 +223,7 @@ void Player::Init()
 
 	Subscribe(TypeidSystem::GetTypeID<StartMoveSemMsg>(), animationComponent_);
 	Subscribe(TypeidSystem::GetTypeID<StartIdleSemMsg>(), animationComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartAttackSemMsg>(), animationComponent_);
 
 	Subscribe(TypeidSystem::GetTypeID<StartJumpSemMsg>(), soundComponent_);
 	Subscribe(TypeidSystem::GetTypeID<StartKnockBackSemMsg>(), soundComponent_);
@@ -373,6 +379,14 @@ void Player::ResetPlayer()
 void Player::HandleMessage(const IEventMessage& _msg)
 {
 		
+}
+
+bool Player::IsFacingRight() const
+{
+	if (!transformComponent_)
+		return true;
+
+	return transformComponent_->GetDirection() == Direction::RIGHT;
 }
 
 float Player::GetNormalizedHp() const

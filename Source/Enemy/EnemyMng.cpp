@@ -61,30 +61,30 @@ void EnemyMng::Render() {
 }
 
 // オブジェクトプールの生成
-void EnemyMng::GeneratePool(string enemyName, int poolSize) {
+void EnemyMng::GeneratePool(string _enemyName, int _poolSize, IEnvironmentQuery* _environmentQuery) {
 	// スライムのプール作成
-	if (enemyName=="Slime")
+	if (_enemyName=="Slime")
 	{
 		// 生成する敵クラスにSlimeを指定
-		mEnemyPools[enemyName].Init<Slime>(poolSize);
+		mEnemyPools[_enemyName].Init<Slime>(_poolSize, _environmentQuery);
 	}
 	// 鬼火のプール作成
-	if (enemyName=="Onibi")
+	if (_enemyName=="Onibi")
 	{
 		// 生成する敵クラスにOnibiを指定
-		mEnemyPools[enemyName].Init<Onibi>(poolSize);
+		mEnemyPools[_enemyName].Init<Onibi>(_poolSize, _environmentQuery);
 	}
 	// 幽霊のプール作成
-	if (enemyName=="Ghost")
+	if (_enemyName=="Ghost")
 	{
 		// 生成する敵クラスにGhostを指定
-		mEnemyPools[enemyName].Init<Ghost>(poolSize);
+		mEnemyPools[_enemyName].Init<Ghost>(_poolSize, _environmentQuery);
 	}
 	// がいこつのプール作成
-	if (enemyName == "Skull")
+	if (_enemyName == "Skull")
 	{
 		// 生成する敵クラスにGhostを指定
-		mEnemyPools[enemyName].Init<Skull>(poolSize);
+		mEnemyPools[_enemyName].Init<Skull>(_poolSize, _environmentQuery);
 	}
 }
 
@@ -145,7 +145,7 @@ int EnemyMng::GetEnemyCount() {
 }
 
 // CSVデータから敵を生成する
-void EnemyMng::CreateEnemies(CSVData* pCsvData) {
+void EnemyMng::CreateEnemies(CSVData* pCsvData, int _tileSize) {
 
 	// nullptrが渡されてきたら何もしないで関数を抜ける
 	if (pCsvData == nullptr)
@@ -162,10 +162,14 @@ void EnemyMng::CreateEnemies(CSVData* pCsvData) {
 		// 敵の名前を取得
 		string enemyName;
 		pCsvData->GetString(index,&enemyName);
-		// 配置先の座標を取得
+
+		float gridX = pCsvData->GetFloat(index + 1);
+		float gridY = pCsvData->GetFloat(index + 2);
+
 		Vector2f position;
-		position.x = pCsvData->GetFloat(index+1);
-		position.y = pCsvData->GetFloat(index+2);
+		position.x = gridX * _tileSize;
+		position.y = -gridY * _tileSize;
+
 		// 敵を生成
 		CreateEnemy(enemyName,position);
 	}

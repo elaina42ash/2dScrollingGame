@@ -20,7 +20,7 @@ void Slime::Init()
 	// テクスチャの設定
 	mSprite.SetTexture(mTexture);
 	// スプライトのサイズ設定
-	mSprite.SetSize(64.0f, 64.0f);
+	mSprite.SetSize(32.0f, 32.0f);
 	// テクスチャの描画範囲を指定
 	mSprite.SetTexCoord(0.0f, 0.0f, 0.5f, 0.5f);
 
@@ -29,9 +29,7 @@ void Slime::Init()
 		// コリジョンにタグを設定
 		collision_.SetTag("Slime");
 		// コリジョンの形状を指定
-		collision_.SetRect(0.0f, 0.0f, 40.0f, 40.0f);
-
-
+		collision_.SetRect(0.0f, 0.0f, 25.0f, 25.0f);
 	}
 
 	// HPを設定
@@ -42,15 +40,10 @@ void Slime::Init()
 	mVelocity = { 0.0f,0.0f };
 	// 初期の水平移動方向
 	mDirection = Direction::LEFT;
-
-
 }
 
 // 更新
 void Slime::Update() {
-	//CollisionManager_I->Register(&mCollision);
-
-
 	// アクティブ状態でなければ更新処理は行わない
 	if (!IsActive())
 	{
@@ -76,7 +69,7 @@ void Slime::Update() {
 
 void Slime::Term()
 {
-	Enemy::Term();
+		
 }
 
 void Slime::HandleMessage(const IEventMessage& _msg)
@@ -87,45 +80,43 @@ void Slime::HandleMessage(const IEventMessage& _msg)
 // 落下時の処理
 void Slime::_updateFalling()
 {
+	// 重力の倍率
+	float gravityScale = 5.0f;
+	// このフレームでの重力加速量
+	float gravity = -9.8f * Time_I->GetDeltaTime() * gravityScale;
+	// このフレームでの最大重力
+	float maxGravity = -1200.0f * Time_I->GetDeltaTime();
 
+	// 重力の計算
+	mVelocity.y += gravity;
+	if (mVelocity.y < maxGravity)
+	{
+		mVelocity.y = maxGravity;
+	}
 
-	//// 重力の倍率
-	//float gravityScale = 5.0f;
-	//// このフレームでの重力加速量
-	//float gravity = -9.8f * Time_I->GetDeltaTime() * gravityScale;
-	//// このフレームでの最大重力
-	//float maxGravity = -1200.0f * Time_I->GetDeltaTime();
+	// 位置の更新
+	mPosition += mVelocity;
 
-	//// 重力の計算
-	//mVelocity.y += gravity;
-	//if (mVelocity.y < maxGravity)
-	//{
-	//	mVelocity.y = maxGravity;
-	//}
+	// 自分の足元の座標
+	Vector2f vCheckPos = mPosition + Vector2f(0.0f, -5.0f);
+	// タイルマップと衝突判定を行う矩形の幅と高さ
+	float CollisionWidth = 40.0f;
+	float CollisionHeight = 1.0f;
 
-	//// 位置の更新
-	//mPosition += mVelocity;
-
-	//// 自分の足元の座標
-	//Vector2f vCheckPos = mPosition + Vector2f(0.0f, -20.0f);
-	//// タイルマップと衝突判定を行う矩形の幅と高さ
-	//float CollisionWidth = 40.0f;
-	//float CollisionHeight = 1.0f;
-
-	//// 足元が壁に衝突していたらY座標を調整して状態を"水平移動中"に遷移させる
-	//if (GetMap()->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight))
-	//{
-	//	// タイルサイズ取得
-	//	const float tileSize = GetMap()->GetTileSize();
-	//	// 衝突した足元の座標からタイル行数を計算（マイナス値になるが、座標に戻すのでそのままでよい）
-	//	int hitTileRow = (int)((vCheckPos.y - CollisionHeight) / tileSize);
-	//	// 衝突したタイルのY座標（＝そのタイルの上辺の座標）
-	//	float hitTileY = hitTileRow * tileSize;
-	//	// スライムのY座標は衝突したタイルの上辺からコリジョンの高さの半分上がった位置にする
-	//	mPosition.y = hitTileY + 20.0f;
-	//	// 状態を移動中にしておく
-	//	mStatus = Status::Moving;
-	//}
+	// 足元が壁に衝突していたらY座標を調整して状態を"水平移動中"に遷移させる
+	if (environmentQuery_&&environmentQuery_->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight))
+	{
+		// タイルサイズ取得
+		const float tileSize = environmentQuery_->GetTileSize();
+		// 衝突した足元の座標からタイル行数を計算（マイナス値になるが、座標に戻すのでそのままでよい）
+		int hitTileRow = (int)((vCheckPos.y - CollisionHeight) / tileSize);
+		// 衝突したタイルのY座標（＝そのタイルの上辺の座標）
+		float hitTileY = hitTileRow * tileSize;
+		// スライムのY座標は衝突したタイルの上辺からコリジョンの高さの半分上がった位置にする
+		mPosition.y = hitTileY + 20.0f;
+		// 状態を移動中にしておく
+		mStatus = Status::Moving;
+	}
 }
 
 //　水平移動時の処理
@@ -149,7 +140,7 @@ void Slime::_updateMoving()
 		float CollisionWidth = 1.0f;
 		float CollisionHeight = 40.0f;
 		// 壁に衝突していたら移動方向反転フラグをON
-		if (environmentQuery_&& environmentQuery_->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight))
+		if (environmentQuery_&&environmentQuery_->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight))
 		{
 			isFlipX = true;
 		}
@@ -165,17 +156,17 @@ void Slime::_updateMoving()
 		float CollisionWidth = 1.0f;
 		float CollisionHeight = 1.0f;
 		// 足元が壁でなければ移動方向反転フラグをON
-		if (environmentQuery_&& environmentQuery_->IsInsideWallRect(vCheckPos,CollisionWidth,CollisionHeight)==false)
+		if (environmentQuery_&& environmentQuery_->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight) == false)
 		{
 			isFlipX = true;
 		}
 	}
-	
+
 	// 移動方向の反転フラグをONになっていれば
 	if (isFlipX)
 	{
 		// 向きを反転する
-		mDirection = (mDirection == Direction::RIGHT)?Direction::LEFT:Direction::RIGHT;
+		mDirection = (mDirection == Direction::RIGHT) ? Direction::LEFT : Direction::RIGHT;
 	}
 }
 

@@ -19,8 +19,6 @@ public:
 	// 描画
 	void Render() override;
 
-	// アクティブか？
-	bool IsActive();
 
 	// 現在位置を取得
 	Lib::Math::Vector2f GetPosition();
@@ -39,8 +37,6 @@ public:
 
 	void DisableCollision();
 
-	void InjectGameObjectMng(GameObjectMng* _gameObjectMng);
-
 protected:
 	Enemy() = default;
 
@@ -51,9 +47,6 @@ private:
 
 protected:
 	Inject<GameObjectMng> gameObjectMng_;
-
-	// アクティブ状態か否か
-	bool mIsActive;
 	// 描画用テクスチャ
 	Texture mTexture;
 	// 描画用スプライト

@@ -65,4 +65,10 @@ public:
 	Scene* AccessCurrentScene();
 
 	UIMng* AccessUIMng();
+
+	void InitGlobalUI();
+
+	void LoadSceneUI(SceneType _type);
+
+	void UnloadSceneUI();
 };

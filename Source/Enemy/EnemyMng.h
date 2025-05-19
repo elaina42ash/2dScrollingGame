@@ -18,7 +18,7 @@ public:
 	void Render();
 
 	// オブジェクトループの生成
-	void GeneratePool(std::string enemyName, int poolSize);
+	void GeneratePool(std::string _enemyName, int _poolSize, IEnvironmentQuery* _environmentQuery);
 	// 指定した敵のオブジェクトループの解放
 	void DestroyPool(std::string enemyName);
 	// 全ての敵のオブジェクトループの解放
@@ -27,7 +27,7 @@ public:
 	// 敵の生成
 	Enemy* CreateEnemy(string enemyName, Vector2f position);
 	// CSVデータから敵を生成する
-	void CreateEnemies(CSVData* pCsvData);
+	void CreateEnemies(CSVData* pCsvData, int _tileSize);
 	// 残りの敵の数
 	int GetEnemyCount();
 

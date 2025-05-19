@@ -8,6 +8,7 @@ public:
 	virtual  ~IEquipment() = default;
 
 	virtual EquipmentStatus GetEquipmentStatus() = 0;
+
 	virtual EquipmentType GetEquipmentType() const = 0;
 
 };

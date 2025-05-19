@@ -12,6 +12,7 @@ namespace GameSemantic
 		RELEASE_JUMP,
 		START_ATTACK,
 		START_DASH,
+		START_SWITCH_WEAPON,
 
 
 		COUNT

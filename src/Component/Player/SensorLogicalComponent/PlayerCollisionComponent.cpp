@@ -39,7 +39,7 @@ void PlayerCollisionComponent::Init()
 	EnableCollider();
 
 	// コリジョン衝突時のコールバック関数を設定
-	SetRectCollider(0.0f, 0.0f, 40.0f, 40.0f);
+	SetRectCollider(0.0f, 0.0f, 16.0f, 27.0f);
 
 	// コリジョン衝突時のコールバック関数を設定
 	SetCallbackFunction();

@@ -40,5 +40,7 @@ public:
 	virtual bool IsStageCleared() const = 0;
 
 	virtual int GetRemainingInvincibleFrames() const = 0;
+
+	virtual bool IsFacingRight() const = 0;
 };
 

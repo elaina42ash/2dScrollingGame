@@ -7,8 +7,6 @@
 void Enemy::Init()
 {
 	CharacterObject::Init();
-	// 状態をアクティブに
-	mIsActive = true;
 
 	// 被ダメージ音を読み込む
 	mSound.Load("Sound/damageE.wav");
@@ -89,12 +87,6 @@ void Enemy::Render()
 	mSprite.Draw();
 }
 
-// アクティブか？
-bool Enemy::IsActive()
-{
-	return mIsActive;
-}
-
 // 現在位置を取得
 Vector2f Enemy::GetPosition()
 {
@@ -144,11 +136,6 @@ void Enemy::EnableCollision()
 void Enemy::DisableCollision()
 {
 	collision_.SetActive(false);
-}
-
-void Enemy::InjectGameObjectMng(GameObjectMng* _gameObjectMng)
-{
-	gameObjectMng_.Bind(_gameObjectMng);
 }
 
 // やられたときに呼びされる

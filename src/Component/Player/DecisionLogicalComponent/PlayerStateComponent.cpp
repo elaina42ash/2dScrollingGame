@@ -5,6 +5,7 @@
 #include "Event/Message/LogicalInputMsg/HoriAxisInputMsg.h"
 #include "Event/Message/LogicalInputMsg/JumpInputMsg.h"
 #include "Event/Message/LogicalInputMsg/ReleaseJumpInputMsg.h"
+#include "Event/Message/LogicalInputMsg/SwitchWeaponInputMsg.h"
 #include "Event/Message/SemanticMsg/StartStageClearSemMsg.h"
 #include "Event/Message/StateMsg/SetIsClearConditionMsg.h"
 #include "Event/Message/StateMsg/SetIsDamagedConditionMsg.h"
@@ -201,6 +202,7 @@ void PlayerStateComponent::HandleMessage(const IEventMessage& _msg)
 	const ReleaseJumpInputMsg* releaseJumpInputMsg = TypeidSystem::SafeCast<ReleaseJumpInputMsg>(&_msg);
 	const AttackInputMsg* attackInputMsg = TypeidSystem::SafeCast<AttackInputMsg>(&_msg);
 	const DashInputMsg* dashInputMsg = TypeidSystem::SafeCast<DashInputMsg>(&_msg);
+	const SwitchWeaponInputMsg* switchWeaponInput = TypeidSystem::SafeCast<SwitchWeaponInputMsg>(&_msg);
 	const SetIsDamagedConditionMsg* setIsDamagedConditionMsg = TypeidSystem::SafeCast<SetIsDamagedConditionMsg>(&_msg);
 	const SetIsDeadConditionMsg* setIsDeadConditionMsg = TypeidSystem::SafeCast<SetIsDeadConditionMsg>(&_msg);
 	const SetIsClearConditionMsg* setIsClearConditionMsg = TypeidSystem::SafeCast<SetIsClearConditionMsg>(&_msg);
@@ -276,6 +278,10 @@ void PlayerStateComponent::HandleMessage(const IEventMessage& _msg)
 	else if (attackInputMsg)
 	{
 		MarkSemanticInput(GameSemantic::Semantic::START_ATTACK);
+	}
+	else if (switchWeaponInput)
+	{
+		MarkSemanticInput(GameSemantic::Semantic::START_SWITCH_WEAPON);
 	}
 
 }

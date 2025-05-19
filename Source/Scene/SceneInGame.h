@@ -12,13 +12,13 @@
 class SceneInGame : public Scene {
 public:
 	// 初期化
-	void Init();
+	void Init() override;
 	// 終了
-	void Term();
+	void Term() override;
 	// 更新
-	void Update();
+	void Update() override;
 	// 描画
-	void Render();
+	void Render() override;
 private:
 	// BGM読み込み用
 	MP3Sound mSound;

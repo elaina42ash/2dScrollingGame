@@ -35,7 +35,7 @@ public:
 
 	void Term() override;
 
-	bool GetActive() const override final;
+	bool IsActive() const override final;
 
 	void Enable() override final;
 

@@ -109,4 +109,6 @@ public:
 	void ResetPlayer();
 
 	void HandleMessage(const IEventMessage& _msg) override;
+
+	bool IsFacingRight() const override;
 };

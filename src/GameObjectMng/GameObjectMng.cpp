@@ -12,14 +12,14 @@ void GameObjectMng::Init(StageData* _stageData)
 
 	// 加载地图
 	tilemap_ = new Tilemap;
-	tilemap_->Init();
 	KeyValueFile mapdataFile;
 	if (_stageData)
 		mapdataFile.Load(_stageData->MapFile);
 	int col = mapdataFile.GetInt("Col");
 	int row = mapdataFile.GetInt("Row");
+	tilemap_->CreateRenderMap(WINDOW_WIDTH / tilemap_->GetTileSize() + 2, WINDOW_HEIGHT / tilemap_->GetTileSize() + 2);
+	tilemap_->Init();
 	tilemap_->CreateMap(col, row, mapdataFile.GetCSVData("Data"));
-
 
 	// 创建场景相关对象
 	// 玩家初始化（目前只有一个）
@@ -51,14 +51,17 @@ void GameObjectMng::Init(StageData* _stageData)
 
 	// 初始化敌人管理器
 	enemyMng_.Init();
-	enemyMng_.GeneratePool("Slime", 10);
-	enemyMng_.GeneratePool("Ghost", 10);
-	enemyMng_.GeneratePool("Skull", 10);
+	enemyMng_.GeneratePool("Slime", 10, this);
+	enemyMng_.GeneratePool("Ghost", 10, this);
+	enemyMng_.GeneratePool("Skull", 10, this);
+	enemyMng_.GeneratePool("Onibi", 10, this);
 	CSVFile csvFile;
 	if (_stageData)
 		csvFile.Load(_stageData->ArrangementFile);
 	csvFile.PrintCSVData();
-	enemyMng_.CreateEnemies(csvFile.GetCSVData());
+
+	if (tilemap_)
+		enemyMng_.CreateEnemies(csvFile.GetCSVData(), tilemap_->GetTileSize());
 
 	// 刷新激活状态列表
 	RefreshActiveObjects();
@@ -75,7 +78,7 @@ void GameObjectMng::Update()
 	for (auto playerID : WORLD_I.GetControlledPlayerIDs())
 	{
 		Player* player = WORLD_I.AccessPlayer(playerID);
-		if (player && player->GetActive())
+		if (player && player->IsActive())
 		{
 			player->Update();
 			// プレイヤーの現在位置にカメラの位置を合わせる
@@ -150,7 +153,7 @@ void GameObjectMng::Render()
 	for (auto playerID : WORLD_I.GetControlledPlayerIDs())
 	{
 		Player* player = WORLD_I.AccessPlayer(playerID);
-		if (player && player->GetActive())
+		if (player && player->IsActive())
 			player->Render();
 	}
 
@@ -196,7 +199,6 @@ void GameObjectMng::CreateEnemy(const char* _name, const Vector2f& _pos)
 	if (!enemy)
 		return;
 
-	enemy->InjectGameObjectMng(this);
 	enemy->InjectEnvironment(this);
 
 	// 注册到 allObjects_ 中统一管理
@@ -299,7 +301,7 @@ void GameObjectMng::RefreshActiveObjects()
 	activeDetachableObjects_.clear();
 	for (auto* obj : detachableObjects_)
 	{
-		if (obj && obj->GetActive())
+		if (obj && obj->IsActive())
 		{
 			activeDetachableObjects_.push_back(obj);
 		}
@@ -308,7 +310,7 @@ void GameObjectMng::RefreshActiveObjects()
 	activeMapBoundObjects_.clear();
 	for (auto* obj : mapBoundObjects_)
 	{
-		if (obj && obj->GetActive())
+		if (obj && obj->IsActive())
 		{
 			activeMapBoundObjects_.push_back(obj);
 		}

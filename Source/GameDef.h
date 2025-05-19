@@ -1,4 +1,5 @@
 ﻿#pragma once
+static const char* BGM_URL = "Sound/bgm.mp3";
 
 // 方向を示す定数
 enum class Direction {

@@ -54,6 +54,7 @@ void Sword::Init()
 
 	Subscribe(TypeidSystem::GetTypeID<SwordAnimationKeyframeMsg>(), collisionComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SwordAnimationCompletedMsg>(), collisionComponent_);
+	Subscribe(TypeidSystem::GetTypeID<SwordAnimationBeginMsg>(), collisionComponent_);
 
 	Subscribe(TypeidSystem::GetTypeID<SwordAnimationBeginMsg>(), soundComponent_);
 }
@@ -83,9 +84,6 @@ void Sword::Attack()
 	if (collisionComponent_)
 		collisionComponent_->Enable();
 
-	if (animationComponent_)
-		animationComponent_->Enable();
-
 	if (soundComponent_)
 		soundComponent_->Enable();
 
@@ -101,9 +99,6 @@ void Sword::EndAttack()
 	if (collisionComponent_)
 		collisionComponent_->Disable();
 
-	if (animationComponent_)
-		animationComponent_->Disable();
-
 	if (soundComponent_)
 		soundComponent_->Disable();
 }
@@ -116,6 +111,23 @@ void Sword::HandleMessage(const IEventMessage& _msg)
 	{
 		EndAttack();
 	}
+}
+
+void Sword::OnAttackPhaseStarted(int _animationID)
+{
+	SwordAnimationBeginMsg swordAnimationBegin(_animationID);
+	SendMsg(swordAnimationBegin);
+}
+
+void Sword::OnAttackKeyframe(int _animationID, int frameIndex)
+{
+		
+}
+
+void Sword::OnAttackCompleted(int _animationID)
+{
+	SwordAnimationCompletedMsg swordAnimationCompletedMsg(_animationID);
+	SendMsg(swordAnimationCompletedMsg);
 }
 
 void Sword::InitializeSwordComponents()

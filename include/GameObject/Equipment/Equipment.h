@@ -10,6 +10,7 @@ class Equipment :public GameObject,public IEquipment
 {
 private:
 	EquipmentStatus equipmentStatus_ = EquipmentStatus::NONE;
+
 protected:
 	Inject<IEquipOwnerView> equipOwnerView_;
 

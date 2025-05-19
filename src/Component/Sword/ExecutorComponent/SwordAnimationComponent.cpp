@@ -111,37 +111,6 @@ void SwordAnimationComponent::Reset()
 
 void SwordAnimationComponent::OnAnimationEvent(const AnimationEvent& _animEvent)
 {
-	switch (_animEvent.EventType)
-	{
-	case AnimationEventType::Begin:
-	{
-		SwordAnimationBeginMsg swordAnimationBegin(currentAnimationID_);
-		SendMsg(swordAnimationBegin);
-	}
-	break;
-
-	case AnimationEventType::KeyframeProgressed:
-	{
-
-		if (_animEvent.KeyFrameIndex == 1 || _animEvent.KeyFrameIndex == 2)
-		{
-				SwordAnimationKeyframeMsg swordAnimationKeyframeMsg(currentAnimationID_, _animEvent.KeyFrameIndex);
-				SendMsg(swordAnimationKeyframeMsg);
-		}
-	}
-	break;
-
-	case AnimationEventType::Completed:
-	{
-		
-		SwordAnimationCompletedMsg swordAnimationFinishedMsg(currentAnimationID_);
-		SendMsg(swordAnimationFinishedMsg);
-		hasTriggeredAttack_ = false;
-	}
-	break;
-	default:
-		break;
-	}
 }
 
 void SwordAnimationComponent::RegisterSwordAnimation()

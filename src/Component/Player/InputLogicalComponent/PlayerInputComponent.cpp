@@ -23,6 +23,7 @@ void PlayerInputComponent::Init()
 	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_S, GameInput::LogicalInput::MOVE_DOWN);
 	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_A, GameInput::LogicalInput::MOVE_LEFT);
 	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_D, GameInput::LogicalInput::MOVE_RIGHT);
+	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_E, GameInput::LogicalInput::SWITCH_WEAPON);
 	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_J, GameInput::LogicalInput::ATTACK);
 	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_L, GameInput::LogicalInput::DASH);
 	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_SPACE, GameInput::LogicalInput::JUMP);
@@ -64,6 +65,13 @@ void PlayerInputComponent::Update()
 
 	// start dash input detected
 	if (logicalInputAdapter_.GetKeyDown(GameInput::LogicalInput::DASH))
+	{
+		DashInputMsg dashInputMsg;
+		SendMsg(dashInputMsg);
+	}
+
+	// start dash input detected
+	if (logicalInputAdapter_.GetKeyDown(GameInput::LogicalInput::SWITCH_WEAPON))
 	{
 		DashInputMsg dashInputMsg;
 		SendMsg(dashInputMsg);

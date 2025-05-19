@@ -12,6 +12,8 @@
 // 初期化
 void SceneInGame::Init()
 {
+	Scene::Init();
+
 	// 遊ぶステージの番号を取得
 	int stageNo = GetGamePlayData().GetStageNo();
 	// 遊ぶステージの情報を取得
@@ -22,11 +24,13 @@ void SceneInGame::Init()
 
 	
 	// BGMファイルの読み込み
-	mSound.Load("Sound/bgmA.mp3");
+	mSound.Load(BGM_URL);
 	// 音源の初期化
 	mSoundSource.Init(mSound);
 	// BGMを繰り返し再生
 	mSoundSource.Play(-1);
+
+	WORLD_I.LoadSceneUI(SceneType::InGame);
 
 	// "次のシーン"の初期値を"なし"にしておく
 	mNextScene = SceneType::None;
@@ -35,6 +39,8 @@ void SceneInGame::Init()
 // 終了
 void SceneInGame::Term()
 {
+	Scene::Term();
+
 	// ゲームオブジェクトの解放
 	gameObjectMng_.Term();
 
@@ -44,11 +50,15 @@ void SceneInGame::Term()
 	mSoundSource.Term();
 	// 読み込んだ音声ファイルを破棄
 	mSound.Unload();
+
+	WORLD_I.UnloadSceneUI();
 }
 
 // 更新
 void SceneInGame::Update()
 {
+	Scene::Update();
+
 	// ゲームオブジェクトの更新
 	gameObjectMng_.Update();
 
@@ -72,6 +82,8 @@ void SceneInGame::Update()
 // 描画
 void SceneInGame::Render()
 {
+	Scene::Render();
+
 	// ゲームオブジェクトの描画
 	gameObjectMng_.Render();
 

@@ -13,7 +13,7 @@ public:
 	virtual void SetTag(const char* _tag) = 0;
 	virtual const char* GetTag() const = 0;
 
-	virtual bool GetActive() const = 0;
+	virtual bool IsActive() const = 0;
 
 	virtual bool IsMarkedToDestroy() const = 0;
 	virtual void MarkToDestroy() = 0;

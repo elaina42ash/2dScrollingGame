@@ -11,8 +11,70 @@
 
 class Tilemap
 {
-public:
+private:
+	enum class TileType
+	{
+		NONE = -1,
 
+		WALL_FIRST = 1,
+		WALL_LEFT_TOP = WALL_FIRST,
+		WALL_MID_TOP,
+		WALL_RIGHT_TOP,
+		WALL_LEFT_MID,
+		WALL_MID_MID,
+		WALL_RIGHT_MID,
+		WALL_LEFT_BOTTOM,
+		WALL_MID_BOTTOM,
+		WALL_RIGHT_BOTTOM,
+		WALL_END = WALL_RIGHT_BOTTOM,
+
+		PLATFORM_FIRST,
+		PLATFORM_LEFT_TOP = PLATFORM_FIRST,
+		PLATFORM_MID_TOP,
+		PLATFORM_RIGHT_TOP,
+		PLATFORM_LEFT_MID,
+		PLATFORM_MID_MID,
+		PLATFORM_RIGHT_MID,
+		PLATFORM_LEFT_BOTTOM,
+		PLATFORM_MID_BOTTOM,
+		PLATFORM_RIGHT_BOTTOM,
+		PLATFORM_END = PLATFORM_RIGHT_BOTTOM,
+
+		BACKGROUND_FIRST,
+		BACKGROUND_1 = BACKGROUND_FIRST,
+		BACKGROUND_2 ,
+		BACKGROUND_3 ,
+		BACKGROUND_4 ,
+		BACKGROUND_5 ,
+		BACKGROUND_6 ,
+		BACKGROUND_7 ,
+		BACKGROUND_8 ,
+		BACKGROUND_END = BACKGROUND_8,
+
+	};
+
+	const char* SOURCE_TILE_FILE_URL = "Images/2dAction/My_tiles.png";
+	const float SOURCE_TILE_SIZE = 16.0f;
+	const float SOURCE_TILE_FILE_MAX_SIZE = 256.0f;
+	// 定数　タイル1枚分のSpriteのサイズ
+	const float TileSize = 32.0f;
+
+private:
+	int colNum_ =0;
+	int rowNum_ =0;
+
+	int render_col_num = 0;
+	int render_row_num = 0;
+
+	// タイルパターンの画像を読み込む為のテクスチャ
+	Texture texture_;
+
+	// 列数X行数分のスプライト
+	Sprite** sprite_ =nullptr;
+
+	// マップデータ（タイルID）を収める配列のアドレス
+	int** mapData_ = nullptr;
+public:
 	// 初期化
 	void Init();
 	// 終了
@@ -24,46 +86,21 @@ public:
 	// タイルサイズを取得
 	float GetTileSize();
 	// 指定した矩形の内側に壁が入り込んでいるかを戻す
-	bool IsInsideWallRect(Vector2f _position,float _width,float _height) const;
+	bool IsInsideWallRect(Vector2f _position, float _width, float _height) const;
 	bool IsInsideWallCircle(Vector2f _position, float _radius) const;
 	// サイズを指定してマップを生成する
-	void CreateMap(int colNum,int rowNum,CSVData* pMapdata);
+	void CreateMap(int colNum, int rowNum, CSVData* pMapdata);
 	// マップをCSVDataから生成する
 	/*void CreateMap(CSVData* pMapdata);*/
 	// マップ全体のサイズを取得する
 	Vector2f GetMapSize() const;
-private:
 
-	// 定数。C言語のenumは型名なしで列挙ができる
-	// 画面一枚を描画する為に必要なタイル（スプライト）の列数・行数
-	enum {
-		RENDER_COL_NUM=16+1,
-		RENDER_ROW_NUM=12+1
-	};
-	// マップデータのサイズ
-	enum 
-	{
-		COL_NUM=32, // 列数（ｘ軸方向ののタイル枚数）
-		ROW_NUM=24, // 行数（ｙ軸方向ののタイル枚数）
-	};
-
-private:
-	int mColNum;
-	int mRowNum;
-
-	// タイルパターンの画像を読み込む為のテクスチャ
-	Texture mTexture;
-
-	// 列数X行数分のスプライト
-	Sprite mSprite[RENDER_ROW_NUM][RENDER_COL_NUM];
+	void CreateRenderMap(int _col, int _row);
 
 private:
 	// 指定された列・行が壁であるか否かを戻す
-	bool IsWall(int _col,int _row) const;
-	
-	// マップデータを消去する
-	void _clearMapData();
+	bool IsBlockedTile(int _col, int _row) const;
 
-	// マップデータ（タイルID）を収める配列のアドレス
-	int** mpMapData;
+	// マップデータを消去する
+	void ClearMapData();
 };

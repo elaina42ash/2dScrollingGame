@@ -26,6 +26,7 @@ protected:
 		AnimationPlayStyle animationPlayStyle = AnimationPlayStyle::Default;
 		int priority = 0;
 		bool force = false;
+		bool flip = false;
 	};
 private:
 	unordered_map<AnimationID, string> animationNameTable_;

@@ -16,9 +16,6 @@ D:\MyProject\2dScrollingGame\Source\Scene\SceneInGame.cpp;D:\MyProject\2dScrolli
 D:\MyProject\2dScrollingGame\Source\Scene\SceneStageSelect.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SceneStageSelect.obj
 D:\MyProject\2dScrollingGame\Source\Scene\SceneTitle.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SceneTitle.obj
 D:\MyProject\2dScrollingGame\Source\Tilemap\Tilemap.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Tilemap.obj
-D:\MyProject\2dScrollingGame\Source\UI\HpGauge.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\HpGauge.obj
-D:\MyProject\2dScrollingGame\Source\UI\HpGauge2.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\HpGauge2.obj
-D:\MyProject\2dScrollingGame\Source\UI\UIMng.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\UIMng.obj
 D:\MyProject\2dScrollingGame\src\Component\Common\Component.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Component.obj
 D:\MyProject\2dScrollingGame\src\Component\Common\DecisionLogicalComponent\DecisionLogicalComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\DecisionLogicalComponent.obj
 D:\MyProject\2dScrollingGame\src\Component\Common\DecisionLogicalComponent\StateComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StateComponent.obj
@@ -87,6 +84,7 @@ D:\MyProject\2dScrollingGame\src\GameObjectMng\GameObjectMng.cpp;D:\MyProject\2d
 D:\MyProject\2dScrollingGame\src\GameObject\CharacterObject.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\CharacterObject.obj
 D:\MyProject\2dScrollingGame\src\GameObject\DetachableObject.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\DetachableObject.obj
 D:\MyProject\2dScrollingGame\src\GameObject\Equipment\Equipment.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Equipment.obj
+D:\MyProject\2dScrollingGame\src\GameObject\Equipment\Weapon\Katana.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Katana.obj
 D:\MyProject\2dScrollingGame\src\GameObject\Equipment\Weapon\Sword.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Sword.obj
 D:\MyProject\2dScrollingGame\src\GameObject\Equipment\Weapon\Weapon.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Weapon.obj
 D:\MyProject\2dScrollingGame\src\GameObject\GameObject.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\GameObject.obj
@@ -118,4 +116,8 @@ D:\MyProject\2dScrollingGame\src\StateMachine\State\Player\PlayerState.cpp;D:\My
 D:\MyProject\2dScrollingGame\src\StateMachine\State\State.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\State.obj
 D:\MyProject\2dScrollingGame\src\StateMachine\Transition\Transition.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Transition.obj
 D:\MyProject\2dScrollingGame\src\Timer\Timer.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Timer.obj
+D:\MyProject\2dScrollingGame\src\UI\HpGauge.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\HpGauge.obj
+D:\MyProject\2dScrollingGame\src\UI\HpGauge2.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\HpGauge2.obj
+D:\MyProject\2dScrollingGame\src\UI\UIElement.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\UIElement.obj
+D:\MyProject\2dScrollingGame\src\UI\UIMng.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\UIMng.obj
 D:\MyProject\2dScrollingGame\src\World\World.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\World.obj

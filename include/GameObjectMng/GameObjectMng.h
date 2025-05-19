@@ -91,7 +91,7 @@ inline void GameObjectMng::RegisterDetachable(IGameObject* _obj)
 
 	detachableObjects_.push_back(_obj);
 
-	if (_obj->GetActive())
+	if (_obj->IsActive())
 	{
 		auto itActive = find(activeDetachableObjects_.begin(), activeDetachableObjects_.end(), _obj);
 		if (itActive == activeDetachableObjects_.end())
@@ -108,7 +108,7 @@ inline  void GameObjectMng::RegisterStatic(IGameObject* _obj)
 
 	mapBoundObjects_.push_back(_obj);
 
-	if (_obj->GetActive())
+	if (_obj->IsActive())
 	{
 		auto itActive = find(activeMapBoundObjects_.begin(), activeMapBoundObjects_.end(), _obj);
 		if (itActive == activeMapBoundObjects_.end())

@@ -112,10 +112,24 @@ void AnimationComponent::AddAnimationTask(const AnimationRequest& _animationRequ
 
 	if (TaskQueueIsEmpty())
 	{
-		AddTask([=]()->void
-			{
-				this->UpdateCurrentAnimation();
-			});
+		function<void()> task;
+		if (_animationRequest.flip)
+		{
+			task=[=]()->void
+				{
+					sprite_.SetFlipX(true);
+					this->UpdateCurrentAnimation();
+				};
+		}
+		else
+		{
+			task=[=]()->void
+				{
+					sprite_.SetFlipX(false);
+					this->UpdateCurrentAnimation();
+				};
+		}
+		AddTask(task);
 	}
 }
 

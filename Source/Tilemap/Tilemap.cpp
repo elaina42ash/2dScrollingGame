@@ -4,32 +4,32 @@
 // ウインドウサイズの定数を使うのでinclude
 #include "AppDef.h"
 
-// 定数　タイル1枚分のSpriteのサイズ
-const float TileSize = 64.0f;
+
 
 // 初期化
 void Tilemap::Init() {
 	// マップサイズを初期化
-	mColNum = 0;
-	mRowNum = 0;
+	colNum_ = 0;
+	rowNum_ = 0;
 	// マップデータを収める二次元配列のポイントを初期化
-	mpMapData = nullptr;
+	mapData_ = nullptr;
+
 	// テクスチャファイルの読み込む
-	mTexture.Load("Images/2dAction/tiles.png");
+	texture_.Load(SOURCE_TILE_FILE_URL);
 
 	// スプライトの初期化と各種設定
-	for (int i = 0; i < RENDER_ROW_NUM; i++)
+	for (int i = 0; i < render_row_num; i++)
 	{
-		for (int n = 0; n < RENDER_COL_NUM; n++)
+		for (int n = 0; n < render_col_num; n++)
 		{
 			// 初期化
-			mSprite[i][n].Init();
+			sprite_[i][n].Init();
 			// テクスチャ設定
-			mSprite[i][n].SetTexture(mTexture);
+			sprite_[i][n].SetTexture(texture_);
 			// サイズを設定
-			mSprite[i][n].SetSize(TileSize, TileSize);
+			sprite_[i][n].SetSize(TileSize, TileSize);
 			// Pivotの設定。左上をスプライトの中心点をする
-			mSprite[i][n].SetPivot(Pivot::TopLeft);
+			sprite_[i][n].SetPivot(Pivot::TopLeft);
 		}
 	}
 }
@@ -38,25 +38,35 @@ void Tilemap::Init() {
 void Tilemap::Term()
 {
 	// マップデータを解放
-	_clearMapData();
+	ClearMapData();
+
 	// テクスチャの解放
-	for (int i = 0; i < RENDER_ROW_NUM; i++)
+	for (int i = 0; i < render_row_num; i++)
 	{
-		for (int n = 0; n < RENDER_COL_NUM; n++)
+		for (int n = 0; n < render_col_num; n++)
 		{
-			mSprite[i][n].Term();
+			sprite_[i][n].Term();
 		}
 	}
 
+	if (sprite_ != nullptr) {
+		for (int i = 0; i < render_row_num; ++i) {
+			delete[] sprite_[i];
+			sprite_[i] = nullptr;
+		}
+		delete[] sprite_;       
+		sprite_ = nullptr;      
+	}
+
 	// テクスチャの廃棄
-	mTexture.Unload();
+	texture_.Unload();
 }
 
 // 更新
 void Tilemap::Update()
 {
 	// マップデータが生成されていなければ何もしないで関数を抜ける
-	if (mpMapData == nullptr)
+	if (mapData_ == nullptr)
 	{
 		return;
 	}
@@ -70,42 +80,43 @@ void Tilemap::Update()
 	int TopRow = (int)(-Top / TileSize); // 画面上端のタイルの行
 
 	// タイル描画用のスプライトに、位置とUV座標を設定する
-	for (int i = 0; i < RENDER_ROW_NUM; i++)
+	for (int i = 0; i < render_row_num; i++)
 	{
-		for (int n = 0; n < RENDER_COL_NUM; n++)
+		for (int n = 0; n < render_col_num; n++)
 		{
 			// mSprite[i][n]が表示するタイルの列・行
 			int col = LeftCol + n;
 			int row = TopRow + i;
 
 			// マップデータの領域外を参照しないようにチェック
-			if (col >= mColNum || row >= mRowNum)
+			if (col >= colNum_ || row >= rowNum_)
 			{
 				// 無駄な描画命令を出さないように非表示にしておく
-				mSprite[i][n].SetVisible(false);
+				sprite_[i][n].SetVisible(false);
 				continue;
 			}
 
 			// 位置を設定
-			mSprite[i][n].SetPosition((float)col * TileSize, (float)-row * TileSize);
+			sprite_[i][n].SetPosition((float)col * TileSize, (float)-row * TileSize);
 
 			// マップデータからタイルIDを取得
-			int id = mpMapData[row][col];
+			int id = mapData_[row][col];
 
 			// スプライトのUV座標設定
-			float w = 16.0f / 256.0f;
-			float h = 16.0f / 256.0f;
-			float u = (float)(id % 16) * w;
-			float v = (float)(id / 16) * h;
-			mSprite[i][n].SetTexCoord(u, v, w, h);
+			float w = SOURCE_TILE_SIZE / SOURCE_TILE_FILE_MAX_SIZE;
+			float h = SOURCE_TILE_SIZE / SOURCE_TILE_FILE_MAX_SIZE;
+			float u = (float)(id % (int)SOURCE_TILE_SIZE) * w;
+			float v = (float)(id / (int)SOURCE_TILE_SIZE) * h;
+			sprite_[i][n].SetTexCoord(u, v, w, h);
+
 
 			if (id == 0)
 			{
-				mSprite[i][n].SetVisible(false);
+				sprite_[i][n].SetVisible(false);
 			}
 			else
 			{
-				mSprite[i][n].SetVisible(true); // 表示設定をしておく
+				sprite_[i][n].SetVisible(true); // 表示設定をしておく
 			}
 		}
 	}
@@ -115,11 +126,11 @@ void Tilemap::Update()
 void Tilemap::Render()
 {
 	// スプライトの描画
-	for (int i = 0; i < RENDER_ROW_NUM; i++)
+	for (int i = 0; i < render_row_num; i++)
 	{
-		for (int n = 0; n < RENDER_COL_NUM; n++)
+		for (int n = 0; n < render_col_num; n++)
 		{
-			mSprite[i][n].Draw();
+			sprite_[i][n].Draw();
 		}
 	}
 }
@@ -151,7 +162,7 @@ bool Tilemap::IsInsideWallRect(Vector2f _position, float _width, float _height) 
 		for (int col = col_left; col <= col_right; col++)
 		{
 			// 壁でなければ次のタイルの判定を処理する
-			if (!IsWall(col, row))
+			if (!IsBlockedTile(col, row))
 			{
 				continue;
 			}
@@ -194,7 +205,7 @@ bool Tilemap::IsInsideWallCircle(Vector2f _position, float _radius) const
 	{
 		for (int col = col_left; col <= col_right; col++)
 		{
-			if (!IsWall(col, row))
+			if (!IsBlockedTile(col, row))
 				continue;
 
 			float tile_x = col * TileSize + TileSize * 0.5f;
@@ -219,28 +230,28 @@ void Tilemap::CreateMap(int colNum, int rowNum, CSVData* pMapdata)
 		return;
 
 	// 現在のマップデータをリセットする
-	_clearMapData();
+	ClearMapData();
 
 	// 列数・行数を記録
-	mColNum = colNum;
-	mRowNum = rowNum;
+	colNum_ = colNum;
+	rowNum_ = rowNum;
 
 	// 列数*行数分の配列を確保する
-	mpMapData = new int* [mRowNum];
-	for (int i = 0; i < mRowNum; i++)
+	mapData_ = new int* [rowNum_];
+	for (int i = 0; i < rowNum_; i++)
 	{
-		mpMapData[i] = new int[mColNum];
+		mapData_[i] = new int[colNum_];
 	}
 	// 行数分繰り返し
-	for (int i = 0; i < mRowNum; i++)
+	for (int i = 0; i < rowNum_; i++)
 	{
 		// 列数分繰り返し
-		for (int n = 0; n < mColNum; n++)
+		for (int n = 0; n < colNum_; n++)
 		{
 			// n列i行目のタイルIDをCSVDataから取得
-			int id = pMapdata->GetInt(n + (i * COL_NUM));
+			int id = pMapdata->GetInt(n + (i * colNum_));
 			// マップデータのn列i行目のタイルIDを上書き
-			mpMapData[i][n] = id;
+			mapData_[i][n] = id;
 		}
 	}
 }
@@ -248,46 +259,60 @@ void Tilemap::CreateMap(int colNum, int rowNum, CSVData* pMapdata)
 Vector2f Tilemap::GetMapSize() const
 {
 	Vector2f result(
-		mColNum * TileSize,
-		mRowNum * TileSize
+		colNum_ * TileSize,
+		rowNum_ * TileSize
 	);
 	return result;
 }
 
+void Tilemap::CreateRenderMap(int _col, int _row)
+{
+	render_row_num = _row;
+	render_col_num = _col;
+
+	// 列数*行数分の配列を確保する
+	sprite_ = new Sprite* [render_row_num];
+	for (int i = 0; i < render_row_num; i++)
+	{
+		sprite_[i] = new Sprite[render_col_num];
+	}
+
+}
+
 // 指定された列・行が壁であるか否かを戻す
-bool Tilemap::IsWall(int _col, int _row) const
+bool Tilemap::IsBlockedTile(int _col, int _row) const
 {
 	// 不正値チェック
-	if (_col < 0 || _col >= mColNum || _row < 0 || _row >= mRowNum)
+	if (_col < 0 || _col >= colNum_ || _row < 0 || _row >= rowNum_)
 	{
 		return false;
 	}
 
 	// 指定の列・行のタイルIDを取得する
-	int id = mpMapData[_row][_col];
+	int id = mapData_[_row][_col];
 
 	// タイルID1番を壁と判定する
-	if (id == 1)
+	if ((id >= static_cast<int>(TileType::WALL_FIRST) && id< static_cast<int>(TileType::WALL_END))|| (id >= static_cast<int>(TileType::PLATFORM_FIRST) && id < static_cast<int>(TileType::PLATFORM_END)))
 	{
 		return true;
 	}
 	return false;
 }
 
-void Tilemap::_clearMapData()
+void Tilemap::ClearMapData()
 {
 	// マップデータが確保されていることを確認して
-	if (mpMapData != nullptr)
+	if (mapData_ != nullptr)
 	{
 		// 先にmpMapData[0]~mpMapData[mRowNum-1]までの配列を解放する
-		for (int i = 0; i < mRowNum; i++)
+		for (int i = 0; i < rowNum_; i++)
 		{
-			SAFE_DELETE_ARRAY(mpMapData[i]);
+			SAFE_DELETE_ARRAY(mapData_[i]);
 		}
 		// 最後にint*配列であるmpMapDataを解放する
-		SAFE_DELETE_ARRAY(mpMapData);
+		SAFE_DELETE_ARRAY(mapData_);
 		// マップデータを消したので、マップの列数・行数もリセットしておく
-		mRowNum = 0;
-		mColNum = 0;
+		rowNum_ = 0;
+		colNum_ = 0;
 	}
 }

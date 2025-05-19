@@ -44,6 +44,8 @@ public:
 
 	bool IsAttacking() override;
 
+	bool GetActiveWeaponID_() const override;
+
 protected:
 	explicit EquipmentComponent(bool _isActive, IEquipOwnerView* _equipOwnerView_,IMessenger* _messenger);
 

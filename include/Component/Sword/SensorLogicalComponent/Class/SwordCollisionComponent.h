@@ -6,18 +6,6 @@
 class SwordCollisionComponent: public CollisionComponent
 {
 private:
-	// 衝突範囲テーブル（向き別）振り下ろし後のパターンの衝突範囲
-	const Fwk::Collision::Rect hitRects[2] = {
-		{{68.0f,0.0f},64.0f,32.0f}, // right
-	{{-68.0f,0.0f},64.0f,32.0f }, // left
-	};
-
-	// 衝突範囲テーブル２（向き別）振り下ろし中（斜めの時）の衝突範囲
-	const Fwk::Collision::Rect hitRects2[2] = {
-	{{70.0f,42.0f},54.0f,32.0f}, //right
-	{{-70.0f,42.0f},54.0f,32.0f}, // left
-	};
-
 	Inject<IWeaponView> swordView_;
 public:
 	SwordCollisionComponent(bool _isActive, IMessenger* _messenger, IWeaponView* _swordView);

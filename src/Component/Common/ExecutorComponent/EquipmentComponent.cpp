@@ -98,6 +98,11 @@ bool EquipmentComponent::IsAttacking()
 	return activeWeapon->IsAttacking();
 }
 
+bool EquipmentComponent::GetActiveWeaponID_() const
+{
+	return activeWeaponID_;
+}
+
 void EquipmentComponent::Reset()
 {
 	ExecutorComponent::Reset();
