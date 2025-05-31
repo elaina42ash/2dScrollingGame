@@ -1,6 +1,7 @@
 ﻿#include "StateMachine/State/Player/PlayerAirState.h"
 
 #include "Event/Message/SemanticMsg/StartMoveSemMsg.h"
+#include "Event/Message/SemanticMsg/StartSwitchWeaponSemMsg.h"
 #include "Event/Message/SemanticMsg/StopJumpSemMsg.h"
 #include "Fwk/Framework.h"
 #include "StateMachine/State/Player/PlayerStateDef.h"
@@ -60,7 +61,11 @@ void PlayerAirState::Update()
 		SendMsg(startMoveSemMsg);
 	}
 
-
+	if (playerStateComponent_->IsSemanticInputTriggered(GameSemantic::Semantic::START_SWITCH_WEAPON))
+	{
+		StartSwitchWeaponSemMsg startSwitchWeaponSemMsg;
+		SendMsg(startSwitchWeaponSemMsg);
+	}
 }
 
 

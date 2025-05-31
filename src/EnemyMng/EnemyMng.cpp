@@ -1,13 +1,8 @@
-﻿#include "EnemyMng.h"
-
-// SAFE_DELETEを使うために#include
-#include "Lib/LibDef.h"
-
-// 生成する敵のクラスの宣言をinclude
-#include "Slime.h"
-#include "Onibi.h"
-#include "Ghost.h"
-#include "Skull.h"
+﻿#include "EnemyMng/EnemyMng.h"
+#include "Enemy/Ghost.h"
+#include "Enemy/Onibi.h"
+#include "Enemy/Skull.h"
+#include "Enemy/Slime.h"
 
 // 初期化
 void EnemyMng::Init() {
@@ -61,7 +56,7 @@ void EnemyMng::Render() {
 }
 
 // オブジェクトプールの生成
-void EnemyMng::GeneratePool(string _enemyName, int _poolSize, IEnvironmentQuery* _environmentQuery) {
+void EnemyMng::GeneratePool(std::string _enemyName, int _poolSize, IEnvironmentQuery* _environmentQuery) {
 	// スライムのプール作成
 	if (_enemyName=="Slime")
 	{

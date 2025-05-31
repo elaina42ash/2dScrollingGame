@@ -69,6 +69,31 @@ void EquipmentComponent::SwitchWeapon(EquipmentSlotID _slotID)
 	activeWeapon = weapon;
 }
 
+void EquipmentComponent::SwitchToNextWeapon()
+{
+	if (equipmentMap_.empty())
+		return;
+
+	auto currentIt = equipmentMap_.find(activeWeaponID_);
+	auto it = currentIt;
+
+	do
+	{
+		if (it == equipmentMap_.end() || std::next(it) == equipmentMap_.end())
+			it = equipmentMap_.begin();
+		else
+			++it;
+
+		IWeapon* nextWeapon = dynamic_cast<IWeapon*>(it->second);
+		if (nextWeapon)
+		{
+			SwitchWeapon(it->first);
+			return;
+		}
+
+	} while (it != currentIt);
+}
+
 IEquipment* EquipmentComponent::FindEquipment(EquipmentSlotID _slotID)
 {
 	auto it = equipmentMap_.find(_slotID);

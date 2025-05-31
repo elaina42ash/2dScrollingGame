@@ -1,7 +1,7 @@
 ﻿#include "Event/Message/AnimationMsg/SwordAnimationKeyframeMsg.h"
 
 SwordAnimationKeyframeMsg::SwordAnimationKeyframeMsg(int _animationId, int _keyFrameIndex): animationID_(_animationId),
-	KeyFrameIndex_(_keyFrameIndex)
+	keyFrameIndex_(_keyFrameIndex)
 {
 }
 
@@ -17,5 +17,5 @@ int SwordAnimationKeyframeMsg::GetAnimationID() const
 
 int SwordAnimationKeyframeMsg::GetKeyFrameIndex() const
 {
-	return KeyFrameIndex_;
+	return keyFrameIndex_;
 }

@@ -1,7 +1,7 @@
 ﻿#pragma once
-#include <map>
 #include <vector>
-#include "Enemy/EnemyMng.h"
+#include "IEnvironmentQuery.h"
+#include "EnemyMng/EnemyMng.h"
 #include "GameObject/IDetachableObject.h"
 #include "GameObject/IGameObject.h"
 #include "GameObject/IStaticObject.h"

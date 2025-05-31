@@ -7,6 +7,7 @@
 #include "Event/Message/LogicalInputMsg/HoriAxisInputMsg.h"
 #include "Event/Message/LogicalInputMsg/JumpInputMsg.h"
 #include "Event/Message/LogicalInputMsg/ReleaseJumpInputMsg.h"
+#include "Event/Message/LogicalInputMsg/SwitchWeaponInputMsg.h"
 
 PlayerInputComponent::PlayerInputComponent(bool _isActive, IMessenger* _messenger) : ::InputComponent(_isActive, _messenger)
 {
@@ -73,8 +74,8 @@ void PlayerInputComponent::Update()
 	// start dash input detected
 	if (logicalInputAdapter_.GetKeyDown(GameInput::LogicalInput::SWITCH_WEAPON))
 	{
-		DashInputMsg dashInputMsg;
-		SendMsg(dashInputMsg);
+		SwitchWeaponInputMsg switchWeaponInput;
+		SendMsg(switchWeaponInput);
 	}
 
 	Reset();

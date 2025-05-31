@@ -9,6 +9,7 @@ enum class CollisionGroup {
 	PLAYER = FIRST,
 	WEAPON,
 	ENEMY,
+	IronSpike,
 	GOAL,
 
 	COUNT
@@ -21,6 +22,7 @@ enum class CollisionTag {
 
 	PLAYER = FIRST,
 	SWORD,
+	KATANA,
 
 	COUNT
 };

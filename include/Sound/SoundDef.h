@@ -17,3 +17,11 @@ enum class SwordSoundType {
 
 	COUNT
 };
+
+enum class KatanaSoundType {
+	NONE = -1,
+	FIRST = 0,
+	ATTACK = FIRST,
+
+	COUNT
+};

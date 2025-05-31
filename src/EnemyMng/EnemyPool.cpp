@@ -1,6 +1,5 @@
-﻿#include "EnemyPool.h"
-
-// SAFE_DELETEを使いたいので#include
+﻿#include "EnemyMng/EnemyPool.h"
+#include "Enemy/Enemy.h"
 #include "Fwk/Framework.h"
 
 // 後片付け

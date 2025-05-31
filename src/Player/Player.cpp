@@ -12,6 +12,9 @@
 #include "Component/Player/SensorLogicalComponent/Class/PlayerCollisionComponent.h"
 #include "Component/Player/SensorLogicalComponent/Class/PlayerGroundSensorComponent.h"
 #include "Component/Player/SensorLogicalComponent/Class/PlayerTileMapSensorComponent.h"
+#include "Event/Message/AnimationMsg/KatanaAnimationBeginMsg.h"
+#include "Event/Message/AnimationMsg/KatanaAnimationCompletedMsg.h"
+#include "Event/Message/AnimationMsg/KatanaAnimationKeyframeMsg.h"
 #include "Event/Message/LogicalInputMsg/AttackInputMsg.h"
 #include "Event/Message/LogicalInputMsg/DashInputMsg.h"
 #include "Event/Message/LogicalInputMsg/HoriAxisInputMsg.h"
@@ -28,6 +31,7 @@
 #include "Event/Message/SemanticMsg/StartKnockBackSemMsg.h"
 #include "Event/Message/SemanticMsg/StartMoveSemMsg.h"
 #include "Event/Message/SemanticMsg/StartStageClearSemMsg.h"
+#include "Event/Message/SemanticMsg/StartSwitchWeaponSemMsg.h"
 #include "Event/Message/SemanticMsg/StopJumpSemMsg.h"
 #include "Event/Message/StateMsg/SetIsClearConditionMsg.h"
 #include "Event/Message/StateMsg/SetIsDamagedConditionMsg.h"
@@ -202,9 +206,13 @@ void Player::Init()
 	StateComponentSubscribeMsg();
 
 	Subscribe(TypeidSystem::GetTypeID<StartAttackSemMsg>(), equipmentComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartSwitchWeaponSemMsg>(), equipmentComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SwordAnimationBeginMsg>(), equipmentComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SwordAnimationKeyframeMsg>(), equipmentComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SwordAnimationCompletedMsg>(), equipmentComponent_);
+	Subscribe(TypeidSystem::GetTypeID<KatanaAnimationBeginMsg>(), equipmentComponent_);
+	Subscribe(TypeidSystem::GetTypeID<KatanaAnimationKeyframeMsg>(), equipmentComponent_);
+	Subscribe(TypeidSystem::GetTypeID<KatanaAnimationCompletedMsg>(), equipmentComponent_);
 
 	Subscribe(TypeidSystem::GetTypeID<StartMoveSemMsg>(), transformComponent_);
 

@@ -72,13 +72,6 @@ void SwordAnimationComponent::Update()
 	// スプライトの位置を更新
 	SetSpritePosition(_newPos);
 
-	if (swordView_->IsAttacking() && !hasTriggeredAttack_)
-	{
-		HandleSwordSwingAnimation();
-		SetVisible(true);
-		hasTriggeredAttack_ = true;
-	}
-
 	AnimationComponent::Update();
 
 	// スプライトの更新
@@ -115,62 +108,5 @@ void SwordAnimationComponent::OnAnimationEvent(const AnimationEvent& _animEvent)
 
 void SwordAnimationComponent::RegisterSwordAnimation()
 {
-	// パターン１つ分のUV座標上の幅と高さ
-	float uvW = 1.0f / 4.0f;
-	float uvH = 1.0f / 2.0f;
 
-	// 8パターン分のUV座標とPivot
-	SpriteCell cells[8] = {
-		{{uvW * 0.0f,0.0f,uvW,uvH},{0.5f,-0.5f}}, // 0 上
-		{{uvW * 1.0f,0.0f,uvW,uvH},{0.0f,0.0f}}, // 1 右上
-		{{uvW * 2.0f,0.0f,uvW,uvH},{0.0f,0.5f}}, // 2 右
-		{{uvW * 3.0f,0.0f,uvW,uvH},{0.0f,1.0f}}, // 3 右下
-
-		{{uvW * 0.0f,0.5f,uvW,uvH},{0.5f,1.5f}}, // 4 下
-		{{uvW * 1.0f,0.5f,uvW,uvH},{1.0f,1.0f}}, // 5 左下
-		{{uvW * 2.0f,0.5f,uvW,uvH},{1.0f,0.5f}}, // 6 左
-		{{uvW * 3.0f,0.5f,uvW,uvH},{1.0f,0.0f}}, // 7 左上
-	};
-
-	// UV・Pivot設定リスト　右に剣を振る
-	SpriteCell swing_right[]{
-		cells[0], // 0 上
-		cells[1], // 1 右上
-		cells[2], // 2 右
-		{}
-	};
-
-	// UV・Pivot設定リスト　左に剣を振る
-	SpriteCell swing_left[]{
-		cells[0], // 0 上
-		cells[7], // 7 左上
-		cells[6], // 6 左
-		{}
-	};
-
-	// キーフレームの時刻
-	float keyTimes[] = {
-		0.0f,
-		0.05f,
-		0.10f,
-		0.25f
-	};
-
-
-	// アニメーションデータ
-	Animation anim[2];
-	CreateAnimationSpriteCell(anim[0], ToAnimationName(static_cast<int>(SwordAnimationType::SWING_LEFT)), 4, keyTimes, false, swing_left);
-	CreateAnimationSpriteCell(anim[1], ToAnimationName(static_cast<int>(SwordAnimationType::SWING_RIGHT)), 4, keyTimes, false, swing_right);
-
-
-	for (int i = 0; i < 2; i++)
-	{
-		// 各アニメーションにイベントのコールバック関数を登録する
-		anim[i].SetEventCallback(CreateAnimationEventCallback(SwordAnimationComponent::OnAnimationEvent));
-		// アニメーションをスプライト
-		sprite_.AddAnimation(anim[i]);
-	}
-
-	// 描画プライオリティ上げておく
-	sprite_.SetPriority(10);
 }

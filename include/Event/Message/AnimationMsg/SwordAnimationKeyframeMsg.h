@@ -5,7 +5,7 @@ class SwordAnimationKeyframeMsg : public IEventMessage
 {
 private:
 	int animationID_;
-	int KeyFrameIndex_;
+	int keyFrameIndex_;
 
 public:
 	SwordAnimationKeyframeMsg(int _animationId, int _keyFrameIndex);

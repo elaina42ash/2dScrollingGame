@@ -7,6 +7,7 @@ class PlayerEquipmentComponent : public EquipmentComponent
 {
 private:
 	Inject<IPlayerView> playerView_;
+
 public:
 	explicit PlayerEquipmentComponent(bool _isActive, IPlayerView* playerView_,IEquipOwnerView* _equipOwnerView,IMessenger* _messenger);
 

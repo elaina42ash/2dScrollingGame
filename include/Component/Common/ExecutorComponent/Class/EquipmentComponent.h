@@ -6,7 +6,7 @@
 #include "GameObject/Equipment/Weapon/IWeapon.h"
 #pragma warning(push)
 #pragma warning(disable:4250)
-class EquipmentComponent : public ExecutorComponent,public IEquipmentComponent
+class EquipmentComponent : public ExecutorComponent, public IEquipmentComponent
 {
 	using EquipmentSlotID = int;
 
@@ -32,11 +32,13 @@ public:
 
 	void HandleMessage(const IEventMessage& _msg) override;
 
-	void Equip(EquipmentSlotID _slotId,IEquipment* _equipment);
+	void Equip(EquipmentSlotID _slotId, IEquipment* _equipment);
 
 	void Unequipped(EquipmentSlotID _slotId);
 
 	void SwitchWeapon(EquipmentSlotID _slotID);
+
+	void SwitchToNextWeapon();
 
 	IEquipment* FindEquipment(EquipmentSlotID _slotID);
 
@@ -47,7 +49,7 @@ public:
 	bool GetActiveWeaponID_() const override;
 
 protected:
-	explicit EquipmentComponent(bool _isActive, IEquipOwnerView* _equipOwnerView_,IMessenger* _messenger);
+	explicit EquipmentComponent(bool _isActive, IEquipOwnerView* _equipOwnerView_, IMessenger* _messenger);
 
 	void Reset() override;
 

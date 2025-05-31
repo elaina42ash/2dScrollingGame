@@ -1,3 +1,24 @@
-﻿  SwordCollisionComponent.cpp
+﻿  Enemy.cpp
+  Onibi.cpp
+  Skull.cpp
+  Slime.cpp
+  main.cpp
+  Scene.cpp
+  SceneGameClear.cpp
+  SceneGameOver.cpp
+  SceneInGame.cpp
+  SceneStageSelect.cpp
+  SceneTitle.cpp
+  PlayerMovementComponent.cpp
+  EnemyMng.cpp
+  EnemyPool.cpp
+  GameObjectMng.cpp
+D:\MyProject\2dScrollingGame\src\GameObjectMng\GameObjectMng.cpp(20,112): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+D:\MyProject\2dScrollingGame\src\GameObjectMng\GameObjectMng.cpp(20,67): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+D:\MyProject\2dScrollingGame\src\GameObjectMng\GameObjectMng.cpp(64,70): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+  Player.cpp
+  SceneMng.cpp
+  World.cpp
+  正在生成代码...
   Game.vcxproj -> D:\MyProject\2dScrollingGame\実行ファイル\Debug(x64)\Game.exe
   复制了 0 个文件

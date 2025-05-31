@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include <vector>
-#include "Enemy.h"
-
+#include "Enemy/Enemy.h"
+#include "GameObjectMng/IEnvironmentQuery.h"
 
 class EnemyPool {
 public:

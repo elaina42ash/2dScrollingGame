@@ -1,6 +1,4 @@
 D:\MyProject\2dScrollingGame\Source\Enemy\Enemy.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Enemy.obj
-D:\MyProject\2dScrollingGame\Source\Enemy\EnemyMng.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\EnemyMng.obj
-D:\MyProject\2dScrollingGame\Source\Enemy\EnemyPool.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\EnemyPool.obj
 D:\MyProject\2dScrollingGame\Source\Enemy\Ghost.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Ghost.obj
 D:\MyProject\2dScrollingGame\Source\Enemy\Onibi.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Onibi.obj
 D:\MyProject\2dScrollingGame\Source\Enemy\Skull.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Skull.obj
@@ -35,6 +33,13 @@ D:\MyProject\2dScrollingGame\src\Component\Common\SensorLogicalComponent\Collisi
 D:\MyProject\2dScrollingGame\src\Component\Common\SensorLogicalComponent\GroundSensorComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\GroundSensorComponent.obj
 D:\MyProject\2dScrollingGame\src\Component\Common\SensorLogicalComponent\SensorLogicalComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SensorLogicalComponent.obj
 D:\MyProject\2dScrollingGame\src\Component\Common\SensorLogicalComponent\TileMapSensorComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\TileMapSensorComponent.obj
+D:\MyProject\2dScrollingGame\src\Component\IronSpike\IronSpikeAnimationComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\IronSpikeAnimationComponent.obj
+D:\MyProject\2dScrollingGame\src\Component\IronSpike\IronSpikeCollisionComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\IronSpikeCollisionComponent.obj
+D:\MyProject\2dScrollingGame\src\Component\IronSpike\IronSpikeTransformComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\IronSpikeTransformComponent.obj
+D:\MyProject\2dScrollingGame\src\Component\Katana\ExecutorComponent\KatanaAnimationComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\KatanaAnimationComponent.obj
+D:\MyProject\2dScrollingGame\src\Component\Katana\ExecutorComponent\KatanaSoundComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\KatanaSoundComponent.obj
+D:\MyProject\2dScrollingGame\src\Component\Katana\ExecutorComponent\KatanaTransformComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\KatanaTransformComponent.obj
+D:\MyProject\2dScrollingGame\src\Component\Katana\SensorLogicalComponent\KatanaCollisionComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\KatanaCollisionComponent.obj
 D:\MyProject\2dScrollingGame\src\Component\Player\DecisionLogicalComponent\PlayerStateComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\PlayerStateComponent.obj
 D:\MyProject\2dScrollingGame\src\Component\Player\ExecutorComponent\PlayerAnimationComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\PlayerAnimationComponent.obj
 D:\MyProject\2dScrollingGame\src\Component\Player\ExecutorComponent\PlayerCombatStatusComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\PlayerCombatStatusComponent.obj
@@ -52,8 +57,13 @@ D:\MyProject\2dScrollingGame\src\Component\Player\SensorLogicalComponent\PlayerT
 D:\MyProject\2dScrollingGame\src\Component\Sword\ExecutorComponent\SwordAnimationComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SwordAnimationComponent.obj
 D:\MyProject\2dScrollingGame\src\Component\Sword\ExecutorComponent\SwordSoundComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SwordSoundComponent.obj
 D:\MyProject\2dScrollingGame\src\Component\Sword\ExecutorComponent\SwordTransformComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SwordTransformComponent.obj
-D:\MyProject\2dScrollingGame\src\Component\Sword\SensorLogicalComponent\Class\SwordCollisionComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SwordCollisionComponent.obj
+D:\MyProject\2dScrollingGame\src\Component\Sword\SensorLogicalComponent\SwordCollisionComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SwordCollisionComponent.obj
+D:\MyProject\2dScrollingGame\src\EnemyMng\EnemyMng.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\EnemyMng.obj
+D:\MyProject\2dScrollingGame\src\EnemyMng\EnemyPool.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\EnemyPool.obj
 D:\MyProject\2dScrollingGame\src\Event\MessageBus.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\MessageBus.obj
+D:\MyProject\2dScrollingGame\src\Event\Message\AnimationMsg\KatanaAnimationBeginMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\KatanaAnimationBeginMsg.obj
+D:\MyProject\2dScrollingGame\src\Event\Message\AnimationMsg\KatanaAnimationCompletedMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\KatanaAnimationCompletedMsg.obj
+D:\MyProject\2dScrollingGame\src\Event\Message\AnimationMsg\KatanaAnimationKeyframeMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\KatanaAnimationKeyframeMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\AnimationMsg\SwordAnimationBeginMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SwordAnimationBeginMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\AnimationMsg\SwordAnimationCompletedMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SwordAnimationCompletedMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\AnimationMsg\SwordAnimationKeyframeMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SwordAnimationKeyframeMsg.obj
@@ -62,6 +72,7 @@ D:\MyProject\2dScrollingGame\src\Event\Message\LogicalInputMsg\DashInputMsg.cpp;
 D:\MyProject\2dScrollingGame\src\Event\Message\LogicalInputMsg\HoriAxisInputMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\HoriAxisInputMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\LogicalInputMsg\JumpInputMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\JumpInputMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\LogicalInputMsg\ReleaseJumpInputMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\ReleaseJumpInputMsg.obj
+D:\MyProject\2dScrollingGame\src\Event\Message\LogicalInputMsg\SwitchWeaponInputMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SwitchWeaponInputMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\Message.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Message.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\EndDashSemMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\EndDashSemMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\EndKnockBackSemMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\EndKnockBackSemMsg.obj
@@ -73,6 +84,7 @@ D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\StartJumpSemMsg.cpp;D
 D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\StartKnockBackSemMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StartKnockBackSemMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\StartMoveSemMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StartMoveSemMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\StartStageClearSemMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StartStageClearSemMsg.obj
+D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\StartSwitchWeaponSemMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StartSwitchWeaponSemMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\StopJumpSemMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StopJumpSemMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\StateMsg\EnterIdleStateMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\EnterIdleStateMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\StateMsg\SetIsClearConditionMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SetIsClearConditionMsg.obj
@@ -88,6 +100,8 @@ D:\MyProject\2dScrollingGame\src\GameObject\Equipment\Weapon\Katana.cpp;D:\MyPro
 D:\MyProject\2dScrollingGame\src\GameObject\Equipment\Weapon\Sword.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Sword.obj
 D:\MyProject\2dScrollingGame\src\GameObject\Equipment\Weapon\Weapon.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Weapon.obj
 D:\MyProject\2dScrollingGame\src\GameObject\GameObject.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\GameObject.obj
+D:\MyProject\2dScrollingGame\src\GameObject\StaticObject.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StaticObject.obj
+D:\MyProject\2dScrollingGame\src\GameObject\StaticObject\IronSpike.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\IronSpike.obj
 D:\MyProject\2dScrollingGame\src\Input\FrameworkPhysicsInputAdapter.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\FrameworkPhysicsInputAdapter.obj
 D:\MyProject\2dScrollingGame\src\Player\Player.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Player.obj
 D:\MyProject\2dScrollingGame\src\SceneMng\SceneMng.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SceneMng.obj
@@ -115,6 +129,8 @@ D:\MyProject\2dScrollingGame\src\StateMachine\State\Player\PlayerStageClearState
 D:\MyProject\2dScrollingGame\src\StateMachine\State\Player\PlayerState.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\PlayerState.obj
 D:\MyProject\2dScrollingGame\src\StateMachine\State\State.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\State.obj
 D:\MyProject\2dScrollingGame\src\StateMachine\Transition\Transition.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Transition.obj
+D:\MyProject\2dScrollingGame\src\StaticObjectMng\StaticObjectMng.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StaticObjectMng.obj
+D:\MyProject\2dScrollingGame\src\StaticObjectMng\StaticObjectPool.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StaticObjectPool.obj
 D:\MyProject\2dScrollingGame\src\Timer\Timer.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Timer.obj
 D:\MyProject\2dScrollingGame\src\UI\HpGauge.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\HpGauge.obj
 D:\MyProject\2dScrollingGame\src\UI\HpGauge2.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\HpGauge2.obj

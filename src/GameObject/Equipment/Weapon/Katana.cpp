@@ -1,11 +1,15 @@
 ﻿#include "GameObject/Equipment/Weapon/Katana.h"
+#include "Component/Katana/ExecutorComponent/KatanaAnimationComponent.h"
+#include "Component/Katana/ExecutorComponent/KatanaSoundComponent.h"
+#include "Component/Katana/ExecutorComponent/KatanaTransformComponent.h"
+#include "Component/Katana/SensorLogicalComponent/Class/KatanaCollisionComponent.h"
 #include "Component/Sword/ExecutorComponent/Class/SwordAnimationComponent.h"
 #include "Component/Sword/ExecutorComponent/Class/SwordSoundComponent.h"
 #include "Component/Sword/ExecutorComponent/Class/SwordTransformComponent.h"
 #include "Component/Sword/SensorLogicalComponent/Class/SwordCollisionComponent.h"
-#include "Event/Message/AnimationMsg/SwordAnimationBeginMsg.h"
-#include "Event/Message/AnimationMsg/SwordAnimationCompletedMsg.h"
-#include "Event/Message/AnimationMsg/SwordAnimationKeyframeMsg.h"
+#include "Event/Message/AnimationMsg/KatanaAnimationBeginMsg.h"
+#include "Event/Message/AnimationMsg/KatanaAnimationCompletedMsg.h"
+#include "Event/Message/AnimationMsg/KatanaAnimationKeyframeMsg.h"
 
 
 
@@ -51,13 +55,13 @@ void Katana::Init()
 {
 	Weapon::Init();
 
-	Subscribe(TypeidSystem::GetTypeID<SwordAnimationCompletedMsg>(), this);
+	Subscribe(TypeidSystem::GetTypeID<KatanaAnimationCompletedMsg>(), this);
 
-	Subscribe(TypeidSystem::GetTypeID<SwordAnimationKeyframeMsg>(), collisionComponent_);
-	Subscribe(TypeidSystem::GetTypeID<SwordAnimationCompletedMsg>(), collisionComponent_);
-	Subscribe(TypeidSystem::GetTypeID<SwordAnimationBeginMsg>(), collisionComponent_);
+	Subscribe(TypeidSystem::GetTypeID<KatanaAnimationKeyframeMsg>(), collisionComponent_);
+	Subscribe(TypeidSystem::GetTypeID<KatanaAnimationBeginMsg>(), collisionComponent_);
+	Subscribe(TypeidSystem::GetTypeID<KatanaAnimationCompletedMsg>(), collisionComponent_);
 
-	Subscribe(TypeidSystem::GetTypeID<SwordAnimationBeginMsg>(), soundComponent_);
+	Subscribe(TypeidSystem::GetTypeID<KatanaAnimationBeginMsg>(), soundComponent_);
 }
 
 void Katana::Update()
@@ -106,9 +110,9 @@ void Katana::EndAttack()
 
 void Katana::HandleMessage(const IEventMessage& _msg)
 {
-	const SwordAnimationCompletedMsg* swordAnimationCompletedMsg = TypeidSystem::SafeCast<SwordAnimationCompletedMsg>(&_msg);
+	const KatanaAnimationCompletedMsg* katanaAnimationCompletedMsg = TypeidSystem::SafeCast<KatanaAnimationCompletedMsg>(&_msg);
 
-	if (swordAnimationCompletedMsg)
+	if (katanaAnimationCompletedMsg)
 	{
 		EndAttack();
 	}
@@ -116,29 +120,30 @@ void Katana::HandleMessage(const IEventMessage& _msg)
 
 void Katana::OnAttackPhaseStarted(int _animationID)
 {
-	SwordAnimationBeginMsg swordAnimationBegin(_animationID);
-	SendMsg(swordAnimationBegin);
+	KatanaAnimationBeginMsg katanaAnimationBeginMsg(_animationID);
+	SendMsg(katanaAnimationBeginMsg);
 }
 
 void Katana::OnAttackKeyframe(int _animationID, int frameIndex)
 {
-		
+	KatanaAnimationKeyframeMsg katanaAnimationKeyframeMsg(_animationID, frameIndex);
+	SendMsg(katanaAnimationKeyframeMsg);
 }
 
 void Katana::OnAttackCompleted(int _animationID)
 {
-	SwordAnimationCompletedMsg swordAnimationCompletedMsg(_animationID);
-	SendMsg(swordAnimationCompletedMsg);
+	KatanaAnimationCompletedMsg katanaAnimationCompletedMsg(_animationID);
+	SendMsg(katanaAnimationCompletedMsg);
 }
 
 void Katana::InitializeKatanaComponents()
 {
-	transformComponent_ = new SwordTransformComponent(false, this, equipOwnerView_.Injected(), AccessMessenger());
+	transformComponent_ = new KatanaTransformComponent(false, this, equipOwnerView_.Injected(), AccessMessenger());
 	AddComponent<ITransformComponent>(transformComponent_);
-	collisionComponent_ = new SwordCollisionComponent(false, AccessMessenger(), this);
+	collisionComponent_ = new KatanaCollisionComponent(false, AccessMessenger(), this);
 	AddComponent<ICollisionComponent>(collisionComponent_);
-	animationComponent_ = new SwordAnimationComponent(false, AccessMessenger(), this);
+	animationComponent_ = new KatanaAnimationComponent(false, AccessMessenger(), this);
 	AddComponent<IAnimationComponent>(animationComponent_);
-	soundComponent_ = new SwordSoundComponent(false, this, AccessMessenger());
+	soundComponent_ = new KatanaSoundComponent(false, this, AccessMessenger());
 	AddComponent<ISoundComponent>(soundComponent_);
 }

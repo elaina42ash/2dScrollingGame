@@ -7,8 +7,8 @@ void HpGauge2::Init()
 	// スプライトの設定
 	mSprite.Init();
 	mSprite.SetTexture(mTexture);
-	mSprite.SetSize(256.0f,32.0f);
-	mSprite.SetPosition(8.0f,-80.0f);
+	mSprite.SetSize(512.0f,128.0f);
+	mSprite.SetPosition(8.0f,-40.0f);
 
 	// 手前に表示されるように
 	mSprite.SetPriority(100);

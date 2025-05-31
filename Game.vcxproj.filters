@@ -349,12 +349,75 @@
     <Filter Include="ヘッダー ファイル\UI">
       <UniqueIdentifier>{d59df8ca-8dda-431b-9e50-e11bbf6d8126}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Katana">
+      <UniqueIdentifier>{40a25e48-0ae6-451d-bc42-719207db01ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Katana\DecisionLogicalComponent">
+      <UniqueIdentifier>{c8d9bb91-8a20-4f43-9798-71d0485c5a1d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Katana\ExecutorComponent">
+      <UniqueIdentifier>{f9a9c5c5-5b47-47a2-8137-3a7a37b42cfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Katana\InputLogicalComponent">
+      <UniqueIdentifier>{8551bd04-6559-4a12-9f9e-3d147316e6ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Katana\SensorLogicalComponent">
+      <UniqueIdentifier>{44409704-63cc-4465-b8b1-734dce9bc008}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Katana\ExecutorComponent\Class">
+      <UniqueIdentifier>{89669cce-c8be-4ef5-b963-64cf41e3fa25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Katana\SensorLogicalComponent\Class">
+      <UniqueIdentifier>{d8991996-f57e-4725-b934-82c13fe3005d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Katana\InputLogicalComponent\Class">
+      <UniqueIdentifier>{6a883b3e-7464-459e-8e22-95cbbae12713}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Katana\DecisionLogicalComponent\Class">
+      <UniqueIdentifier>{289ff1ea-51d4-4d56-8bd7-8aa6ccc17748}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Katana">
+      <UniqueIdentifier>{276c8acb-7dad-4351-8d5a-5f33c1422e42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Katana\DecisionLogicalComponent">
+      <UniqueIdentifier>{40a259d3-d6cd-4fad-9819-e249393a0f17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Katana\ExecutorComponent">
+      <UniqueIdentifier>{5c9095e8-62ec-4c0f-a376-bfe6eb103331}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Katana\InputLogicalComponent">
+      <UniqueIdentifier>{f355b37b-c3b4-4e1f-8bcc-764007e3c61a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Katana\SensorLogicalComponent">
+      <UniqueIdentifier>{8239536f-68d4-49cd-ad33-a3af5fd8fc33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\StaticObject">
+      <UniqueIdentifier>{b9ba5f06-fc0f-439f-82bd-f04b1227fdb6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\GameObject\StaticObject">
+      <UniqueIdentifier>{1631ac72-be94-46e7-9e06-82c7113d505f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\IronSpike">
+      <UniqueIdentifier>{64c1e982-84be-4ad0-85ce-ddf35d61f4a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\IronSpike">
+      <UniqueIdentifier>{72321332-58db-4059-8a87-58154bc1c19f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\EnemyMng">
+      <UniqueIdentifier>{555b33ba-c49a-44a8-816f-6a36a7c09000}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\EnemyMng">
+      <UniqueIdentifier>{b1554b92-d858-4c39-823f-a42f8849cffb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\StaticObjectMng">
+      <UniqueIdentifier>{1c1584ac-111f-41c9-ae59-14bc67950fdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\StaticObjectMng">
+      <UniqueIdentifier>{a963aa9e-48de-4161-a4cd-0598312bc7c3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Enemy\Enemy.cpp">
-      <Filter>ソース ファイル\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Enemy\EnemyMng.cpp">
       <Filter>ソース ファイル\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Source\Enemy\Onibi.cpp">
@@ -383,9 +446,6 @@
     </ClCompile>
     <ClCompile Include="Source\Tilemap\Tilemap.cpp">
       <Filter>ソース ファイル\Tilemap</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Enemy\EnemyPool.cpp">
-      <Filter>ソース ファイル\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Source\Enemy\Ghost.cpp">
       <Filter>ソース ファイル\Enemy</Filter>
@@ -654,9 +714,6 @@
     <ClCompile Include="src\Event\Message\AnimationMsg\SwordAnimationBeginMsg.cpp">
       <Filter>ソース ファイル\Event\Message\AnimationMsg</Filter>
     </ClCompile>
-    <ClCompile Include="src\Component\Sword\SensorLogicalComponent\Class\SwordCollisionComponent.cpp">
-      <Filter>ソース ファイル\Component\Sword\SensorLogicalComponent</Filter>
-    </ClCompile>
     <ClCompile Include="src\StateMachine\State\Player\PlayerDeadState.cpp">
       <Filter>ソース ファイル\StateMachine\State\Player</Filter>
     </ClCompile>
@@ -726,6 +783,57 @@
     <ClCompile Include="src\Event\Message\SemanticMsg\StartSwitchWeaponSemMsg.cpp">
       <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
     </ClCompile>
+    <ClCompile Include="src\Event\Message\AnimationMsg\KatanaAnimationBeginMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\AnimationMsg</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\AnimationMsg\KatanaAnimationCompletedMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\AnimationMsg</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\AnimationMsg\KatanaAnimationKeyframeMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\AnimationMsg</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Katana\ExecutorComponent\KatanaAnimationComponent.cpp">
+      <Filter>ソース ファイル\Component\Katana\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Katana\ExecutorComponent\KatanaSoundComponent.cpp">
+      <Filter>ソース ファイル\Component\Katana\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Katana\ExecutorComponent\KatanaTransformComponent.cpp">
+      <Filter>ソース ファイル\Component\Katana\ExecutorComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Katana\SensorLogicalComponent\KatanaCollisionComponent.cpp">
+      <Filter>ソース ファイル\Component\Katana\SensorLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Sword\SensorLogicalComponent\SwordCollisionComponent.cpp">
+      <Filter>ソース ファイル\Component\Sword\SensorLogicalComponent</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\StaticObject.cpp">
+      <Filter>ソース ファイル\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\StaticObject\IronSpike.cpp">
+      <Filter>ソース ファイル\GameObject\StaticObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\IronSpike\IronSpikeAnimationComponent.cpp">
+      <Filter>ソース ファイル\Component\IronSpike</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\IronSpike\IronSpikeCollisionComponent.cpp">
+      <Filter>ソース ファイル\Component\IronSpike</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\IronSpike\IronSpikeTransformComponent.cpp">
+      <Filter>ソース ファイル\Component\IronSpike</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EnemyMng\EnemyMng.cpp">
+      <Filter>ソース ファイル\EnemyMng</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StaticObjectMng\StaticObjectMng.cpp">
+      <Filter>ソース ファイル\StaticObjectMng</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StaticObjectMng\StaticObjectPool.cpp">
+      <Filter>ソース ファイル\StaticObjectMng</Filter>
+    </ClCompile>
+    <ClCompile Include="src\EnemyMng\EnemyPool.cpp">
+      <Filter>ソース ファイル\EnemyMng</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\AppDef.h">
@@ -735,9 +843,6 @@
       <Filter>ソース ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Source\Enemy\Enemy.h">
-      <Filter>ソース ファイル\Enemy</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Enemy\EnemyMng.h">
       <Filter>ソース ファイル\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Source\Enemy\Onibi.h">
@@ -766,9 +871,6 @@
     </ClInclude>
     <ClInclude Include="Source\Tilemap\Tilemap.h">
       <Filter>ソース ファイル\Tilemap</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Enemy\EnemyPool.h">
-      <Filter>ソース ファイル\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Source\Enemy\Ghost.h">
       <Filter>ソース ファイル\Enemy</Filter>
@@ -1303,6 +1405,54 @@
     </ClInclude>
     <ClInclude Include="include\Event\Message\SemanticMsg\StartSwitchWeaponSemMsg.h">
       <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\AnimationMsg\KatanaAnimationBeginMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\AnimationMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\AnimationMsg\KatanaAnimationCompletedMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\AnimationMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\AnimationMsg\KatanaAnimationKeyframeMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\AnimationMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Katana\ExecutorComponent\KatanaTransformComponent.h">
+      <Filter>ヘッダー ファイル\Component\Katana\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Katana\ExecutorComponent\KatanaAnimationComponent.h">
+      <Filter>ヘッダー ファイル\Component\Katana\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Katana\ExecutorComponent\KatanaSoundComponent.h">
+      <Filter>ヘッダー ファイル\Component\Katana\ExecutorComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Katana\SensorLogicalComponent\Class\KatanaCollisionComponent.h">
+      <Filter>ヘッダー ファイル\Component\Katana\SensorLogicalComponent\Class</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\StaticObject\IronSpike.h">
+      <Filter>ヘッダー ファイル\GameObject\StaticObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\IronSpike\IronSpikeAnimationComponent.h">
+      <Filter>ヘッダー ファイル\Component\IronSpike</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\IronSpike\IronSpikeCollisionComponent.h">
+      <Filter>ヘッダー ファイル\Component\IronSpike</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\IronSpike\IronSpikeTransformComponent.h">
+      <Filter>ヘッダー ファイル\Component\IronSpike</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\StaticObject\IStaticObjectView.h">
+      <Filter>ヘッダー ファイル\GameObject\StaticObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EnemyMng\EnemyMng.h">
+      <Filter>ヘッダー ファイル\EnemyMng</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StaticObjectMng\StaticObjectMng.h">
+      <Filter>ヘッダー ファイル\StaticObjectMng</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StaticObjectMng\StaticObjectPool.h">
+      <Filter>ヘッダー ファイル\StaticObjectMng</Filter>
+    </ClInclude>
+    <ClInclude Include="include\EnemyMng\EnemyPool.h">
+      <Filter>ヘッダー ファイル\EnemyMng</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,8 +1,9 @@
 ﻿#pragma once
 #include <string>
-#include "Enemy.h"
 #include "EnemyPool.h"
+#include "Enemy/Enemy.h"
 #include "Fwk/Data/CSVData.h"
+#include "GameObjectMng/IEnvironmentQuery.h"
 
 
 // 敵管理クラス
@@ -25,7 +26,7 @@ public:
 	void DestroyPoolAll();
 
 	// 敵の生成
-	Enemy* CreateEnemy(string enemyName, Vector2f position);
+	Enemy* CreateEnemy(std::string enemyName, Lib::Math::Vector2f position);
 	// CSVデータから敵を生成する
 	void CreateEnemies(CSVData* pCsvData, int _tileSize);
 	// 残りの敵の数

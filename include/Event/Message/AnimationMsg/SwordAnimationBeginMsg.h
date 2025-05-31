@@ -7,18 +7,9 @@ private:
 	int animationID_;
 
 public:
-	explicit SwordAnimationBeginMsg(int _animationId)
-		: animationID_(_animationId)
-	{
-	}
+	explicit SwordAnimationBeginMsg(int _animationId);
 
-	TypeidSystem::TypeID GetTypeID() const override
-	{
-		return TypeidSystem::GetTypeID<SwordAnimationBeginMsg>();
-	}
+	TypeidSystem::TypeID GetTypeID() const override;
 
-	int GetAnimationID() const
-	{
-		return animationID_;
-	}
+	int GetAnimationID() const;
 };

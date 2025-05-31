@@ -2,6 +2,7 @@
 #include "Lib/Math/TVector2.h"
 #include "GameDef.h"
 #include "Event/Listener/IMessageListener.h"
+#include "Component/Common/IComponent.h"
 
 class ITransformComponent : virtual public IComponent, public IMessageListener
 {

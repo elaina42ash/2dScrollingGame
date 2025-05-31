@@ -3,6 +3,9 @@
 #include "Animation/AnimationDef.h"
 #include "Component/Common/ExecutorComponent/Interface/IEquipmentComponent.h"
 #include "Component/Common/ExecutorComponent/Interface/ITransformComponent.h"
+#include "Event/Message/AnimationMsg/KatanaAnimationBeginMsg.h"
+#include "Event/Message/AnimationMsg/KatanaAnimationCompletedMsg.h"
+#include "Event/Message/AnimationMsg/KatanaAnimationKeyframeMsg.h"
 #include "Event/Message/SemanticMsg/StartAttackSemMsg.h"
 #include "Event/Message/SemanticMsg/StartIdleSemMsg.h"
 #include "Event/Message/SemanticMsg/StartMoveSemMsg.h"
@@ -123,13 +126,21 @@ void PlayerAnimationComponent::RegisterPlayerAnimation()
 	int swordAttackAnimationResourceRowIndex = 2;
 	InitAnimationFrames(uvWidth, uvHeight, swordAttackFrameCount, swordAttackAnimationResourceRowIndex, swordAttackAnimationFrames);
 
+	vector<UVRect> katanaAttackAnimationFrames;
+
+	int katanaAttackFrameCount = 9;
+	int katanaAttackAnimationResourceRowIndex = 3;
+	InitAnimationFrames(uvWidth, uvHeight, katanaAttackFrameCount, katanaAttackAnimationResourceRowIndex, katanaAttackAnimationFrames);
+
 	vector<Animation> animations;
-	animations.resize(3);
+	animations.resize(4);
 	CreateAnimationUV(animations[0], ToAnimationName(static_cast<int>(PlayerAnimationType::IDLE)), idleFrameCount, 1.0f / static_cast<float>(MAX_ANIMATION_FRAMES) * idleFrameCount, true, idleAnimationFrames.data());
 	CreateAnimationUV(animations[1], ToAnimationName(static_cast<int>(PlayerAnimationType::RUN)), runFrameCount, 1.0f / static_cast<float>(MAX_ANIMATION_FRAMES) * runFrameCount, false, runAnimationFrames.data());
 	CreateAnimationUV(animations[2], ToAnimationName(static_cast<int>(PlayerAnimationType::ATTACK_SWORD)), swordAttackFrameCount, 1.0f / static_cast<float>(MAX_ANIMATION_FRAMES) * swordAttackFrameCount, false, swordAttackAnimationFrames.data());
+	CreateAnimationUV(animations[3], ToAnimationName(static_cast<int>(PlayerAnimationType::ATTACK_KATANA)), katanaAttackFrameCount, 1.0f / static_cast<float>(MAX_ANIMATION_FRAMES) * katanaAttackFrameCount, false, katanaAttackAnimationFrames.data());
 
 	animations[2].SetEventCallback(CreateAnimationEventCallback(PlayerAnimationComponent::OnAnimationEvent));
+	animations[3].SetEventCallback(CreateAnimationEventCallback(PlayerAnimationComponent::OnAnimationEvent));
 
 	for (auto it = animations.begin(); it != animations.end(); ++it)
 	{
@@ -205,14 +216,15 @@ false
 
 		if (EquipmentID == static_cast<int>(EquipmentType::SWORD))
 			request.animationID = static_cast<AnimationID>(PlayerAnimationType::ATTACK_SWORD);
+		else if (EquipmentID == static_cast<int>(EquipmentType::KATANA))
+			request.animationID = static_cast<AnimationID>(PlayerAnimationType::ATTACK_KATANA);
 
 		AddAnimationTask(request);
 	}
 }
 
-void PlayerAnimationComponent::OnAnimationEvent(const AnimationEvent& _animEvent)
+void PlayerAnimationComponent::OnSwordAnimationEvent(const AnimationEvent& _animEvent)
 {
-
 	switch (_animEvent.EventType)
 	{
 	case AnimationEventType::Begin:
@@ -225,7 +237,7 @@ void PlayerAnimationComponent::OnAnimationEvent(const AnimationEvent& _animEvent
 	case AnimationEventType::KeyframeProgressed:
 		{
 
-			if (_animEvent.KeyFrameIndex == 1 || _animEvent.KeyFrameIndex == 2)
+			if (_animEvent.KeyFrameIndex == 2 || _animEvent.KeyFrameIndex == 3)
 			{
 				SwordAnimationKeyframeMsg swordAnimationKeyframeMsg(currentAnimationID_, _animEvent.KeyFrameIndex);
 				SendMsg(swordAnimationKeyframeMsg);
@@ -243,4 +255,47 @@ void PlayerAnimationComponent::OnAnimationEvent(const AnimationEvent& _animEvent
 	default:
 		break;
 	}
+}
+
+void PlayerAnimationComponent::OnKatanaAnimationEvent(const AnimationEvent& _animEvent)
+{
+
+	switch (_animEvent.EventType)
+	{
+	case AnimationEventType::Begin:
+	{
+		KatanaAnimationBeginMsg katanaAnimationBeginMsg(currentAnimationID_);
+		SendMsg(katanaAnimationBeginMsg);
+	}
+	break;
+
+	case AnimationEventType::KeyframeProgressed:
+	{
+
+		if (_animEvent.KeyFrameIndex == 1 || _animEvent.KeyFrameIndex == 2 || _animEvent.KeyFrameIndex == 5)
+		{
+			KatanaAnimationKeyframeMsg katanaAnimationKeyframeMsg(currentAnimationID_, _animEvent.KeyFrameIndex);
+			SendMsg(katanaAnimationKeyframeMsg);
+		}
+	}
+	break;
+
+	case AnimationEventType::Completed:
+	{
+
+		KatanaAnimationCompletedMsg katanaAnimationCompletedMsg(currentAnimationID_);
+		SendMsg(katanaAnimationCompletedMsg);
+	}
+	break;
+	default:
+		break;
+	}
+}
+
+void PlayerAnimationComponent::OnAnimationEvent(const AnimationEvent& _animEvent)
+{
+	if (strcmp(_animEvent.Name.c_str(), ToAnimationName(static_cast<AnimationID>(PlayerAnimationType::ATTACK_SWORD)))==0)
+		OnSwordAnimationEvent(_animEvent);
+	if (strcmp(_animEvent.Name.c_str(), ToAnimationName(static_cast<AnimationID>(PlayerAnimationType::ATTACK_KATANA))) == 0)
+		OnKatanaAnimationEvent(_animEvent);
 }

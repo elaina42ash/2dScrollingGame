@@ -3,7 +3,6 @@
 #include "Event/IMessenger.h"
 #include "Event/Message/SemanticMsg/EndKnockBackSemMsg.h"
 #include "Event/Message/SemanticMsg/StartKnockBackSemMsg.h"
-#include "Event/Message/StateMsg/SetIsClearConditionMsg.h"
 #include "Event/Message/StateMsg/SetIsDamagedConditionMsg.h"
 #include "Fwk/Framework.h"
 #include "Player/IPlayerView.h"
@@ -27,7 +26,7 @@ void PlayerCollisionComponent::Init()
 	AddHitGroup(CollisionGroup::ENEMY);
 
 	// 衝突対象にゴールグループのコリジョンを追加
-	AddHitGroup(CollisionGroup::GOAL);
+	AddHitGroup(CollisionGroup::IronSpike);
 
 	// コリジョンにタグを設定
 	SetTag(ToTagName(static_cast<int>(CollisionTag::PLAYER)));
@@ -81,9 +80,9 @@ void PlayerCollisionComponent::OnCollision(const Fwk::Collision::Collider& _me,
 	}
 
 	// ゴールに衝突していた時の処理
-	if (_other.GetTag() == "Goal")
+	if (_other.GetTag() == "IronSpike")
 	{
-		SetIsClearConditionMsg msg(true);
+		SetIsDamagedConditionMsg msg(true);
 		SendMsg(msg);
 	}
 }

@@ -23,7 +23,7 @@ void Skull::Init()
 	mSprite.SetTexture(mTexture);
 
 	// スプライトのサイズ設定
-	mSprite.SetSize(64.0f, 64.0f);
+	mSprite.SetSize(48.0f, 48.0f);
 
 	// コリジョンの設定
 	{

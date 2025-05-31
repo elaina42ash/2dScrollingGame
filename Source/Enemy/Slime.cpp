@@ -23,13 +23,13 @@ void Slime::Init()
 	mSprite.SetSize(32.0f, 32.0f);
 	// テクスチャの描画範囲を指定
 	mSprite.SetTexCoord(0.0f, 0.0f, 0.5f, 0.5f);
-
+	mSprite.SetPivot(Pivot::TopLeft);
 	// コリジョン
 	{
 		// コリジョンにタグを設定
 		collision_.SetTag("Slime");
 		// コリジョンの形状を指定
-		collision_.SetRect(0.0f, 0.0f, 25.0f, 25.0f);
+		collision_.SetRect(16.0f, -16.0f, 25.0f, 25.0f);
 	}
 
 	// HPを設定

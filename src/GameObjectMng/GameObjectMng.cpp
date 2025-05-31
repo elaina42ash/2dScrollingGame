@@ -51,10 +51,10 @@ void GameObjectMng::Init(StageData* _stageData)
 
 	// 初始化敌人管理器
 	enemyMng_.Init();
-	enemyMng_.GeneratePool("Slime", 10, this);
-	enemyMng_.GeneratePool("Ghost", 10, this);
-	enemyMng_.GeneratePool("Skull", 10, this);
-	enemyMng_.GeneratePool("Onibi", 10, this);
+	enemyMng_.GeneratePool("Slime", 30, this);
+	enemyMng_.GeneratePool("Ghost", 30, this);
+	enemyMng_.GeneratePool("Skull", 30, this);
+	enemyMng_.GeneratePool("Onibi", 30, this);
 	CSVFile csvFile;
 	if (_stageData)
 		csvFile.Load(_stageData->ArrangementFile);

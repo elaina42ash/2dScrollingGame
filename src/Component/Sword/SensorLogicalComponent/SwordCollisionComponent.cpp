@@ -2,6 +2,7 @@
 #include "Enemy/Enemy.h"
 #include "Event/Message/AnimationMsg/SwordAnimationBeginMsg.h"
 #include "Event/Message/AnimationMsg/SwordAnimationCompletedMsg.h"
+#include "Event/Message/AnimationMsg/SwordAnimationKeyframeMsg.h"
 #include "Fwk/Framework.h"
 
 SwordCollisionComponent::SwordCollisionComponent(bool _isActive, IMessenger* _messenger, IWeaponView* _swordView) : CollisionComponent(_isActive, _messenger), swordView_(_swordView)
@@ -43,15 +44,12 @@ void SwordCollisionComponent::Update()
 	
 	if (swordView_->IsAttacking())
 	{
-		
+		Vector2f newPos = { 0.0f,0.0f };
 		if (swordView_->GetDirection()==Direction::RIGHT)
-		{
-			SetPosition({ swordView_->GetPosition().x + 16.0f ,swordView_->GetPosition().y });
-		}
+			newPos={ swordView_->GetPosition().x + 16.0f ,swordView_->GetPosition().y };
 		else
-		{
-			SetPosition({ swordView_->GetPosition().x - 16.0f ,swordView_->GetPosition().y });
-		}
+			newPos={ swordView_->GetPosition().x - 16.0f ,swordView_->GetPosition().y };
+		SetPosition(newPos);
 	}
 
 	Reset();
@@ -71,8 +69,14 @@ void SwordCollisionComponent::HandleMessage(const IEventMessage& _msg)
 {
 	const SwordAnimationCompletedMsg* swordAnimationFinishedMsg = TypeidSystem::SafeCast<SwordAnimationCompletedMsg>(&_msg);
 	const SwordAnimationBeginMsg* swordAnimationBegin = TypeidSystem::SafeCast<SwordAnimationBeginMsg>(&_msg);
+	const SwordAnimationKeyframeMsg* swordAnimationKeyframeMsg = TypeidSystem::SafeCast<SwordAnimationKeyframeMsg>(&_msg);
 
 	if (swordAnimationBegin)
+	{
+		
+	}
+
+	if (swordAnimationKeyframeMsg)
 	{
 		EnableCollider();
 	}

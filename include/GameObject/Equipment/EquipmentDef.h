@@ -15,6 +15,7 @@ enum class EquipmentType
 	NONE = -1,
 	FIRST = 0,
     SWORD = FIRST,
+	KATANA,
 
 	COUNT
 };

@@ -9,6 +9,7 @@ enum class PlayerAnimationType
 	IDLE = FIRST,
 	RUN,
 	ATTACK_SWORD,
+	ATTACK_KATANA,
 	DYING,
 
 	COUNT

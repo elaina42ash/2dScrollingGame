@@ -15,7 +15,6 @@ void UIMng::LoadSceneUI(SceneType type)
 	{
 	case SceneType::InGame:
 	{
-		sceneUIs_.push_back(new HpGauge);
 		sceneUIs_.push_back(new HpGauge2);
 	}break;
 	}

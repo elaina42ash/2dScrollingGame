@@ -20,8 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Enemy\Enemy.cpp" />
-    <ClCompile Include="Source\Enemy\EnemyMng.cpp" />
-    <ClCompile Include="Source\Enemy\EnemyPool.cpp" />
     <ClCompile Include="Source\Enemy\Ghost.cpp" />
     <ClCompile Include="Source\Enemy\Onibi.cpp" />
     <ClCompile Include="Source\Enemy\Skull.cpp" />
@@ -56,6 +54,13 @@
     <ClCompile Include="src\Component\Common\SensorLogicalComponent\GroundSensorComponent.cpp" />
     <ClCompile Include="src\Component\Common\SensorLogicalComponent\SensorLogicalComponent.cpp" />
     <ClCompile Include="src\Component\Common\SensorLogicalComponent\TileMapSensorComponent.cpp" />
+    <ClCompile Include="src\Component\IronSpike\IronSpikeAnimationComponent.cpp" />
+    <ClCompile Include="src\Component\IronSpike\IronSpikeCollisionComponent.cpp" />
+    <ClCompile Include="src\Component\IronSpike\IronSpikeTransformComponent.cpp" />
+    <ClCompile Include="src\Component\Katana\ExecutorComponent\KatanaAnimationComponent.cpp" />
+    <ClCompile Include="src\Component\Katana\ExecutorComponent\KatanaSoundComponent.cpp" />
+    <ClCompile Include="src\Component\Katana\ExecutorComponent\KatanaTransformComponent.cpp" />
+    <ClCompile Include="src\Component\Katana\SensorLogicalComponent\KatanaCollisionComponent.cpp" />
     <ClCompile Include="src\Component\Player\DecisionLogicalComponent\PlayerStateComponent.cpp" />
     <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerAnimationComponent.cpp" />
     <ClCompile Include="src\Component\Player\ExecutorComponent\PlayerCombatStatusComponent.cpp" />
@@ -73,8 +78,13 @@
     <ClCompile Include="src\Component\Sword\ExecutorComponent\SwordAnimationComponent.cpp" />
     <ClCompile Include="src\Component\Sword\ExecutorComponent\SwordSoundComponent.cpp" />
     <ClCompile Include="src\Component\Sword\ExecutorComponent\SwordTransformComponent.cpp" />
-    <ClCompile Include="src\Component\Sword\SensorLogicalComponent\Class\SwordCollisionComponent.cpp" />
+    <ClCompile Include="src\Component\Sword\SensorLogicalComponent\SwordCollisionComponent.cpp" />
+    <ClCompile Include="src\EnemyMng\EnemyMng.cpp" />
+    <ClCompile Include="src\EnemyMng\EnemyPool.cpp" />
     <ClCompile Include="src\Event\MessageBus.cpp" />
+    <ClCompile Include="src\Event\Message\AnimationMsg\KatanaAnimationBeginMsg.cpp" />
+    <ClCompile Include="src\Event\Message\AnimationMsg\KatanaAnimationCompletedMsg.cpp" />
+    <ClCompile Include="src\Event\Message\AnimationMsg\KatanaAnimationKeyframeMsg.cpp" />
     <ClCompile Include="src\Event\Message\AnimationMsg\SwordAnimationBeginMsg.cpp" />
     <ClCompile Include="src\Event\Message\AnimationMsg\SwordAnimationCompletedMsg.cpp" />
     <ClCompile Include="src\Event\Message\AnimationMsg\SwordAnimationKeyframeMsg.cpp" />
@@ -111,6 +121,8 @@
     <ClCompile Include="src\GameObject\Equipment\Weapon\Sword.cpp" />
     <ClCompile Include="src\GameObject\Equipment\Weapon\Weapon.cpp" />
     <ClCompile Include="src\GameObject\GameObject.cpp" />
+    <ClCompile Include="src\GameObject\StaticObject.cpp" />
+    <ClCompile Include="src\GameObject\StaticObject\IronSpike.cpp" />
     <ClCompile Include="src\Input\FrameworkPhysicsInputAdapter.cpp" />
     <ClCompile Include="src\Player\Player.cpp" />
     <ClCompile Include="src\SceneMng\SceneMng.cpp" />
@@ -138,6 +150,8 @@
     <ClCompile Include="src\StateMachine\State\Player\PlayerState.cpp" />
     <ClCompile Include="src\StateMachine\State\State.cpp" />
     <ClCompile Include="src\StateMachine\Transition\Transition.cpp" />
+    <ClCompile Include="src\StaticObjectMng\StaticObjectMng.cpp" />
+    <ClCompile Include="src\StaticObjectMng\StaticObjectPool.cpp" />
     <ClCompile Include="src\Timer\Timer.cpp" />
     <ClCompile Include="src\UI\HpGauge.cpp" />
     <ClCompile Include="src\UI\HpGauge2.cpp" />
@@ -183,6 +197,13 @@
     <ClInclude Include="include\Component\Common\SensorLogicalComponent\Interface\ICollisionComponent.h" />
     <ClInclude Include="include\Component\Common\SensorLogicalComponent\Interface\IGroundSensorComponent.h" />
     <ClInclude Include="include\Component\Common\SensorLogicalComponent\Interface\ITileMapSensorComponent.h" />
+    <ClInclude Include="include\Component\IronSpike\IronSpikeAnimationComponent.h" />
+    <ClInclude Include="include\Component\IronSpike\IronSpikeCollisionComponent.h" />
+    <ClInclude Include="include\Component\IronSpike\IronSpikeTransformComponent.h" />
+    <ClInclude Include="include\Component\Katana\ExecutorComponent\KatanaAnimationComponent.h" />
+    <ClInclude Include="include\Component\Katana\ExecutorComponent\KatanaSoundComponent.h" />
+    <ClInclude Include="include\Component\Katana\ExecutorComponent\KatanaTransformComponent.h" />
+    <ClInclude Include="include\Component\Katana\SensorLogicalComponent\Class\KatanaCollisionComponent.h" />
     <ClInclude Include="include\Component\Player\DecisionLogicalComponent\Class\PlayerStateComponent.h" />
     <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerAnimationComponent.h" />
     <ClInclude Include="include\Component\Player\ExecutorComponent\Class\PlayerCombatStatusComponent.h" />
@@ -201,10 +222,15 @@
     <ClInclude Include="include\Component\Sword\ExecutorComponent\Class\SwordSoundComponent.h" />
     <ClInclude Include="include\Component\Sword\ExecutorComponent\Class\SwordTransformComponent.h" />
     <ClInclude Include="include\Component\Sword\SensorLogicalComponent\Class\SwordCollisionComponent.h" />
+    <ClInclude Include="include\EnemyMng\EnemyMng.h" />
+    <ClInclude Include="include\EnemyMng\EnemyPool.h" />
     <ClInclude Include="include\Event\IMessageBus.h" />
     <ClInclude Include="include\Event\IMessenger.h" />
     <ClInclude Include="include\Event\Listener\IMessageListener.h" />
     <ClInclude Include="include\Event\MessageBus.h" />
+    <ClInclude Include="include\Event\Message\AnimationMsg\KatanaAnimationBeginMsg.h" />
+    <ClInclude Include="include\Event\Message\AnimationMsg\KatanaAnimationCompletedMsg.h" />
+    <ClInclude Include="include\Event\Message\AnimationMsg\KatanaAnimationKeyframeMsg.h" />
     <ClInclude Include="include\Event\Message\AnimationMsg\SwordAnimationBeginMsg.h" />
     <ClInclude Include="include\Event\Message\AnimationMsg\SwordAnimationCompletedMsg.h" />
     <ClInclude Include="include\Event\Message\AnimationMsg\SwordAnimationKeyframeMsg.h" />
@@ -255,6 +281,8 @@
     <ClInclude Include="include\GameObject\InteractiveObject.h" />
     <ClInclude Include="include\GameObject\IStaticObject.h" />
     <ClInclude Include="include\GameObject\StaticObject.h" />
+    <ClInclude Include="include\GameObject\StaticObject\IronSpike.h" />
+    <ClInclude Include="include\GameObject\StaticObject\IStaticObjectView.h" />
     <ClInclude Include="include\GameObject\UIObject.h" />
     <ClInclude Include="include\IEquipOwnerView.h" />
     <ClInclude Include="include\IInputCacheProvider .h" />
@@ -309,6 +337,8 @@
     <ClInclude Include="include\StateMachine\State\Player\PlayerAirState.h" />
     <ClInclude Include="include\StateMachine\State\State.h" />
     <ClInclude Include="include\StateMachine\Transition\Transition.h" />
+    <ClInclude Include="include\StaticObjectMng\StaticObjectMng.h" />
+    <ClInclude Include="include\StaticObjectMng\StaticObjectPool.h" />
     <ClInclude Include="include\Timer\ITimer.h" />
     <ClInclude Include="include\Timer\Timer.h" />
     <ClInclude Include="include\TypeID.h" />
@@ -320,8 +350,6 @@
     <ClInclude Include="include\World\World.h" />
     <ClInclude Include="Source\AppDef.h" />
     <ClInclude Include="Source\Enemy\Enemy.h" />
-    <ClInclude Include="Source\Enemy\EnemyMng.h" />
-    <ClInclude Include="Source\Enemy\EnemyPool.h" />
     <ClInclude Include="Source\Enemy\Ghost.h" />
     <ClInclude Include="Source\Enemy\Onibi.h" />
     <ClInclude Include="Source\Enemy\Skull.h" />

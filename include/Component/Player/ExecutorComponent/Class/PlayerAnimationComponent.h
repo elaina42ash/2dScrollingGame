@@ -14,7 +14,7 @@ private:
 	const char* IDLE_ANIMATION_URL = "Images/2dAction/Player/Player.png";
 
 	const int MAX_ANIMATION_FRAMES = 12;
-	const int MAX_ANIMATION_TYPE = 3;
+	const int MAX_ANIMATION_TYPE = 4;
 private:
 	Inject<IPlayerView> playerView_;
 
@@ -33,7 +33,9 @@ public:
 
 	void HandleMessage(const IEventMessage& _msg) override;
 
+
 protected:
+
 	void OnAnimationEvent(const AnimationEvent& _animEvent) override;
 
 	void Reset() override;
@@ -44,5 +46,8 @@ protected:
 	void RegisterPlayerAnimation();
 
 private:
+	void OnKatanaAnimationEvent(const AnimationEvent& _animEvent);
+
+	void OnSwordAnimationEvent(const AnimationEvent& _animEvent);
 };
 #pragma warning(pop)

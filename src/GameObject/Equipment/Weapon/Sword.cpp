@@ -121,7 +121,8 @@ void Sword::OnAttackPhaseStarted(int _animationID)
 
 void Sword::OnAttackKeyframe(int _animationID, int frameIndex)
 {
-		
+	SwordAnimationKeyframeMsg swordAnimationKeyframeMsg(_animationID, frameIndex);
+	SendMsg(swordAnimationKeyframeMsg);
 }
 
 void Sword::OnAttackCompleted(int _animationID)
