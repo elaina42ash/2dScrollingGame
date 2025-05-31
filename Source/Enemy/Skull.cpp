@@ -1,10 +1,5 @@
 ﻿#include "Skull.h"
-
-// Time_Iを使うのでinclude
 #include "Fwk//Framework.h"
-
-// EnemyMngを使うのでinclude
-#include "GameObjectMng/GameObjectMng.h"
 #include "World/World.h"
 
 // 初期化
@@ -93,8 +88,8 @@ void Skull::_updateMoving()
 	float CollisionHeight = 1.0f;
 	// 地面についているか確認する
 	bool isGround = false;
-	if (environmentQuery_)
-		isGround = environmentQuery_->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight);
+	if (sceneContext_)
+		isGround = sceneContext_->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight);
 
 	// 着地していた場合
 	if (isGround)
@@ -103,8 +98,8 @@ void Skull::_updateMoving()
 		{
 			// タイルサイズ取得
 			float tileSize = 0.0f;
-			if (environmentQuery_)
-				tileSize = environmentQuery_->GetTileSize();
+			if (sceneContext_)
+				tileSize = sceneContext_->GetTileSize();
 
 			// 衝突したタイルの行数を計算
 			int hitTileRow = (int)((vCheckPos.y - CollisionHeight) / tileSize);
@@ -217,5 +212,7 @@ void Skull::OnDefeated()
 	Vector2f pos = mPosition;
 	pos.y += 64.0f;
 
-	gameObjectMng_->CreateEnemy("Onibi", pos);
+	if (sceneGameplayApi_)
+		sceneGameplayApi_->CreateEnemy("Onibi", pos);
+
 }

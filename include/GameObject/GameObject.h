@@ -4,9 +4,12 @@
 #include <typeindex>
 #include <unordered_map>
 #include "IGameObject.h"
+#include "Inject.h"
 #include "Component/Common/IComponent.h"
 #include "Event/Messenger.h"
 #include "Event/Listener/IMessageListener.h"
+#include "Scene/ISceneContext.h"
+#include "Scene/ISceneGameplayAPI.h"
 
 class GameObject : virtual public IGameObject,public IMessageListener
 {
@@ -24,6 +27,10 @@ private:
 	const char* tag_ = "";
 
 	bool isDestroyed_ = false;
+
+protected:
+	Inject<ISceneContext> sceneContext_;
+	Inject<ISceneGameplayAPI> sceneGameplayApi_;
 public:
 	GameObject();
 
@@ -65,6 +72,9 @@ public:
 	void SetComponentPriority(int p);
 
 	void ResortComponents();
+
+	void BindSceneContext(ISceneContext* _sceneContext) override final;
+	void BindSceneGameplayAPI(ISceneGameplayAPI* _sceneGameplayApi) override final;
 
 protected:
 	void SendMsg(const IEventMessage& _msg);

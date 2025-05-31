@@ -1,7 +1,6 @@
 ﻿#include "Enemy.h"
 #include "Collision/CollisionDef.h"
 #include "Fwk/Framework.h"
-#include "GameObjectMng/GameObjectMng.h"
 
 // 初期化
 void Enemy::Init()

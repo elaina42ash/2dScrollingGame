@@ -96,6 +96,16 @@ void GameObject::SetActive(bool _isActive)
 	isActive_ = _isActive;
 }
 
+void GameObject::BindSceneContext(ISceneContext* _sceneContext)
+{
+	sceneContext_.Bind(_sceneContext);
+}
+
+void GameObject::BindSceneGameplayAPI(ISceneGameplayAPI* _sceneGameplayApi)
+{
+	sceneGameplayApi_.Bind(_sceneGameplayApi);
+}
+
 void GameObject::SendMsg(const IEventMessage& _msg)
 {
 	messenger_.SendMsg(_msg);

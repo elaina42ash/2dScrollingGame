@@ -2,12 +2,14 @@
 
 #include "Fwk/Framework.h"
 
-IronSpikeCollisionComponent::IronSpikeCollisionComponent(bool _isActive, IMessenger* _messenger): CollisionComponent(_isActive, _messenger)
+IronSpikeCollisionComponent::IronSpikeCollisionComponent(bool _isActive, IMessenger* _messenger, IStaticObjectView* _staticObjectView): CollisionComponent(_isActive, _messenger),staticObjectView_(_staticObjectView)
 {
+
 }
 
-IronSpikeCollisionComponent::IronSpikeCollisionComponent(IMessenger* _messenger): CollisionComponent(_messenger)
+IronSpikeCollisionComponent::IronSpikeCollisionComponent(IMessenger* _messenger, IStaticObjectView* _staticObjectView): CollisionComponent(_messenger), staticObjectView_(_staticObjectView)
 {
+
 }
 
 void IronSpikeCollisionComponent::Init()
@@ -21,7 +23,7 @@ void IronSpikeCollisionComponent::Init()
 	// コリジョンのオーナーに自分を設定
 	SetOwner(this);
 	// コリジョンの形状を指定(矩形)
-	SetRectCollider(-32.0f, -64.0f, 64.0f, 128.0f);
+	SetRectCollider(32.0f, -16.0f, 64.0f, 32.0f);
 	// コリジョンを活性状態にしておく
 	EnableCollider();
 	// コリジョンマネージャにコリジョンを登録
@@ -31,6 +33,13 @@ void IronSpikeCollisionComponent::Init()
 void IronSpikeCollisionComponent::Update()
 {
 	CollisionComponent::Update();
+
+	if (staticObjectView_)
+	{
+		Vector2f newPos = { 0.0f,0.0f };
+		newPos = staticObjectView_->GetPosition();
+		SetPosition(newPos);
+	}
 
 	Reset();
 }

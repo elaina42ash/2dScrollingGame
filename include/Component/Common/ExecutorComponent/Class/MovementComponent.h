@@ -5,7 +5,6 @@
 #include "Component/Common/ExecutorComponent/Interface/ITransformComponent.h"
 #include "Component/Common/SensorLogicalComponent/Interface/ICollisionComponent.h"
 #include "Component/Common/SensorLogicalComponent/Interface/ITileMapSensorComponent.h"
-#include "GameObjectMng/IEnvironmentQuery.h"
 #pragma warning(push)
 #pragma warning(disable:4250)
 class MovementComponent : public ExecutorComponent, public IMovementComponent

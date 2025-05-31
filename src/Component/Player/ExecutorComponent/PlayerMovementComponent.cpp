@@ -22,8 +22,9 @@ void PlayerMovementComponent::Move(const Lib::Math::Vector2f& _velocity)
 
 	// タイルのサイズ
 	float TileSize = 0.0f;
-	if (tileMapSensorComponent_)
-		TileSize = tileMapSensorComponent_->GetTileSize();
+
+	if (playerView_)
+		TileSize = playerView_->GetTileSize();
 
 	Fwk::Collision::ShapeType shapeType = Fwk::Collision::ShapeType::None;
 

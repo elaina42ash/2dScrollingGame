@@ -43,7 +43,7 @@ Player::Player()
 	transformComponent_ = new PlayerTransformComponent(true, AccessMessenger());
 	AddComponent<ITransformComponent>(transformComponent_);
 
-	tileMapSensorComponent_ = new PlayerTileMapSensorComponent(true, AccessMessenger());
+	tileMapSensorComponent_ = new PlayerTileMapSensorComponent(true, AccessMessenger(),this);
 	AddComponent<ITileMapSensorComponent>(tileMapSensorComponent_);
 
 	groundSensorComponent_ = new PlayerGroundSensorComponent(true, AccessMessenger(), this);
@@ -179,10 +179,6 @@ void Player::StateComponentSubscribeMsg()
 void Player::Init()
 {
 	GameObject::Init();
-
-	TileMapSensorComponent* tileMapSensorComponent = dynamic_cast<TileMapSensorComponent*>(tileMapSensorComponent_);
-	if (tileMapSensorComponent)
-		tileMapSensorComponent->InjectEnvironmentQuery(environmentQuery_.Injected());
 
 	SetComponentPriority<ITransformComponent>(0);
 	SetComponentPriority<ITileMapSensorComponent>(1);
@@ -395,6 +391,31 @@ bool Player::IsFacingRight() const
 		return true;
 
 	return transformComponent_->GetDirection() == Direction::RIGHT;
+}
+
+float Player::GetTileSize() const
+{
+	if (!sceneContext_)
+		return 0.0f;
+
+	return sceneContext_->GetTileSize();
+}
+
+bool Player::IsInsideWallCircle(Lib::Math::Vector2f _position, float _radius) const
+{
+	if (!sceneContext_)
+		return true;
+
+	return sceneContext_->IsInsideWallCircle(_position, _radius);
+
+}
+
+bool Player::IsInsideWallRect(Lib::Math::Vector2f _position, float _width, float _height) const
+{
+	if (!sceneContext_)
+		return true;
+
+	return sceneContext_->IsInsideWallRect(_position, _width, _height);
 }
 
 float Player::GetNormalizedHp() const

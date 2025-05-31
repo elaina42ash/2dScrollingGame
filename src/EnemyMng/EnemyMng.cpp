@@ -56,64 +56,64 @@ void EnemyMng::Render() {
 }
 
 // オブジェクトプールの生成
-void EnemyMng::GeneratePool(std::string _enemyName, int _poolSize, IEnvironmentQuery* _environmentQuery) {
+void EnemyMng::GeneratePool(std::string _enemyName, int _poolSize) {
+	// がいこつのプール作成
+	if (_enemyName == "Skull")
+	{
+		// 生成する敵クラスにGhostを指定
+		mEnemyPools[_enemyName].Init<Skull>(_poolSize);
+	}
 	// スライムのプール作成
 	if (_enemyName=="Slime")
 	{
 		// 生成する敵クラスにSlimeを指定
-		mEnemyPools[_enemyName].Init<Slime>(_poolSize, _environmentQuery);
+		mEnemyPools[_enemyName].Init<Slime>(_poolSize);
 	}
 	// 鬼火のプール作成
 	if (_enemyName=="Onibi")
 	{
 		// 生成する敵クラスにOnibiを指定
-		mEnemyPools[_enemyName].Init<Onibi>(_poolSize, _environmentQuery);
+		mEnemyPools[_enemyName].Init<Onibi>(_poolSize);
 	}
 	// 幽霊のプール作成
 	if (_enemyName=="Ghost")
 	{
 		// 生成する敵クラスにGhostを指定
-		mEnemyPools[_enemyName].Init<Ghost>(_poolSize, _environmentQuery);
-	}
-	// がいこつのプール作成
-	if (_enemyName == "Skull")
-	{
-		// 生成する敵クラスにGhostを指定
-		mEnemyPools[_enemyName].Init<Skull>(_poolSize, _environmentQuery);
+		mEnemyPools[_enemyName].Init<Ghost>(_poolSize);
 	}
 }
 
 // 全ての敵のオブジェクトプールの廃棄
 void EnemyMng::DestroyPoolAll() {
+	// がいこつのバッファを廃棄s
+	DestroyPool("Skull");
 	// スライムのバッファを廃棄
 	DestroyPool("Slime");
 	// 鬼火のバッファを廃棄
 	DestroyPool("Onibi");
 	// 幽霊のバッファを廃棄
 	DestroyPool("Ghost");
-	// がいこつのバッファを廃棄
-	DestroyPool("Skull");
 }
 
 // 指定した敵のオブジェクトプールの廃棄
-void EnemyMng::DestroyPool(string enemyName) {
+void EnemyMng::DestroyPool(const char* _enemyName) {
 	// 敵のプール破棄
-	if (mEnemyPools.count(enemyName)>0)
+	if (mEnemyPools.count(_enemyName)>0)
 	{
-		mEnemyPools[enemyName].Term();
-		mEnemyPools.erase(enemyName);
+		mEnemyPools[_enemyName].Term();
+		mEnemyPools.erase(_enemyName);
 	}
 }
 
 // 敵の生成
-Enemy* EnemyMng::CreateEnemy(string enemyName, Vector2f position) {
+Enemy* EnemyMng::CreateEnemy(const char* _enemyName, Vector2f _position, ISceneContext* _sceneContext, ISceneGameplayAPI* _sceneGameplayAPI) {
 	// 指定の敵プールから非アクティブのオブジェクトを取得する
 	Enemy* pEnemy = nullptr;
 
 	// 敵プールから空きオブジェクトを取得
-	if (mEnemyPools.count(enemyName)>0)
+	if (mEnemyPools.count(_enemyName)>0)
 	{
-		pEnemy = mEnemyPools[enemyName].Alloc();
+		pEnemy = mEnemyPools[_enemyName].Alloc();
 	}
 
 	// 非アクティブの敵オブジェクトがなければ生成失敗
@@ -122,8 +122,12 @@ Enemy* EnemyMng::CreateEnemy(string enemyName, Vector2f position) {
 		return nullptr;
 	}
 
+	pEnemy->BindSceneGameplayAPI(_sceneGameplayAPI);
+
+	pEnemy->BindSceneContext(_sceneContext);
+
 	// 位置を設定
-	pEnemy->SetPosition(position);
+	pEnemy->SetPosition(_position);
 
 	// 生成時の関数を呼び出す
 	pEnemy->OnCreated();
@@ -140,15 +144,15 @@ int EnemyMng::GetEnemyCount() {
 }
 
 // CSVデータから敵を生成する
-void EnemyMng::CreateEnemies(CSVData* pCsvData, int _tileSize) {
+void EnemyMng::CreateEnemies(CSVData* _csvData, int _tileSize, ISceneContext* _sceneContext, ISceneGameplayAPI* _sceneGameplayAPI) {
 
 	// nullptrが渡されてきたら何もしないで関数を抜ける
-	if (pCsvData == nullptr)
+	if (_csvData == nullptr)
 		return;
 
 	// 敵の情報は、名前、X座標、ｙ座標の３つで１組。
 	// CSVファイルの全要素を３で割って敵の配置情報の数とする
-	int enemyNum = pCsvData->GetElementCount() / 3;
+	int enemyNum = _csvData->GetElementCount() / 3;
 	// 配置する敵の数だけ繰り返し
 	for (int i = 0; i < enemyNum; i++)
 	{
@@ -156,17 +160,17 @@ void EnemyMng::CreateEnemies(CSVData* pCsvData, int _tileSize) {
 		int index = i * 3;
 		// 敵の名前を取得
 		string enemyName;
-		pCsvData->GetString(index,&enemyName);
+		_csvData->GetString(index,&enemyName);
 
-		float gridX = pCsvData->GetFloat(index + 1);
-		float gridY = pCsvData->GetFloat(index + 2);
+		float gridX = _csvData->GetFloat(index + 1);
+		float gridY = _csvData->GetFloat(index + 2);
 
 		Vector2f position;
 		position.x = gridX * _tileSize;
 		position.y = -gridY * _tileSize;
 
 		// 敵を生成
-		CreateEnemy(enemyName,position);
+		CreateEnemy(enemyName.c_str(),position, _sceneContext, _sceneGameplayAPI);
 	}
 }
 

@@ -1,14 +1,13 @@
 ﻿#pragma once
 #include <vector>
 #include "Enemy/Enemy.h"
-#include "GameObjectMng/IEnvironmentQuery.h"
 
 class EnemyPool {
 public:
 	// 初期化
 	// class Tは、Init関数の呼び出し時に具体的な敵クラスに置き換わる
 	template <class T>
-	void Init(int _poolSize, IEnvironmentQuery* _environmentQuery) {
+	void Init(int _poolSize) {
 		// プールの全要素分の敵オブジェクトを生成
 		for (int i = 0; i < _poolSize; i++)
 		{
@@ -17,8 +16,6 @@ public:
 			Enemy* pNewEnemy = new T();
 			// 初期化
 			pNewEnemy->Init();
-			if (_environmentQuery)
-				pNewEnemy->InjectEnvironment(_environmentQuery);
 
 			// 最初は非アクティブ
 			pNewEnemy->Disable();

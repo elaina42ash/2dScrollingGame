@@ -74,9 +74,6 @@ void SwordAnimationComponent::Update()
 
 	AnimationComponent::Update();
 
-	// スプライトの更新
-	UpdateSprite();
-
 	Reset();
 }
 
@@ -84,7 +81,6 @@ void SwordAnimationComponent::Render()
 {
 	AnimationComponent::Render();
 
-	DrawSprite();
 }
 
 void SwordAnimationComponent::Term()

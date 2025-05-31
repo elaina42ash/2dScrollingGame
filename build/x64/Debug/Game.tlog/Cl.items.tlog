@@ -92,7 +92,6 @@ D:\MyProject\2dScrollingGame\src\Event\Message\StateMsg\SetIsDamagedConditionMsg
 D:\MyProject\2dScrollingGame\src\Event\Message\StateMsg\SetIsDeadConditionMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SetIsDeadConditionMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Messenger.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Messenger.obj
 D:\MyProject\2dScrollingGame\src\GameMath.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\GameMath.obj
-D:\MyProject\2dScrollingGame\src\GameObjectMng\GameObjectMng.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\GameObjectMng.obj
 D:\MyProject\2dScrollingGame\src\GameObject\CharacterObject.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\CharacterObject.obj
 D:\MyProject\2dScrollingGame\src\GameObject\DetachableObject.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\DetachableObject.obj
 D:\MyProject\2dScrollingGame\src\GameObject\Equipment\Equipment.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Equipment.obj

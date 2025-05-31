@@ -1,10 +1,5 @@
 ﻿#include "Slime.h"
-
-// CollisionManagerを使うのでinclude
 #include "Fwk/Framework.h"
-
-// Tilemapを使うのでinclude
-#include "GameObjectMng/GameObjectMng.h"
 
 // 初期化
 void Slime::Init()
@@ -23,13 +18,14 @@ void Slime::Init()
 	mSprite.SetSize(32.0f, 32.0f);
 	// テクスチャの描画範囲を指定
 	mSprite.SetTexCoord(0.0f, 0.0f, 0.5f, 0.5f);
+
 	mSprite.SetPivot(Pivot::TopLeft);
 	// コリジョン
 	{
 		// コリジョンにタグを設定
 		collision_.SetTag("Slime");
 		// コリジョンの形状を指定
-		collision_.SetRect(16.0f, -16.0f, 25.0f, 25.0f);
+		collision_.SetRect(16.0f, -16.0f, 30.0f, 30.0f);
 	}
 
 	// HPを設定
@@ -98,22 +94,22 @@ void Slime::_updateFalling()
 	mPosition += mVelocity;
 
 	// 自分の足元の座標
-	Vector2f vCheckPos = mPosition + Vector2f(0.0f, -5.0f);
+	Vector2f vCheckPos = mPosition + Vector2f(0.0f, -60.0f);
 	// タイルマップと衝突判定を行う矩形の幅と高さ
-	float CollisionWidth = 40.0f;
+	float CollisionWidth = 10.0f;
 	float CollisionHeight = 1.0f;
 
 	// 足元が壁に衝突していたらY座標を調整して状態を"水平移動中"に遷移させる
-	if (environmentQuery_&&environmentQuery_->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight))
+	if (sceneContext_ && sceneContext_->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight))
 	{
 		// タイルサイズ取得
-		const float tileSize = environmentQuery_->GetTileSize();
+		const float tileSize = sceneContext_->GetTileSize();
 		// 衝突した足元の座標からタイル行数を計算（マイナス値になるが、座標に戻すのでそのままでよい）
 		int hitTileRow = (int)((vCheckPos.y - CollisionHeight) / tileSize);
 		// 衝突したタイルのY座標（＝そのタイルの上辺の座標）
 		float hitTileY = hitTileRow * tileSize;
 		// スライムのY座標は衝突したタイルの上辺からコリジョンの高さの半分上がった位置にする
-		mPosition.y = hitTileY + 20.0f;
+		mPosition.y = hitTileY + 32.0f;
 		// 状態を移動中にしておく
 		mStatus = Status::Moving;
 	}
@@ -140,7 +136,7 @@ void Slime::_updateMoving()
 		float CollisionWidth = 1.0f;
 		float CollisionHeight = 40.0f;
 		// 壁に衝突していたら移動方向反転フラグをON
-		if (environmentQuery_&&environmentQuery_->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight))
+		if (sceneContext_ && sceneContext_->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight))
 		{
 			isFlipX = true;
 		}
@@ -151,12 +147,12 @@ void Slime::_updateMoving()
 		// 衝突検知位置（vDirectionが1.0であれば右側、-1.0であれば左側になる）
 		Vector2f vCheckPos = mPosition + (vDirection * 32.0f);
 		// 足元をチェックするので検知位置も足元になるようY座標を下げる
-		vCheckPos.y -= 20.0f;
+		vCheckPos.y -= 32.0f;
 		// 衝突検知範囲
-		float CollisionWidth = 1.0f;
+		float CollisionWidth = 10.0f;
 		float CollisionHeight = 1.0f;
 		// 足元が壁でなければ移動方向反転フラグをON
-		if (environmentQuery_&& environmentQuery_->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight) == false)
+		if (sceneContext_ && sceneContext_->IsInsideWallRect(vCheckPos, CollisionWidth, CollisionHeight) == false)
 		{
 			isFlipX = true;
 		}

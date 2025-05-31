@@ -1,11 +1,13 @@
 ﻿#include "Component/IronSpike/IronSpikeAnimationComponent.h"
 
-IronSpikeAnimationComponent::IronSpikeAnimationComponent(bool _isActive, IMessenger* _messenger, IStaticObjectView* _staticObjectView): AnimationComponent(_isActive, _messenger)
+IronSpikeAnimationComponent::IronSpikeAnimationComponent(bool _isActive, IMessenger* _messenger, IStaticObjectView* _staticObjectView): AnimationComponent(_isActive, _messenger),staticObjectView_(_staticObjectView)
 {
+
 }
 
-IronSpikeAnimationComponent::IronSpikeAnimationComponent(IMessenger* _messenger): AnimationComponent(_messenger)
+IronSpikeAnimationComponent::IronSpikeAnimationComponent(IMessenger* _messenger, IStaticObjectView* _staticObjectView): AnimationComponent(_messenger), staticObjectView_(_staticObjectView)
 {
+
 }
 
 void IronSpikeAnimationComponent::Init()
@@ -17,21 +19,36 @@ void IronSpikeAnimationComponent::Init()
 	if (staticObjectView_)
 		_newPos = staticObjectView_->GetPosition();
 
-	InitTexture("Images/2dAction/Goal.png");
+	InitTexture("Images/2dAction/IronSpike.png");
 
 	SpriteParams params = {
 		_newPos,
-		128.0f,64.0f,
+		64.0f,32.0f,
 		true,
 		0.0f
 	};
 
+
 	InitSprite(params, texture_);
+
+	sprite_.SetPivot(Pivot::TopLeft);
+
+	DrawSprite();
 }
 
 void IronSpikeAnimationComponent::Update()
 {
+	Lib::Math::Vector2f _newPos = { 0.0f,0.0f };
+
+	if (staticObjectView_)
+		_newPos = staticObjectView_->GetPosition();
+
+	// スプライトの位置を更新
+	SetSpritePosition(_newPos);
+
 	AnimationComponent::Update();
+
+	Reset();
 }
 
 void IronSpikeAnimationComponent::Render()

@@ -69,9 +69,6 @@ void PlayerAnimationComponent::Update()
 
 	AnimationComponent::Update();
 
-	// スプライトの更新
-	UpdateSprite();
-
 	Reset();
 }
 
@@ -79,7 +76,7 @@ void PlayerAnimationComponent::Render()
 {
 	AnimationComponent::Render();
 
-	DrawSprite();
+;
 }
 
 void PlayerAnimationComponent::Term()

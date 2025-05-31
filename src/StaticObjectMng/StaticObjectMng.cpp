@@ -103,7 +103,6 @@ void StaticObjectMng::CreateStaticObjects(CSVData* _csvData, int _tileSize)
 		position.x = gridX * _tileSize;
 		position.y = -gridY * _tileSize;
 
-		// 敵を生成
 		CreateStaticObject(staticObjectName.c_str(), position);
 	}
 }

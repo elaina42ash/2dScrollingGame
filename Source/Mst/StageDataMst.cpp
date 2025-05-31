@@ -22,21 +22,24 @@ void StageDataMst::Init()
 	CSVFile stageMst;
 	stageMst.Load("Data/stage_mst.csv");
 
-	// データ数/3がステージ数
-	int stageNum = stageMst.GetElementCount() / 3;
+	// データ数/4がステージ数
+	int elementNum = 4;
+	int stageNum = stageMst.GetElementCount() / elementNum;
 	// ステージ情報を読み込んでいく
 	for (int i = 0; i < stageNum; i++)
 	{
 		// ステージデータ先頭の要素番号
-		int n = i * 3;
+		int n = i * elementNum;
 		// 新しいステージデータ
 		StageData newElem;
-		// ステージ名
-		stageMst.GetString(n,&newElem.Name);
+		// ステージ名0
+		stageMst.GetString(n, &newElem.stageName_);
 		// マップファイル名
-		stageMst.GetString(n+1,&newElem.MapFile);
+		stageMst.GetString(n + 1, &newElem.mapFile_);
 		// 配置ファイル名
-		stageMst.GetString(n+2,&newElem.ArrangementFile);
+		stageMst.GetString(n + 2, &newElem.enemyArrangementFile_);
+		// 配置ファイル名
+		stageMst.GetString(n + 3, &newElem.staticObjectArrangementFile_);
 		// データを追加
 		mData.push_back(newElem);
 	}
@@ -59,7 +62,7 @@ int StageDataMst::Size()
 StageData* StageDataMst::Get(int index)
 {
 	// 不正な番号が指定された場合はnullptrを返す
-	if (index<0||index>=mData.size())
+	if (index < 0 || index >= mData.size())
 	{
 		return nullptr;
 	}

@@ -16,9 +16,6 @@
     <Filter Include="ソース ファイル\Enemy">
       <UniqueIdentifier>{cdc370be-e532-4db5-ade8-56efe759e49b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\GameObjectMng">
-      <UniqueIdentifier>{27136938-d360-47cb-bece-16bfa7318d97}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Goal">
       <UniqueIdentifier>{e0051a35-87a1-4bca-8871-35eb027dafef}</UniqueIdentifier>
     </Filter>
@@ -331,9 +328,6 @@
     <Filter Include="ソース ファイル\Event\Message\AnimationMsg">
       <UniqueIdentifier>{f7782354-3117-4cff-a9bd-d70001659f0a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ヘッダー ファイル\GameObjectMng">
-      <UniqueIdentifier>{1450260f-6b74-4122-b21b-3490770d75f5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\World">
       <UniqueIdentifier>{33eea764-bea5-4b33-b2c2-06fd0bd48afc}</UniqueIdentifier>
     </Filter>
@@ -414,6 +408,9 @@
     </Filter>
     <Filter Include="ソース ファイル\StaticObjectMng">
       <UniqueIdentifier>{a963aa9e-48de-4161-a4cd-0598312bc7c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Scene">
+      <UniqueIdentifier>{025c73a2-d56b-46c0-a6a4-758cb209b600}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -752,9 +749,6 @@
     </ClCompile>
     <ClCompile Include="src\GameObject\DetachableObject.cpp">
       <Filter>ソース ファイル\GameObject</Filter>
-    </ClCompile>
-    <ClCompile Include="src\GameObjectMng\GameObjectMng.cpp">
-      <Filter>ソース ファイル\GameObjectMng</Filter>
     </ClCompile>
     <ClCompile Include="src\World\World.cpp">
       <Filter>ソース ファイル\World</Filter>
@@ -1340,9 +1334,6 @@
     <ClInclude Include="include\Component\Common\ExecutorComponent\Interface\ISoundComponent.h">
       <Filter>ヘッダー ファイル\Component\Common\ExecutorComponent\Interface</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameObjectMng\GameObjectMng.h">
-      <Filter>ヘッダー ファイル\GameObjectMng</Filter>
-    </ClInclude>
     <ClInclude Include="include\GameObject\StaticObject.h">
       <Filter>ヘッダー ファイル\GameObject</Filter>
     </ClInclude>
@@ -1378,9 +1369,6 @@
     </ClInclude>
     <ClInclude Include="include\SceneMng\SceneMng.h">
       <Filter>ヘッダー ファイル\SceneMng</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GameObjectMng\IEnvironmentQuery.h">
-      <Filter>ヘッダー ファイル\GameObjectMng</Filter>
     </ClInclude>
     <ClInclude Include="include\GameObject\Equipment\Weapon\Katana.h">
       <Filter>ヘッダー ファイル\GameObject\Equipment\Weapon</Filter>
@@ -1453,6 +1441,12 @@
     </ClInclude>
     <ClInclude Include="include\EnemyMng\EnemyPool.h">
       <Filter>ヘッダー ファイル\EnemyMng</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\ISceneContext.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\ISceneGameplayAPI.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

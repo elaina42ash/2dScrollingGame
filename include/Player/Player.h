@@ -111,4 +111,10 @@ public:
 	void HandleMessage(const IEventMessage& _msg) override;
 
 	bool IsFacingRight() const override;
+
+	float GetTileSize() const override;
+
+	bool IsInsideWallCircle(Lib::Math::Vector2f _position, float _radius) const override;
+
+	bool IsInsideWallRect(Lib::Math::Vector2f _position, float _width, float _height) const override;
 };

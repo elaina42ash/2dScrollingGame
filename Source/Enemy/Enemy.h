@@ -6,7 +6,6 @@
 #include "Fwk/Graphics/Texture.h"
 #include "GameObject/CharacterObject.h"
 
-class GameObjectMng;
 class Enemy : public CharacterObject
 {
 public:
@@ -46,7 +45,6 @@ private:
 	virtual void OnDefeated();
 
 protected:
-	Inject<GameObjectMng> gameObjectMng_;
 	// 描画用テクスチャ
 	Texture mTexture;
 	// 描画用スプライト

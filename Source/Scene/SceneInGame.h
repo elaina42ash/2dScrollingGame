@@ -1,15 +1,17 @@
 ﻿#pragma once
-
-// Sceneクラスを継承するので#include
 #include "Scene.h"
-
-// 音源クラスの定義を#include
 #include "Fwk/Audio/SoundSource.h"
-// MP3ファイルを扱うクラスの#include
+#include "EnemyMng/EnemyMng.h"
 #include "Fwk/Audio/MP3Sound.h"
+#include "GameObject/StaticObject/IronSpike.h"
+#include "Scene/ISceneContext.h"
+#include "Scene/ISceneGameplayAPI.h"
+#include "StaticObjectMng/StaticObjectMng.h"
+#include "Tilemap/Tilemap.h"
 
 // インゲームシーンクラス
-class SceneInGame : public Scene {
+class SceneInGame : public Scene, public ISceneContext, public ISceneGameplayAPI
+{
 public:
 	// 初期化
 	void Init() override;
@@ -19,6 +21,15 @@ public:
 	void Update() override;
 	// 描画
 	void Render() override;
+
+	float GetTileSize() override;
+
+	bool IsInsideWallRect(Lib::Math::Vector2f _position, float _width, float _height) const override;
+
+	bool IsInsideWallCircle(Lib::Math::Vector2f _position, float _radius) const override;
+
+	void CreateEnemy(const char* _enemyName, Lib::Math::Vector2f _position) override;
+
 private:
 	// BGM読み込み用
 	MP3Sound mSound;
@@ -28,4 +39,11 @@ private:
 private:
 	// 現在のステージ番号
 	int mSelectedIndex;
+
+	StaticObjectMng staticObjectMng_;
+
+	EnemyMng enemyMng_;
+
+	Tilemap tilemap_;
+
 };

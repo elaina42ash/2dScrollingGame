@@ -3,8 +3,6 @@
 #include "EnemyPool.h"
 #include "Enemy/Enemy.h"
 #include "Fwk/Data/CSVData.h"
-#include "GameObjectMng/IEnvironmentQuery.h"
-
 
 // 敵管理クラス
 class EnemyMng {
@@ -19,16 +17,16 @@ public:
 	void Render();
 
 	// オブジェクトループの生成
-	void GeneratePool(std::string _enemyName, int _poolSize, IEnvironmentQuery* _environmentQuery);
+	void GeneratePool(std::string _enemyName, int _poolSize);
 	// 指定した敵のオブジェクトループの解放
-	void DestroyPool(std::string enemyName);
+	void DestroyPool(const char* _enemyName);
 	// 全ての敵のオブジェクトループの解放
 	void DestroyPoolAll();
 
 	// 敵の生成
-	Enemy* CreateEnemy(std::string enemyName, Lib::Math::Vector2f position);
+	Enemy* CreateEnemy(const char* _enemyName, Lib::Math::Vector2f _position, ISceneContext* _sceneContext, ISceneGameplayAPI* _sceneGameplayAPI);
 	// CSVデータから敵を生成する
-	void CreateEnemies(CSVData* pCsvData, int _tileSize);
+	void CreateEnemies(CSVData* _csvData, int _tileSize, ISceneContext* _sceneContext, ISceneGameplayAPI* _sceneGameplayAPI);
 	// 残りの敵の数
 	int GetEnemyCount();
 

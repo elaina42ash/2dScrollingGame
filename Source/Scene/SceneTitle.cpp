@@ -1,10 +1,6 @@
-﻿
-#include "SceneTitle.h"
-
+﻿#include "SceneTitle.h"
 #include "Fwk/Framework.h"
-
 #include "AppDef.h"
-#include "GameObjectMng/GameObjectMng.h"
 #include "GamePlayData/GamePlayData.h"
 
 // 初期化
@@ -51,12 +47,14 @@ void SceneTitle::Update() {
 		// "次のシーン"にInGameを設定する
 		mNextScene = SceneType::InGame;
 	}
+
 }
 
 // 描画
 void SceneTitle::Render()
 {
 	mSprite.Draw();
+
 	//// 文字列を描画する
 	//PrintText("アクションゲーム！",380.0f,250.0f);
 }

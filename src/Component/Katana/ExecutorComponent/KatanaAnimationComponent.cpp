@@ -29,9 +29,6 @@ void KatanaAnimationComponent::Update()
 
 	AnimationComponent::Update();
 
-	// スプライトの更新
-	UpdateSprite();
-
 	Reset();
 }
 
@@ -39,7 +36,6 @@ void KatanaAnimationComponent::Render()
 {
 	AnimationComponent::Render();
 
-	DrawSprite();
 }
 
 void KatanaAnimationComponent::Term()

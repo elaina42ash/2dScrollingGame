@@ -17,11 +17,16 @@ void AnimationComponent::Init()
 void AnimationComponent::Update()
 {
 	ExecutorComponent::Update();
+
+	// スプライトの更新
+	UpdateSprite();
 }
 
 void AnimationComponent::Render()
 {
 	ExecutorComponent::Render();
+
+	DrawSprite();
 }
 
 void AnimationComponent::Term()

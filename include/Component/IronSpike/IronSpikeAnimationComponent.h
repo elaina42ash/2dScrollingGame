@@ -11,7 +11,7 @@ private:
 public:
 	IronSpikeAnimationComponent(bool _isActive, IMessenger* _messenger, IStaticObjectView* _staticObjectView);
 
-	explicit IronSpikeAnimationComponent(IMessenger* _messenger);
+	IronSpikeAnimationComponent(IMessenger* _messenger, IStaticObjectView* _staticObjectView);
 
 	void Init() override;
 

@@ -5,6 +5,7 @@
 
 // SpriteやTexture,Animationを使うためのヘッダファイル
 #include "Fwk/Graphics.h"
+#include "GameObject/StaticObject/IronSpike.h"
 
 // タイトルシーンクラス
 class SceneTitle : public Scene{
@@ -23,4 +24,5 @@ private:
 	Sprite mSprite;
 	Vector2f mPosition;
 	int count = 0;
+
 };

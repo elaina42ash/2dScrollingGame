@@ -1,10 +1,5 @@
 ﻿#include "Onibi.h"
-
-// CollisionManagerを使うのでinclude
 #include "Fwk/Framework.h"
-
-// プレイヤーの位置を参照するのでinclude
-#include "GameObjectMng/GameObjectMng.h"
 #include "World/World.h"
 
 // 初期化

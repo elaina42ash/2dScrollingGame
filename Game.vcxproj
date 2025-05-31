@@ -113,7 +113,6 @@
     <ClCompile Include="src\Event\Message\StateMsg\SetIsDeadConditionMsg.cpp" />
     <ClCompile Include="src\Event\Messenger.cpp" />
     <ClCompile Include="src\GameMath.cpp" />
-    <ClCompile Include="src\GameObjectMng\GameObjectMng.cpp" />
     <ClCompile Include="src\GameObject\CharacterObject.cpp" />
     <ClCompile Include="src\GameObject\DetachableObject.cpp" />
     <ClCompile Include="src\GameObject\Equipment\Equipment.cpp" />
@@ -260,8 +259,6 @@
     <ClInclude Include="include\Event\Message\StateMsg\SetIsDeadConditionMsg.h" />
     <ClInclude Include="include\Event\Messenger.h" />
     <ClInclude Include="include\GameMath.h" />
-    <ClInclude Include="include\GameObjectMng\GameObjectMng.h" />
-    <ClInclude Include="include\GameObjectMng\IEnvironmentQuery.h" />
     <ClInclude Include="include\GameObject\CharacterObject.h" />
     <ClInclude Include="include\GameObject\DetachableObject.h" />
     <ClInclude Include="include\GameObject\Equipment\Equipment.h" />
@@ -302,6 +299,8 @@
     <ClInclude Include="include\Player\IPlayerView.h" />
     <ClInclude Include="include\Player\Player.h" />
     <ClInclude Include="include\SceneMng\SceneMng.h" />
+    <ClInclude Include="include\Scene\ISceneContext.h" />
+    <ClInclude Include="include\Scene\ISceneGameplayAPI.h" />
     <ClInclude Include="include\Semantic\SemanticDef.h" />
     <ClInclude Include="include\Semantic\SemanticInputBuffer.h" />
     <ClInclude Include="include\Sensor\ILineSensor.h" />

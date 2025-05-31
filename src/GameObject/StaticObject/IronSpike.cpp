@@ -5,11 +5,11 @@
 
 IronSpike::IronSpike()
 {
-	transformComponent_ = new IronSpikeTransformComponent(false, AccessMessenger());
+	transformComponent_ = new IronSpikeTransformComponent(true, AccessMessenger());
 	AddComponent<ITransformComponent>(transformComponent_);
-	collisionComponent_ = new IronSpikeCollisionComponent(false, AccessMessenger());
+	collisionComponent_ = new IronSpikeCollisionComponent(true, AccessMessenger(),this);
 	AddComponent<ICollisionComponent>(collisionComponent_);
-	animationComponent_ = new IronSpikeAnimationComponent(false, AccessMessenger(),this);
+	animationComponent_ = new IronSpikeAnimationComponent(true, AccessMessenger(),this);
 	AddComponent<IAnimationComponent>(animationComponent_);
 }
 
@@ -20,7 +20,11 @@ IronSpike::~IronSpike()
 		delete collisionComponent_;
 		collisionComponent_ = nullptr;
 	}
-
+	if (transformComponent_)
+	{
+		delete transformComponent_;
+		transformComponent_ = nullptr;
+	}
 	if (animationComponent_)
 	{
 		delete animationComponent_;
@@ -37,11 +41,13 @@ void IronSpike::Init()
 void IronSpike::Update()
 {
 	StaticObject::Update();
+
 }
 
 void IronSpike::Render()
 {
 	StaticObject::Render();
+
 }
 
 void IronSpike::Term()
@@ -52,4 +58,11 @@ void IronSpike::Term()
 void IronSpike::HandleMessage(const IEventMessage& _msg)
 {
 		
+}
+
+Lib::Math::Vector2f IronSpike::GetPosition() const
+{
+	if (!transformComponent_)
+		return { 0.0f,0.0f };
+	return transformComponent_->GetPosition();
 }

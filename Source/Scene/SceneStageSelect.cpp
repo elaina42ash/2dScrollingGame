@@ -1,6 +1,4 @@
 ﻿#include "SceneStageSelect.h"
-// ゲームプレイデータを使う
-#include "GameObjectMng/GameObjectMng.h"
 
 // 初期化
 void SceneStageSelect::Init()

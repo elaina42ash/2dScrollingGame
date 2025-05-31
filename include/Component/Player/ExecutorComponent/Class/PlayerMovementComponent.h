@@ -1,6 +1,5 @@
 ﻿#pragma once
 #include "Component/Common/ExecutorComponent/Class/MovementComponent.h"
-#include "GameObjectMng/GameObjectMng.h"
 #include "Player/IPlayerView.h"
 #pragma warning(push)
 #pragma warning(disable:4250)

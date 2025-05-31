@@ -1,14 +1,17 @@
 ﻿#pragma once
 #include "Component/Common/SensorLogicalComponent/Class/CollisionComponent.h"
+#include "GameObject/StaticObject/IStaticObjectView.h"
 
 #pragma warning(push)
 #pragma warning(disable:4250)
 class IronSpikeCollisionComponent : public CollisionComponent
 {
+private:
+	Inject<IStaticObjectView> staticObjectView_;
 public:
-	IronSpikeCollisionComponent(bool _isActive, IMessenger* _messenger);
+	IronSpikeCollisionComponent(bool _isActive, IMessenger* _messenger, IStaticObjectView* _staticObjectView);
 
-	explicit IronSpikeCollisionComponent(IMessenger* _messenger);
+	IronSpikeCollisionComponent(IMessenger* _messenger, IStaticObjectView* _staticObjectView);
 
 	void Init() override;
 

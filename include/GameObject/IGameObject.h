@@ -1,4 +1,6 @@
 ﻿#pragma once
+#include "Scene/ISceneContext.h"
+#include "Scene/ISceneGameplayAPI.h"
 
 class IGameObject
 {
@@ -20,4 +22,7 @@ public:
 
 	virtual void Enable() = 0;
 	virtual void Disable() = 0;
+
+	virtual void BindSceneContext(ISceneContext* _sceneContext) = 0;
+	virtual void BindSceneGameplayAPI(ISceneGameplayAPI* _sceneGameplayApi) = 0;
 };
