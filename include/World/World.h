@@ -12,8 +12,6 @@ public:
 private:
 	SceneMng sceneMng_;
 
-	UIMng uiMng_;
-
 	std::map<PlayerID, Player*> players_;
 
 	PlayerID mainPlayerID_ = 0;
@@ -64,11 +62,4 @@ public:
 
 	Scene* AccessCurrentScene();
 
-	UIMng* AccessUIMng();
-
-	void InitGlobalUI();
-
-	void LoadSceneUI(SceneType _type);
-
-	void UnloadSceneUI();
 };

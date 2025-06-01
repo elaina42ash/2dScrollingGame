@@ -8,6 +8,7 @@
 #include "Scene/ISceneGameplayAPI.h"
 #include "StaticObjectMng/StaticObjectMng.h"
 #include "Tilemap/Tilemap.h"
+#include "UI/UIMng.h"
 
 // インゲームシーンクラス
 class SceneInGame : public Scene, public ISceneContext, public ISceneGameplayAPI
@@ -46,4 +47,5 @@ private:
 
 	Tilemap tilemap_;
 
+	UIMng uiMng_;
 };

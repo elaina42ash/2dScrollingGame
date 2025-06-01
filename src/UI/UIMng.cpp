@@ -2,6 +2,7 @@
 
 #include "UI/HpGauge.h"
 #include "UI/HpGauge2.h"
+#include "World/World.h"
 
 void UIMng::InitGlobalUI()
 {
@@ -15,7 +16,11 @@ void UIMng::LoadSceneUI(SceneType type)
 	{
 	case SceneType::InGame:
 	{
-		sceneUIs_.push_back(new HpGauge2);
+		HpGauge2* hpGauge2 = new HpGauge2;
+		Player* player = WORLD_I.AccessMainPlayer();
+		if (player)
+			hpGauge2->BindToPlayer(player);
+		sceneUIs_.push_back(hpGauge2);
 	}break;
 	}
 

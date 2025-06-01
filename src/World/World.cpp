@@ -58,7 +58,7 @@ void World::Update()
             obj->Update();
     }
 
-    uiMng_.Update();
+
 }
 
 /**
@@ -75,7 +75,6 @@ void World::Render()
             obj->Render();
     }
 
-    uiMng_.Render();
 }
 
 /**
@@ -230,22 +229,3 @@ Scene* World::AccessCurrentScene()
     return sceneMng_.AccessCurrentScene();
 }
 
-UIMng* World::AccessUIMng()
-{
-    return &uiMng_;
-}
-
-void World::InitGlobalUI()
-{
-    uiMng_.InitGlobalUI();
-}
-
-void World::LoadSceneUI(SceneType _type)
-{
-    uiMng_.LoadSceneUI(_type);
-}
-
-void World::UnloadSceneUI()
-{
-    uiMng_.UnloadSceneUI();
-}

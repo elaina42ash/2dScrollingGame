@@ -18,6 +18,10 @@ public:
 
 	void Render();                      
 
+	void SetHp(float _hp)
+	{
+		
+	}
 private:
 	std::vector<IUIElement*> globalUIs_;
 	std::vector<IUIElement*> sceneUIs_;

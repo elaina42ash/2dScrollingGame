@@ -54,6 +54,9 @@
     <ClCompile Include="src\Component\Common\SensorLogicalComponent\GroundSensorComponent.cpp" />
     <ClCompile Include="src\Component\Common\SensorLogicalComponent\SensorLogicalComponent.cpp" />
     <ClCompile Include="src\Component\Common\SensorLogicalComponent\TileMapSensorComponent.cpp" />
+    <ClCompile Include="src\Component\Door\DoorAnimationComponent.cpp" />
+    <ClCompile Include="src\Component\Door\DoorCollisionComponent.cpp" />
+    <ClCompile Include="src\Component\Door\DoorTransformComponent.cpp" />
     <ClCompile Include="src\Component\IronSpike\IronSpikeAnimationComponent.cpp" />
     <ClCompile Include="src\Component\IronSpike\IronSpikeCollisionComponent.cpp" />
     <ClCompile Include="src\Component\IronSpike\IronSpikeTransformComponent.cpp" />
@@ -121,6 +124,7 @@
     <ClCompile Include="src\GameObject\Equipment\Weapon\Weapon.cpp" />
     <ClCompile Include="src\GameObject\GameObject.cpp" />
     <ClCompile Include="src\GameObject\StaticObject.cpp" />
+    <ClCompile Include="src\GameObject\StaticObject\Door.cpp" />
     <ClCompile Include="src\GameObject\StaticObject\IronSpike.cpp" />
     <ClCompile Include="src\Input\FrameworkPhysicsInputAdapter.cpp" />
     <ClCompile Include="src\Player\Player.cpp" />
@@ -196,6 +200,9 @@
     <ClInclude Include="include\Component\Common\SensorLogicalComponent\Interface\ICollisionComponent.h" />
     <ClInclude Include="include\Component\Common\SensorLogicalComponent\Interface\IGroundSensorComponent.h" />
     <ClInclude Include="include\Component\Common\SensorLogicalComponent\Interface\ITileMapSensorComponent.h" />
+    <ClInclude Include="include\Component\Door\DoorAnimationComponent.h" />
+    <ClInclude Include="include\Component\Door\DoorCollisionComponent.h" />
+    <ClInclude Include="include\Component\Door\DoorTransformComponent.h" />
     <ClInclude Include="include\Component\IronSpike\IronSpikeAnimationComponent.h" />
     <ClInclude Include="include\Component\IronSpike\IronSpikeCollisionComponent.h" />
     <ClInclude Include="include\Component\IronSpike\IronSpikeTransformComponent.h" />
@@ -278,6 +285,7 @@
     <ClInclude Include="include\GameObject\InteractiveObject.h" />
     <ClInclude Include="include\GameObject\IStaticObject.h" />
     <ClInclude Include="include\GameObject\StaticObject.h" />
+    <ClInclude Include="include\GameObject\StaticObject\Door.h" />
     <ClInclude Include="include\GameObject\StaticObject\IronSpike.h" />
     <ClInclude Include="include\GameObject\StaticObject\IStaticObjectView.h" />
     <ClInclude Include="include\GameObject\UIObject.h" />

@@ -26,7 +26,7 @@ void PlayerCollisionComponent::Init()
 	AddHitGroup(CollisionGroup::ENEMY);
 
 	// 衝突対象にゴールグループのコリジョンを追加
-	AddHitGroup(CollisionGroup::IronSpike);
+	AddHitGroup(CollisionGroup::IRON_SPIKE);
 
 	// コリジョンにタグを設定
 	SetTag(ToTagName(static_cast<int>(CollisionTag::PLAYER)));

@@ -18,7 +18,7 @@ void HpGauge2::Init()
 	mSprite.SetPivot(Pivot::Left);
 
 	// UIレイヤーに描画する
-	mSprite.SetRenderLayer("UI");
+ 	mSprite.SetRenderLayer("UI");
 }
 
 // 後片付け
@@ -33,6 +33,7 @@ void HpGauge2::Term()
 // 更新
 void HpGauge2::Update()
 {
+	
 	mSprite.Update();
 }
 
@@ -40,6 +41,17 @@ void HpGauge2::Update()
 void HpGauge2::Render()
 {
 	mSprite.Draw();
+}
+
+void HpGauge2::BindToPlayer(Player* _player)
+{
+	IHealthComponent* healthComponent = _player->GetComponent<IHealthComponent>();
+	PlayerHealthComponent* playerHealthComponent = dynamic_cast<PlayerHealthComponent*>(healthComponent);
+	if (playerHealthComponent)
+		playerHealthComponent->SetOnHpChanged([this](float _newHp)
+		{
+			SetHp(_newHp);
+		});
 }
 
 // 体力設定（0~1.0の範囲で指定）
@@ -56,5 +68,6 @@ void HpGauge2::SetHp(float hp)
 	// スプライトをスケーリング
 	mSprite.SetScale(hp,1.0f);
 	// スケーリングにテクスチャ座標の幅の合わせる
-	mSprite.SetTexCoord(0.0f,0.0f,hp,1.0f);
+	mSprite.SetTexCoord(0.0f,0.0f, hp,1.0f);
+
 }

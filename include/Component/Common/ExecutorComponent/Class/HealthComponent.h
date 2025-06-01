@@ -33,7 +33,7 @@ protected:
 	void Reset() override;
 
 protected:
-	void SetHp(int _newHp);
+	virtual void SetHp(int _newHp);
 
 	void SetMaxHp(int _newMaxHp);
 };

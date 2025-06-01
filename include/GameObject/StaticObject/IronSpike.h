@@ -1,8 +1,6 @@
 ﻿#pragma once
 #include "IStaticObjectView.h"
 #include "Component/Common/ExecutorComponent/Interface/ITransformComponent.h"
-#include "Fwk/Graphics/Sprite.h"
-#include "Fwk/Graphics/Texture.h"
 #include "GameObject/StaticObject.h"
 
 class IronSpike : public StaticObject , public IStaticObjectView

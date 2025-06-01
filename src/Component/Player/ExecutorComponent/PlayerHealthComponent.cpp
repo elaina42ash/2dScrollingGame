@@ -1,4 +1,6 @@
 ﻿#include "Component/Player/ExecutorComponent/Class/PlayerHealthComponent.h"
+
+#include "GameMath.h"
 #include "Component/Common/ExecutorComponent/Class/HealthComponent.h"
 #include "Event/Message/SemanticMsg/StartHurtSemMsg.h"
 #include "Event/Message/StateMsg/SetIsDeadConditionMsg.h"
@@ -58,6 +60,22 @@ void PlayerHealthComponent::TakeDamage(int _incomingDamage)
 	}
 
 	DebugLog("player take damage:"+ to_string(_incomingDamage) +" , "+"HP now : "+to_string(GetHp()));
+}
+
+void PlayerHealthComponent::SetOnHpChanged(HpChangedCallback _callback)
+{
+	onHpChangedCallback_ = _callback;
+}
+
+void PlayerHealthComponent::SetHp(int _newHp)
+{
+	if (hp_ != _newHp) {
+		GameMath::Clamp(_newHp, 0, maxHp_);
+		hp_ = _newHp;
+		if (onHpChangedCallback_) {
+			onHpChangedCallback_(static_cast<float>(GetNormalizedHp()));
+		}
+	}
 }
 
 void PlayerHealthComponent::Reset()

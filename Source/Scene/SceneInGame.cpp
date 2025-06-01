@@ -108,7 +108,7 @@ void SceneInGame::Init()
     mSoundSource.Play(-1);
 
     // シーンUIをロード
-    WORLD_I.LoadSceneUI(SceneType::InGame);
+    uiMng_.LoadSceneUI(SceneType::InGame);
 
     // 次のシーンの初期値を設定
     mNextScene = SceneType::None;
@@ -130,7 +130,7 @@ void SceneInGame::Term()
     // 読み込んだ音声ファイルを破棄
     mSound.Unload();
     // シーンUIをアンロード
-    WORLD_I.UnloadSceneUI();
+    uiMng_.UnloadSceneUI();
 }
 // 更新処理
 void SceneInGame::Update()
@@ -181,6 +181,8 @@ void SceneInGame::Update()
         // プレイヤーが死亡した場合、次のシーンをゲームオーバーに設定
         if (player->IsDead())
         {
+            WORLD_I.DestroyPlayer(WORLD_I.GetMainPlayerID());
+
             mNextScene = SceneType::GameOver;
         }
     }
@@ -191,6 +193,8 @@ void SceneInGame::Update()
     staticObjectMng_.Update();
     // タイルマップの更新処理
     tilemap_.Update();
+
+    uiMng_.Update();
 }
 // 描画処理
 void SceneInGame::Render()
@@ -209,6 +213,8 @@ void SceneInGame::Render()
     enemyMng_.Render();
     // 静的オブジェクト管理の描画
     staticObjectMng_.Render();
+
+    uiMng_.Render();
 }
 float SceneInGame::GetTileSize()
 {

@@ -412,6 +412,12 @@
     <Filter Include="ヘッダー ファイル\Scene">
       <UniqueIdentifier>{025c73a2-d56b-46c0-a6a4-758cb209b600}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Door">
+      <UniqueIdentifier>{7858539b-5c93-484d-9eb6-b7d4cb46fd2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Door">
+      <UniqueIdentifier>{dde8af41-e9a0-47ce-927b-c04eef7ce192}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Enemy\Enemy.cpp">
@@ -753,9 +759,6 @@
     <ClCompile Include="src\World\World.cpp">
       <Filter>ソース ファイル\World</Filter>
     </ClCompile>
-    <ClCompile Include="src\SceneMng\SceneMng.cpp">
-      <Filter>ソース ファイル\SceneMng</Filter>
-    </ClCompile>
     <ClCompile Include="src\GameObject\Equipment\Weapon\Katana.cpp">
       <Filter>ソース ファイル\GameObject\Equipment\Weapon</Filter>
     </ClCompile>
@@ -827,6 +830,21 @@
     </ClCompile>
     <ClCompile Include="src\EnemyMng\EnemyPool.cpp">
       <Filter>ソース ファイル\EnemyMng</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SceneMng\SceneMng.cpp">
+      <Filter>ソース ファイル\Sensor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\StaticObject\Door.cpp">
+      <Filter>ソース ファイル\GameObject\StaticObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Door\DoorTransformComponent.cpp">
+      <Filter>ソース ファイル\Component\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Door\DoorCollisionComponent.cpp">
+      <Filter>ソース ファイル\Component\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Door\DoorAnimationComponent.cpp">
+      <Filter>ソース ファイル\Component\Door</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1447,6 +1465,18 @@
     </ClInclude>
     <ClInclude Include="include\Scene\ISceneGameplayAPI.h">
       <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\StaticObject\Door.h">
+      <Filter>ヘッダー ファイル\GameObject\StaticObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Door\DoorAnimationComponent.h">
+      <Filter>ヘッダー ファイル\Component\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Door\DoorTransformComponent.h">
+      <Filter>ヘッダー ファイル\Component\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Door\DoorCollisionComponent.h">
+      <Filter>ヘッダー ファイル\Component\Door</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

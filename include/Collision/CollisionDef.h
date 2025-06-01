@@ -9,7 +9,8 @@ enum class CollisionGroup {
 	PLAYER = FIRST,
 	WEAPON,
 	ENEMY,
-	IronSpike,
+	IRON_SPIKE,
+	DOOR,
 	GOAL,
 
 	COUNT

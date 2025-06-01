@@ -17,7 +17,7 @@ void IronSpikeCollisionComponent::Init()
 	CollisionComponent::Init();
 
 	// 自分はゴールグループのコリジョン
-	SetGroup(CollisionGroup::IronSpike);
+	SetGroup(CollisionGroup::IRON_SPIKE);
 	// コリジョンにタグを設定
 	SetTag("IronSpike");
 	// コリジョンのオーナーに自分を設定
