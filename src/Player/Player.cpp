@@ -18,6 +18,7 @@
 #include "Event/Message/LogicalInputMsg/AttackInputMsg.h"
 #include "Event/Message/LogicalInputMsg/DashInputMsg.h"
 #include "Event/Message/LogicalInputMsg/HoriAxisInputMsg.h"
+#include "Event/Message/LogicalInputMsg/InteractInputMsg.h"
 #include "Event/Message/LogicalInputMsg/JumpInputMsg.h"
 #include "Event/Message/LogicalInputMsg/ReleaseJumpInputMsg.h"
 #include "Event/Message/LogicalInputMsg/SwitchWeaponInputMsg.h"
@@ -27,6 +28,7 @@
 #include "Event/Message/SemanticMsg/StartDashSemMsg.h"
 #include "Event/Message/SemanticMsg/StartHurtSemMsg.h"
 #include "Event/Message/SemanticMsg/StartIdleSemMsg.h"
+#include "Event/Message/SemanticMsg/StartInteractSemMsg.h"
 #include "Event/Message/SemanticMsg/StartJumpSemMsg.h"
 #include "Event/Message/SemanticMsg/StartKnockBackSemMsg.h"
 #include "Event/Message/SemanticMsg/StartMoveSemMsg.h"
@@ -170,6 +172,7 @@ void Player::StateComponentSubscribeMsg()
 	Subscribe(TypeidSystem::GetTypeID<ReleaseJumpInputMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<AttackInputMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SwitchWeaponInputMsg>(), stateComponent_);
+	Subscribe(TypeidSystem::GetTypeID<InteractInputMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SetIsDamagedConditionMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SetIsDeadConditionMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SetIsClearConditionMsg>(), stateComponent_);
@@ -198,6 +201,7 @@ void Player::Init()
 
 	Subscribe(TypeidSystem::GetTypeID<StartKnockBackSemMsg>(), collisionComponent_);
 	Subscribe(TypeidSystem::GetTypeID<EndKnockBackSemMsg>(), collisionComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartInteractSemMsg>(), collisionComponent_);
 
 	StateComponentSubscribeMsg();
 
@@ -349,24 +353,6 @@ bool Player::IsStageCleared() const
 
 void Player::ResetState()
 {
-	if (stateComponent_)
-	{
-		delete stateComponent_;
-		stateComponent_ = nullptr;
-	}
-
-	stateComponent_ = new PlayerStateComponent(true, AccessMessenger(),this);
-}
-
-int Player::GetRemainingInvincibleFrames() const
-{
-	if (!combatStatusComponent_)
-		return -1;
-	return combatStatusComponent_->GetRemainingInvincibilityFrames();
-}
-
-void Player::ResetPlayer()
-{
 	IStateComponent* statementComponent = GetComponent<IStateComponent>();
 
 	if (statementComponent)
@@ -378,6 +364,18 @@ void Player::ResetPlayer()
 		StateComponentSubscribeMsg();
 		stateComponent_->Init();
 	}
+}
+
+int Player::GetRemainingInvincibleFrames() const
+{
+	if (!combatStatusComponent_)
+		return -1;
+	return combatStatusComponent_->GetRemainingInvincibilityFrames();
+}
+
+void Player::ResetPlayer()
+{
+	ResetState();
 }
 
 void Player::HandleMessage(const IEventMessage& _msg)

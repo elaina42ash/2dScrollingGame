@@ -334,9 +334,6 @@
     <Filter Include="ソース ファイル\World">
       <UniqueIdentifier>{52cbe5d6-1e67-4b09-8d39-11453af47caf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\SceneMng">
-      <UniqueIdentifier>{57f3384b-519d-4ecd-a0aa-abd9fe8803a5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ヘッダー ファイル\SceneMng">
       <UniqueIdentifier>{a50d5bfc-a48c-4e17-a2b4-bfdb554eaa40}</UniqueIdentifier>
     </Filter>
@@ -417,6 +414,12 @@
     </Filter>
     <Filter Include="ソース ファイル\Component\Door">
       <UniqueIdentifier>{dde8af41-e9a0-47ce-927b-c04eef7ce192}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Goal">
+      <UniqueIdentifier>{f38fc464-7061-4644-a265-8b8ad03b35a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Goal">
+      <UniqueIdentifier>{982496f1-17e0-4ac1-a7c6-e7d4fd1af8c3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -744,9 +747,6 @@
     <ClCompile Include="src\Event\Message\StateMsg\SetIsClearConditionMsg.cpp">
       <Filter>ソース ファイル\Event\Message\StateMessage</Filter>
     </ClCompile>
-    <ClCompile Include="src\Event\Message\SemanticMsg\StartStageClearSemMsg.cpp">
-      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
-    </ClCompile>
     <ClCompile Include="src\GameObject\Equipment\Weapon\Weapon.cpp">
       <Filter>ソース ファイル\GameObject\Equipment\Weapon</Filter>
     </ClCompile>
@@ -845,6 +845,27 @@
     </ClCompile>
     <ClCompile Include="src\Component\Door\DoorAnimationComponent.cpp">
       <Filter>ソース ファイル\Component\Door</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartInteractSemMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\LogicalInputMsg\InteractInputMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\LogicalInputMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartStageClearSemMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\StaticObject\Goal.cpp">
+      <Filter>ソース ファイル\GameObject\StaticObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Door\GoalAnimationComponent.cpp">
+      <Filter>ソース ファイル\Component\Goal</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Door\GoalCollisionComponent.cpp">
+      <Filter>ソース ファイル\Component\Goal</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Door\GoalTransformComponent.cpp">
+      <Filter>ソース ファイル\Component\Goal</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1340,9 +1361,6 @@
     <ClInclude Include="include\Event\Message\StateMsg\SetIsClearConditionMsg.h">
       <Filter>ヘッダー ファイル\Event\Message\StateMsg</Filter>
     </ClInclude>
-    <ClInclude Include="include\Event\Message\SemanticMsg\StartStageClearSemMsg.h">
-      <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
-    </ClInclude>
     <ClInclude Include="include\GameObject\Equipment\Weapon\IWeaponView.h">
       <Filter>ヘッダー ファイル\GameObject\Equipment\Weapon</Filter>
     </ClInclude>
@@ -1477,6 +1495,27 @@
     </ClInclude>
     <ClInclude Include="include\Component\Door\DoorCollisionComponent.h">
       <Filter>ヘッダー ファイル\Component\Door</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartInteractSemMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\LogicalInputMsg\InteractInputMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\LogicalInputMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartStageClearSemMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\StaticObject\Goal.h">
+      <Filter>ヘッダー ファイル\GameObject\StaticObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Goal\GoalCollisionComponent.h">
+      <Filter>ヘッダー ファイル\Component\Goal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Goal\GoalAnimationComponent.h">
+      <Filter>ヘッダー ファイル\Component\Goal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Goal\GoalTransformComponent.h">
+      <Filter>ヘッダー ファイル\Component\Goal</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

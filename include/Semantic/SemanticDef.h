@@ -13,7 +13,7 @@ namespace GameSemantic
 		START_ATTACK,
 		START_DASH,
 		START_SWITCH_WEAPON,
-
+		START_INTERACT,
 
 		COUNT
 	};

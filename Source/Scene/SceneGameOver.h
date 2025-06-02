@@ -9,6 +9,10 @@
 // ゲームオーバーシーンクラス
 class SceneGameOver : public Scene {
 public:
+	SceneGameOver() = default;
+
+	explicit SceneGameOver(int _sceneIndex);
+
 	// 初期化
 	void Init();
 	// 終了

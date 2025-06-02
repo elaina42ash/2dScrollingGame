@@ -17,13 +17,13 @@ void DoorCollisionComponent::Init()
 	CollisionComponent::Init();
 
 	// 自分はゴールグループのコリジョン
-	SetGroup(CollisionGroup::IRON_SPIKE);
+	SetGroup(CollisionGroup::DOOR);
 	// コリジョンにタグを設定
 	SetTag("Door");
 	// コリジョンのオーナーに自分を設定
 	SetOwner(this);
 	// コリジョンの形状を指定(矩形)
-	SetRectCollider(32.0f, -16.0f, 64.0f, 32.0f);
+	SetRectCollider(16.0f, -32.0f, 32.0f, 64.0f);
 	// コリジョンを活性状態にしておく
 	EnableCollider();
 	// コリジョンマネージャにコリジョンを登録

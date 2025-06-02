@@ -33,6 +33,9 @@ D:\MyProject\2dScrollingGame\src\Component\Common\SensorLogicalComponent\Collisi
 D:\MyProject\2dScrollingGame\src\Component\Common\SensorLogicalComponent\GroundSensorComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\GroundSensorComponent.obj
 D:\MyProject\2dScrollingGame\src\Component\Common\SensorLogicalComponent\SensorLogicalComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SensorLogicalComponent.obj
 D:\MyProject\2dScrollingGame\src\Component\Common\SensorLogicalComponent\TileMapSensorComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\TileMapSensorComponent.obj
+D:\MyProject\2dScrollingGame\src\Component\Door\DoorAnimationComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\DoorAnimationComponent.obj
+D:\MyProject\2dScrollingGame\src\Component\Door\DoorCollisionComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\DoorCollisionComponent.obj
+D:\MyProject\2dScrollingGame\src\Component\Door\DoorTransformComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\DoorTransformComponent.obj
 D:\MyProject\2dScrollingGame\src\Component\IronSpike\IronSpikeAnimationComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\IronSpikeAnimationComponent.obj
 D:\MyProject\2dScrollingGame\src\Component\IronSpike\IronSpikeCollisionComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\IronSpikeCollisionComponent.obj
 D:\MyProject\2dScrollingGame\src\Component\IronSpike\IronSpikeTransformComponent.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\IronSpikeTransformComponent.obj
@@ -70,6 +73,7 @@ D:\MyProject\2dScrollingGame\src\Event\Message\AnimationMsg\SwordAnimationKeyfra
 D:\MyProject\2dScrollingGame\src\Event\Message\LogicalInputMsg\AttackInputMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\AttackInputMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\LogicalInputMsg\DashInputMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\DashInputMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\LogicalInputMsg\HoriAxisInputMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\HoriAxisInputMsg.obj
+D:\MyProject\2dScrollingGame\src\Event\Message\LogicalInputMsg\InteractInputMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\InteractInputMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\LogicalInputMsg\JumpInputMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\JumpInputMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\LogicalInputMsg\ReleaseJumpInputMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\ReleaseJumpInputMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\LogicalInputMsg\SwitchWeaponInputMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\SwitchWeaponInputMsg.obj
@@ -80,6 +84,7 @@ D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\StartAttackSemMsg.cpp
 D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\StartDashSemMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StartDashSemMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\StartHurtSemMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StartHurtSemMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\StartIdleSemMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StartIdleSemMsg.obj
+D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\StartInteractSemMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StartInteractSemMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\StartJumpSemMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StartJumpSemMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\StartKnockBackSemMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StartKnockBackSemMsg.obj
 D:\MyProject\2dScrollingGame\src\Event\Message\SemanticMsg\StartMoveSemMsg.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StartMoveSemMsg.obj
@@ -100,6 +105,7 @@ D:\MyProject\2dScrollingGame\src\GameObject\Equipment\Weapon\Sword.cpp;D:\MyProj
 D:\MyProject\2dScrollingGame\src\GameObject\Equipment\Weapon\Weapon.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Weapon.obj
 D:\MyProject\2dScrollingGame\src\GameObject\GameObject.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\GameObject.obj
 D:\MyProject\2dScrollingGame\src\GameObject\StaticObject.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\StaticObject.obj
+D:\MyProject\2dScrollingGame\src\GameObject\StaticObject\Door.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Door.obj
 D:\MyProject\2dScrollingGame\src\GameObject\StaticObject\IronSpike.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\IronSpike.obj
 D:\MyProject\2dScrollingGame\src\Input\FrameworkPhysicsInputAdapter.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\FrameworkPhysicsInputAdapter.obj
 D:\MyProject\2dScrollingGame\src\Player\Player.cpp;D:\MyProject\2dScrollingGame\build\x64\Debug\Player.obj

@@ -33,8 +33,13 @@ void SceneMng::Update()
 	if (scene_ && currentScene_ != SceneType::None && scene_->NeedReload())
 	{
 		SceneType remainingScene = currentScene_;
+
+		int currentSceneIndex = scene_->GetSceneIndex();
+
 		// 現在動いているシーンを止める
 		_endCurrentScene();
+
+		currentSceneIndex++;
 
 		// 新しいシーンを開始する
 		switch (remainingScene)
@@ -45,7 +50,7 @@ void SceneMng::Update()
 			break;
 		case SceneType::InGame:
 			// インゲームシーンの生成
-			scene_ = new SceneInGame();
+			scene_ = new SceneInGame(currentSceneIndex);
 			break;
 		case SceneType::GameOver:
 			// ゲームオーバーシーンの生成
@@ -100,14 +105,19 @@ void SceneMng::Render()
 	}
 }
 
+Scene* SceneMng::AccessCurrentScene()
+{
+	return scene_;
+}
+
 // 新しいシーンを開始する
-void SceneMng::_beginScene(SceneType newScene)
+void SceneMng::_beginScene(SceneType _newScene, int _sceneIndex)
 {
 	// 現在動いているシーンを止める
 	_endCurrentScene();
 
 	// 新しいシーンを開始する
-	switch (newScene)
+	switch (_newScene)
 	{
 	case SceneType::Title:
 		// タイトルシーンの生成
@@ -115,7 +125,7 @@ void SceneMng::_beginScene(SceneType newScene)
 		break;
 	case SceneType::InGame:
 		// インゲームシーンの生成
-		scene_ = new SceneInGame();
+		scene_ = new SceneInGame(_sceneIndex);
 		break;
 	case SceneType::GameOver:
 		// ゲームオーバーシーンの生成
@@ -137,7 +147,7 @@ void SceneMng::_beginScene(SceneType newScene)
 	}
 
 	// 現在のシーンを設定
-	currentScene_ = newScene;
+	currentScene_ = _newScene;
 
 }
 

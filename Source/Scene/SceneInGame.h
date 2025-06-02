@@ -14,6 +14,10 @@
 class SceneInGame : public Scene, public ISceneContext, public ISceneGameplayAPI
 {
 public:
+	SceneInGame() = default;
+
+	explicit SceneInGame(int _sceneIndex);
+
 	// 初期化
 	void Init() override;
 	// 終了
@@ -38,8 +42,6 @@ private:
 	SoundSource mSoundSource;
 	bool needResetScene = false;
 private:
-	// 現在のステージ番号
-	int mSelectedIndex;
 
 	StaticObjectMng staticObjectMng_;
 

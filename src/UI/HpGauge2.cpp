@@ -1,4 +1,6 @@
 ﻿#include "UI/HpGauge2.h"
+
+#include "World/World.h"
 // 初期化
 void HpGauge2::Init()
 {
@@ -19,6 +21,14 @@ void HpGauge2::Init()
 
 	// UIレイヤーに描画する
  	mSprite.SetRenderLayer("UI");
+
+	Player* player = WORLD_I.AccessMainPlayer();
+	if (player)
+	{
+		IHealthComponent* healthComponent = player->GetComponent<IHealthComponent>();
+		SetHp(healthComponent->GetNormalizedHp());
+	}
+	
 }
 
 // 後片付け

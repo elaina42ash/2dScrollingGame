@@ -2,7 +2,9 @@
 #include "Component/Common/SensorLogicalComponent/Class/CollisionComponent.h"
 #include "Event/IMessenger.h"
 #include "Event/Message/SemanticMsg/EndKnockBackSemMsg.h"
+#include "Event/Message/SemanticMsg/StartInteractSemMsg.h"
 #include "Event/Message/SemanticMsg/StartKnockBackSemMsg.h"
+#include "Event/Message/StateMsg/SetIsClearConditionMsg.h"
 #include "Event/Message/StateMsg/SetIsDamagedConditionMsg.h"
 #include "Fwk/Framework.h"
 #include "Player/IPlayerView.h"
@@ -28,6 +30,8 @@ void PlayerCollisionComponent::Init()
 	// 衝突対象にゴールグループのコリジョンを追加
 	AddHitGroup(CollisionGroup::IRON_SPIKE);
 
+	AddHitGroup(CollisionGroup::DOOR);
+
 	// コリジョンにタグを設定
 	SetTag(ToTagName(static_cast<int>(CollisionTag::PLAYER)));
 
@@ -42,6 +46,8 @@ void PlayerCollisionComponent::Init()
 
 	// コリジョン衝突時のコールバック関数を設定
 	SetCallbackFunction();
+
+	SetCallbackFunctionEx();
 }
 
 void PlayerCollisionComponent::Update()
@@ -79,11 +85,30 @@ void PlayerCollisionComponent::OnCollision(const Fwk::Collision::Collider& _me,
 		SendMsg(msg);
 	}
 
-	// ゴールに衝突していた時の処理
 	if (_other.GetTag() == "IronSpike")
 	{
 		SetIsDamagedConditionMsg msg(true);
 		SendMsg(msg);
+	}
+
+}
+
+void PlayerCollisionComponent::OnCollisionEx(const Fwk::Collision::CollisionEvent& _collisionEvent)
+{
+	if (_collisionEvent.EventType == Fwk::Collision::CollisionEventType::Enter)
+	{
+		if (_collisionEvent.ColliderB->GetGroup() == (int)CollisionGroup::DOOR)
+		{
+			isDoorTrigger = true;
+		}
+	}
+
+	if (_collisionEvent.EventType == Fwk::Collision::CollisionEventType::Exit)
+	{
+		if (_collisionEvent.ColliderB->GetGroup() == (int)CollisionGroup::DOOR)
+		{
+			isDoorTrigger = false;
+		}
 	}
 }
 
@@ -91,6 +116,7 @@ void PlayerCollisionComponent::HandleMessage(const IEventMessage& _msg)
 {
 	const StartKnockBackSemMsg* startKnockBackSemMsg = TypeidSystem::SafeCast<StartKnockBackSemMsg>(&_msg);
 	const EndKnockBackSemMsg* endKnockBackSemMsg = TypeidSystem::SafeCast<EndKnockBackSemMsg>(&_msg);
+	const StartInteractSemMsg* startInteractSem = TypeidSystem::SafeCast<StartInteractSemMsg>(&_msg);
 
 	if (startKnockBackSemMsg)
 	{
@@ -100,5 +126,14 @@ void PlayerCollisionComponent::HandleMessage(const IEventMessage& _msg)
 	if (endKnockBackSemMsg)
 	{
 		EnableCollider();
+	}
+
+	if (startInteractSem)
+	{
+		if (isDoorTrigger)
+		{
+			SetIsClearConditionMsg setIsClearConditionMsg(true);
+			SendMsg(setIsClearConditionMsg);
+		}
 	}
 }

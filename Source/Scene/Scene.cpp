@@ -2,6 +2,10 @@
 
 #include "Fwk/Framework.h"
 
+Scene::Scene(int _sceneIndex): sceneIndex_(_sceneIndex)
+{
+}
+
 // 初期化
 void Scene::Init()
 {
@@ -36,6 +40,11 @@ SceneType Scene::GetNextScene()
 bool Scene::NeedReload() const
 {
 	return needReload_;
+}
+
+int Scene::GetSceneIndex() const
+{
+	return sceneIndex_;
 }
 
 

@@ -10,6 +10,10 @@
 // タイトルシーンクラス
 class SceneTitle : public Scene{
 public:
+	SceneTitle() = default;
+
+	explicit SceneTitle(int _sceneIndex);
+
 	// 初期化
 	void Init();
 	// 終了

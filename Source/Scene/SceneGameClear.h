@@ -9,6 +9,10 @@
 // ゲームクリアシーンクラス
 class SceneGameClear : public Scene {
 public:
+	SceneGameClear() = default;
+
+	explicit SceneGameClear(int _sceneIndex);
+
 	// 初期化
 	void Init();
 	// 終了

@@ -4,6 +4,10 @@
 
 #include "AppDef.h"
 
+SceneGameClear::SceneGameClear(int _sceneIndex): Scene(_sceneIndex)
+{
+}
+
 // 初期化
 void SceneGameClear::Init()
 {

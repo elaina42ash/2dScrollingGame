@@ -1,5 +1,6 @@
 ﻿#include "StaticObjectMng/StaticObjectMng.h"
 
+#include "GameObject/StaticObject/Door.h"
 #include "GameObject/StaticObject/IronSpike.h"
 
 void StaticObjectMng::Init() {
@@ -46,6 +47,11 @@ void StaticObjectMng::GeneratePool(const char* _staticObjectName, int _poolSize)
 	if (strcmp(_staticObjectName,"IronSpike")==0)
 	{
 		staticObjectPools_[_staticObjectName].Init<IronSpike>(_poolSize);
+	}
+
+	if (strcmp(_staticObjectName, "Door") == 0)
+	{
+		staticObjectPools_[_staticObjectName].Init<Door>(_poolSize);
 	}
 }
 
@@ -115,6 +121,7 @@ int StaticObjectMng::GetStaticObjectCount()
 
 void StaticObjectMng::DestroyPoolAll() {
 	DestroyPool("IronSpike");
+	DestroyPool("Door");
 }
 
 

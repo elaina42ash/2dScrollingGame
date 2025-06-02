@@ -3,6 +3,10 @@
 #include "AppDef.h"
 #include "GamePlayData/GamePlayData.h"
 
+SceneTitle::SceneTitle(int _sceneIndex): Scene(_sceneIndex)
+{
+}
+
 // 初期化
 void SceneTitle::Init() {
 	// "次のシーン"の初期値を"なし"にしておく

@@ -6,6 +6,11 @@
 #include "GamePlayData/GamePlayData.h" // ゲームプレイデータ管理用のヘッダーファイル
 #include "Mst/StageDataMst.h" // ステージデータ管理用のヘッダーファイル
 #include "World/World.h" // ワールド管理用のヘッダーファイル
+
+SceneInGame::SceneInGame(int _sceneIndex): Scene(_sceneIndex)
+{
+}
+
 // 初期化
 void SceneInGame::Init()
 {
@@ -14,7 +19,7 @@ void SceneInGame::Init()
     // 現在のステージ番号を取得
     int stageNo = GetGamePlayData().GetStageNo();
     // ステージデータを取得
-    StageData* pStageData = GetStageDataMst().Get(0);
+    StageData* pStageData = GetStageDataMst().Get(sceneIndex_);
     KeyValueFile mapdataFile;
     // ステージデータが存在する場合、マップデータをロード
     if (pStageData)
@@ -30,22 +35,29 @@ void SceneInGame::Init()
     // マップデータを作成
     tilemap_.CreateMap(col, row, mapdataFile.GetCSVData("Data"));
 
-    // プレイヤーオブジェクトを作成
-    Player* player = new Player;
-    // メインプレイヤーのIDを設定
-    WORLD_I.SetMainPlayerID(0);
-    // コントロールするプレイヤーIDを設定
-    WORLD_I.SetControlledPlayerIDs({ 0 });
-    // プレイヤーを登録
-    WORLD_I.RegisterPlayer(0, player);
-    // プレイヤーを初期化
-    player->Init();
+    if (sceneIndex_ ==0)
+    {
+        // プレイヤーオブジェクトを作成
+        Player* player = new Player;
+        // メインプレイヤーのIDを設定
+        WORLD_I.SetMainPlayerID(0);
+        // コントロールするプレイヤーIDを設定
+        WORLD_I.SetControlledPlayerIDs({ 0 });
+        // プレイヤーを登録
+        WORLD_I.RegisterPlayer(0, player);
+        // プレイヤーを初期化
+        player->Init();
+        // プレイヤーを有効化
+        player->Enable();
+    }
+
+    Player* player = WORLD_I.AccessMainPlayer();
+
     // シーンコンテキストをバインド
     player->BindSceneContext(this);
     // ゲームプレイAPIをバインド
     player->BindSceneGameplayAPI(this);
-    // プレイヤーを有効化
-    player->Enable();
+
     // スタート位置データを取得
     CSVData* pStartPos = mapdataFile.GetCSVData("Start");
     if (pStartPos != nullptr)
@@ -56,11 +68,11 @@ void SceneInGame::Init()
         // 初期位置を設定
         Vector2f initialPosition = { x, y };
         // 初期位置を設定するプレイヤーを指定
-        Player* playerToInitPosition = player;
-        if (playerToInitPosition)
+      
+        if (player)
         {
             // トランスフォームコンポーネントを取得
-            auto* transform = playerToInitPosition->GetComponent<ITransformComponent>();
+            auto* transform = player->GetComponent<ITransformComponent>();
             // プレイヤーを初期位置に移動
             if (transform)
                 transform->MoveTo(initialPosition);
@@ -72,6 +84,7 @@ void SceneInGame::Init()
         staticObjectMng_.Init();
         // 静的オブジェクトのプールを生成
         staticObjectMng_.GeneratePool("IronSpike", 100);
+        staticObjectMng_.GeneratePool("Door", 100);
         CSVFile csvFile;
         // ステージデータが存在する場合、静的オブジェクト配置ファイルをロード
         if (pStageData)
@@ -176,6 +189,7 @@ void SceneInGame::Update()
         // ステージクリア状態を確認
         if (player->IsStageCleared())
         {
+            player->ResetPlayer();
             needReload_ = true;
         }
         // プレイヤーが死亡した場合、次のシーンをゲームオーバーに設定

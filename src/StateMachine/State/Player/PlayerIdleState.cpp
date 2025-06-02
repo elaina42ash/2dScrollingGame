@@ -1,6 +1,7 @@
 ﻿#include "StateMachine/State/Player/PlayerIdleState.h"
 
 #include "Event/Message/SemanticMsg/StartIdleSemMsg.h"
+#include "Event/Message/SemanticMsg/StartInteractSemMsg.h"
 #include "Event/Message/SemanticMsg/StartJumpSemMsg.h"
 #include "Event/Message/SemanticMsg/StartSwitchWeaponSemMsg.h"
 #include "Fwk/Framework.h"
@@ -67,6 +68,13 @@ void PlayerIdleState::Update()
 	{
 		StartSwitchWeaponSemMsg startSwitchWeaponSemMsg;
 		SendMsg(startSwitchWeaponSemMsg);
+	}
+
+
+	if (playerStateComponent_->IsSemanticInputTriggered(GameSemantic::Semantic::START_INTERACT))
+	{
+		StartInteractSemMsg startInteractSem;
+		SendMsg(startInteractSem);
 	}
 
 	if (playerStateComponent_->IsSemanticInputTriggered(GameSemantic::Semantic::START_MOVE))

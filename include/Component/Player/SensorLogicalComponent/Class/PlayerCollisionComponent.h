@@ -8,6 +8,7 @@ class PlayerCollisionComponent : public CollisionComponent
 {
 private:
 	Inject<IPlayerView> playerView_;
+	bool isDoorTrigger = false;
 public:
 	PlayerCollisionComponent(bool _isActive, IMessenger* _messenger, IPlayerView* _playerView);
 
@@ -25,6 +26,8 @@ protected:
 	void Reset() override;
 
 	void OnCollision(const Fwk::Collision::Collider& _me, const Fwk::Collision::Collider& _other) override;
+
+	void OnCollisionEx(const Fwk::Collision::CollisionEvent& _collisionEvent) override;
 
 public:
 	void HandleMessage(const IEventMessage& _msg) override;

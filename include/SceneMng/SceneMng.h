@@ -15,13 +15,11 @@ public:
 	// 描画
 	void Render();
 
-	Scene* AccessCurrentScene()
-	{
-		return scene_;
-	}
+	Scene* AccessCurrentScene();
+
 private:
 	// 新しいシーンを開始する
-	void _beginScene(SceneType newScene);
+	void _beginScene(SceneType _newScene, int _sceneIndex = 0);
 	// 現在のシーンを終了する
 	void _endCurrentScene();
 

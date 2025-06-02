@@ -5,6 +5,7 @@
 #include "Event/Message/LogicalInputMsg/AttackInputMsg.h"
 #include "Event/Message/LogicalInputMsg/DashInputMsg.h"
 #include "Event/Message/LogicalInputMsg/HoriAxisInputMsg.h"
+#include "Event/Message/LogicalInputMsg/InteractInputMsg.h"
 #include "Event/Message/LogicalInputMsg/JumpInputMsg.h"
 #include "Event/Message/LogicalInputMsg/ReleaseJumpInputMsg.h"
 #include "Event/Message/LogicalInputMsg/SwitchWeaponInputMsg.h"
@@ -27,6 +28,7 @@ void PlayerInputComponent::Init()
 	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_E, GameInput::LogicalInput::SWITCH_WEAPON);
 	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_J, GameInput::LogicalInput::ATTACK);
 	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_L, GameInput::LogicalInput::DASH);
+	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_K, GameInput::LogicalInput::INTERACT);
 	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_SPACE, GameInput::LogicalInput::JUMP);
 }
 
@@ -76,6 +78,12 @@ void PlayerInputComponent::Update()
 	{
 		SwitchWeaponInputMsg switchWeaponInput;
 		SendMsg(switchWeaponInput);
+	}
+
+	if (logicalInputAdapter_.GetKeyDown(GameInput::LogicalInput::INTERACT))
+	{
+		InteractInputMsg interactInputMsg;
+		SendMsg(interactInputMsg);
 	}
 
 	Reset();

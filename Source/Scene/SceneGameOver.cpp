@@ -4,6 +4,10 @@
 
 #include "AppDef.h"
 
+SceneGameOver::SceneGameOver(int _sceneIndex): Scene(_sceneIndex)
+{
+}
+
 // 初期化
 void SceneGameOver::Init()
 {

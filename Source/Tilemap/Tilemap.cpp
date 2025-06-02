@@ -4,8 +4,6 @@
 // ウインドウサイズの定数を使うのでinclude
 #include "AppDef.h"
 
-
-
 // 初期化
 void Tilemap::Init() {
 	// マップサイズを初期化
@@ -292,7 +290,7 @@ bool Tilemap::IsBlockedTile(int _col, int _row) const
 	int id = mapData_[_row][_col];
 
 	// タイルID1番を壁と判定する
-	if ((id >= static_cast<int>(TileType::WALL_FIRST) && id< static_cast<int>(TileType::WALL_END))|| (id >= static_cast<int>(TileType::PLATFORM_FIRST) && id < static_cast<int>(TileType::PLATFORM_END)))
+	if ((id >= static_cast<int>(TileType::WALL_FIRST) && id<= static_cast<int>(TileType::WALL_END))|| (id >= static_cast<int>(TileType::PLATFORM_FIRST) && id <= static_cast<int>(TileType::PLATFORM_END)))
 	{
 		return true;
 	}

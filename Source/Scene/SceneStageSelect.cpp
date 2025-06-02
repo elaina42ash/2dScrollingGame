@@ -1,5 +1,9 @@
 ﻿#include "SceneStageSelect.h"
 
+SceneStageSelect::SceneStageSelect(int _sceneIndex): Scene(_sceneIndex)
+{
+}
+
 // 初期化
 void SceneStageSelect::Init()
 {
