@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "Scene.h"
+#include "DroppedObjectMng/DroppedObjectMng.h"
 #include "Fwk/Audio/SoundSource.h"
 #include "EnemyMng/EnemyMng.h"
 #include "Fwk/Audio/MP3Sound.h"
@@ -35,6 +36,8 @@ public:
 
 	void CreateEnemy(const char* _enemyName, Lib::Math::Vector2f _position) override;
 
+	void CreateDroppedObject(const char* _objectName, Lib::Math::Vector2f _position) override;
+
 private:
 	// BGM読み込み用
 	MP3Sound mSound;
@@ -44,6 +47,8 @@ private:
 private:
 
 	StaticObjectMng staticObjectMng_;
+
+	DroppedObjectMng droppedObjectMng_;
 
 	EnemyMng enemyMng_;
 

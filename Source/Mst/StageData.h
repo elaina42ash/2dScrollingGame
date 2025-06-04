@@ -10,4 +10,5 @@ struct StageData
 	string mapFile_; // マップデータファイル名
 	string enemyArrangementFile_; // 配置データファイル名
 	string staticObjectArrangementFile_; // 配置データファイル名
+	string droppedObjectArrangementFile_; // 配置データファイル名
 };

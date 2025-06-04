@@ -20,4 +20,5 @@ enum class SceneType {
 	GameOver,
 	GameClear,
 	StageSelect,
+	Introduction,
 };

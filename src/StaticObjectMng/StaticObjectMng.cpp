@@ -1,6 +1,7 @@
 ﻿#include "StaticObjectMng/StaticObjectMng.h"
 
 #include "GameObject/StaticObject/Door.h"
+#include "GameObject/StaticObject/Goal.h"
 #include "GameObject/StaticObject/IronSpike.h"
 
 void StaticObjectMng::Init() {
@@ -53,6 +54,11 @@ void StaticObjectMng::GeneratePool(const char* _staticObjectName, int _poolSize)
 	{
 		staticObjectPools_[_staticObjectName].Init<Door>(_poolSize);
 	}
+
+	if (strcmp(_staticObjectName, "Goal") == 0)
+	{
+		staticObjectPools_[_staticObjectName].Init<Goal>(_poolSize);
+	}
 }
 
 void StaticObjectMng::DestroyPool(const char* _staticObjectName)
@@ -65,7 +71,7 @@ void StaticObjectMng::DestroyPool(const char* _staticObjectName)
 
 }
 
-StaticObject* StaticObjectMng::CreateStaticObject(const char* _staticObjectName, Lib::Math::Vector2f _position)
+StaticObject* StaticObjectMng::CreateStaticObject(const char* _staticObjectName, Lib::Math::Vector2f _position, ISceneContext* _sceneContext, ISceneGameplayAPI* _sceneGameplayAPI)
 {
 	StaticObject* staticObject = nullptr;
 
@@ -79,6 +85,9 @@ StaticObject* StaticObjectMng::CreateStaticObject(const char* _staticObjectName,
 		return nullptr;
 	}
 
+	staticObject->BindSceneGameplayAPI(_sceneGameplayAPI);
+
+	staticObject->BindSceneContext(_sceneContext);
 
 	ITransformComponent* transformComponent = staticObject->GetComponent<ITransformComponent>();
 	if (transformComponent)
@@ -89,7 +98,7 @@ StaticObject* StaticObjectMng::CreateStaticObject(const char* _staticObjectName,
 	return staticObject;
 }
 
-void StaticObjectMng::CreateStaticObjects(CSVData* _csvData, int _tileSize)
+void StaticObjectMng::CreateStaticObjects(CSVData* _csvData, int _tileSize,ISceneContext* _sceneContext, ISceneGameplayAPI* _sceneGameplayAPI)
 {
 	if (_csvData == nullptr)
 		return;
@@ -109,7 +118,7 @@ void StaticObjectMng::CreateStaticObjects(CSVData* _csvData, int _tileSize)
 		position.x = gridX * _tileSize;
 		position.y = -gridY * _tileSize;
 
-		CreateStaticObject(staticObjectName.c_str(), position);
+		CreateStaticObject(staticObjectName.c_str(), position, _sceneContext, _sceneGameplayAPI);
 	}
 }
 
@@ -122,6 +131,7 @@ int StaticObjectMng::GetStaticObjectCount()
 void StaticObjectMng::DestroyPoolAll() {
 	DestroyPool("IronSpike");
 	DestroyPool("Door");
+	DestroyPool("Goal");
 }
 
 

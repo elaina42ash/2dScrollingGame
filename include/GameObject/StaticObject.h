@@ -1,11 +1,14 @@
 ﻿#pragma once
 #include "GameObject.h"
 #include "Component/Common/ExecutorComponent/Interface/IAnimationComponent.h"
+#include "Component/Common/ExecutorComponent/Interface/ITransformComponent.h"
 #include "Component/Common/SensorLogicalComponent/Interface/ICollisionComponent.h"
+#include "StaticObject/IStaticObjectView.h"
 
-class StaticObject : public GameObject
+class StaticObject : public GameObject, public IStaticObjectView
 {
-private:
+protected:
+	ITransformComponent* transformComponent_;
 	IAnimationComponent* animationComponent_;
 	ICollisionComponent* collisionComponent_;
 

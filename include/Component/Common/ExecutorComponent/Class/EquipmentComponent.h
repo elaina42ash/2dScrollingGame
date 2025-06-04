@@ -1,4 +1,6 @@
 ﻿#pragma once
+#include <memory>
+
 #include "ExecutorComponent.h"
 #include "IEquipOwnerView.h"
 #include "Component/Common/ExecutorComponent/Interface/IEquipmentComponent.h"
@@ -12,14 +14,14 @@ class EquipmentComponent : public ExecutorComponent, public IEquipmentComponent
 
 private:
 
-	std::unordered_map<EquipmentSlotID, IEquipment*> equipmentMap_;
+	std::unordered_map<EquipmentSlotID, std::shared_ptr<IEquipment>> equipmentMap_;
 
 protected:
 	Inject<IEquipOwnerView> equipOwnerView_;
 
 	EquipmentSlotID activeWeaponID_ = static_cast<int>(EquipmentType::NONE);
 
-	IWeapon* activeWeapon = nullptr;
+	std::shared_ptr<IWeapon> activeWeapon = nullptr;
 
 public:
 	void Init() override;
@@ -32,7 +34,7 @@ public:
 
 	void HandleMessage(const IEventMessage& _msg) override;
 
-	void Equip(EquipmentSlotID _slotId, IEquipment* _equipment);
+	void Equip(EquipmentSlotID _slotId, std::shared_ptr<IEquipment> _equipment);
 
 	void Unequipped(EquipmentSlotID _slotId);
 
@@ -40,9 +42,9 @@ public:
 
 	void SwitchToNextWeapon();
 
-	IEquipment* FindEquipment(EquipmentSlotID _slotID);
+	std::shared_ptr<IEquipment> FindEquipment(EquipmentSlotID _slotID);
 
-	IWeapon* FindWeapon(EquipmentSlotID _slotID);
+	std::shared_ptr<IWeapon> FindWeapon(EquipmentSlotID _slotID);
 
 	bool IsAttacking() override;
 
@@ -53,7 +55,7 @@ protected:
 
 	void Reset() override;
 
-	const IWeapon* const GetActiveWeapon() const;
+	const std::shared_ptr<const IWeapon> GetActiveWeapon() const;
 
 	EquipmentSlotID GetActiveWeaponID() const;
 

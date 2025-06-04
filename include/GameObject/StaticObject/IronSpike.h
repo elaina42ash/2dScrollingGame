@@ -1,15 +1,9 @@
 ﻿#pragma once
-#include "IStaticObjectView.h"
 #include "Component/Common/ExecutorComponent/Interface/ITransformComponent.h"
 #include "GameObject/StaticObject.h"
 
-class IronSpike : public StaticObject , public IStaticObjectView
+class IronSpike : public StaticObject 
 {
-private:
-	ITransformComponent* transformComponent_;
-	IAnimationComponent* animationComponent_;
-	ICollisionComponent* collisionComponent_;
-
 public:
 	IronSpike();
 

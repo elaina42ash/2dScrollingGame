@@ -12,6 +12,7 @@ enum class CollisionGroup {
 	IRON_SPIKE,
 	DOOR,
 	GOAL,
+	DROPPED_ITEM,
 
 	COUNT
 };

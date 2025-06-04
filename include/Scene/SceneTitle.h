@@ -5,6 +5,7 @@
 
 // SpriteやTexture,Animationを使うためのヘッダファイル
 #include "Fwk/Graphics.h"
+#include "GameObject/DroppedObject/DroppedSword.h"
 #include "GameObject/StaticObject/IronSpike.h"
 
 // タイトルシーンクラス
@@ -27,6 +28,7 @@ private:
 	Texture mTexture;
 	Sprite mSprite;
 	Vector2f mPosition;
+
 	int count = 0;
 
 };

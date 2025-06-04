@@ -55,6 +55,7 @@ public:
 
 	void Term() override;
 
+	void SetSpritePosition(const Vector2f& _newPos) override final;
 protected:
 	explicit AnimationComponent(bool _isActive, IMessenger* messenger_);
 
@@ -69,8 +70,6 @@ protected:
 	void SetVisible(bool _isVisible);
 
 	const char* ToAnimationName(AnimationID _animationID);
-
-	void SetSpritePosition(const Vector2f& _newPos);
 
 	void UpdateSprite();
 

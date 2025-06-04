@@ -1,4 +1,4 @@
-﻿#include "SceneStageSelect.h"
+﻿#include "Scene/SceneStageSelect.h"
 
 SceneStageSelect::SceneStageSelect(int _sceneIndex): Scene(_sceneIndex)
 {

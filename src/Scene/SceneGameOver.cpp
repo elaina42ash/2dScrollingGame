@@ -1,15 +1,15 @@
-﻿#include "SceneGameClear.h"
+﻿#include "Scene/SceneGameOver.h"
 
-#include"Fwk/Framework.h"
+#include "Fwk/Framework.h"
 
 #include "AppDef.h"
 
-SceneGameClear::SceneGameClear(int _sceneIndex): Scene(_sceneIndex)
+SceneGameOver::SceneGameOver(int _sceneIndex): Scene(_sceneIndex)
 {
 }
 
 // 初期化
-void SceneGameClear::Init()
+void SceneGameOver::Init()
 {
 	// "次のシーン"の初期値を"なし"にしておく
 	mNextScene = SceneType::None;
@@ -20,7 +20,7 @@ void SceneGameClear::Init()
 	RenderManager_I->SetCamera(camera);
 
 	// テクスチャの読み込み
-	mTexture.Load("Images/2dAction/heart.png");
+	mTexture.Load("Images/2dAction/skull.png");
 
 	// スプライトの初期化
 	mSprite.Init();
@@ -35,30 +35,31 @@ void SceneGameClear::Init()
 }
 
 // 終了
-void SceneGameClear::Term()
+void SceneGameOver::Term()
 {
 	mSprite.Term();
 	mTexture.Unload();
 }
 
 // 更新
-void SceneGameClear::Update()
+void SceneGameOver::Update()
 {
 	mSprite.SetPosition(mPosition);
 
 	// Aボタンを押したら"次のシーン"にステージ選択シーンを設定する
 	if (Input_I->IsKeyDown('Z') || Input_I->IsButtonDown(0, GAMEPAD_BUTTON::A))
 	{
-		mNextScene = SceneType::StageSelect;
+		mNextScene = SceneType::Title;
 	}
 }
 
 // 描画
-void SceneGameClear::Render()
+void SceneGameOver::Render()
 {
 	// 文字列を描画する
-	PrintText("ゲームクリアー！！！", 350.0f, 250.0f);
+	PrintText("ゲームオーバー!!!",350.0f,250.0f);
 
 	mSprite.Draw();
 }
+
 

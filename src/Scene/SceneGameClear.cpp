@@ -1,15 +1,15 @@
-﻿#include "SceneGameOver.h"
+﻿#include "Scene/SceneGameClear.h"
 
-#include "Fwk/Framework.h"
+#include"Fwk/Framework.h"
 
 #include "AppDef.h"
 
-SceneGameOver::SceneGameOver(int _sceneIndex): Scene(_sceneIndex)
+SceneGameClear::SceneGameClear(int _sceneIndex): Scene(_sceneIndex)
 {
 }
 
 // 初期化
-void SceneGameOver::Init()
+void SceneGameClear::Init()
 {
 	// "次のシーン"の初期値を"なし"にしておく
 	mNextScene = SceneType::None;
@@ -20,7 +20,7 @@ void SceneGameOver::Init()
 	RenderManager_I->SetCamera(camera);
 
 	// テクスチャの読み込み
-	mTexture.Load("Images/2dAction/skull.png");
+	mTexture.Load("Images/2dAction/heart.png");
 
 	// スプライトの初期化
 	mSprite.Init();
@@ -35,14 +35,14 @@ void SceneGameOver::Init()
 }
 
 // 終了
-void SceneGameOver::Term()
+void SceneGameClear::Term()
 {
 	mSprite.Term();
 	mTexture.Unload();
 }
 
 // 更新
-void SceneGameOver::Update()
+void SceneGameClear::Update()
 {
 	mSprite.SetPosition(mPosition);
 
@@ -54,12 +54,11 @@ void SceneGameOver::Update()
 }
 
 // 描画
-void SceneGameOver::Render()
+void SceneGameClear::Render()
 {
 	// 文字列を描画する
-	PrintText("ゲームオーバー!!!",350.0f,250.0f);
+	PrintText("ゲームクリアー！！！", 350.0f, 250.0f);
 
 	mSprite.Draw();
 }
-
 

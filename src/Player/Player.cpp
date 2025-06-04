@@ -26,6 +26,7 @@
 #include "Event/Message/SemanticMsg/EndKnockBackSemMsg.h"
 #include "Event/Message/SemanticMsg/StartAttackSemMsg.h"
 #include "Event/Message/SemanticMsg/StartDashSemMsg.h"
+#include "Event/Message/SemanticMsg/StartGameVectorySemMsg.h"
 #include "Event/Message/SemanticMsg/StartHurtSemMsg.h"
 #include "Event/Message/SemanticMsg/StartIdleSemMsg.h"
 #include "Event/Message/SemanticMsg/StartInteractSemMsg.h"
@@ -41,11 +42,11 @@
 
 Player::Player()
 {
-	
+
 	transformComponent_ = new PlayerTransformComponent(true, AccessMessenger());
 	AddComponent<ITransformComponent>(transformComponent_);
 
-	tileMapSensorComponent_ = new PlayerTileMapSensorComponent(true, AccessMessenger(),this);
+	tileMapSensorComponent_ = new PlayerTileMapSensorComponent(true, AccessMessenger(), this);
 	AddComponent<ITileMapSensorComponent>(tileMapSensorComponent_);
 
 	groundSensorComponent_ = new PlayerGroundSensorComponent(true, AccessMessenger(), this);
@@ -177,6 +178,7 @@ void Player::StateComponentSubscribeMsg()
 	Subscribe(TypeidSystem::GetTypeID<SetIsDeadConditionMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SetIsClearConditionMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<StartStageClearSemMsg>(), stateComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartGameVectorySemMsg>(), stateComponent_);
 }
 
 void Player::Init()
@@ -348,6 +350,7 @@ bool Player::IsStageCleared() const
 	PlayerStateComponent* playerStateComponent = dynamic_cast<PlayerStateComponent*>(stateComponent_);
 	if (playerStateComponent)
 		return playerStateComponent->IsStageCleared();
+
 	return false;
 }
 
@@ -378,9 +381,17 @@ void Player::ResetPlayer()
 	ResetState();
 }
 
+void Player::DropObject(const char* _name)
+{
+	if (strcmp(_name, "Sword") == 0)
+	{
+		sceneGameplayApi_->CreateDroppedObject("Sword", { GetPositionX(),GetPositionY() + 5.0f });
+	}
+}
+
 void Player::HandleMessage(const IEventMessage& _msg)
 {
-		
+
 }
 
 bool Player::IsFacingRight() const
@@ -414,6 +425,18 @@ bool Player::IsInsideWallRect(Lib::Math::Vector2f _position, float _width, float
 		return true;
 
 	return sceneContext_->IsInsideWallRect(_position, _width, _height);
+}
+
+bool Player::IsGameVictory() const
+{
+	if (!stateComponent_)
+		return false;
+
+	PlayerStateComponent* playerStateComponent = dynamic_cast<PlayerStateComponent*>(stateComponent_);
+	if (playerStateComponent)
+		return playerStateComponent->IsGameVictory();
+
+	return false;
 }
 
 float Player::GetNormalizedHp() const

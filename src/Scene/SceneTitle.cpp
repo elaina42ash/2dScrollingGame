@@ -1,4 +1,4 @@
-﻿#include "SceneTitle.h"
+﻿#include "Scene/SceneTitle.h"
 #include "Fwk/Framework.h"
 #include "AppDef.h"
 #include "GamePlayData/GamePlayData.h"
@@ -30,6 +30,7 @@ void SceneTitle::Init() {
 	mSprite.SetTexCoord(0.0f, 0.0f, 1.0f, 1.0f);
 
 	mPosition = {0.0f,0.0f };
+
 }
 
 // 終了
@@ -37,6 +38,7 @@ void SceneTitle::Term()
 {
 	mSprite.Term();
 	mTexture.Unload();
+
 }
 
 // 更新
@@ -48,8 +50,7 @@ void SceneTitle::Update() {
 
 		GetGamePlayData().SetStageNo(0);
 
-		// "次のシーン"にInGameを設定する
-		mNextScene = SceneType::InGame;
+		mNextScene = SceneType::Introduction;
 	}
 
 }
@@ -61,6 +62,7 @@ void SceneTitle::Render()
 
 	//// 文字列を描画する
 	//PrintText("アクションゲーム！",380.0f,250.0f);
+
 }
 
 

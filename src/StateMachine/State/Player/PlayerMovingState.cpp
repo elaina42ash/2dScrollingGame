@@ -1,5 +1,6 @@
 ﻿#include "StateMachine/State/Player/PlayerMovingState.h"
 #include "GameMath.h"
+#include "Component/Player/DecisionLogicalComponent/Class/PlayerStateComponent.h"
 #include "Event/Message/SemanticMsg/StartJumpSemMsg.h"
 #include "Event/Message/SemanticMsg/StartMoveSemMsg.h"
 #include "Event/Message/SemanticMsg/StartSwitchWeaponSemMsg.h"
@@ -47,8 +48,13 @@ void PlayerMovingState::Update()
 
 	if (playerStateComponent_->IsSemanticInputTriggered(GameSemantic::Semantic::START_DASH))
 	{
-		parent_->SetBoolConditionInfo(static_cast<IStateMachine::ConditionID>(PlayerConditionType::MOTION_IS_DASHING), true);
-		return;
+		PlayerStateComponent* stateComponent = dynamic_cast<PlayerStateComponent*>(playerStateComponent_.Injected());
+		if (stateComponent && !stateComponent->IsDashCooldown())
+		{
+			parent_->SetBoolConditionInfo(static_cast<IStateMachine::ConditionID>(PlayerConditionType::MOTION_IS_DASHING), true);
+			return;
+		}
+
 	}
 
 	if (!playerView_->Grounded())

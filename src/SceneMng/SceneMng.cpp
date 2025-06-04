@@ -3,6 +3,7 @@
 #include "Scene/SceneGameClear.h"
 #include "Scene/SceneGameOver.h"
 #include "Scene/SceneInGame.h"
+#include "Scene/SceneIntroduction.h"
 #include "Scene/SceneStageSelect.h"
 #include "Scene/SceneTitle.h"
 
@@ -48,6 +49,9 @@ void SceneMng::Update()
 			// タイトルシーンの生成
 			scene_ = new SceneTitle();
 			break;
+		case SceneType::Introduction:
+			scene_ = new SceneIntroduction();
+			break;
 		case SceneType::InGame:
 			// インゲームシーンの生成
 			scene_ = new SceneInGame(currentSceneIndex);
@@ -59,9 +63,6 @@ void SceneMng::Update()
 		case SceneType::GameClear:
 			// ゲームクリアシーンの生成
 			scene_ = new SceneGameClear();
-			break;
-		case SceneType::StageSelect: // ステージ選択シーンの生成
-			scene_ = new SceneStageSelect();
 			break;
 		}
 
@@ -123,6 +124,9 @@ void SceneMng::_beginScene(SceneType _newScene, int _sceneIndex)
 		// タイトルシーンの生成
 		scene_ = new SceneTitle();
 		break;
+	case SceneType::Introduction:
+		scene_ = new SceneIntroduction();
+		break;
 	case SceneType::InGame:
 		// インゲームシーンの生成
 		scene_ = new SceneInGame(_sceneIndex);
@@ -134,9 +138,6 @@ void SceneMng::_beginScene(SceneType _newScene, int _sceneIndex)
 	case SceneType::GameClear:
 		// ゲームクリアシーンの生成
 		scene_ = new SceneGameClear();
-		break;
-	case SceneType::StageSelect: // ステージ選択シーンの生成
-		scene_ = new SceneStageSelect();
 		break;
 	}
 

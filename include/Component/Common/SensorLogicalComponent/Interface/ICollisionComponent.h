@@ -12,4 +12,6 @@ public:
 	virtual Fwk::Collision::Circle GetShapeCircle() const = 0;
 
 	virtual Fwk::Collision::Rect GetShapeRect() const = 0;
+
+	virtual void SetPosition(const Vector2f& _position) = 0;
 };

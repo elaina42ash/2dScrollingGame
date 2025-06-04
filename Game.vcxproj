@@ -19,21 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\Event\Message\SemanticMsg\StartGameVectorySemMsg.cpp" />
     <ClCompile Include="Source\Enemy\Enemy.cpp" />
     <ClCompile Include="Source\Enemy\Ghost.cpp" />
     <ClCompile Include="Source\Enemy\Onibi.cpp" />
     <ClCompile Include="Source\Enemy\Skull.cpp" />
     <ClCompile Include="Source\Enemy\Slime.cpp" />
     <ClCompile Include="Source\GamePlayData\GamePlayData.cpp" />
-    <ClCompile Include="Source\Goal\Goal.cpp" />
     <ClCompile Include="Source\main.cpp" />
     <ClCompile Include="Source\Mst\StageDataMst.cpp" />
-    <ClCompile Include="Source\Scene\Scene.cpp" />
-    <ClCompile Include="Source\Scene\SceneGameClear.cpp" />
-    <ClCompile Include="Source\Scene\SceneGameOver.cpp" />
-    <ClCompile Include="Source\Scene\SceneInGame.cpp" />
-    <ClCompile Include="Source\Scene\SceneStageSelect.cpp" />
-    <ClCompile Include="Source\Scene\SceneTitle.cpp" />
     <ClCompile Include="Source\Tilemap\Tilemap.cpp" />
     <ClCompile Include="src\Component\Common\Component.cpp" />
     <ClCompile Include="src\Component\Common\DecisionLogicalComponent\DecisionLogicalComponent.cpp" />
@@ -60,6 +54,12 @@
     <ClCompile Include="src\Component\Door\GoalAnimationComponent.cpp" />
     <ClCompile Include="src\Component\Door\GoalCollisionComponent.cpp" />
     <ClCompile Include="src\Component\Door\GoalTransformComponent.cpp" />
+    <ClCompile Include="src\Component\DroppedSowrd\DroppedSwordAnimationComponent.cpp" />
+    <ClCompile Include="src\Component\DroppedSowrd\DroppedSwordCollisionComponent.cpp" />
+    <ClCompile Include="src\Component\DroppedSowrd\DroppedSwordMovementComponent.cpp" />
+    <ClCompile Include="src\Component\DroppedSowrd\DroppedSwordPhysicsComponent.cpp" />
+    <ClCompile Include="src\Component\DroppedSowrd\DroppedSwordTileMapSensorComponent.cpp" />
+    <ClCompile Include="src\Component\DroppedSowrd\DroppedSwordTransformComponent.cpp" />
     <ClCompile Include="src\Component\IronSpike\IronSpikeAnimationComponent.cpp" />
     <ClCompile Include="src\Component\IronSpike\IronSpikeCollisionComponent.cpp" />
     <ClCompile Include="src\Component\IronSpike\IronSpikeTransformComponent.cpp" />
@@ -85,6 +85,8 @@
     <ClCompile Include="src\Component\Sword\ExecutorComponent\SwordSoundComponent.cpp" />
     <ClCompile Include="src\Component\Sword\ExecutorComponent\SwordTransformComponent.cpp" />
     <ClCompile Include="src\Component\Sword\SensorLogicalComponent\SwordCollisionComponent.cpp" />
+    <ClCompile Include="src\DroppedObjectMng\DroppedObjectMng.cpp" />
+    <ClCompile Include="src\DroppedObjectMng\DroppedObjectPool.cpp" />
     <ClCompile Include="src\EnemyMng\EnemyMng.cpp" />
     <ClCompile Include="src\EnemyMng\EnemyPool.cpp" />
     <ClCompile Include="src\Event\MessageBus.cpp" />
@@ -123,6 +125,8 @@
     <ClCompile Include="src\GameMath.cpp" />
     <ClCompile Include="src\GameObject\CharacterObject.cpp" />
     <ClCompile Include="src\GameObject\DetachableObject.cpp" />
+    <ClCompile Include="src\GameObject\DroppedObject\DroppedObject.cpp" />
+    <ClCompile Include="src\GameObject\DroppedObject\DroppedSword.cpp" />
     <ClCompile Include="src\GameObject\Equipment\Equipment.cpp" />
     <ClCompile Include="src\GameObject\Equipment\Weapon\Katana.cpp" />
     <ClCompile Include="src\GameObject\Equipment\Weapon\Sword.cpp" />
@@ -135,6 +139,12 @@
     <ClCompile Include="src\Input\FrameworkPhysicsInputAdapter.cpp" />
     <ClCompile Include="src\Player\Player.cpp" />
     <ClCompile Include="src\SceneMng\SceneMng.cpp" />
+    <ClCompile Include="src\Scene\Scene.cpp" />
+    <ClCompile Include="src\Scene\SceneGameClear.cpp" />
+    <ClCompile Include="src\Scene\SceneGameOver.cpp" />
+    <ClCompile Include="src\Scene\SceneInGame.cpp" />
+    <ClCompile Include="src\Scene\SceneIntroduction.cpp" />
+    <ClCompile Include="src\Scene\SceneTitle.cpp" />
     <ClCompile Include="src\Sensor\LineSensor.cpp" />
     <ClCompile Include="src\StateMachine\Condition\AndCondition.cpp" />
     <ClCompile Include="src\StateMachine\Condition\CompositeCondition.cpp" />
@@ -209,6 +219,12 @@
     <ClInclude Include="include\Component\Door\DoorAnimationComponent.h" />
     <ClInclude Include="include\Component\Door\DoorCollisionComponent.h" />
     <ClInclude Include="include\Component\Door\DoorTransformComponent.h" />
+    <ClInclude Include="include\Component\DroppedSword\DroppedSwordAnimationComponent.h" />
+    <ClInclude Include="include\Component\DroppedSword\DroppedSwordCollisionComponent.h" />
+    <ClInclude Include="include\Component\DroppedSword\DroppedSwordMovementComponent.h" />
+    <ClInclude Include="include\Component\DroppedSword\DroppedSwordPhysicsComponent.h" />
+    <ClInclude Include="include\Component\DroppedSword\DroppedSwordTileMapSensorComponent.h" />
+    <ClInclude Include="include\Component\DroppedSword\DroppedSwordTransformComponent.h" />
     <ClInclude Include="include\Component\Goal\GoalAnimationComponent.h" />
     <ClInclude Include="include\Component\Goal\GoalCollisionComponent.h" />
     <ClInclude Include="include\Component\Goal\GoalTransformComponent.h" />
@@ -237,6 +253,8 @@
     <ClInclude Include="include\Component\Sword\ExecutorComponent\Class\SwordSoundComponent.h" />
     <ClInclude Include="include\Component\Sword\ExecutorComponent\Class\SwordTransformComponent.h" />
     <ClInclude Include="include\Component\Sword\SensorLogicalComponent\Class\SwordCollisionComponent.h" />
+    <ClInclude Include="include\DroppedObjectMng\DroppedObjectMng.h" />
+    <ClInclude Include="include\DroppedObjectMng\DroppedObjectPool.h" />
     <ClInclude Include="include\EnemyMng\EnemyMng.h" />
     <ClInclude Include="include\EnemyMng\EnemyPool.h" />
     <ClInclude Include="include\Event\IMessageBus.h" />
@@ -262,6 +280,7 @@
     <ClInclude Include="include\Event\Message\SemanticMsg\EndKnockBackSemMsg.h" />
     <ClInclude Include="include\Event\Message\SemanticMsg\StartAttackSemMsg.h" />
     <ClInclude Include="include\Event\Message\SemanticMsg\StartDashSemMsg.h" />
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartGameVectorySemMsg.h" />
     <ClInclude Include="include\Event\Message\SemanticMsg\StartHurtSemMsg.h" />
     <ClInclude Include="include\Event\Message\SemanticMsg\StartIdleSemMsg.h" />
     <ClInclude Include="include\Event\Message\SemanticMsg\StartInteractSemMsg.h" />
@@ -279,6 +298,10 @@
     <ClInclude Include="include\GameMath.h" />
     <ClInclude Include="include\GameObject\CharacterObject.h" />
     <ClInclude Include="include\GameObject\DetachableObject.h" />
+    <ClInclude Include="include\GameObject\DroppedObject\DroppedObject.h" />
+    <ClInclude Include="include\GameObject\DroppedObject\DroppedSword.h" />
+    <ClInclude Include="include\GameObject\DroppedObject\IDroppedObject.h" />
+    <ClInclude Include="include\GameObject\DroppedObject\IDroppedObjectView.h" />
     <ClInclude Include="include\GameObject\Equipment\Equipment.h" />
     <ClInclude Include="include\GameObject\Equipment\EquipmentDef.h" />
     <ClInclude Include="include\GameObject\Equipment\IEquipment.h" />
@@ -321,6 +344,12 @@
     <ClInclude Include="include\SceneMng\SceneMng.h" />
     <ClInclude Include="include\Scene\ISceneContext.h" />
     <ClInclude Include="include\Scene\ISceneGameplayAPI.h" />
+    <ClInclude Include="include\Scene\Scene.h" />
+    <ClInclude Include="include\Scene\SceneGameClear.h" />
+    <ClInclude Include="include\Scene\SceneGameOver.h" />
+    <ClInclude Include="include\Scene\SceneInGame.h" />
+    <ClInclude Include="include\Scene\SceneIntroduction.h" />
+    <ClInclude Include="include\Scene\SceneTitle.h" />
     <ClInclude Include="include\Semantic\SemanticDef.h" />
     <ClInclude Include="include\Semantic\SemanticInputBuffer.h" />
     <ClInclude Include="include\Sensor\ILineSensor.h" />
@@ -375,15 +404,8 @@
     <ClInclude Include="Source\Enemy\Slime.h" />
     <ClInclude Include="Source\GameDef.h" />
     <ClInclude Include="Source\GamePlayData\GamePlayData.h" />
-    <ClInclude Include="Source\Goal\Goal.h" />
     <ClInclude Include="Source\Mst\StageData.h" />
     <ClInclude Include="Source\Mst\StageDataMst.h" />
-    <ClInclude Include="Source\Scene\Scene.h" />
-    <ClInclude Include="Source\Scene\SceneGameClear.h" />
-    <ClInclude Include="Source\Scene\SceneGameOver.h" />
-    <ClInclude Include="Source\Scene\SceneInGame.h" />
-    <ClInclude Include="Source\Scene\SceneStageSelect.h" />
-    <ClInclude Include="Source\Scene\SceneTitle.h" />
     <ClInclude Include="Source\Tilemap\Tilemap.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

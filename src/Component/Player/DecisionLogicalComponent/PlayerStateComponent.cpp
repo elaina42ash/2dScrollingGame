@@ -7,10 +7,12 @@
 #include "Event/Message/LogicalInputMsg/JumpInputMsg.h"
 #include "Event/Message/LogicalInputMsg/ReleaseJumpInputMsg.h"
 #include "Event/Message/LogicalInputMsg/SwitchWeaponInputMsg.h"
+#include "Event/Message/SemanticMsg/StartGameVectorySemMsg.h"
 #include "Event/Message/SemanticMsg/StartStageClearSemMsg.h"
 #include "Event/Message/StateMsg/SetIsClearConditionMsg.h"
 #include "Event/Message/StateMsg/SetIsDamagedConditionMsg.h"
 #include "Event/Message/StateMsg/SetIsDeadConditionMsg.h"
+#include "Fwk/Framework.h"
 #include "StateMachine/InnerStateMachine.h"
 #include "StateMachine/State/Player/PlayerAirState.h"
 #include "StateMachine/State/Player/PlayerAttackState.h"
@@ -182,6 +184,16 @@ void PlayerStateComponent::Init()
 void PlayerStateComponent::Update()
 {
 	StateComponent::Update();
+
+	if (dashCooldown_>0.0f)
+	{
+		dashCooldown_ -= Time_I->GetDeltaTime();
+		if (dashCooldown_<0.0f)
+		{
+			dashCooldown_ = 0.0f;
+		}
+	}
+
 	stateMachine_->Update();
 	Reset();
 }
@@ -206,6 +218,7 @@ void PlayerStateComponent::HandleMessage(const IEventMessage& _msg)
 	const SwitchWeaponInputMsg* switchWeaponInput = TypeidSystem::SafeCast<SwitchWeaponInputMsg>(&_msg);
 	const InteractInputMsg* interactInputMsg = TypeidSystem::SafeCast<InteractInputMsg>(&_msg);
 	const StartStageClearSemMsg* startStageClearSemMsg = TypeidSystem::SafeCast<StartStageClearSemMsg>(&_msg);
+	const StartGameVectorySemMsg* startGameVectorySemMsg = TypeidSystem::SafeCast<StartGameVectorySemMsg>(&_msg);
 
 	const SetIsDamagedConditionMsg* setIsDamagedConditionMsg = TypeidSystem::SafeCast<SetIsDamagedConditionMsg>(&_msg);
 	const SetIsDeadConditionMsg* setIsDeadConditionMsg = TypeidSystem::SafeCast<SetIsDeadConditionMsg>(&_msg);
@@ -260,6 +273,11 @@ void PlayerStateComponent::HandleMessage(const IEventMessage& _msg)
 		isStageCleared_ = true;
 	}
 
+	if (startGameVectorySemMsg)
+	{
+		isGameVictory_ = true;
+	}
+
 	if (dashInputMsg)
 	{
 		MarkSemanticInput(GameSemantic::Semantic::START_DASH);
@@ -308,6 +326,11 @@ Lib::Math::Vector2f PlayerStateComponent::GetInputCache() const
 bool PlayerStateComponent::IsStageCleared() const
 {
 	return isStageCleared_;
+}
+
+bool PlayerStateComponent::IsGameVictory() const
+{
+	return isGameVictory_;
 }
 
 void PlayerStateComponent::SetInputCache(const Lib::Math::Vector2f& _inputCache)

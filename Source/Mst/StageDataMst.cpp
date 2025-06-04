@@ -23,7 +23,7 @@ void StageDataMst::Init()
 	stageMst.Load("Data/stage_mst.csv");
 
 	// データ数/4がステージ数
-	int elementNum = 4;
+	int elementNum = 5;
 	int stageNum = stageMst.GetElementCount() / elementNum;
 	// ステージ情報を読み込んでいく
 	for (int i = 0; i < stageNum; i++)
@@ -40,6 +40,8 @@ void StageDataMst::Init()
 		stageMst.GetString(n + 2, &newElem.enemyArrangementFile_);
 		// 配置ファイル名
 		stageMst.GetString(n + 3, &newElem.staticObjectArrangementFile_);
+		// 配置ファイル名
+		stageMst.GetString(n + 4, &newElem.droppedObjectArrangementFile_);
 		// データを追加
 		mData.push_back(newElem);
 	}

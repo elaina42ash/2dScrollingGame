@@ -38,7 +38,7 @@ void EquipmentComponent::HandleMessage(const IEventMessage& _msg)
 
 }
 
-void EquipmentComponent::Equip(EquipmentSlotID _slotId, IEquipment* _equipment)
+void EquipmentComponent::Equip(EquipmentSlotID _slotId, std::shared_ptr<IEquipment> _equipment)
 {
 	auto it = equipmentMap_.find(_slotId);
 	if (it != equipmentMap_.end())
@@ -60,7 +60,7 @@ void EquipmentComponent::SwitchWeapon(EquipmentSlotID _slotID)
 	if (it == equipmentMap_.end())
 	return;
 
-	IWeapon* weapon = dynamic_cast<IWeapon*>(it->second);
+	std::shared_ptr<IWeapon> weapon = std::dynamic_pointer_cast<IWeapon>(it->second);
 
 	if (!weapon)
 	return;
@@ -84,7 +84,7 @@ void EquipmentComponent::SwitchToNextWeapon()
 		else
 			++it;
 
-		IWeapon* nextWeapon = dynamic_cast<IWeapon*>(it->second);
+		std::shared_ptr<IWeapon> nextWeapon = std::dynamic_pointer_cast<IWeapon>(it->second);
 		if (nextWeapon)
 		{
 			SwitchWeapon(it->first);
@@ -94,7 +94,7 @@ void EquipmentComponent::SwitchToNextWeapon()
 	} while (it != currentIt);
 }
 
-IEquipment* EquipmentComponent::FindEquipment(EquipmentSlotID _slotID)
+std::shared_ptr<IEquipment> EquipmentComponent::FindEquipment(EquipmentSlotID _slotID)
 {
 	auto it = equipmentMap_.find(_slotID);
 	if (it == equipmentMap_.end())
@@ -102,14 +102,14 @@ IEquipment* EquipmentComponent::FindEquipment(EquipmentSlotID _slotID)
 	return it->second;
 }
 
-IWeapon* EquipmentComponent::FindWeapon(EquipmentSlotID _slotID)
+std::shared_ptr<IWeapon> EquipmentComponent::FindWeapon(EquipmentSlotID _slotID)
 {
-	IEquipment* equipment = FindEquipment(_slotID);
+	std::shared_ptr<IEquipment> equipment = FindEquipment(_slotID);
 
 	if (!equipment)
 		return nullptr;
 
-	IWeapon* weapon = dynamic_cast<IWeapon*>(equipment);
+	std::shared_ptr<IWeapon> weapon = std::dynamic_pointer_cast<IWeapon>(equipment);
 	if (!weapon)
 		return nullptr;
 
@@ -133,7 +133,7 @@ void EquipmentComponent::Reset()
 	ExecutorComponent::Reset();
 }
 
-const IWeapon* const EquipmentComponent::GetActiveWeapon() const
+const std::shared_ptr<const IWeapon> EquipmentComponent::GetActiveWeapon() const
 {
 	return activeWeapon;
 }

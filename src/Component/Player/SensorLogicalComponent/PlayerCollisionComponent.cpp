@@ -2,6 +2,7 @@
 #include "Component/Common/SensorLogicalComponent/Class/CollisionComponent.h"
 #include "Event/IMessenger.h"
 #include "Event/Message/SemanticMsg/EndKnockBackSemMsg.h"
+#include "Event/Message/SemanticMsg/StartGameVectorySemMsg.h"
 #include "Event/Message/SemanticMsg/StartInteractSemMsg.h"
 #include "Event/Message/SemanticMsg/StartKnockBackSemMsg.h"
 #include "Event/Message/StateMsg/SetIsClearConditionMsg.h"
@@ -30,7 +31,11 @@ void PlayerCollisionComponent::Init()
 	// 衝突対象にゴールグループのコリジョンを追加
 	AddHitGroup(CollisionGroup::IRON_SPIKE);
 
+	AddHitGroup(CollisionGroup::DROPPED_ITEM);
+
 	AddHitGroup(CollisionGroup::DOOR);
+
+	AddHitGroup(CollisionGroup::GOAL);
 
 	// コリジョンにタグを設定
 	SetTag(ToTagName(static_cast<int>(CollisionTag::PLAYER)));
@@ -91,6 +96,13 @@ void PlayerCollisionComponent::OnCollision(const Fwk::Collision::Collider& _me,
 		SendMsg(msg);
 	}
 
+
+	if (_other.GetTag() == "Goal")
+	{
+		StartGameVectorySemMsg msg;
+		SendMsg(msg);
+	}
+
 }
 
 void PlayerCollisionComponent::OnCollisionEx(const Fwk::Collision::CollisionEvent& _collisionEvent)
@@ -100,6 +112,11 @@ void PlayerCollisionComponent::OnCollisionEx(const Fwk::Collision::CollisionEven
 		if (_collisionEvent.ColliderB->GetGroup() == (int)CollisionGroup::DOOR)
 		{
 			isDoorTrigger = true;
+		}
+
+		if (_collisionEvent.ColliderB->GetGroup() == (int)CollisionGroup::DROPPED_ITEM)
+		{
+		
 		}
 	}
 

@@ -14,6 +14,7 @@
 #include "Component/Common/SensorLogicalComponent/Interface/ICollisionComponent.h"
 #include "Component/Common/SensorLogicalComponent/Interface/IGroundSensorComponent.h"
 #include "Component/Common/SensorLogicalComponent/Interface/ITileMapSensorComponent.h"
+#include "Component/Player/DecisionLogicalComponent/Class/PlayerStateComponent.h"
 #include "GameObject/CharacterObject.h"
 
 // コリジョンクラスの名前空間を使う
@@ -108,6 +109,8 @@ public:
 
 	void ResetPlayer();
 
+	void DropObject(const char* _name);
+
 	void HandleMessage(const IEventMessage& _msg) override;
 
 	bool IsFacingRight() const override;
@@ -117,4 +120,6 @@ public:
 	bool IsInsideWallCircle(Lib::Math::Vector2f _position, float _radius) const override;
 
 	bool IsInsideWallRect(Lib::Math::Vector2f _position, float _width, float _height) const override;
+
+	bool IsGameVictory() const override;
 };

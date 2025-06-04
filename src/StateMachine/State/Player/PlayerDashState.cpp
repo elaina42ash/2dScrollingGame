@@ -1,5 +1,6 @@
 ﻿#include "StateMachine/State/Player/PlayerDashState.h"
 
+#include "Component/Player/DecisionLogicalComponent/Class/PlayerStateComponent.h"
 #include "Event/Message/SemanticMsg/EndDashSemMsg.h"
 #include "Event/Message/SemanticMsg/StartDashSemMsg.h"
 #include "StateMachine/State/Player/PlayerStateDef.h"
@@ -16,6 +17,10 @@ void PlayerDashState::Enter()
 	StartDashSemMsg startDashSemMsg;
 	SendMsg(startDashSemMsg);
 	timer_.Start(0.1f);
+
+	PlayerStateComponent* stateComponent = dynamic_cast<PlayerStateComponent*>(playerStateComponent_.Injected());
+	if (stateComponent)
+		stateComponent->SetDashCooldown(1.0f);
 }
 
 void PlayerDashState::Update()

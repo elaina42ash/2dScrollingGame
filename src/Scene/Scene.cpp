@@ -1,6 +1,5 @@
-﻿#include "Scene.h"
+﻿#include "Scene/Scene.h"
 
-#include "Fwk/Framework.h"
 
 Scene::Scene(int _sceneIndex): sceneIndex_(_sceneIndex)
 {

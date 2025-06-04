@@ -16,9 +16,6 @@
     <Filter Include="ソース ファイル\Enemy">
       <UniqueIdentifier>{cdc370be-e532-4db5-ade8-56efe759e49b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ソース ファイル\Goal">
-      <UniqueIdentifier>{e0051a35-87a1-4bca-8871-35eb027dafef}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ソース ファイル\Scene">
       <UniqueIdentifier>{5e1c8221-f8c8-4ae0-94f3-4963b7cdf337}</UniqueIdentifier>
     </Filter>
@@ -421,6 +418,24 @@
     <Filter Include="ヘッダー ファイル\Component\Goal">
       <UniqueIdentifier>{982496f1-17e0-4ac1-a7c6-e7d4fd1af8c3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\GameObject\DroppedObject">
+      <UniqueIdentifier>{da7586b6-86da-47bf-b6e5-8446203ccfb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\GameObject\DroppedObject">
+      <UniqueIdentifier>{913adf46-4d8c-453e-ae9a-7de76606c96f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\DroppedSword">
+      <UniqueIdentifier>{0265aefb-e7ab-4dd3-9d1c-a6ef9d44c647}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\DroppedSword">
+      <UniqueIdentifier>{745c0f6b-4dd7-4d89-95a8-f62e96a00c36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\DroppedObjectMng">
+      <UniqueIdentifier>{9bc86118-49a9-44f3-b36a-0a7aedfd2702}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\DroppedObjectMng">
+      <UniqueIdentifier>{9e7b3c78-96f9-4f5a-8cc5-523c3524dd82}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Enemy\Enemy.cpp">
@@ -431,24 +446,6 @@
     </ClCompile>
     <ClCompile Include="Source\Enemy\Slime.cpp">
       <Filter>ソース ファイル\Enemy</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Goal\Goal.cpp">
-      <Filter>ソース ファイル\Goal</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Scene\Scene.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Scene\SceneGameClear.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Scene\SceneGameOver.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Scene\SceneInGame.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Scene\SceneTitle.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Source\Tilemap\Tilemap.cpp">
       <Filter>ソース ファイル\Tilemap</Filter>
@@ -461,9 +458,6 @@
     </ClCompile>
     <ClCompile Include="Source\Mst\StageDataMst.cpp">
       <Filter>ソース ファイル\Mst</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Scene\SceneStageSelect.cpp">
-      <Filter>ソース ファイル\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Source\GamePlayData\GamePlayData.cpp">
       <Filter>ソース ファイル\GamePlayData</Filter>
@@ -867,6 +861,57 @@
     <ClCompile Include="src\Component\Door\GoalTransformComponent.cpp">
       <Filter>ソース ファイル\Component\Goal</Filter>
     </ClCompile>
+    <ClCompile Include="include\Event\Message\SemanticMsg\StartGameVectorySemMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\Scene.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\SceneGameClear.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\SceneGameOver.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\SceneInGame.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\SceneTitle.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scene\SceneIntroduction.cpp">
+      <Filter>ソース ファイル\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\DroppedObject\DroppedObject.cpp">
+      <Filter>ソース ファイル\GameObject\DroppedObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\DroppedObject\DroppedSword.cpp">
+      <Filter>ソース ファイル\GameObject\DroppedObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\DroppedSowrd\DroppedSwordAnimationComponent.cpp">
+      <Filter>ソース ファイル\Component\DroppedSword</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\DroppedSowrd\DroppedSwordCollisionComponent.cpp">
+      <Filter>ソース ファイル\Component\DroppedSword</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\DroppedSowrd\DroppedSwordTransformComponent.cpp">
+      <Filter>ソース ファイル\Component\DroppedSword</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\DroppedSowrd\DroppedSwordMovementComponent.cpp">
+      <Filter>ソース ファイル\Component\DroppedSword</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\DroppedSowrd\DroppedSwordPhysicsComponent.cpp">
+      <Filter>ソース ファイル\Component\DroppedSword</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DroppedObjectMng\DroppedObjectMng.cpp">
+      <Filter>ソース ファイル\DroppedObjectMng</Filter>
+    </ClCompile>
+    <ClCompile Include="src\DroppedObjectMng\DroppedObjectPool.cpp">
+      <Filter>ソース ファイル\DroppedObjectMng</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\DroppedSowrd\DroppedSwordTileMapSensorComponent.cpp">
+      <Filter>ソース ファイル\Component\DroppedSword</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\AppDef.h">
@@ -884,24 +929,6 @@
     <ClInclude Include="Source\Enemy\Slime.h">
       <Filter>ソース ファイル\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Source\Goal\Goal.h">
-      <Filter>ソース ファイル\Goal</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Scene\Scene.h">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Scene\SceneGameClear.h">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Scene\SceneGameOver.h">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Scene\SceneInGame.h">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Scene\SceneTitle.h">
-      <Filter>ソース ファイル\Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Source\Tilemap\Tilemap.h">
       <Filter>ソース ファイル\Tilemap</Filter>
     </ClInclude>
@@ -916,9 +943,6 @@
     </ClInclude>
     <ClInclude Include="Source\Mst\StageDataMst.h">
       <Filter>ソース ファイル\Mst</Filter>
-    </ClInclude>
-    <ClInclude Include="Source\Scene\SceneStageSelect.h">
-      <Filter>ソース ファイル\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Source\GamePlayData\GamePlayData.h">
       <Filter>ソース ファイル\GamePlayData</Filter>
@@ -1516,6 +1540,63 @@
     </ClInclude>
     <ClInclude Include="include\Component\Goal\GoalTransformComponent.h">
       <Filter>ヘッダー ファイル\Component\Goal</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartGameVectorySemMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\Scene.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\SceneGameClear.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\SceneGameOver.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\SceneInGame.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\SceneTitle.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Scene\SceneIntroduction.h">
+      <Filter>ヘッダー ファイル\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\DroppedObject\IDroppedObject.h">
+      <Filter>ヘッダー ファイル\GameObject\DroppedObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\DroppedObject\DroppedObject.h">
+      <Filter>ヘッダー ファイル\GameObject\DroppedObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\DroppedObject\IDroppedObjectView.h">
+      <Filter>ヘッダー ファイル\GameObject\DroppedObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\DroppedObject\DroppedSword.h">
+      <Filter>ヘッダー ファイル\GameObject\DroppedObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\DroppedSword\DroppedSwordAnimationComponent.h">
+      <Filter>ヘッダー ファイル\Component\DroppedSword</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\DroppedSword\DroppedSwordTransformComponent.h">
+      <Filter>ヘッダー ファイル\Component\DroppedSword</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\DroppedSword\DroppedSwordCollisionComponent.h">
+      <Filter>ヘッダー ファイル\Component\DroppedSword</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\DroppedSword\DroppedSwordPhysicsComponent.h">
+      <Filter>ヘッダー ファイル\Component\DroppedSword</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\DroppedSword\DroppedSwordMovementComponent.h">
+      <Filter>ヘッダー ファイル\Component\DroppedSword</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DroppedObjectMng\DroppedObjectMng.h">
+      <Filter>ヘッダー ファイル\DroppedObjectMng</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DroppedObjectMng\DroppedObjectPool.h">
+      <Filter>ヘッダー ファイル\DroppedObjectMng</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\DroppedSword\DroppedSwordTileMapSensorComponent.h">
+      <Filter>ヘッダー ファイル\Component\DroppedSword</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -3,13 +3,8 @@
 #include "Component/Common/ExecutorComponent/Interface/ITransformComponent.h"
 #include "GameObject/StaticObject.h"
 
-class Door : public StaticObject, public IStaticObjectView
+class Door : public StaticObject
 {
-private:
-	ITransformComponent* transformComponent_;
-	IAnimationComponent* animationComponent_;
-	ICollisionComponent* collisionComponent_;
-
 public:
 	Door();
 

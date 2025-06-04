@@ -21,9 +21,9 @@ public:
 
 	void DestroyPoolAll();
 
-	StaticObject* CreateStaticObject(const char* _staticObjectName, Lib::Math::Vector2f _position);
+	StaticObject* CreateStaticObject(const char* _staticObjectName, Lib::Math::Vector2f _position, ISceneContext* _sceneContext, ISceneGameplayAPI* _sceneGameplayAPI);
 
-	void CreateStaticObjects(CSVData* _csvData, int _tileSize);
+	void CreateStaticObjects(CSVData* _csvData, int _tileSize, ISceneContext* _sceneContext, ISceneGameplayAPI* _sceneGameplayAPI);
 
 	int GetStaticObjectCount();
 

@@ -20,19 +20,13 @@ void PlayerEquipmentComponent::Init()
 	EquipmentComponent::Init();
 
 	//TODO:hard coding
-	Sword* sword = new Sword(equipOwnerView_.Injected());
-	Katana* katana = new Katana(equipOwnerView_.Injected());
-	if (sword)
-	{
-		sword->Init();
-		Equip(static_cast<int>(EquipmentSlotType::WEAPON_1), sword);
-	}
+	std::shared_ptr<Sword> sword = std::make_shared<Sword>(equipOwnerView_.Injected());
+	std::shared_ptr<Katana> katana = std::make_shared<Katana>(equipOwnerView_.Injected());
 
-	if (katana)
-	{
-		katana->Init();
-		Equip(static_cast<int>(EquipmentSlotType::WEAPON_2), sword);
-	}
+	sword->Init();
+	katana->Init();
+	Equip(static_cast<int>(EquipmentSlotType::WEAPON_1), sword);
+	Equip(static_cast<int>(EquipmentSlotType::WEAPON_2), sword);
 
 	SwitchWeapon(static_cast<int>(EquipmentSlotType::WEAPON_1));
 
@@ -73,7 +67,7 @@ void PlayerEquipmentComponent::HandleMessage(const IEventMessage& _msg)
 			{
 				this->Attack();
 			});
-	
+
 	}
 
 	if (swordAnimationBegin)

@@ -1,11 +1,11 @@
-﻿#include "SceneInGame.h" // SceneInGameクラスのヘッダーファイルをインクルード
-#include "AppDef.h" // アプリケーション定義用のヘッダーファイル
-#include "Fwk/Framework.h" // フレームワーク関連のヘッダーファイル
-#include "Fwk/File/CSVFile.h" // CSVファイル操作用のヘッダーファイル
-#include "Fwk/File/KeyValueFile.h" // キーバリューファイル操作用のヘッダーファイル
-#include "GamePlayData/GamePlayData.h" // ゲームプレイデータ管理用のヘッダーファイル
-#include "Mst/StageDataMst.h" // ステージデータ管理用のヘッダーファイル
-#include "World/World.h" // ワールド管理用のヘッダーファイル
+﻿#include "Scene/SceneInGame.h"
+#include "AppDef.h" 
+#include "Fwk/Framework.h" 
+#include "Fwk/File/CSVFile.h" 
+#include "Fwk/File/KeyValueFile.h" 
+#include "GamePlayData/GamePlayData.h"
+#include "Mst/StageDataMst.h"
+#include "World/World.h" 
 
 SceneInGame::SceneInGame(int _sceneIndex): Scene(_sceneIndex)
 {
@@ -85,6 +85,7 @@ void SceneInGame::Init()
         // 静的オブジェクトのプールを生成
         staticObjectMng_.GeneratePool("IronSpike", 100);
         staticObjectMng_.GeneratePool("Door", 100);
+        staticObjectMng_.GeneratePool("Goal", 100);
         CSVFile csvFile;
         // ステージデータが存在する場合、静的オブジェクト配置ファイルをロード
         if (pStageData)
@@ -92,7 +93,22 @@ void SceneInGame::Init()
         // CSVデータを出力
         csvFile.PrintCSVData();
         // 静的オブジェクトを作成
-        staticObjectMng_.CreateStaticObjects(csvFile.GetCSVData(), tilemap_.GetTileSize());
+        staticObjectMng_.CreateStaticObjects(csvFile.GetCSVData(), tilemap_.GetTileSize(),this,this);
+    }
+
+    {
+        // droppedオブジェクト管理を初期化
+        droppedObjectMng_.Init();
+        // droppedオブジェクトのプールを生成
+        droppedObjectMng_.GeneratePool("Sword", 100);
+        CSVFile csvFile;
+        // ステージデータが存在する場合、静的オブジェクト配置ファイルをロード
+        if (pStageData)
+            csvFile.Load(pStageData->droppedObjectArrangementFile_);
+        // CSVデータを出力
+        csvFile.PrintCSVData();
+        // 静的オブジェクトを作成
+        droppedObjectMng_.CreateDroppedObjects(csvFile.GetCSVData(), tilemap_.GetTileSize(),this,this);
     }
 
     // 敵管理を初期化
@@ -132,6 +148,7 @@ void SceneInGame::Term()
     Scene::Term();
     // 静的オブジェクト管理の終了処理
     staticObjectMng_.Term();
+    droppedObjectMng_.Term();
     // 敵管理の終了処理
     enemyMng_.Term();
     // タイルマップの終了処理
@@ -192,8 +209,11 @@ void SceneInGame::Update()
             player->ResetPlayer();
             needReload_ = true;
         }
-        // プレイヤーが死亡した場合、次のシーンをゲームオーバーに設定
-        if (player->IsDead())
+        else if (player->IsGameVictory())
+        {
+            WORLD_I.DestroyPlayer(WORLD_I.GetMainPlayerID());
+            mNextScene = SceneType::GameClear;
+        }else if (player->IsDead())
         {
             WORLD_I.DestroyPlayer(WORLD_I.GetMainPlayerID());
 
@@ -205,6 +225,7 @@ void SceneInGame::Update()
     enemyMng_.Update();
     // 静的オブジェクト管理の更新処理
     staticObjectMng_.Update();
+    droppedObjectMng_.Update();
     // タイルマップの更新処理
     tilemap_.Update();
 
@@ -216,6 +237,9 @@ void SceneInGame::Render()
     Scene::Render();
     // タイルマップの描画
     tilemap_.Render();
+    // 静的オブジェクト管理の描画
+    staticObjectMng_.Render();
+    droppedObjectMng_.Render();
     // プレイヤーを取得
     Player* player = WORLD_I.AccessMainPlayer();
     if (player)
@@ -225,8 +249,6 @@ void SceneInGame::Render()
     }
     // 敵管理の描画
     enemyMng_.Render();
-    // 静的オブジェクト管理の描画
-    staticObjectMng_.Render();
 
     uiMng_.Render();
 }
@@ -245,4 +267,9 @@ bool SceneInGame::IsInsideWallCircle(Lib::Math::Vector2f _position, float _radiu
 void SceneInGame::CreateEnemy(const char* _enemyName, Lib::Math::Vector2f _position)
 {
     enemyMng_.CreateEnemy(_enemyName, _position, this, this);
+}
+
+void SceneInGame::CreateDroppedObject(const char* _objectName, Lib::Math::Vector2f _position)
+{
+    droppedObjectMng_.CreateDroppedObject(_objectName, _position, this, this);
 }

@@ -34,6 +34,7 @@ public:
 
 	void Disable() override;
 
+	void SetPosition(const Vector2f& _position) override final;
 protected:
 	void Reset() override;
 
@@ -47,8 +48,6 @@ protected:
 	void SetTag(const string& _tag);
 
 	void SetOwner(void* _pOwner);
-
-	void SetPosition(const Vector2f& _position);
 
 	void SetCircleCollider(float _x, float _y, float _r);
 

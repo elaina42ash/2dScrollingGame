@@ -1,0 +1,29 @@
+﻿#pragma once
+#include "Component/Common/ExecutorComponent/Class/AnimationComponent.h"
+#include "GameObject/DroppedObject/IDroppedObjectView.h"
+
+#pragma warning(push)
+#pragma warning(disable:4250)
+class DroppedSwordAnimationComponent : public AnimationComponent
+{
+private:
+	Inject<IDroppedObjectView> droppedObjectView_;
+public:
+	DroppedSwordAnimationComponent(bool _isActive, IMessenger* messenger_, IDroppedObjectView* _droppedObjectView);
+
+	DroppedSwordAnimationComponent(IMessenger* messenger_, IDroppedObjectView* _droppedObjectView);
+
+	void Init() override;
+
+	void Update() override;
+
+	void Render() override;
+
+	void Term() override;
+
+	void HandleMessage(const IEventMessage& _msg) override;
+
+protected:
+	void Reset() override;
+};
+#pragma warning(pop)

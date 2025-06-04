@@ -12,6 +12,10 @@ private:
 	Lib::Math::Vector2f inputCacheForState = { 0.0f,0.0f };
 
 	bool isStageCleared_ = false;
+
+	bool isGameVictory_ = false;
+
+	float dashCooldown_ = 0.0f;
 public:
 	PlayerStateComponent(bool _isActive, IMessenger* _messenger, IPlayerView* _playerView);
 
@@ -31,6 +35,12 @@ public:
 
 	bool IsStageCleared() const;
 
+	bool IsGameVictory() const;
+
+	bool IsDashCooldown() const;
+
+	void SetDashCooldown(float _cooldown);
+
 protected:
 	void Reset() override;
 
@@ -40,4 +50,17 @@ private:
 	void InitializeMotionStateMachine(InnerStateMachine* motionStateMachine);
 
 };
+
+inline void PlayerStateComponent::SetDashCooldown(float _cooldown)
+{
+	dashCooldown_ = _cooldown;
+}
+
+inline bool PlayerStateComponent::IsDashCooldown() const
+{
+	if (dashCooldown_ > 0.0f)
+		return true;
+	else
+		return false;
+}
 #pragma warning(pop)
