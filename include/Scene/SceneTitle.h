@@ -1,9 +1,5 @@
 ﻿#pragma once
-
-// Sceneクラスを継承するので#include
 #include "Scene.h"
-
-// SpriteやTexture,Animationを使うためのヘッダファイル
 #include "Fwk/Graphics.h"
 #include "GameObject/DroppedObject/DroppedSword.h"
 #include "GameObject/StaticObject/IronSpike.h"

@@ -2,6 +2,7 @@
 #include "Component/Common/DecisionLogicalComponent/Class/StateComponent.h"
 #include "Event/Message/LogicalInputMsg/AttackInputMsg.h"
 #include "Event/Message/LogicalInputMsg/DashInputMsg.h"
+#include "Event/Message/LogicalInputMsg/DropWeaponInput.h"
 #include "Event/Message/LogicalInputMsg/HoriAxisInputMsg.h"
 #include "Event/Message/LogicalInputMsg/InteractInputMsg.h"
 #include "Event/Message/LogicalInputMsg/JumpInputMsg.h"
@@ -216,6 +217,8 @@ void PlayerStateComponent::HandleMessage(const IEventMessage& _msg)
 	const AttackInputMsg* attackInputMsg = TypeidSystem::SafeCast<AttackInputMsg>(&_msg);
 	const DashInputMsg* dashInputMsg = TypeidSystem::SafeCast<DashInputMsg>(&_msg);
 	const SwitchWeaponInputMsg* switchWeaponInput = TypeidSystem::SafeCast<SwitchWeaponInputMsg>(&_msg);
+	const DropWeaponInput* dropWeaponInput = TypeidSystem::SafeCast<DropWeaponInput>(&_msg);
+
 	const InteractInputMsg* interactInputMsg = TypeidSystem::SafeCast<InteractInputMsg>(&_msg);
 	const StartStageClearSemMsg* startStageClearSemMsg = TypeidSystem::SafeCast<StartStageClearSemMsg>(&_msg);
 	const StartGameVectorySemMsg* startGameVectorySemMsg = TypeidSystem::SafeCast<StartGameVectorySemMsg>(&_msg);
@@ -307,6 +310,9 @@ void PlayerStateComponent::HandleMessage(const IEventMessage& _msg)
 	}else if (interactInputMsg)
 	{
 		MarkSemanticInput(GameSemantic::Semantic::START_INTERACT);
+	}else if (dropWeaponInput)
+	{
+		MarkSemanticInput(GameSemantic::Semantic::START_DROP_WEAPON);
 	}
 
 }

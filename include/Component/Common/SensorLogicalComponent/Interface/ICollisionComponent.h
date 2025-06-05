@@ -14,4 +14,8 @@ public:
 	virtual Fwk::Collision::Rect GetShapeRect() const = 0;
 
 	virtual void SetPosition(const Vector2f& _position) = 0;
+
+	virtual void DisableCollider() = 0;
+
+	virtual void EnableCollider() = 0;
 };

@@ -15,6 +15,8 @@
 
 Katana::Katana():Weapon(nullptr)
 {
+	equipment_ = EquipmentType::KATANA;
+
 	InitializeKatanaComponents();
 }
 
@@ -96,7 +98,7 @@ void Katana::Attack()
 
 void Katana::EndAttack()
 {
-	mode_ = WeaponMode::EQUIPPED;
+ 	mode_ = WeaponMode::EQUIPPED;
 		
 	if (transformComponent_)
 		transformComponent_->Disable();
@@ -134,6 +136,7 @@ void Katana::OnAttackCompleted(int _animationID)
 {
 	KatanaAnimationCompletedMsg katanaAnimationCompletedMsg(_animationID);
 	SendMsg(katanaAnimationCompletedMsg);
+	EndAttack();
 }
 
 void Katana::InitializeKatanaComponents()

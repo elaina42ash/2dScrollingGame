@@ -1,4 +1,6 @@
-﻿  SceneMng.cpp
+﻿  EquipmentComponent.cpp
+  PlayerCollisionComponent.cpp
+  DroppedObjectMng.cpp
   SceneTitle.cpp
   正在生成代码...
   Game.vcxproj -> D:\MyProject\2dScrollingGame\実行ファイル\Debug(x64)\Game.exe

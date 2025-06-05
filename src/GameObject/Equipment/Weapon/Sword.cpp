@@ -10,6 +10,8 @@
 
 Sword::Sword():Weapon(nullptr)
 {
+	equipment_ = EquipmentType::SWORD;
+
 	InitializeSwordComponents();
 }
 
@@ -129,6 +131,7 @@ void Sword::OnAttackCompleted(int _animationID)
 {
 	SwordAnimationCompletedMsg swordAnimationCompletedMsg(_animationID);
 	SendMsg(swordAnimationCompletedMsg);
+	EndAttack();
 }
 
 void Sword::InitializeSwordComponents()

@@ -61,9 +61,9 @@ protected:
 
 	Fwk::Collision::Rect GetShapeRect() const override final;
 
-	void EnableCollider();
+	void EnableCollider() override final;
 
-	void DisableCollider();
+	void DisableCollider() override final;
 
 	void SetCallbackFunction();
 	void SetCallbackFunctionEx();
@@ -71,6 +71,8 @@ protected:
 	virtual void OnCollision(const Fwk::Collision::Collider& _me, const Fwk::Collision::Collider& _other);
 
 	virtual void OnCollisionEx(const Fwk::Collision::CollisionEvent& _collisionEvent);
+
+
 #pragma endregion
 };
 #pragma warning(pop)

@@ -17,6 +17,7 @@
 #include "Event/Message/AnimationMsg/KatanaAnimationKeyframeMsg.h"
 #include "Event/Message/LogicalInputMsg/AttackInputMsg.h"
 #include "Event/Message/LogicalInputMsg/DashInputMsg.h"
+#include "Event/Message/LogicalInputMsg/DropWeaponInput.h"
 #include "Event/Message/LogicalInputMsg/HoriAxisInputMsg.h"
 #include "Event/Message/LogicalInputMsg/InteractInputMsg.h"
 #include "Event/Message/LogicalInputMsg/JumpInputMsg.h"
@@ -26,6 +27,7 @@
 #include "Event/Message/SemanticMsg/EndKnockBackSemMsg.h"
 #include "Event/Message/SemanticMsg/StartAttackSemMsg.h"
 #include "Event/Message/SemanticMsg/StartDashSemMsg.h"
+#include "Event/Message/SemanticMsg/StartDropWeaponSemMsg.h"
 #include "Event/Message/SemanticMsg/StartGameVectorySemMsg.h"
 #include "Event/Message/SemanticMsg/StartHurtSemMsg.h"
 #include "Event/Message/SemanticMsg/StartIdleSemMsg.h"
@@ -174,6 +176,7 @@ void Player::StateComponentSubscribeMsg()
 	Subscribe(TypeidSystem::GetTypeID<AttackInputMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SwitchWeaponInputMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<InteractInputMsg>(), stateComponent_);
+	Subscribe(TypeidSystem::GetTypeID<DropWeaponInput>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SetIsDamagedConditionMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SetIsDeadConditionMsg>(), stateComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SetIsClearConditionMsg>(), stateComponent_);
@@ -209,6 +212,7 @@ void Player::Init()
 
 	Subscribe(TypeidSystem::GetTypeID<StartAttackSemMsg>(), equipmentComponent_);
 	Subscribe(TypeidSystem::GetTypeID<StartSwitchWeaponSemMsg>(), equipmentComponent_);
+	Subscribe(TypeidSystem::GetTypeID<StartDropWeaponSemMsg>(), equipmentComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SwordAnimationBeginMsg>(), equipmentComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SwordAnimationKeyframeMsg>(), equipmentComponent_);
 	Subscribe(TypeidSystem::GetTypeID<SwordAnimationCompletedMsg>(), equipmentComponent_);
@@ -260,6 +264,7 @@ Direction Player::GetDirection() const
 	if (!transformComponent_)
 		return Direction::NONE;
 	return transformComponent_->GetDirection();
+
 }
 
 Lib::Math::Vector2f Player::GetVelocity() const
@@ -379,14 +384,6 @@ int Player::GetRemainingInvincibleFrames() const
 void Player::ResetPlayer()
 {
 	ResetState();
-}
-
-void Player::DropObject(const char* _name)
-{
-	if (strcmp(_name, "Sword") == 0)
-	{
-		sceneGameplayApi_->CreateDroppedObject("Sword", { GetPositionX(),GetPositionY() + 5.0f });
-	}
 }
 
 void Player::HandleMessage(const IEventMessage& _msg)

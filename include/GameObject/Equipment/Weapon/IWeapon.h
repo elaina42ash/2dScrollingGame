@@ -23,4 +23,5 @@ public:
 	virtual void OnAttackKeyframe(int _animationID, int frameIndex) = 0;
 
 	virtual void OnAttackCompleted(int _animationID) = 0;
+
 };

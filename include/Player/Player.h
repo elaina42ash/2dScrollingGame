@@ -109,8 +109,6 @@ public:
 
 	void ResetPlayer();
 
-	void DropObject(const char* _name);
-
 	void HandleMessage(const IEventMessage& _msg) override;
 
 	bool IsFacingRight() const override;

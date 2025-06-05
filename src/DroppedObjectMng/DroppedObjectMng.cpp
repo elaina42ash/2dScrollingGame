@@ -1,5 +1,6 @@
 ﻿#include "DroppedObjectMng/DroppedObjectMng.h"
 
+#include "GameObject/DroppedObject/DroppedKatana.h"
 #include "GameObject/DroppedObject/DroppedSword.h"
 
 
@@ -49,7 +50,10 @@ void DroppedObjectMng::GeneratePool(const char* _droppedObjectName, int _poolSiz
 		droppedObjectPools_[_droppedObjectName].Init<DroppedSword>(_poolSize);
 	}
 
-
+	if (strcmp(_droppedObjectName, "Katana") == 0)
+	{
+		droppedObjectPools_[_droppedObjectName].Init<DroppedKatana>(_poolSize);
+	}
 }
 
 void DroppedObjectMng::DestroyPool(const char* _droppedObjectName)
@@ -121,6 +125,7 @@ int DroppedObjectMng::GetDroppedObjectCount()
 
 void DroppedObjectMng::DestroyPoolAll() {
 	DestroyPool("Sword");
+	DestroyPool("Katana");
 }
 
 

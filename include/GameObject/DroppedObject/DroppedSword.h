@@ -13,7 +13,7 @@ public:
 
 	~DroppedSword() override;
 
-
+	std::shared_ptr<Sword> GetSword() const;
 
 	void Init() override;
 

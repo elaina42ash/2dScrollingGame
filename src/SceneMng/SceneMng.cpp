@@ -141,6 +141,8 @@ void SceneMng::_beginScene(SceneType _newScene, int _sceneIndex)
 		break;
 	}
 
+	Framework_I->LateUpdate();
+
 	// 生成したシーンの初期化
 	if (scene_ !=nullptr)
 	{

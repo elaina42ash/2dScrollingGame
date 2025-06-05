@@ -22,6 +22,8 @@ bool FrameworkPhysicsInputAdapter::GetKey(GameInput::PhysicalInput _input) const
 		return Input_I->IsKeyPressed('K');
 	case GameInput::PhysicalInput::KEY_L:
 		return Input_I->IsKeyPressed('L');
+	case GameInput::PhysicalInput::KEY_G:
+		return Input_I->IsKeyPressed('G');
 	case GameInput::PhysicalInput::KEY_UP:
 		return Input_I->IsKeyPressed(VK_UP);
 	case GameInput::PhysicalInput::KEY_DOWN:
@@ -57,6 +59,8 @@ bool FrameworkPhysicsInputAdapter::GetKeyDown(GameInput::PhysicalInput _input) c
 		return Input_I->IsKeyDown('K');
 	case GameInput::PhysicalInput::KEY_L:
 		return Input_I->IsKeyDown('L');
+	case GameInput::PhysicalInput::KEY_G:
+		return Input_I->IsKeyDown('G');
 	case GameInput::PhysicalInput::KEY_UP:
 		return Input_I->IsKeyDown(VK_UP);
 	case GameInput::PhysicalInput::KEY_DOWN:
@@ -92,6 +96,8 @@ bool FrameworkPhysicsInputAdapter::GetKeyUp(GameInput::PhysicalInput _input) con
 		return Input_I->IsKeyUp('K');
 	case GameInput::PhysicalInput::KEY_L:
 		return Input_I->IsKeyUp('L');
+	case GameInput::PhysicalInput::KEY_G:
+		return Input_I->IsKeyUp('G');
 	case GameInput::PhysicalInput::KEY_UP:
 		return Input_I->IsKeyUp(VK_UP);
 	case GameInput::PhysicalInput::KEY_DOWN:

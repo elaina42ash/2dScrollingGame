@@ -29,6 +29,11 @@ EquipmentStatus Equipment::GetEquipmentStatus()
 	return equipmentStatus_;
 }
 
+void Equipment::SetOwner(Player* _player)
+{
+	equipOwnerView_.Bind(_player);
+}
+
 void Equipment::SetEquipmentStatus(const EquipmentStatus& _status)
 {
 	equipmentStatus_ = _status;

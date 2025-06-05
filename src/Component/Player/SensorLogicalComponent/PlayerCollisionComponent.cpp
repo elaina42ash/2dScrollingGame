@@ -1,13 +1,19 @@
 ﻿#include "Component/Player/SensorLogicalComponent/Class/PlayerCollisionComponent.h"
+
+#include "Component/Common/ExecutorComponent/Interface/IEquipmentComponent.h"
 #include "Component/Common/SensorLogicalComponent/Class/CollisionComponent.h"
+#include "Component/DroppedKatana/DroppedKatanaCollisionComponent.h"
+#include "Component/DroppedSword/DroppedSwordCollisionComponent.h"
 #include "Event/IMessenger.h"
 #include "Event/Message/SemanticMsg/EndKnockBackSemMsg.h"
+#include "Event/Message/SemanticMsg/StartDropWeaponSemMsg.h"
 #include "Event/Message/SemanticMsg/StartGameVectorySemMsg.h"
 #include "Event/Message/SemanticMsg/StartInteractSemMsg.h"
 #include "Event/Message/SemanticMsg/StartKnockBackSemMsg.h"
 #include "Event/Message/StateMsg/SetIsClearConditionMsg.h"
 #include "Event/Message/StateMsg/SetIsDamagedConditionMsg.h"
 #include "Fwk/Framework.h"
+#include "GameObject/DroppedObject/DroppedSword.h"
 #include "Player/IPlayerView.h"
 
 PlayerCollisionComponent::PlayerCollisionComponent(bool _isActive, IMessenger* _messenger, IPlayerView* _playerView) : ::CollisionComponent(_isActive, _messenger), playerView_(_playerView)
@@ -79,6 +85,8 @@ void PlayerCollisionComponent::Term()
 void PlayerCollisionComponent::Reset()
 {
 	CollisionComponent::Reset();
+
+	isInteracting = false;
 }
 
 void PlayerCollisionComponent::OnCollision(const Fwk::Collision::Collider& _me,
@@ -103,6 +111,33 @@ void PlayerCollisionComponent::OnCollision(const Fwk::Collision::Collider& _me,
 		SendMsg(msg);
 	}
 
+	if (_other.GetTag() == "Sword")
+	{
+		if (isInteracting)
+		{
+			IEquipmentComponent* equipmentComponent = GetComponent<IEquipmentComponent>();
+			if (equipmentComponent)
+			{
+				DroppedSwordCollisionComponent* droppedSwordCollisionComponent = static_cast<DroppedSwordCollisionComponent*>(_other.GetOwner());
+				equipmentComponent->TakeDroppedWeapon("Sword", dynamic_cast<DroppedObject*>(
+					droppedSwordCollisionComponent->GetOwner()));
+			}
+		}
+	}
+
+	if (_other.GetTag() == "Katana")
+	{
+		if (isInteracting)
+		{
+			IEquipmentComponent* equipmentComponent = GetComponent<IEquipmentComponent>();
+			if (equipmentComponent)
+			{
+				DroppedKatanaCollisionComponent* droppedKatanaCollisionComponent = static_cast<DroppedKatanaCollisionComponent*>(_other.GetOwner());
+				equipmentComponent->TakeDroppedWeapon("Katana", dynamic_cast<DroppedObject*>(
+					droppedKatanaCollisionComponent->GetOwner()));
+			}
+		}
+	}
 }
 
 void PlayerCollisionComponent::OnCollisionEx(const Fwk::Collision::CollisionEvent& _collisionEvent)
@@ -116,7 +151,6 @@ void PlayerCollisionComponent::OnCollisionEx(const Fwk::Collision::CollisionEven
 
 		if (_collisionEvent.ColliderB->GetGroup() == (int)CollisionGroup::DROPPED_ITEM)
 		{
-		
 		}
 	}
 
@@ -125,6 +159,10 @@ void PlayerCollisionComponent::OnCollisionEx(const Fwk::Collision::CollisionEven
 		if (_collisionEvent.ColliderB->GetGroup() == (int)CollisionGroup::DOOR)
 		{
 			isDoorTrigger = false;
+		}
+
+		if (_collisionEvent.ColliderB->GetGroup() == (int)CollisionGroup::DROPPED_ITEM)
+		{
 		}
 	}
 }
@@ -147,10 +185,13 @@ void PlayerCollisionComponent::HandleMessage(const IEventMessage& _msg)
 
 	if (startInteractSem)
 	{
+		isInteracting = true;
+
 		if (isDoorTrigger)
 		{
 			SetIsClearConditionMsg setIsClearConditionMsg(true);
 			SendMsg(setIsClearConditionMsg);
 		}
 	}
+
 }

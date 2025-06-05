@@ -7,9 +7,9 @@
 #include "Event/Message/AnimationMsg/SwordAnimationCompletedMsg.h"
 #include "Event/Message/AnimationMsg/SwordAnimationKeyframeMsg.h"
 #include "Event/Message/SemanticMsg/StartAttackSemMsg.h"
+#include "Event/Message/SemanticMsg/StartDropWeaponSemMsg.h"
 #include "Event/Message/SemanticMsg/StartSwitchWeaponSemMsg.h"
 #include "GameObject/Equipment/Weapon/Katana.h"
-#include "GameObject/Equipment/Weapon/Sword.h"
 
 PlayerEquipmentComponent::PlayerEquipmentComponent(bool _isActive, IPlayerView* playerView_, IEquipOwnerView* _equipOwnerView, IMessenger* _messenger) : EquipmentComponent(_isActive, _equipOwnerView, _messenger), playerView_(playerView_)
 {
@@ -18,17 +18,6 @@ PlayerEquipmentComponent::PlayerEquipmentComponent(bool _isActive, IPlayerView* 
 void PlayerEquipmentComponent::Init()
 {
 	EquipmentComponent::Init();
-
-	//TODO:hard coding
-	std::shared_ptr<Sword> sword = std::make_shared<Sword>(equipOwnerView_.Injected());
-	std::shared_ptr<Katana> katana = std::make_shared<Katana>(equipOwnerView_.Injected());
-
-	sword->Init();
-	katana->Init();
-	Equip(static_cast<int>(EquipmentSlotType::WEAPON_1), sword);
-	Equip(static_cast<int>(EquipmentSlotType::WEAPON_2), sword);
-
-	SwitchWeapon(static_cast<int>(EquipmentSlotType::WEAPON_1));
 
 }
 
@@ -58,8 +47,8 @@ void PlayerEquipmentComponent::HandleMessage(const IEventMessage& _msg)
 	const KatanaAnimationBeginMsg* katanaAnimationBeginMsg = TypeidSystem::SafeCast<KatanaAnimationBeginMsg>(&_msg);
 	const KatanaAnimationKeyframeMsg* katanaAnimationKeyframeMsg = TypeidSystem::SafeCast<KatanaAnimationKeyframeMsg>(&_msg);
 	const KatanaAnimationCompletedMsg* katanaAnimationCompletedMsg = TypeidSystem::SafeCast<KatanaAnimationCompletedMsg>(&_msg);
-
 	const StartSwitchWeaponSemMsg* switchWeaponSemMsg = TypeidSystem::SafeCast<StartSwitchWeaponSemMsg>(&_msg);
+	const StartDropWeaponSemMsg* startDropWeaponSemMsg = TypeidSystem::SafeCast<StartDropWeaponSemMsg>(&_msg);
 
 	if (startAttackSemMsg)
 	{
@@ -72,37 +61,37 @@ void PlayerEquipmentComponent::HandleMessage(const IEventMessage& _msg)
 
 	if (swordAnimationBegin)
 	{
-		if (activeWeaponID_ == static_cast<int>(EquipmentType::SWORD))
+		if (std::dynamic_pointer_cast<Sword>(activeWeapon))
 			activeWeapon->OnAttackPhaseStarted(swordAnimationBegin->GetAnimationID());
 	}
 
 	if (swordAnimationKeyframeMsg)
 	{
-		if (activeWeaponID_ == static_cast<int>(EquipmentType::SWORD))
+		if (std::dynamic_pointer_cast<Sword>(activeWeapon))
 			activeWeapon->OnAttackKeyframe(swordAnimationKeyframeMsg->GetAnimationID(), swordAnimationKeyframeMsg->GetKeyFrameIndex());
 	}
 
 	if (swordAnimationCompletedMsg)
 	{
-		if (activeWeaponID_ == static_cast<int>(EquipmentType::SWORD))
+		if (std::dynamic_pointer_cast<Sword>(activeWeapon))
 			activeWeapon->OnAttackCompleted(swordAnimationCompletedMsg->GetAnimationID());
 	}
 
 	if (katanaAnimationBeginMsg)
 	{
-		if (activeWeaponID_ == static_cast<int>(EquipmentType::KATANA))
+		if (std::dynamic_pointer_cast<Katana>(activeWeapon))
 			activeWeapon->OnAttackPhaseStarted(katanaAnimationBeginMsg->GetAnimationID());
 	}
 
 	if (katanaAnimationKeyframeMsg)
 	{
-		if (activeWeaponID_ == static_cast<int>(EquipmentType::KATANA))
+		if (std::dynamic_pointer_cast<Katana>(activeWeapon))
 			activeWeapon->OnAttackKeyframe(katanaAnimationKeyframeMsg->GetAnimationID(), katanaAnimationKeyframeMsg->GetKeyFrameIndex());
 	}
 
 	if (katanaAnimationCompletedMsg)
 	{
-		if (activeWeaponID_ == static_cast<int>(EquipmentType::KATANA))
+		if (std::dynamic_pointer_cast<Katana>(activeWeapon))
 			activeWeapon->OnAttackCompleted(katanaAnimationCompletedMsg->GetAnimationID());
 	}
 
@@ -111,6 +100,14 @@ void PlayerEquipmentComponent::HandleMessage(const IEventMessage& _msg)
 		AddTask([=]()->void
 			{
 				this->SwitchToNextWeapon();
+			});
+	}
+
+	if (startDropWeaponSemMsg)
+	{
+		AddTask([=]()->void
+			{
+				this->DropWeapon();
 			});
 	}
 }
@@ -122,7 +119,7 @@ void PlayerEquipmentComponent::Reset()
 
 void PlayerEquipmentComponent::Attack()
 {
-	if (activeWeapon == nullptr || activeWeaponID_ == static_cast<int>(EquipmentType::NONE))
+	if (activeWeapon == nullptr || activeSlotID_ == static_cast<int>(EquipmentType::NONE))
 		return;
 	activeWeapon->Attack();
 }

@@ -2,6 +2,7 @@
 
 #include "Component/Common/Component.h"
 
+
 GameObject::GameObject():messenger_(&messageBus_)
 {
 		
@@ -104,6 +105,11 @@ void GameObject::BindSceneContext(ISceneContext* _sceneContext)
 void GameObject::BindSceneGameplayAPI(ISceneGameplayAPI* _sceneGameplayApi)
 {
 	sceneGameplayApi_.Bind(_sceneGameplayApi);
+}
+
+ISceneGameplayAPI* GameObject::AccessSceneGameplayApi() const
+{
+	return sceneGameplayApi_.Injected();
 }
 
 void GameObject::SendMsg(const IEventMessage& _msg)

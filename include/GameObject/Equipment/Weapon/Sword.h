@@ -1,7 +1,6 @@
 ﻿#pragma once
 #include "Weapon.h"
 #include "Event/Message/AnimationMsg/SwordAnimationBeginMsg.h"
-#include "Event/Message/AnimationMsg/SwordAnimationCompletedMsg.h"
 
 #pragma warning(push)
 #pragma warning(disable:4250)

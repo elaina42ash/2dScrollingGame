@@ -28,6 +28,10 @@ DroppedObject* DroppedObjectPool::Alloc()
 		{
 			pResult = pool_[i];
 			pResult->Enable();
+			ICollisionComponent* collisionComponent = pResult->GetComponent<ICollisionComponent>();
+			if (collisionComponent)
+				collisionComponent->EnableCollider();
+
 			break;
 		}
 	}

@@ -9,6 +9,8 @@ class PlayerCollisionComponent : public CollisionComponent
 private:
 	Inject<IPlayerView> playerView_;
 	bool isDoorTrigger = false;
+	bool isInteracting = false;
+
 public:
 	PlayerCollisionComponent(bool _isActive, IMessenger* _messenger, IPlayerView* _playerView);
 

@@ -25,7 +25,7 @@ void DroppedSwordCollisionComponent::Init()
 	// コリジョンのオーナーに自分を設定
 	SetOwner(this);
 	// コリジョンの形状を指定(矩形)
-	SetRectCollider(16.0f, -16.0f, 32.0f, 32.0f);
+	SetRectCollider(0.0f, 0.0f, 32.0f, 32.0f);
 	// コリジョンを活性状態にしておく
 	EnableCollider();
 	// コリジョンマネージャにコリジョンを登録

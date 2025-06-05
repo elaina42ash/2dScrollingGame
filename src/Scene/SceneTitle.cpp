@@ -5,6 +5,7 @@
 
 SceneTitle::SceneTitle(int _sceneIndex): Scene(_sceneIndex)
 {
+
 }
 
 // 初期化

@@ -9,11 +9,14 @@
 #include "Event/Message/SemanticMsg/StartAttackSemMsg.h"
 #include "Event/Message/SemanticMsg/StartIdleSemMsg.h"
 #include "Event/Message/SemanticMsg/StartMoveSemMsg.h"
+#include "GameObject/Equipment/Equipment.h"
 #include "GameObject/Equipment/EquipmentDef.h"
+#include "GameObject/Equipment/Weapon/Katana.h"
+#include "GameObject/Equipment/Weapon/Sword.h"
 
 
 PlayerAnimationComponent::PlayerAnimationComponent(bool _isActive, IMessenger* messenger_, IPlayerView* _playerView) : AnimationComponent(_isActive, messenger_),
-                                                                                                                       playerView_(_playerView)
+playerView_(_playerView)
 {
 }
 
@@ -76,7 +79,7 @@ void PlayerAnimationComponent::Render()
 {
 	AnimationComponent::Render();
 
-;
+	;
 }
 
 void PlayerAnimationComponent::Term()
@@ -207,13 +210,13 @@ false
 		IEquipmentComponent* equipmentComponent = GetComponent<IEquipmentComponent>();
 
 		if (!equipmentComponent)
-		return;
+			return;
 
-		int EquipmentID = equipmentComponent->GetActiveWeaponID_();
+		const shared_ptr<const IWeapon> equipment = equipmentComponent->GetActiveWeapon();
 
-		if (EquipmentID == static_cast<int>(EquipmentType::SWORD))
+		if (dynamic_pointer_cast<const Sword>(equipment))
 			request.animationID = static_cast<AnimationID>(PlayerAnimationType::ATTACK_SWORD);
-		else if (EquipmentID == static_cast<int>(EquipmentType::KATANA))
+		else if (dynamic_pointer_cast<const Katana>(equipment))
 			request.animationID = static_cast<AnimationID>(PlayerAnimationType::ATTACK_KATANA);
 
 		AddAnimationTask(request);
@@ -225,30 +228,29 @@ void PlayerAnimationComponent::OnSwordAnimationEvent(const AnimationEvent& _anim
 	switch (_animEvent.EventType)
 	{
 	case AnimationEventType::Begin:
-		{
-			SwordAnimationBeginMsg swordAnimationBegin(currentAnimationID_);
-			SendMsg(swordAnimationBegin);
-		}
-		break;
+	{
+		SwordAnimationBeginMsg swordAnimationBegin(currentAnimationID_);
+		SendMsg(swordAnimationBegin);
+	}
+	break;
 
 	case AnimationEventType::KeyframeProgressed:
-		{
+	{
 
-			if (_animEvent.KeyFrameIndex == 2 || _animEvent.KeyFrameIndex == 3)
-			{
-				SwordAnimationKeyframeMsg swordAnimationKeyframeMsg(currentAnimationID_, _animEvent.KeyFrameIndex);
-				SendMsg(swordAnimationKeyframeMsg);
-			}
+		if (_animEvent.KeyFrameIndex == 2 || _animEvent.KeyFrameIndex == 3)
+		{
+			SwordAnimationKeyframeMsg swordAnimationKeyframeMsg(currentAnimationID_, _animEvent.KeyFrameIndex);
+			SendMsg(swordAnimationKeyframeMsg);
 		}
-		break;
+	}
+	break;
 
 	case AnimationEventType::Completed:
-		{
-
-			SwordAnimationCompletedMsg swordAnimationFinishedMsg(currentAnimationID_);
-			SendMsg(swordAnimationFinishedMsg);
-		}
-		break;
+	{
+		SwordAnimationCompletedMsg swordAnimationFinishedMsg(currentAnimationID_);
+		SendMsg(swordAnimationFinishedMsg);
+	}
+	break;
 	default:
 		break;
 	}
@@ -291,7 +293,7 @@ void PlayerAnimationComponent::OnKatanaAnimationEvent(const AnimationEvent& _ani
 
 void PlayerAnimationComponent::OnAnimationEvent(const AnimationEvent& _animEvent)
 {
-	if (strcmp(_animEvent.Name.c_str(), ToAnimationName(static_cast<AnimationID>(PlayerAnimationType::ATTACK_SWORD)))==0)
+	if (strcmp(_animEvent.Name.c_str(), ToAnimationName(static_cast<AnimationID>(PlayerAnimationType::ATTACK_SWORD))) == 0)
 		OnSwordAnimationEvent(_animEvent);
 	if (strcmp(_animEvent.Name.c_str(), ToAnimationName(static_cast<AnimationID>(PlayerAnimationType::ATTACK_KATANA))) == 0)
 		OnKatanaAnimationEvent(_animEvent);

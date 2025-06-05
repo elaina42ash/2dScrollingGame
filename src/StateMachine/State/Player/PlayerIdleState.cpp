@@ -1,6 +1,7 @@
 ﻿#include "StateMachine/State/Player/PlayerIdleState.h"
 
 #include "Component/Player/DecisionLogicalComponent/Class/PlayerStateComponent.h"
+#include "Event/Message/SemanticMsg/StartDropWeaponSemMsg.h"
 #include "Event/Message/SemanticMsg/StartIdleSemMsg.h"
 #include "Event/Message/SemanticMsg/StartInteractSemMsg.h"
 #include "Event/Message/SemanticMsg/StartJumpSemMsg.h"
@@ -81,6 +82,12 @@ void PlayerIdleState::Update()
 	{
 		StartInteractSemMsg startInteractSem;
 		SendMsg(startInteractSem);
+	}
+
+	if (playerStateComponent_->IsSemanticInputTriggered(GameSemantic::Semantic::START_DROP_WEAPON))
+	{
+		StartDropWeaponSemMsg startDropWeaponSemMsg;
+		SendMsg(startDropWeaponSemMsg);
 	}
 
 	if (playerStateComponent_->IsSemanticInputTriggered(GameSemantic::Semantic::START_MOVE))

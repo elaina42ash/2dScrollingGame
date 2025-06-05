@@ -4,6 +4,7 @@
 #include "Event/IMessenger.h"
 #include "Event/Message/LogicalInputMsg/AttackInputMsg.h"
 #include "Event/Message/LogicalInputMsg/DashInputMsg.h"
+#include "Event/Message/LogicalInputMsg/DropWeaponInput.h"
 #include "Event/Message/LogicalInputMsg/HoriAxisInputMsg.h"
 #include "Event/Message/LogicalInputMsg/InteractInputMsg.h"
 #include "Event/Message/LogicalInputMsg/JumpInputMsg.h"
@@ -29,6 +30,7 @@ void PlayerInputComponent::Init()
 	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_J, GameInput::LogicalInput::ATTACK);
 	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_L, GameInput::LogicalInput::DASH);
 	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_K, GameInput::LogicalInput::INTERACT);
+	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_G, GameInput::LogicalInput::DROP_WEAPON);
 	inputMapper_.BindPhysicalToLogical(GameInput::PhysicalInput::KEY_SPACE, GameInput::LogicalInput::JUMP);
 }
 
@@ -86,6 +88,12 @@ void PlayerInputComponent::Update()
 		SendMsg(interactInputMsg);
 	}
 
+
+	if (logicalInputAdapter_.GetKeyDown(GameInput::LogicalInput::DROP_WEAPON))
+	{
+		DropWeaponInput dropWeaponInput;
+		SendMsg(dropWeaponInput);
+	}
 	Reset();
 }
 

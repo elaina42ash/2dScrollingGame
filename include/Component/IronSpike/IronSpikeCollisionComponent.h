@@ -8,6 +8,7 @@ class IronSpikeCollisionComponent : public CollisionComponent
 {
 private:
 	Inject<IStaticObjectView> staticObjectView_;
+
 public:
 	IronSpikeCollisionComponent(bool _isActive, IMessenger* _messenger, IStaticObjectView* _staticObjectView);
 

@@ -47,6 +47,7 @@ namespace GameInput
 		KEY_J,
 		KEY_K,
 		KEY_L,
+		KEY_G,
 		KEY_UP,
 		KEY_DOWN,
 		KEY_LEFT,
@@ -77,6 +78,7 @@ namespace GameInput
 		ATTACK,
 		DASH,
 		INTERACT,
+		DROP_WEAPON,
 
 		COUNT
 	};

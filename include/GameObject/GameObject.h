@@ -74,7 +74,10 @@ public:
 	void ResortComponents();
 
 	void BindSceneContext(ISceneContext* _sceneContext) override final;
+
 	void BindSceneGameplayAPI(ISceneGameplayAPI* _sceneGameplayApi) override final;
+
+	ISceneGameplayAPI* AccessSceneGameplayApi() const;
 
 protected:
 	void SendMsg(const IEventMessage& _msg);

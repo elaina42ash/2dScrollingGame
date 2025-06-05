@@ -4,6 +4,8 @@
 #include "ExecutorComponent.h"
 #include "IEquipOwnerView.h"
 #include "Component/Common/ExecutorComponent/Interface/IEquipmentComponent.h"
+#include "GameObject/DroppedObject/DroppedObject.h"
+#include "GameObject/DroppedObject/DroppedSword.h"
 #include "GameObject/Equipment/IEquipment.h"
 #include "GameObject/Equipment/Weapon/IWeapon.h"
 #pragma warning(push)
@@ -19,7 +21,7 @@ private:
 protected:
 	Inject<IEquipOwnerView> equipOwnerView_;
 
-	EquipmentSlotID activeWeaponID_ = static_cast<int>(EquipmentType::NONE);
+	EquipmentSlotID activeSlotID_ = static_cast<int>(EquipmentSlotType::NONE);
 
 	std::shared_ptr<IWeapon> activeWeapon = nullptr;
 
@@ -50,12 +52,15 @@ public:
 
 	bool GetActiveWeaponID_() const override;
 
+	void TakeDroppedWeapon(const char* _name,DroppedObject* _droppedObject) override;
+
+	void DropWeapon();
+
+	const std::shared_ptr<const IWeapon> GetActiveWeapon() const override ;
 protected:
 	explicit EquipmentComponent(bool _isActive, IEquipOwnerView* _equipOwnerView_, IMessenger* _messenger);
 
 	void Reset() override;
-
-	const std::shared_ptr<const IWeapon> GetActiveWeapon() const;
 
 	EquipmentSlotID GetActiveWeaponID() const;
 

@@ -14,6 +14,7 @@ namespace GameSemantic
 		START_DASH,
 		START_SWITCH_WEAPON,
 		START_INTERACT,
+		START_DROP_WEAPON,
 
 		COUNT
 	};

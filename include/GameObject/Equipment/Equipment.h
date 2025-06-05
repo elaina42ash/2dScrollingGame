@@ -14,6 +14,7 @@ private:
 protected:
 	Inject<IEquipOwnerView> equipOwnerView_;
 
+	EquipmentType equipment_ = EquipmentType::NONE;
 public:
 	void Init() override;
 
@@ -24,6 +25,8 @@ public:
 	void Term() override;
 
 	EquipmentStatus GetEquipmentStatus() override final;
+
+	void SetOwner(Player* _player) override;
 
 protected:
 	explicit Equipment(IEquipOwnerView* _equipOwnerView);

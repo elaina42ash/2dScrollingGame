@@ -26,111 +26,100 @@ void DroppedSwordMovementComponent::Move(const Lib::Math::Vector2f& _velocity)
 
 	// タイルのサイズ
 	float TileSize = 0.0f;
+
 	if (droppedObjectView_)
 		TileSize = droppedObjectView_->GetTileSize();
 
-	// コリジョンサイズ（幅・高さ）
-	float CollisionWidth = 0.0f;
-	float CollisionHeight = 0.0f;
 	Fwk::Collision::ShapeType shapeType = Fwk::Collision::ShapeType::None;
 
+	// プレイヤーのタイルとの衝突幅・高さ
+	float CollisionSize = 0.0f;
 	if (collisionComponent_)
 	{
 		shapeType = collisionComponent_->GetShapeType();
 		switch (shapeType)
 		{
 		case Fwk::Collision::ShapeType::Circle:
-		{
-			float diameter = collisionComponent_->GetShapeCircle().radius * 2.0f;
-			CollisionWidth = diameter;
-			CollisionHeight = diameter;
+			CollisionSize = collisionComponent_->GetShapeCircle().radius;
 			break;
-		}
 		case Fwk::Collision::ShapeType::Rect:
-		{
-			auto rect = collisionComponent_->GetShapeRect();
-			CollisionWidth = rect.width;
-			CollisionHeight = rect.height;
+			CollisionSize = std::max(collisionComponent_->GetShapeRect().width, collisionComponent_->GetShapeRect().height);
 			break;
-		}
 		default:
 			std::cout << "ShapeType is None" << std::endl;
 			return;
 		}
 	}
 
-	// --------------------------------------------
-	// 左上座標 → 中心座標へ一時的に変換して処理
-	// --------------------------------------------
-	Vector2f leftTop = transformComponent_->GetPosition(); // 現在のtransformは左上座標
-	Vector2f center = leftTop + Vector2f(CollisionWidth, CollisionHeight) * 0.5f;
-	Vector2f targetCenter = center;
+	// コリジョンサイズの半分をよく使うので変数にしておく
+	float CollisionSizeHalf = CollisionSize / 2.0f;
 
-	// X軸方向の移動処理（中心ベース）
-	if (!GameMath::FloatIsZero(_velocity.x))
+	Vector2f targetPos = { 0.0f ,0.0f };
+
+	// X軸方向の移動処理
+	if (transformComponent_ && !GameMath::FloatIsZero(_velocity.x))
 	{
-		targetCenter.x += _velocity.x;
+		targetPos = transformComponent_->GetPosition() + Lib::Math::Vector2f(_velocity.x, 0.0f);
 
 		bool isInsideWall = true;
 		if (tileMapSensorComponent_)
-			isInsideWall = tileMapSensorComponent_->IsInsideWall(targetCenter);
+			isInsideWall = tileMapSensorComponent_->IsInsideWall(targetPos);
 
-		if (isInsideWall)
+		if (!isInsideWall)
+		{
+			transformComponent_->MoveTo(targetPos);
+		}
+		else
 		{
 			if (_velocity.x > 0.0f)
 			{
-				int col = static_cast<int>((targetCenter.x + CollisionWidth * 0.5f) / TileSize);
+				int col = static_cast<int>((targetPos.x + CollisionSizeHalf) / TileSize);
 				float tile_left = static_cast<float>(col) * TileSize;
-				targetCenter.x = tile_left - CollisionWidth * 0.5f - epsilon;
+				transformComponent_->MoveTo({ tile_left - CollisionSizeHalf - epsilon, transformComponent_->GetPositionY() });
 			}
 			else if (_velocity.x < 0.0f)
 			{
-				int col = static_cast<int>((targetCenter.x - CollisionWidth * 0.5f) / TileSize);
+				int col = static_cast<int>((targetPos.x - CollisionSizeHalf) / TileSize);
 				float tile_right = static_cast<float>(col) * TileSize + TileSize;
-				targetCenter.x = tile_right + CollisionWidth * 0.5f + epsilon;
+				transformComponent_->MoveTo({ tile_right + CollisionSizeHalf + epsilon, transformComponent_->GetPositionY() });
 			}
 		}
 	}
 
-	// Y軸方向の移動処理（中心ベース）
-	if (!GameMath::FloatIsZero(_velocity.y))
+	// Y軸方向の移動処理
+	if (transformComponent_ && !GameMath::FloatIsZero(_velocity.y))
 	{
-		targetCenter.y += _velocity.y;
+		targetPos = transformComponent_->GetPosition() + Vector2f(0.0f, _velocity.y);
 
 		bool isInsideWall = true;
 		if (tileMapSensorComponent_)
-			isInsideWall = tileMapSensorComponent_->IsInsideWall(targetCenter);
+			isInsideWall = tileMapSensorComponent_->IsInsideWall(targetPos);
 
-		if (isInsideWall)
+		if (!isInsideWall)
+		{
+			transformComponent_->MoveTo(targetPos);
+		}
+		else
 		{
 			if (_velocity.y > 0.0f)
 			{
-				int row = static_cast<int>((targetCenter.y + CollisionHeight * 0.5f) / TileSize);
+				int row = static_cast<int>((targetPos.y + CollisionSizeHalf) / TileSize);
 				float wall_bottom = static_cast<float>(row) * TileSize - TileSize;
-				targetCenter.y = wall_bottom - CollisionHeight * 0.5f - epsilon;
+				transformComponent_->MoveTo({ transformComponent_->GetPositionX(), wall_bottom - CollisionSizeHalf - epsilon });
 				if (physicsComponent_)
 					physicsComponent_->ClearVerticalVelocity();
 			}
 			else if (_velocity.y < 0.0f)
 			{
-				int row = static_cast<int>((targetCenter.y - CollisionHeight * 0.5f) / TileSize);
+				int row = static_cast<int>((targetPos.y - CollisionSizeHalf) / TileSize);
 				float wall_top = static_cast<float>(row) * TileSize;
-				targetCenter.y = wall_top + CollisionHeight * 0.5f + epsilon;
+				transformComponent_->MoveTo({ transformComponent_->GetPositionX(), wall_top + CollisionSizeHalf + epsilon });
 				if (physicsComponent_)
 					physicsComponent_->ClearVerticalVelocity();
 			}
 		}
 	}
-
-	// --------------------------------------------
-	// 中心座標 → 左上座標に戻してtransformへ反映
-	// --------------------------------------------
-	Vector2f newLeftTop = targetCenter - Vector2f(CollisionWidth, CollisionHeight) * 0.5f;
-	transformComponent_->MoveTo(newLeftTop);
 }
-
-
-
 
 
 void DroppedSwordMovementComponent::Init()

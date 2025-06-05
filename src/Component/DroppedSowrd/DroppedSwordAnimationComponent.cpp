@@ -44,7 +44,7 @@ void DroppedSwordAnimationComponent::Update()
 	Lib::Math::Vector2f _newPos = { 0.0f,0.0f };
 
 	if (droppedObjectView_)
-		_newPos = droppedObjectView_->GetPosition();
+		_newPos = { droppedObjectView_->GetPosition().x-16.0f,droppedObjectView_->GetPosition().y+16.0f};
 
 	// スプライトの位置を更新
 	SetSpritePosition(_newPos);

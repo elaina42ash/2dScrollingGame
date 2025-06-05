@@ -63,6 +63,10 @@ DroppedSword::~DroppedSword()
 	}
 }
 
+std::shared_ptr<Sword> DroppedSword::GetSword() const
+{
+	return sword_;
+}
 
 
 void DroppedSword::Init()

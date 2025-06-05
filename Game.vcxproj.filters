@@ -436,6 +436,18 @@
     <Filter Include="ソース ファイル\DroppedObjectMng">
       <UniqueIdentifier>{9e7b3c78-96f9-4f5a-8cc5-523c3524dd82}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\Component\DroppedKatana">
+      <UniqueIdentifier>{ba7545d0-e50d-49be-b1ef-ffbed3da1a2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\DroppedKatana">
+      <UniqueIdentifier>{22c898f7-7960-44a4-b7fa-d62156b68f9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ソース ファイル\Component\Apple">
+      <UniqueIdentifier>{f22589ba-ec97-42cb-a788-afa9f168a472}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ヘッダー ファイル\Component\Apple">
+      <UniqueIdentifier>{a26ab148-9727-4643-9426-6cce3661b6d6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source\Enemy\Enemy.cpp">
@@ -911,6 +923,54 @@
     </ClCompile>
     <ClCompile Include="src\Component\DroppedSowrd\DroppedSwordTileMapSensorComponent.cpp">
       <Filter>ソース ファイル\Component\DroppedSword</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\LogicalInputMsg\DropWeaponInput.cpp">
+      <Filter>ソース ファイル\Event\Message\LogicalInputMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Event\Message\SemanticMsg\StartDropWeaponSemMsg.cpp">
+      <Filter>ソース ファイル\Event\Message\SemanticMessage</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\DroppedObject\DroppedKatana.cpp">
+      <Filter>ソース ファイル\GameObject\DroppedObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\DroppedKatana\DroppedKatanaTileMapSensorComponent.cpp">
+      <Filter>ソース ファイル\Component\DroppedKatana</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\DroppedKatana\DroppedKatanaTransformComponent.cpp">
+      <Filter>ソース ファイル\Component\DroppedKatana</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\DroppedKatana\DroppedKatanaAnimationComponent.cpp">
+      <Filter>ソース ファイル\Component\DroppedKatana</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\DroppedKatana\DroppedKatanaCollisionComponent.cpp">
+      <Filter>ソース ファイル\Component\DroppedKatana</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\DroppedKatana\DroppedKatanaMovementComponent.cpp">
+      <Filter>ソース ファイル\Component\DroppedKatana</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\DroppedKatana\DroppedKatanaPhysicsComponent.cpp">
+      <Filter>ソース ファイル\Component\DroppedKatana</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject\DroppedObject\Apple.cpp">
+      <Filter>ソース ファイル\GameObject\DroppedObject</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Apple\AppleAnimationComponent.cpp">
+      <Filter>ソース ファイル\Component\Apple</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Apple\AppleCollisionComponent.cpp">
+      <Filter>ソース ファイル\Component\Apple</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Apple\AppleMovementComponent.cpp">
+      <Filter>ソース ファイル\Component\Apple</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Apple\ApplePhysicsComponent.cpp">
+      <Filter>ソース ファイル\Component\Apple</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Apple\AppleTileMapSensorComponent.cpp">
+      <Filter>ソース ファイル\Component\Apple</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\Apple\AppleTransformComponent.cpp">
+      <Filter>ソース ファイル\Component\Apple</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1597,6 +1657,54 @@
     </ClInclude>
     <ClInclude Include="include\Component\DroppedSword\DroppedSwordTileMapSensorComponent.h">
       <Filter>ヘッダー ファイル\Component\DroppedSword</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\LogicalInputMsg\DropWeaponInput.h">
+      <Filter>ヘッダー ファイル\Event\Message\LogicalInputMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Event\Message\SemanticMsg\StartDropWeaponSemMsg.h">
+      <Filter>ヘッダー ファイル\Event\Message\SemanticMsg</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\DroppedObject\DroppedKatana.h">
+      <Filter>ヘッダー ファイル\GameObject\DroppedObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\DroppedKatana\DroppedKatanaAnimationComponent.h">
+      <Filter>ヘッダー ファイル\Component\DroppedKatana</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\DroppedKatana\DroppedKatanaCollisionComponent.h">
+      <Filter>ヘッダー ファイル\Component\DroppedKatana</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\DroppedKatana\DroppedKatanaMovementComponent.h">
+      <Filter>ヘッダー ファイル\Component\DroppedKatana</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\DroppedKatana\DroppedKatanaPhysicsComponent.h">
+      <Filter>ヘッダー ファイル\Component\DroppedKatana</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\DroppedKatana\DroppedKatanaTileMapSensorComponent.h">
+      <Filter>ヘッダー ファイル\Component\DroppedKatana</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\DroppedKatana\DroppedKatanaTransformComponent.h">
+      <Filter>ヘッダー ファイル\Component\DroppedKatana</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameObject\DroppedObject\Apple.h">
+      <Filter>ヘッダー ファイル\GameObject\DroppedObject</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Apple\AppleAnimationComponent.h">
+      <Filter>ヘッダー ファイル\Component\Apple</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Apple\AppleCollisionComponent.h">
+      <Filter>ヘッダー ファイル\Component\Apple</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Apple\AppleMovementComponent.h">
+      <Filter>ヘッダー ファイル\Component\Apple</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Apple\ApplePhysicsComponent.h">
+      <Filter>ヘッダー ファイル\Component\Apple</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Apple\AppleTileMapSensorComponent.h">
+      <Filter>ヘッダー ファイル\Component\Apple</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Component\Apple\AppleTransformComponent.h">
+      <Filter>ヘッダー ファイル\Component\Apple</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

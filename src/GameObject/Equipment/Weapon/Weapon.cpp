@@ -38,7 +38,7 @@ void Weapon::Attack()
 
 void Weapon::EndAttack()
 {
-	
+	mode_ = WeaponMode::EQUIPPED;
 }
 
 bool Weapon::CanAttack() const
@@ -81,7 +81,7 @@ Direction Weapon::GetDirection() const
 
 EquipmentType Weapon::GetEquipmentType() const
 {
-	return EquipmentType::SWORD;
+	return equipment_;
 }
 
 WeaponMode Weapon::GetMode() const
