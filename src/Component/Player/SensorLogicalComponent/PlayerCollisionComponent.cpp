@@ -1,5 +1,6 @@
 ﻿#include "Component/Player/SensorLogicalComponent/Class/PlayerCollisionComponent.h"
 
+#include "Component/Apple/AppleCollisionComponent.h"
 #include "Component/Common/ExecutorComponent/Interface/IEquipmentComponent.h"
 #include "Component/Common/SensorLogicalComponent/Class/CollisionComponent.h"
 #include "Component/DroppedKatana/DroppedKatanaCollisionComponent.h"
@@ -13,6 +14,7 @@
 #include "Event/Message/StateMsg/SetIsClearConditionMsg.h"
 #include "Event/Message/StateMsg/SetIsDamagedConditionMsg.h"
 #include "Fwk/Framework.h"
+#include "GameObject/DroppedObject/Apple.h"
 #include "GameObject/DroppedObject/DroppedSword.h"
 #include "Player/IPlayerView.h"
 
@@ -109,6 +111,21 @@ void PlayerCollisionComponent::OnCollision(const Fwk::Collision::Collider& _me,
 	{
 		StartGameVectorySemMsg msg;
 		SendMsg(msg);
+	}
+
+	if (_other.GetTag() == "Apple")
+	{
+		IHealthComponent* healthComponent = GetComponent<IHealthComponent>();
+		if (healthComponent)
+			healthComponent->AddHp(1);
+		AppleCollisionComponent* appleCollisionComponent = static_cast<AppleCollisionComponent*>(_other.GetOwner());
+		if (appleCollisionComponent)
+		{
+			Apple* apple = dynamic_cast<Apple*>(appleCollisionComponent->GetOwner());
+			apple->Disable();
+			appleCollisionComponent->DisableCollider();
+		}
+	
 	}
 
 	if (_other.GetTag() == "Sword")

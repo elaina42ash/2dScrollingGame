@@ -48,6 +48,11 @@ bool HealthComponent::IsDead() const
 	return false;
 }
 
+void HealthComponent::AddHp(int _value)
+{
+	SetHp(GetHp() + std::max(_value,0));
+}
+
 void HealthComponent::Reset()
 {
 	ExecutorComponent::Reset();

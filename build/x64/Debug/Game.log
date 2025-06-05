@@ -1,7 +1,64 @@
-﻿  EquipmentComponent.cpp
+﻿  Onibi.cpp
+  Skull.cpp
+  main.cpp
+  AppleCollisionComponent.cpp
+  AppleMovementComponent.cpp
+  AppleTileMapSensorComponent.cpp
+  EquipmentComponent.cpp
+  HealthComponent.cpp
+  MovementComponent.cpp
+  CollisionComponent.cpp
+  TileMapSensorComponent.cpp
+  DoorCollisionComponent.cpp
+  GoalCollisionComponent.cpp
+  DroppedKatanaCollisionComponent.cpp
+  DroppedKatanaMovementComponent.cpp
+  DroppedKatanaTileMapSensorComponent.cpp
+  DroppedSwordCollisionComponent.cpp
+  DroppedSwordMovementComponent.cpp
+  DroppedSwordTileMapSensorComponent.cpp
+  IronSpikeCollisionComponent.cpp
+  正在生成代码...
+  正在编译...
+  KatanaCollisionComponent.cpp
+  PlayerAnimationComponent.cpp
+  PlayerEquipmentComponent.cpp
+  PlayerHealthComponent.cpp
+  PlayerMovementComponent.cpp
   PlayerCollisionComponent.cpp
+  PlayerGroundSensorComponent.cpp
+  PlayerTileMapSensorComponent.cpp
+  SwordCollisionComponent.cpp
   DroppedObjectMng.cpp
+  DroppedObjectPool.cpp
+  Apple.cpp
+  DroppedKatana.cpp
+  DroppedObject.cpp
+  DroppedSword.cpp
+  Equipment.cpp
+  Katana.cpp
+  Sword.cpp
+  Weapon.cpp
+  StaticObject.cpp
+  正在生成代码...
+  正在编译...
+  Door.cpp
+  Goal.cpp
+  IronSpike.cpp
+  Player.cpp
+  SceneMng.cpp
+  SceneInGame.cpp
+D:\MyProject\2dScrollingGame\src\Scene\SceneInGame.cpp(32,112): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+D:\MyProject\2dScrollingGame\src\Scene\SceneInGame.cpp(32,68): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+D:\MyProject\2dScrollingGame\src\Scene\SceneInGame.cpp(96,88): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+D:\MyProject\2dScrollingGame\src\Scene\SceneInGame.cpp(113,90): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+D:\MyProject\2dScrollingGame\src\Scene\SceneInGame.cpp(131,75): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
   SceneTitle.cpp
+  StaticObjectMng.cpp
+  StaticObjectPool.cpp
+  HpGauge2.cpp
+  UIMng.cpp
+  World.cpp
   正在生成代码...
   Game.vcxproj -> D:\MyProject\2dScrollingGame\実行ファイル\Debug(x64)\Game.exe
   复制了 0 个文件

@@ -4,14 +4,14 @@
 
 #pragma warning(push)
 #pragma warning(disable:4250)
-class DroppedKatanaAnimationComponent : public AnimationComponent
+class AppleAnimationComponent : public AnimationComponent
 {
 private:
 	Inject<IDroppedObjectView> droppedObjectView_;
 public:
-	DroppedKatanaAnimationComponent(bool _isActive, IMessenger* messenger_, IDroppedObjectView* _droppedObjectView);
+	AppleAnimationComponent(bool _isActive, IMessenger* messenger_, IDroppedObjectView* _droppedObjectView);
 
-	DroppedKatanaAnimationComponent(IMessenger* messenger_, IDroppedObjectView* _droppedObjectView);
+	AppleAnimationComponent(IMessenger* messenger_, IDroppedObjectView* _droppedObjectView);
 
 	void Init() override;
 

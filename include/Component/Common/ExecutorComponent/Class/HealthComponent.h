@@ -27,6 +27,8 @@ public:
 
 	bool IsDead() const override final;
 
+	void AddHp(int _value) override;
+
 protected:
 	explicit HealthComponent(bool _isActive,IMessenger* _messenger);
 

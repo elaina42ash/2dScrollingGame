@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "Scene.h"
 #include "Fwk/Graphics.h"
+#include "GameObject/DroppedObject/Apple.h"
 #include "GameObject/DroppedObject/DroppedSword.h"
 #include "GameObject/StaticObject/IronSpike.h"
 

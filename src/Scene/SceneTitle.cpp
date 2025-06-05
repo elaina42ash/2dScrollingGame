@@ -39,7 +39,6 @@ void SceneTitle::Term()
 {
 	mSprite.Term();
 	mTexture.Unload();
-
 }
 
 // 更新
@@ -53,7 +52,6 @@ void SceneTitle::Update() {
 
 		mNextScene = SceneType::Introduction;
 	}
-
 }
 
 // 描画
@@ -63,7 +61,6 @@ void SceneTitle::Render()
 
 	//// 文字列を描画する
 	//PrintText("アクションゲーム！",380.0f,250.0f);
-
 }
 
 

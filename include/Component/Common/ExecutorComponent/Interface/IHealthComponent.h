@@ -12,5 +12,7 @@ public:
 
 	virtual float GetNormalizedHp() const = 0;
 
+	virtual void AddHp(int _value) = 0;
+
 	virtual  bool IsDead() const = 0;
 };

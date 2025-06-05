@@ -102,6 +102,7 @@ void SceneInGame::Init()
         // droppedオブジェクトのプールを生成
         droppedObjectMng_.GeneratePool("Sword", 100);
         droppedObjectMng_.GeneratePool("Katana", 100);
+        droppedObjectMng_.GeneratePool("Apple", 100);
         CSVFile csvFile;
         // ステージデータが存在する場合、静的オブジェクト配置ファイルをロード
         if (pStageData)

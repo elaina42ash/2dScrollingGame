@@ -35,6 +35,10 @@ public:
 	void Disable() override;
 
 	void SetPosition(const Vector2f& _position) override final;
+
+	void EnableCollider() override final;
+
+	void DisableCollider() override final;
 protected:
 	void Reset() override;
 
@@ -61,9 +65,7 @@ protected:
 
 	Fwk::Collision::Rect GetShapeRect() const override final;
 
-	void EnableCollider() override final;
 
-	void DisableCollider() override final;
 
 	void SetCallbackFunction();
 	void SetCallbackFunctionEx();
