@@ -3,13 +3,13 @@
   <ProjectOutputs />
   <ContentFiles>
     <ContentFile>
-      <FullPath>D:\MyProject\2dScrollingGame\Framework\bin\x64\Debug\PS_NoTex_NoLit.cso</FullPath>
+      <FullPath>E:\MyProject\2dScrollingGame\Framework\bin\x64\Debug\PS_NoTex_NoLit.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>D:\MyProject\2dScrollingGame\Framework\bin\x64\Debug\PS_Tex_NoLit.cso</FullPath>
+      <FullPath>E:\MyProject\2dScrollingGame\Framework\bin\x64\Debug\PS_Tex_NoLit.cso</FullPath>
     </ContentFile>
     <ContentFile>
-      <FullPath>D:\MyProject\2dScrollingGame\Framework\bin\x64\Debug\VS_Default.cso</FullPath>
+      <FullPath>E:\MyProject\2dScrollingGame\Framework\bin\x64\Debug\VS_Default.cso</FullPath>
     </ContentFile>
   </ContentFiles>
   <SatelliteDlls />

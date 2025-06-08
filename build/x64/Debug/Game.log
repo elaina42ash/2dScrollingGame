@@ -1,36 +1,137 @@
-﻿  Onibi.cpp
+﻿  StartGameVectorySemMsg.cpp
+  Enemy.cpp
+  Ghost.cpp
+  Onibi.cpp
   Skull.cpp
+  Slime.cpp
+  GamePlayData.cpp
   main.cpp
+  StageDataMst.cpp
+E:\MyProject\2dScrollingGame\Source\Mst\StageDataMst.cpp(60,19): warning C4267: “return”: 从“size_t”转换到“int”，可能丢失数据
+  Tilemap.cpp
+  AppleAnimationComponent.cpp
   AppleCollisionComponent.cpp
   AppleMovementComponent.cpp
+  ApplePhysicsComponent.cpp
   AppleTileMapSensorComponent.cpp
-  EquipmentComponent.cpp
-  HealthComponent.cpp
-  MovementComponent.cpp
-  CollisionComponent.cpp
-  TileMapSensorComponent.cpp
-  DoorCollisionComponent.cpp
-  GoalCollisionComponent.cpp
-  DroppedKatanaCollisionComponent.cpp
-  DroppedKatanaMovementComponent.cpp
-  DroppedKatanaTileMapSensorComponent.cpp
-  DroppedSwordCollisionComponent.cpp
-  DroppedSwordMovementComponent.cpp
-  DroppedSwordTileMapSensorComponent.cpp
-  IronSpikeCollisionComponent.cpp
+  AppleTransformComponent.cpp
+  Component.cpp
+  DecisionLogicalComponent.cpp
+  StateComponent.cpp
+  AnimationComponent.cpp
   正在生成代码...
   正在编译...
+  CombatStatusComponent.cpp
+  EquipmentComponent.cpp
+  ExecutorComponent.cpp
+E:\MyProject\2dScrollingGame\src\Component\Common\ExecutorComponent\ExecutorComponent.cpp(55,31): warning C4101: “e”: 未引用的局部变量
+  HealthComponent.cpp
+  MovementComponent.cpp
+  PhysicsComponent.cpp
+  SoundComponent.cpp
+  TransformComponent.cpp
+  InputComponent.cpp
+  InputLogicalComponent.cpp
+  CeilingSensorComponent.cpp
+  CollisionComponent.cpp
+  GroundSensorComponent.cpp
+  SensorLogicalComponent.cpp
+  TileMapSensorComponent.cpp
+  DoorAnimationComponent.cpp
+  DoorCollisionComponent.cpp
+  DoorTransformComponent.cpp
+  GoalAnimationComponent.cpp
+  GoalCollisionComponent.cpp
+  正在生成代码...
+  正在编译...
+  GoalTransformComponent.cpp
+  DroppedKatanaAnimationComponent.cpp
+  DroppedKatanaCollisionComponent.cpp
+  DroppedKatanaMovementComponent.cpp
+  DroppedKatanaPhysicsComponent.cpp
+  DroppedKatanaTileMapSensorComponent.cpp
+  DroppedKatanaTransformComponent.cpp
+  DroppedSwordAnimationComponent.cpp
+  DroppedSwordCollisionComponent.cpp
+  DroppedSwordMovementComponent.cpp
+  DroppedSwordPhysicsComponent.cpp
+  DroppedSwordTileMapSensorComponent.cpp
+  DroppedSwordTransformComponent.cpp
+  IronSpikeAnimationComponent.cpp
+  IronSpikeCollisionComponent.cpp
+  IronSpikeTransformComponent.cpp
+  KatanaAnimationComponent.cpp
+  KatanaSoundComponent.cpp
+  KatanaTransformComponent.cpp
   KatanaCollisionComponent.cpp
+  正在生成代码...
+  正在编译...
+  PlayerStateComponent.cpp
   PlayerAnimationComponent.cpp
+  PlayerCombatStatusComponent.cpp
   PlayerEquipmentComponent.cpp
   PlayerHealthComponent.cpp
   PlayerMovementComponent.cpp
+  PlayerPhysicsComponent.cpp
+  PlayerSoundComponent.cpp
+  PlayerTransformComponent.cpp
+  PlayerInputComponent.cpp
+  PlayerCeilingSensorComponent.cpp
   PlayerCollisionComponent.cpp
   PlayerGroundSensorComponent.cpp
   PlayerTileMapSensorComponent.cpp
+  SwordAnimationComponent.cpp
+  SwordSoundComponent.cpp
+  SwordTransformComponent.cpp
   SwordCollisionComponent.cpp
   DroppedObjectMng.cpp
   DroppedObjectPool.cpp
+  正在生成代码...
+  正在编译...
+  EnemyMng.cpp
+  EnemyPool.cpp
+  MessageBus.cpp
+  KatanaAnimationBeginMsg.cpp
+  KatanaAnimationCompletedMsg.cpp
+  KatanaAnimationKeyframeMsg.cpp
+  SwordAnimationBeginMsg.cpp
+  SwordAnimationCompletedMsg.cpp
+  SwordAnimationKeyframeMsg.cpp
+  AttackInputMsg.cpp
+  DashInputMsg.cpp
+  DropWeaponInput.cpp
+  HoriAxisInputMsg.cpp
+  InteractInputMsg.cpp
+  JumpInputMsg.cpp
+  ReleaseJumpInputMsg.cpp
+  SwitchWeaponInputMsg.cpp
+  Message.cpp
+  StartDropWeaponSemMsg.cpp
+  EndDashSemMsg.cpp
+  正在生成代码...
+  正在编译...
+  EndKnockBackSemMsg.cpp
+  StartAttackSemMsg.cpp
+  StartDashSemMsg.cpp
+  StartHurtSemMsg.cpp
+  StartIdleSemMsg.cpp
+  StartInteractSemMsg.cpp
+  StartJumpSemMsg.cpp
+  StartKnockBackSemMsg.cpp
+  StartMoveSemMsg.cpp
+  StartStageClearSemMsg.cpp
+  StartSwitchWeaponSemMsg.cpp
+  StopJumpSemMsg.cpp
+  EnterIdleStateMsg.cpp
+  SetIsClearConditionMsg.cpp
+  SetIsDamagedConditionMsg.cpp
+  SetIsDeadConditionMsg.cpp
+  Messenger.cpp
+  GameMath.cpp
+  CharacterObject.cpp
+  DetachableObject.cpp
+  正在生成代码...
+  正在编译...
   Apple.cpp
   DroppedKatana.cpp
   DroppedObject.cpp
@@ -39,26 +140,113 @@
   Katana.cpp
   Sword.cpp
   Weapon.cpp
+  GameObject.cpp
   StaticObject.cpp
-  正在生成代码...
-  正在编译...
   Door.cpp
   Goal.cpp
   IronSpike.cpp
+  FrameworkPhysicsInputAdapter.cpp
   Player.cpp
   SceneMng.cpp
+  Scene.cpp
+  SceneGameClear.cpp
+  SceneGameOver.cpp
   SceneInGame.cpp
-D:\MyProject\2dScrollingGame\src\Scene\SceneInGame.cpp(32,112): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-D:\MyProject\2dScrollingGame\src\Scene\SceneInGame.cpp(32,68): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-D:\MyProject\2dScrollingGame\src\Scene\SceneInGame.cpp(96,88): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-D:\MyProject\2dScrollingGame\src\Scene\SceneInGame.cpp(113,90): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
-D:\MyProject\2dScrollingGame\src\Scene\SceneInGame.cpp(131,75): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\MyProject\2dScrollingGame\src\Scene\SceneInGame.cpp(32,112): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\MyProject\2dScrollingGame\src\Scene\SceneInGame.cpp(32,68): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\MyProject\2dScrollingGame\src\Scene\SceneInGame.cpp(96,88): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\MyProject\2dScrollingGame\src\Scene\SceneInGame.cpp(113,90): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+E:\MyProject\2dScrollingGame\src\Scene\SceneInGame.cpp(131,75): warning C4244: “参数”: 从“float”转换到“int”，可能丢失数据
+  正在生成代码...
+  正在编译...
+  SceneIntroduction.cpp
   SceneTitle.cpp
+  LineSensor.cpp
+  AndCondition.cpp
+  CompositeCondition.cpp
+  BoolCondition.cpp
+  FloatCondition.cpp
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,19): warning C4244: “return”: 从“T”转换到“int”，可能丢失数据
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,19): warning C4244:         with
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,19): warning C4244:         [
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,19): warning C4244:             T=float
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,19): warning C4244:         ]
+  (编译源文件“src/StateMachine/Condition/FloatCondition.cpp”)
+      E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,19):
+      模板实例化上下文(最早的实例化上下文)为
+          E:\MyProject\2dScrollingGame\src\StateMachine\Condition\FloatCondition.cpp(30,59):
+          查看对正在编译的 类 模板 实例化“ConditionInfo<float>”的引用
+          E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(43,6):
+          在编译 类 模板 成员函数“int ConditionInfo<float>::GetIntValue(void) const”时
+  
+  IntCondition.cpp
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244: “return”: 从“T”转换到“float”，可能丢失数据
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:         with
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:         [
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:             T=int
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:         ]
+  (编译源文件“src/StateMachine/Condition/IntCondition.cpp”)
+      E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19):
+      模板实例化上下文(最早的实例化上下文)为
+          E:\MyProject\2dScrollingGame\src\StateMachine\Condition\IntCondition.cpp(28,49):
+          查看对正在编译的 类 模板 实例化“ConditionInfo<int>”的引用
+          E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(55,8):
+          在编译 类 模板 成员函数“float ConditionInfo<int>::GetFloatValue(void) const”时
+  
+  LeafCondition.cpp
+  NotCondition.cpp
+  OperatorCondition.cpp
+  OrCondition.cpp
+  InnerStateMachine.cpp
+  StateMachine.cpp
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244: “return”: 从“T”转换到“float”，可能丢失数据
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:         with
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:         [
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:             T=int
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:         ]
+  (编译源文件“src/StateMachine/StateMachine.cpp”)
+      E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19):
+      模板实例化上下文(最早的实例化上下文)为
+          E:\MyProject\2dScrollingGame\src\StateMachine\StateMachine.cpp(103,34):
+          查看对正在编译的 类 模板 实例化“ConditionInfo<int>”的引用
+          E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(55,8):
+          在编译 类 模板 成员函数“float ConditionInfo<int>::GetFloatValue(void) const”时
+  
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,19): warning C4244: “return”: 从“T”转换到“int”，可能丢失数据
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,19): warning C4244:         with
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,19): warning C4244:         [
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,19): warning C4244:             T=float
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,19): warning C4244:         ]
+  (编译源文件“src/StateMachine/StateMachine.cpp”)
+      E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,19):
+      模板实例化上下文(最早的实例化上下文)为
+          E:\MyProject\2dScrollingGame\src\StateMachine\StateMachine.cpp(108,36):
+          查看对正在编译的 类 模板 实例化“ConditionInfo<float>”的引用
+          E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(43,6):
+          在编译 类 模板 成员函数“int ConditionInfo<float>::GetIntValue(void) const”时
+  
+  PlayerAttackState.cpp
+  PlayerDamagedState.cpp
+  PlayerDashState.cpp
+  PlayerDeadState.cpp
+  PlayerIdleState.cpp
+  PlayerAirState.cpp
+  正在生成代码...
+  正在编译...
+  PlayerMotionState.cpp
+  PlayerMovingState.cpp
+  PlayerStageClearState.cpp
+  PlayerState.cpp
+  State.cpp
+  Transition.cpp
   StaticObjectMng.cpp
   StaticObjectPool.cpp
+  Timer.cpp
+  HpGauge.cpp
   HpGauge2.cpp
+  UIElement.cpp
   UIMng.cpp
   World.cpp
   正在生成代码...
-  Game.vcxproj -> D:\MyProject\2dScrollingGame\実行ファイル\Debug(x64)\Game.exe
+  Game.vcxproj -> E:\MyProject\2dScrollingGame\実行ファイル\Debug(x64)\Game.exe
   复制了 0 个文件
