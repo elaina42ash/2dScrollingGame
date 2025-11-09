@@ -60,7 +60,7 @@ void SceneTitle::Render()
 	mSprite.Draw();
 
 	//// 文字列を描画する
-	//PrintText("アクションゲーム！",380.0f,250.0f);
+	//PrintText(L"アクションゲーム！",380.0f,250.0f);
 }
 
 

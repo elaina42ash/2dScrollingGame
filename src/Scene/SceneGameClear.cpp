@@ -57,7 +57,7 @@ void SceneGameClear::Update()
 void SceneGameClear::Render()
 {
 	// 文字列を描画する
-	PrintText("ゲームクリアー！！！", 350.0f, 250.0f);
+	PrintText(L"ゲームクリアー！！！", 350.0f, 250.0f);
 
 	mSprite.Draw();
 }

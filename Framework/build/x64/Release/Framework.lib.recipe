@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs />
+  <ContentFiles>
+    <ContentFile>
+      <FullPath>E:\MyProject\2dScrollingGame\Framework\bin\x64\Release\PS_NoTex_NoLit.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>E:\MyProject\2dScrollingGame\Framework\bin\x64\Release\PS_Tex_NoLit.cso</FullPath>
+    </ContentFile>
+    <ContentFile>
+      <FullPath>E:\MyProject\2dScrollingGame\Framework\bin\x64\Release\VS_Default.cso</FullPath>
+    </ContentFile>
+  </ContentFiles>
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>

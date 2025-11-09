@@ -199,19 +199,6 @@ E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,1
   OrCondition.cpp
   InnerStateMachine.cpp
   StateMachine.cpp
-E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244: “return”: 从“T”转换到“float”，可能丢失数据
-E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:         with
-E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:         [
-E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:             T=int
-E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:         ]
-  (编译源文件“src/StateMachine/StateMachine.cpp”)
-      E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19):
-      模板实例化上下文(最早的实例化上下文)为
-          E:\MyProject\2dScrollingGame\src\StateMachine\StateMachine.cpp(103,34):
-          查看对正在编译的 类 模板 实例化“ConditionInfo<int>”的引用
-          E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(55,8):
-          在编译 类 模板 成员函数“float ConditionInfo<int>::GetFloatValue(void) const”时
-  
 E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,19): warning C4244: “return”: 从“T”转换到“int”，可能丢失数据
 E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,19): warning C4244:         with
 E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,19): warning C4244:         [
@@ -224,6 +211,19 @@ E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,1
           查看对正在编译的 类 模板 实例化“ConditionInfo<float>”的引用
           E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(43,6):
           在编译 类 模板 成员函数“int ConditionInfo<float>::GetIntValue(void) const”时
+  
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244: “return”: 从“T”转换到“float”，可能丢失数据
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:         with
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:         [
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:             T=int
+E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19): warning C4244:         ]
+  (编译源文件“src/StateMachine/StateMachine.cpp”)
+      E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(59,19):
+      模板实例化上下文(最早的实例化上下文)为
+          E:\MyProject\2dScrollingGame\src\StateMachine\StateMachine.cpp(103,34):
+          查看对正在编译的 类 模板 实例化“ConditionInfo<int>”的引用
+          E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(55,8):
+          在编译 类 模板 成员函数“float ConditionInfo<int>::GetFloatValue(void) const”时
   
   PlayerAttackState.cpp
   PlayerDamagedState.cpp
@@ -249,4 +249,4 @@ E:\MyProject\2dScrollingGame\include\StateMachine\Condition\ConditionInfo.h(47,1
   World.cpp
   正在生成代码...
   Game.vcxproj -> E:\MyProject\2dScrollingGame\実行ファイル\Debug(x64)\Game.exe
-  复制了 0 个文件
+  0 File(s) copied

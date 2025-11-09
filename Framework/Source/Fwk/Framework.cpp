@@ -33,9 +33,8 @@ void Framework::ReleaseInstance() {
 
 
 Framework::Framework()
-	:
 #ifdef _DEBUG
-	bDisplayCollision(false)
+	: bDisplayCollision(false)
 #endif
 {
     ;

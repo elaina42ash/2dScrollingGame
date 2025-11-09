@@ -57,7 +57,7 @@ void SceneGameOver::Update()
 void SceneGameOver::Render()
 {
 	// 文字列を描画する
-	PrintText("ゲームオーバー!!!",350.0f,250.0f);
+	PrintText(L"ゲームオーバー!!!",350.0f,250.0f);
 
 	mSprite.Draw();
 }
